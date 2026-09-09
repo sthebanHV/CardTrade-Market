@@ -1,101 +1,115 @@
 ﻿<svg viewBox="0 0 1200 1040" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <linearGradient id="hg" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#1E40AF"/><stop offset="100%" style="stop-color:#3B82F6"/>
+      <stop offset="0%" stop-color="#1E40AF"/><stop offset="100%" stop-color="#3B82F6"/>
     </linearGradient>
     <filter id="sh"><feDropShadow dx="0" dy="2" stdDeviation="6" flood-opacity="0.08"/></filter>
   </defs>
+  
+  <style>
+    text { font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; }
+    .title { font-size: 24px; font-weight: 700; fill: #111827; }
+    .filter-tab { font-size: 12px; fill: #6B7280; }
+    .filter-active { font-size: 12px; font-weight: 500; fill: white; }
+    .notif-title { font-size: 14px; font-weight: 600; }
+    .notif-body { font-size: 13px; }
+    .notif-meta { font-size: 12px; fill: #6B7280; }
+    .btn-mark-read { font-size: 12px; font-weight: 600; fill: white; }
+    .settings-title { font-size: 16px; font-weight: 700; fill: #111827; }
+    .checkbox-label { font-size: 13px; fill: #374151; }
+  </style>
+
   <rect width="1200" height="1040" fill="#F3F4F6"/>
   <rect width="1200" height="64" fill="url(#hg)"/>
-  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Nueva, Arial, sans-serif" x="40" y="40" fill="white" font-size="20" font-weight="700">🃏 CardTrade Market</text>
+  <text x="40" y="42" font-size="20" font-weight="700" fill="white">🃏 CardTrade Market</text>
   <circle cx="1150" cy="32" r="16" fill="rgba(255,255,255,0.2)"/>
-  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Nueva, Arial, sans-serif" x="1145" y="37" fill="white" font-size="14">🔔(3)</text>
+  <text x="1145" y="38" font-size="14" fill="white">🔔(3)</text>
 
-  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Nueva, Arial, sans-serif" x="60" y="110" font-size="24" font-weight="700" fill="#111827">CENTRO DE NOTIFICACIONES</text>
+  <text x="60" y="110" font-size="24" font-weight="700" fill="#111827">CENTRO DE NOTIFICACIONES</text>
 
   <!-- Filter Tabs -->
   <rect x="60" y="140" width="1080" height="50" rx="8" fill="white" filter="url(#sh)"/>
   <rect x="65" y="145" width="80" height="34" rx="6" fill="#3B82F6"/>
-  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Nueva, Arial, sans-serif" x="105" y="167" text-anchor="middle" fill="white" font-size="12" font-weight="500">Todas (23)</text>
-  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Nueva, Arial, sans-serif" x="180" y="167" font-size="12" fill="#6B7280">💬 Mensajes (3)</text>
-  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Nueva, Arial, sans-serif" x="280" y="167" font-size="12" fill="#6B7280">💰 Ventas (5)</text>
-  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Nueva, Arial, sans-serif" x="380" y="167" font-size="12" fill="#6B7280">🛒 Compras (4)</text>
-  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Nueva, Arial, sans-serif" x="480" y="167" font-size="12" fill="#6B7280">⭐ Reseñas (2)</text>
-  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Nueva, Arial, sans-serif" x="580" y="167" font-size="12" fill="#6B7280">⚙️ Sistema (9)</text>
+  <text x="105" y="167" text-anchor="middle" font-size="12" font-weight="500" fill="white">Todas (23)</text>
+  <text x="180" y="167" class="filter-tab">💬 Mensajes (3)</text>
+  <text x="280" y="167" class="filter-tab">💰 Ventas (5)</text>
+  <text x="380" y="167" class="filter-tab">🛒 Compras (4)</text>
+  <text x="480" y="167" class="filter-tab">⭐ Reseñas (2)</text>
+  <text x="580" y="167" class="filter-tab">⚙️ Sistema (9)</text>
   <rect x="950" y="145" width="150" height="34" rx="6" fill="#3B82F6"/>
-  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Nueva, Arial, sans-serif" x="1025" y="167" text-anchor="middle" fill="white" font-size="12" font-weight="600">Marcar todas leídas</text>
+  <text x="1025" y="167" text-anchor="middle" font-size="12" font-weight="600" fill="white">Marcar todas leídas</text>
 
   <!-- Notifications List -->
   <g transform="translate(60, 210)">
     <rect width="1080" height="110" rx="12" fill="#EFF6FF" stroke="#BFDBFE" stroke-width="1"/>
     <circle cx="50" cy="55" r="20" fill="#3B82F6"/>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Nueva, Arial, sans-serif" x="50" y="60" text-anchor="middle" fill="white" font-size="10">💰</text>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Nueva, Arial, sans-serif" x="90" y="38" font-size="14" font-weight="600" fill="#1E40AF">Nueva venta: Charizard ex</text>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Nueva, Arial, sans-serif" x="90" y="58" font-size="13" fill="#3B82F6">Vendiste por $45.00 a Juan Pérez</text>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Nueva, Arial, sans-serif" x="90" y="78" font-size="12" fill="#6B7280">Hace 2 horas</text>
+    <text x="50" y="60" text-anchor="middle" fill="white" font-size="10">💰</text>
+    <text x="90" y="38" class="notif-title" fill="#1E40AF">Nueva venta: Charizard ex</text>
+    <text x="90" y="58" class="notif-body" fill="#3B82F6">Vendiste por $45.00 a Juan Pérez</text>
+    <text x="90" y="78" class="notif-meta">Hace 2 horas</text>
     <circle cx="1030" cy="55" r="8" fill="#3B82F6"/>
   </g>
 
   <g transform="translate(60, 340)">
     <rect width="1080" height="110" rx="12" fill="#EFF6FF" stroke="#BFDBFE" stroke-width="1"/>
     <circle cx="50" cy="55" r="20" fill="#3B82F6"/>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Nueva, Arial, sans-serif" x="50" y="60" text-anchor="middle" fill="white" font-size="10">💬</text>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Nueva, Arial, sans-serif" x="90" y="38" font-size="14" font-weight="600" fill="#1E40AF">Nuevo mensaje de PikaFan99</text>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Nueva, Arial, sans-serif" x="90" y="58" font-size="13" fill="#3B82F6">"¿Sigues teniendo el Pikachu VMAX?"</text>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Nueva, Arial, sans-serif" x="90" y="78" font-size="12" fill="#6B7280">Hace 4 horas</text>
+    <text x="50" y="60" text-anchor="middle" fill="white" font-size="10">💬</text>
+    <text x="90" y="38" class="notif-title" fill="#1E40AF">Nuevo mensaje de PikaFan99</text>
+    <text x="90" y="58" class="notif-body" fill="#3B82F6">"¿Sigues teniendo el Pikachu VMAX?"</text>
+    <text x="90" y="78" class="notif-meta">Hace 4 horas</text>
     <circle cx="1030" cy="55" r="8" fill="#3B82F6"/>
   </g>
 
   <g transform="translate(60, 470)">
     <rect width="1080" height="110" rx="12" fill="white" filter="url(#sh)"/>
     <circle cx="50" cy="55" r="20" fill="#10B981"/>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Nueva, Arial, sans-serif" x="50" y="60" text-anchor="middle" fill="white" font-size="10">📦</text>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Nueva, Arial, sans-serif" x="90" y="38" font-size="14" font-weight="600" fill="#111827">Pedido entregado: CT-2025-015201</text>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Nueva, Arial, sans-serif" x="90" y="58" font-size="13" fill="#6B7280">Pikachu VMAX • Entregado por Estafeta</text>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Nueva, Arial, sans-serif" x="90" y="78" font-size="12" fill="#6B7280">Hace 6 horas</text>
+    <text x="50" y="60" text-anchor="middle" fill="white" font-size="10">📦</text>
+    <text x="90" y="38" class="notif-title" fill="#111827">Pedido entregado: CT-2025-015201</text>
+    <text x="90" y="58" class="notif-body" fill="#6B7280">Pikachu VMAX • Entregado por Estafeta</text>
+    <text x="90" y="78" class="notif-meta">Hace 6 horas</text>
   </g>
 
   <g transform="translate(60, 600)">
     <rect width="1080" height="110" rx="12" fill="#FEF3C7" stroke="#FCD34D" stroke-width="1"/>
     <circle cx="50" cy="55" r="20" fill="#F59E0B"/>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Nueva, Arial, sans-serif" x="50" y="60" text-anchor="middle" fill="white" font-size="10">⚡</text>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Nueva, Arial, sans-serif" x="90" y="38" font-size="14" font-weight="600" fill="#92400E">Alerta de precio disparada</text>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Nueva, Arial, sans-serif" x="90" y="58" font-size="13" fill="#F59E0B">Charizard ex bajó a $42.00 (tu alerta: $45)</text>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Nueva, Arial, sans-serif" x="90" y="78" font-size="12" fill="#6B7280">Hace 8 horas</text>
+    <text x="50" y="60" text-anchor="middle" fill="white" font-size="10">⚡</text>
+    <text x="90" y="38" class="notif-title" fill="#92400E">Alerta de precio disparada</text>
+    <text x="90" y="58" class="notif-body" fill="#F59E0B">Charizard ex bajó a $42.00 (tu alerta: $45)</text>
+    <text x="90" y="78" class="notif-meta">Hace 8 horas</text>
     <circle cx="1030" cy="55" r="8" fill="#F59E0B"/>
   </g>
 
   <g transform="translate(60, 730)">
     <rect width="1080" height="110" rx="12" fill="white" filter="url(#sh)"/>
     <circle cx="50" cy="55" r="20" fill="#EF4444"/>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Nueva, Arial, sans-serif" x="50" y="60" text-anchor="middle" fill="white" font-size="10">⭐</text>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Nueva, Arial, sans-serif" x="90" y="38" font-size="14" font-weight="600" fill="#111827">Nueva reseña 5★ recibida</text>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Nueva, Arial, sans-serif" x="90" y="58" font-size="13" fill="#6B7280">De CollectorPro: "Excelente vendedor..."</text>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Nueva, Arial, sans-serif" x="90" y="78" font-size="12" fill="#6B7280">Hace 1 día</text>
+    <text x="50" y="60" text-anchor="middle" fill="white" font-size="10">⭐</text>
+    <text x="90" y="38" class="notif-title" fill="#111827">Nueva reseña 5★ recibida</text>
+    <text x="90" y="58" class="notif-body" fill="#6B7280">De CollectorPro: "Excelente vendedor..."</text>
+    <text x="90" y="78" class="notif-meta">Hace 1 día</text>
   </g>
 
   <g transform="translate(60, 860)">
     <rect width="1080" height="110" rx="12" fill="white" filter="url(#sh)"/>
     <circle cx="50" cy="55" r="20" fill="#A855F7"/>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Nueva, Arial, sans-serif" x="50" y="60" text-anchor="middle" fill="white" font-size="10">⚙️</text>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Nueva, Arial, sans-serif" x="90" y="38" font-size="14" font-weight="600" fill="#111827">Actualización de seguridad completada</text>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Nueva, Arial, sans-serif" x="90" y="58" font-size="13" fill="#6B7280">Tu 2FA se ha activado correctamente</text>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Nueva, Arial, sans-serif" x="90" y="78" font-size="12" fill="#6B7280">Hace 2 días</text>
+    <text x="50" y="60" text-anchor="middle" fill="white" font-size="10">⚙️</text>
+    <text x="90" y="38" class="notif-title" fill="#111827">Actualización de seguridad completada</text>
+    <text x="90" y="58" class="notif-body" fill="#6B7280">Tu 2FA se ha activado correctamente</text>
+    <text x="90" y="78" class="notif-meta">Hace 2 días</text>
   </g>
 
   <!-- Settings Footer -->
   <rect x="60" y="990" width="1080" height="110" rx="12" fill="#F9FAFB" stroke="#E5E7EB" stroke-width="1"/>
-  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Nueva, Arial, sans-serif" x="100" y="1025" font-size="16" font-weight="700" fill="#111827">CONFIGURACIÓN DE NOTIFICACIONES</text>
+  <text x="100" y="1025" font-size="16" font-weight="700" fill="#111827">CONFIGURACIÓN DE NOTIFICACIONES</text>
   <rect x="100" y="1045" width="24" height="24" rx="4" fill="#3B82F6"/>
   <circle cx="112" cy="1057" r="6" fill="white"/>
-  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Nueva, Arial, sans-serif" x="140" y="1063" font-size="13" fill="#374151">Notificaciones push en móvil</text>
+  <text x="140" y="1063" class="checkbox-label">Notificaciones push en móvil</text>
   <rect x="400" y="1045" width="24" height="24" rx="4" fill="#3B82F6"/>
   <circle cx="412" cy="1057" r="6" fill="white"/>
-  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Nueva, Arial, sans-serif" x="440" y="1063" font-size="13" fill="#374151">Notificaciones por email</text>
+  <text x="440" y="1063" class="checkbox-label">Notificaciones por email</text>
   <rect x="700" y="1045" width="24" height="24" rx="4" fill="white" stroke="#D1D5DB" stroke-width="1.5"/>
-  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Nueva, Arial, sans-serif" x="740" y="1063" font-size="13" fill="#374151">Solo notificaciones importantes</text>
+  <text x="740" y="1063" class="checkbox-label">Solo notificaciones importantes</text>
   <rect x="100" y="1080" width="24" height="24" rx="4" fill="white" stroke="#D1D5DB" stroke-width="1.5"/>
-  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Nueva, Arial, sans-serif" x="140" y="1098" font-size="13" fill="#374151">Recordatorios de envío</text>
+  <text x="140" y="1098" class="checkbox-label">Recordatorios de envío</text>
   <rect x="400" y="1080" width="24" height="24" rx="4" fill="white" stroke="#D1D5DB" stroke-width="1.5"/>
-  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Nueva, Arial, sans-serif" x="440" y="1098" font-size="13" fill="#374151">Ofertas y promociones</text>
+  <text x="440" y="1098" class="checkbox-label">Ofertas y promociones</text>
 </svg>

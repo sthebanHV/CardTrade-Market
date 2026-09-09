@@ -1,113 +1,138 @@
 ﻿<svg viewBox="0 0 1200 1000" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <linearGradient id="hg" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#1E40AF"/><stop offset="100%" style="stop-color:#3B82F6"/>
+      <stop offset="0%" stop-color="#1E40AF"/><stop offset="100%" stop-color="#3B82F6"/>
     </linearGradient>
     <filter id="sh"><feDropShadow dx="0" dy="2" stdDeviation="6" flood-opacity="0.08"/></filter>
   </defs>
+  
+  <style>
+    text { font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; }
+    .title { font-size: 24px; font-weight: 700; fill: #111827; }
+    .subtitle { font-size: 14px; fill: #6B7280; }
+    .section-title { font-size: 14px; font-weight: 700; fill: #111827; }
+    .card-title { font-size: 16px; font-weight: 600; fill: #111827; }
+    .card-meta { font-size: 12px; fill: #6B7280; }
+    .price-current { font-size: 12px; }
+    .price-target { font-size: 12px; font-weight: 600; fill: #10B981; }
+    .alert-pending { font-size: 12px; fill: #F59E0B; }
+    .status-fired { font-size: 12px; font-weight: 600; fill: #10B981; }
+    .status-active { font-size: 12px; font-weight: 600; fill: #3B82F6; }
+    .btn-primary { font-size: 12px; font-weight: 600; fill: white; }
+    .btn-secondary { font-size: 12px; fill: #6B7280; }
+    .btn-danger { font-size: 12px; fill: #EF4444; }
+    .btn-create { font-size: 14px; font-weight: 600; fill: white; }
+    .modal-title { font-size: 22px; font-weight: 700; fill: #111827; }
+    .modal-label { font-size: 13px; font-weight: 500; fill: #374151; }
+    .modal-placeholder { font-size: 14px; fill: #9CA3AF; }
+    .checkbox-label { font-size: 13px; fill: #374151; }
+    .notify-type { font-size: 13px; fill: #374151; }
+    .btn-create-alert { font-size: 14px; font-weight: 600; fill: white; }
+  </style>
+
   <rect width="1200" height="1000" fill="#F3F4F6"/>
   <rect width="1200" height="64" fill="url(#hg)"/>
-  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Nueva, Arial, sans-serif" x="40" y="40" fill="white" font-size="20" font-weight="700">🃏 CardTrade Market</text>
+  <text x="40" y="42" font-size="20" font-weight="700" fill="white">🃏 CardTrade Market</text>
 
-  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Nueva, Arial, sans-serif" x="60" y="110" font-size="24" font-weight="700" fill="#111827">ALERTAS DE PRECIO</text>
-  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Nueva, Arial, sans-serif" x="60" y="135" font-size="14" fill="#6B7280">7 alertas activas • 3 disparadas esta semana</text>
+  <text x="60" y="110" font-size="24" font-weight="700" fill="#111827">ALERTAS DE PRECIO</text>
+  <text x="60" y="135" font-size="14" fill="#6B7280">7 alertas activas • 3 disparadas esta semana</text>
 
   <!-- Create Alert Button -->
   <rect x="900" y="70" width="200" height="44" rx="8" fill="#3B82F6"/>
-  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Nueva, Arial, sans-serif" x="1000" y="98" text-anchor="middle" fill="white" font-size="14" font-weight="600">+ Nueva Alerta</text>
+  <text x="1000" y="98" text-anchor="middle" font-size="14" font-weight="600" fill="white">+ Nueva Alerta</text>
 
   <!-- Active Alerts -->
   <g transform="translate(60, 180)">
     <rect width="1080" height="150" rx="12" fill="white" filter="url(#sh)" stroke="#10B981" stroke-width="2"/>
     <rect x="20" y="15" width="100" height="100" rx="8" fill="#FEF3C7"/>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Nueva, Arial, sans-serif" x="70" y="75" text-anchor="middle" font-size="32">🃏</text>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Nueva, Arial, sans-serif" x="140" y="40" font-size="16" font-weight="600" fill="#111827">Charizard ex 199/165</text>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Nueva, Arial, sans-serif" x="140" y="60" font-size="12" fill="#6B7280">Pokémon • Obsidian Flames</text>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Nueva, Arial, sans-serif" x="140" y="80" font-size="12" fill="#6B7280">Precio actual: <tspan font-weight="600" fill="#3B82F6">$45.00</tspan></text>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Nueva, Arial, sans-serif" x="140" y="100" font-size="12" fill="#10B981">🎯 ALERTA: $50.00 → DISPARADA</text>
+    <text x="70" y="75" text-anchor="middle" font-size="32">🃏</text>
+    <text x="140" y="40" class="card-title">Charizard ex 199/165</text>
+    <text x="140" y="60" class="card-meta">Pokémon • Obsidian Flames</text>
+    <text x="140" y="80" class="price-current">Precio actual: <tspan class="price-current" fill="#3B82F6">$45.00</tspan></text>
+    <text x="140" y="100" class="price-target">🎯 ALERTA: $50.00 → DISPARADA</text>
     <rect x="800" y="15" width="120" height="36" rx="6" fill="#ECFDF5"/>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Nueva, Arial, sans-serif" x="860" y="38" text-anchor="middle" fill="#10B981" font-size="12" font-weight="600">✓ Disparada</text>
+    <text x="860" y="38" text-anchor="middle" class="status-fired">✓ Disparada</text>
     <rect x="800" y="60" width="120" height="36" rx="6" fill="white" stroke="#D1D5DB" stroke-width="1.5"/>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Nueva, Arial, sans-serif" x="860" y="83" text-anchor="middle" fill="#6B7280" font-size="12">Editar</text>
+    <text x="860" y="83" text-anchor="middle" class="btn-secondary">Editar</text>
     <rect x="940" y="60" width="120" height="36" rx="6" fill="#FEF2F2" stroke="#FECACA" stroke-width="1"/>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Nueva, Arial, sans-serif" x="1000" y="83" text-anchor="middle" fill="#EF4444" font-size="12">Eliminar</text>
+    <text x="1000" y="83" text-anchor="middle" class="btn-danger">Eliminar</text>
   </g>
 
   <g transform="translate(60, 350)">
     <rect width="1080" height="150" rx="12" fill="white" filter="url(#sh)"/>
     <rect x="20" y="15" width="100" height="100" rx="8" fill="#DBEAFE"/>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Nueva, Arial, sans-serif" x="70" y="75" text-anchor="middle" font-size="32">🃏</text>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Nueva, Arial, sans-serif" x="140" y="40" font-size="16" font-weight="600" fill="#111827">Pikachu VMAX 188/185</text>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Nueva, Arial, sans-serif" x="140" y="60" font-size="12" fill="#6B7280">Pokémon • Vivid Voltage</text>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Nueva, Arial, sans-serif" x="140" y="80" font-size="12" fill="#6B7280">Precio actual: <tspan font-weight="600" fill="#3B82F6">$28.00</tspan></text>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Nueva, Arial, sans-serif" x="140" y="100" font-size="12" fill="#F59E0B">🎯 Alerta en: $25.00 (falta $3)</text>
+    <text x="70" y="75" text-anchor="middle" font-size="32">🃏</text>
+    <text x="140" y="40" class="card-title">Pikachu VMAX 188/185</text>
+    <text x="140" y="60" class="card-meta">Pokémon • Vivid Voltage</text>
+    <text x="140" y="80" class="price-current">Precio actual: <tspan fill="#3B82F6">$28.00</tspan></text>
+    <text x="140" y="100" class="alert-pending">🎯 Alerta en: $25.00 (falta $3)</text>
     <rect x="800" y="15" width="120" height="36" rx="6" fill="#EFF6FF"/>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Nueva, Arial, sans-serif" x="860" y="38" text-anchor="middle" fill="#3B82F6" font-size="12" font-weight="600">Activa</text>
+    <text x="860" y="38" text-anchor="middle" class="status-active">Activa</text>
     <rect x="800" y="60" width="120" height="36" rx="6" fill="white" stroke="#D1D5DB" stroke-width="1.5"/>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Nueva, Arial, sans-serif" x="860" y="83" text-anchor="middle" fill="#6B7280" font-size="12">Editar</text>
+    <text x="860" y="83" text-anchor="middle" class="btn-secondary">Editar</text>
     <rect x="940" y="60" width="120" height="36" rx="6" fill="#FEF2F2" stroke="#FECACA" stroke-width="1"/>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Nueva, Arial, sans-serif" x="1000" y="83" text-anchor="middle" fill="#EF4444" font-size="12">Eliminar</text>
+    <text x="1000" y="83" text-anchor="middle" class="btn-danger">Eliminar</text>
   </g>
 
   <g transform="translate(60, 520)">
     <rect width="1080" height="150" rx="12" fill="white" filter="url(#sh)"/>
     <rect x="20" y="15" width="100" height="100" rx="8" fill="#FEF3C7"/>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Nueva, Arial, sans-serif" x="70" y="75" text-anchor="middle" font-size="32">🃏</text>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Nueva, Arial, sans-serif" x="140" y="40" font-size="16" font-weight="600" fill="#111827">Mewtwo VSTAR 172/172</text>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Nueva, Arial, sans-serif" x="140" y="60" font-size="12" fill="#6B7280">Pokémon • Brilliant Stars</text>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Nueva, Arial, sans-serif" x="140" y="80" font-size="12" fill="#6B7280">Precio actual: <tspan font-weight="600" fill="#3B82F6">$52.00</tspan></text>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Nueva, Arial, sans-serif" x="140" y="100" font-size="12" fill="#F59E0B">🎯 Alerta en: $45.00 (falta $7)</text>
+    <text x="70" y="75" text-anchor="middle" font-size="32">🃏</text>
+    <text x="140" y="40" class="card-title">Mewtwo VSTAR 172/172</text>
+    <text x="140" y="60" class="card-meta">Pokémon • Brilliant Stars</text>
+    <text x="140" y="80" class="price-current">Precio actual: <tspan fill="#3B82F6">$52.00</tspan></text>
+    <text x="140" y="100" class="alert-pending">🎯 Alerta en: $45.00 (falta $7)</text>
     <rect x="800" y="15" width="120" height="36" rx="6" fill="#EFF6FF"/>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Nueva, Arial, sans-serif" x="860" y="38" text-anchor="middle" fill="#3B82F6" font-size="12" font-weight="600">Activa</text>
+    <text x="860" y="38" text-anchor="middle" class="status-active">Activa</text>
     <rect x="800" y="60" width="120" height="36" rx="6" fill="white" stroke="#D1D5DB" stroke-width="1.5"/>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Nueva, Arial, sans-serif" x="860" y="83" text-anchor="middle" fill="#6B7280" font-size="12">Editar</text>
+    <text x="860" y="83" text-anchor="middle" class="btn-secondary">Editar</text>
     <rect x="940" y="60" width="120" height="36" rx="6" fill="#FEF2F2" stroke="#FECACA" stroke-width="1"/>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Nueva, Arial, sans-serif" x="1000" y="83" text-anchor="middle" fill="#EF4444" font-size="12">Eliminar</text>
+    <text x="1000" y="83" text-anchor="middle" class="btn-danger">Eliminar</text>
   </g>
 
   <g transform="translate(60, 690)">
     <rect width="1080" height="150" rx="12" fill="white" filter="url(#sh)"/>
     <rect x="20" y="15" width="100" height="100" rx="8" fill="#F3E8FF"/>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Nueva, Arial, sans-serif" x="70" y="75" text-anchor="middle" font-size="32">🃏</text>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Nueva, Arial, sans-serif" x="140" y="40" font-size="16" font-weight="600" fill="#111827">Black Lotus (Beta)</text>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Nueva, Arial, sans-serif" x="140" y="60" font-size="12" fill="#6B7280">Magic • Beta • Rare</text>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Nueva, Arial, sans-serif" x="140" y="80" font-size="12" fill="#6B7280">Precio actual: <tspan font-weight="600" fill="#3B82F6">$8,500</tspan></text>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Nueva, Arial, sans-serif" x="140" y="100" font-size="12" fill="#F59E0B">🎯 Alerta en: $7,500 (falta $1,000)</text>
+    <text x="70" y="75" text-anchor="middle" font-size="32">🃏</text>
+    <text x="140" y="40" class="card-title">Black Lotus (Beta)</text>
+    <text x="140" y="60" class="card-meta">Magic • Beta • Rare</text>
+    <text x="140" y="80" class="price-current">Precio actual: <tspan fill="#3B82F6">$8,500</tspan></text>
+    <text x="140" y="100" class="alert-pending">🎯 Alerta en: $7,500 (falta $1,000)</text>
     <rect x="800" y="15" width="120" height="36" rx="6" fill="#EFF6FF"/>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Nueva, Arial, sans-serif" x="860" y="38" text-anchor="middle" fill="#3B82F6" font-size="12" font-weight="600">Activa</text>
+    <text x="860" y="38" text-anchor="middle" class="status-active">Activa</text>
     <rect x="800" y="60" width="120" height="36" rx="6" fill="white" stroke="#D1D5DB" stroke-width="1.5"/>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Nueva, Arial, sans-serif" x="860" y="83" text-anchor="middle" fill="#6B7280" font-size="12">Editar</text>
+    <text x="860" y="83" text-anchor="middle" class="btn-secondary">Editar</text>
     <rect x="940" y="60" width="120" height="36" rx="6" fill="#FEF2F2" stroke="#FECACA" stroke-width="1"/>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Nueva, Arial, sans-serif" x="1000" y="83" text-anchor="middle" fill="#EF4444" font-size="12">Eliminar</text>
+    <text x="1000" y="83" text-anchor="middle" class="btn-danger">Eliminar</text>
   </g>
 
   <!-- Create Alert Modal (separated below) -->
   <rect x="60" y="870" width="1080" height="450" rx="16" fill="white" filter="url(#sh)"/>
-  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Nueva, Arial, sans-serif" x="600" y="910" text-anchor="middle" font-size="22" font-weight="700" fill="#111827">CREAR NUEVA ALERTA</text>
+  <text x="600" y="910" text-anchor="middle" font-size="22" font-weight="700" fill="#111827">CREAR NUEVA ALERTA</text>
 
-  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Nueva, Arial, sans-serif" x="340" y="950" font-size="13" font-weight="500" fill="#374151">Buscar Carta *</text>
+  <text x="340" y="950" class="modal-label">Buscar Carta *</text>
   <rect x="340" y="960" width="520" height="44" rx="8" fill="white" stroke="#D1D5DB" stroke-width="1.5"/>
-  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Nueva, Arial, sans-serif" x="360" y="988" fill="#9CA3AF" font-size="14">Escribe el nombre (ej. Charizard ex)...</text>
+  <text x="360" y="988" class="modal-placeholder">Escribe el nombre (ej. Charizard ex)...</text>
 
-  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Nueva, Arial, sans-serif" x="340" y="1015" font-size="13" font-weight="500" fill="#374151">Precio Objetivo (MXN) *</text>
+  <text x="340" y="1015" class="modal-label">Precio Objetivo (MXN) *</text>
   <rect x="340" y="1025" width="240" height="44" rx="8" fill="white" stroke="#D1D5DB" stroke-width="1.5"/>
-  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Nueva, Arial, sans-serif" x="360" y="1053" fill="#9CA3AF" font-size="14">$45.00</text>
-  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Nueva, Arial, sans-serif" x="620" y="1015" font-size="13" font-weight="500" fill="#374151">Tipo de Alerta</text>
+  <text x="360" y="1053" class="modal-placeholder">$45.00</text>
+  <text x="620" y="1015" class="modal-label">Tipo de Alerta</text>
   <rect x="620" y="1025" width="240" height="44" rx="8" fill="white" stroke="#D1D5DB" stroke-width="1.5"/>
-  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Nueva, Arial, sans-serif" x="740" y="1053" text-anchor="middle" fill="#111827" font-size="14">Precio igual o menor ▼</text>
+  <text x="740" y="1053" text-anchor="middle" font-size="14" fill="#111827">Precio igual o menor ▼</text>
 
-  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Nueva, Arial, sans-serif" x="340" y="1085" font-size="13" font-weight="500" fill="#374151">Notificar por</text>
+  <text x="340" y="1085" class="modal-label">Notificar por</text>
   <rect x="360" y="1100" width="24" height="24" rx="4" fill="#3B82F6"/>
   <circle cx="372" cy="1112" r="6" fill="white"/>
-  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Nueva, Arial, sans-serif" x="395" y="1118" font-size="13" fill="#374151">Email</text>
+  <text x="395" y="1118" class="checkbox-label">Email</text>
   <rect x="550" y="1100" width="24" height="24" rx="4" fill="#3B82F6"/>
   <circle cx="562" cy="1112" r="6" fill="white"/>
-  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Nueva, Arial, sans-serif" x="585" y="1118" font-size="13" fill="#374151">Notificación en App</text>
+  <text x="585" y="1118" class="checkbox-label">Notificación en App</text>
   <rect x="750" y="1100" width="24" height="24" rx="4" fill="white" stroke="#D1D5DB" stroke-width="1.5"/>
-  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Nueva, Arial, sans-serif" x="785" y="1118" font-size="13" fill="#374151">Push Móvil</text>
+  <text x="785" y="1118" class="checkbox-label">Push Móvil</text>
 
   <rect x="340" y="1140" width="240" height="44" rx="8" fill="white" stroke="#D1D5DB" stroke-width="1.5"/>
-  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Nueva, Arial, sans-serif" x="460" y="1168" text-anchor="middle" fill="#6B7280" font-size="14">Cancelar</text>
+  <text x="460" y="1168" text-anchor="middle" class="btn-secondary">Cancelar</text>
   <rect x="600" y="1140" width="260" height="44" rx="8" fill="#3B82F6"/>
-  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Nueva, Arial, sans-serif" x="730" y="1168" text-anchor="middle" fill="white" font-size="14" font-weight="600">CREAR ALERTA</text>
+  <text x="730" y="1168" text-anchor="middle" class="btn-create-alert">CREAR ALERTA</text>
 </svg>

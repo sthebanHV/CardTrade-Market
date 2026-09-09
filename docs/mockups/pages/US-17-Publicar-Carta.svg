@@ -1,127 +1,147 @@
-﻿<svg viewBox="0 0 1200 1180" xmlns="http://www.w3.org/2000/svg">
+﻿<svg viewBox="0 0 1200 1200" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <linearGradient id="hg" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#1E40AF"/><stop offset="100%" style="stop-color:#3B82F6"/>
+      <stop offset="0%" stop-color="#1E40AF"/><stop offset="100%" stop-color="#3B82F6"/>
     </linearGradient>
     <filter id="sh"><feDropShadow dx="0" dy="2" stdDeviation="6" flood-opacity="0.08"/></filter>
   </defs>
-  <rect width="1200" height="1180" fill="#F3F4F6"/>
-  <rect width="1200" height="64" fill="url(#hg)"/>
-  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="40" y="40" fill="white" font-size="20" font-weight="700">🃏 CardTrade Market</text>
+  
+  <style>
+    text { font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; }
+    .title { font-size: 24px; font-weight: 700; fill: #111827; }
+    .subtitle { font-size: 14px; fill: #6B7280; }
+    .section-title { font-size: 16px; font-weight: 700; fill: #111827; }
+    .label { font-size: 13px; font-weight: 500; fill: #374151; }
+    .input-placeholder { font-size: 14px; fill: #9CA3AF; }
+    .input-value { font-size: 14px; fill: #111827; }
+    .help-text { font-size: 11px; fill: #6B7280; }
+    .checkbox-label { font-size: 13px; fill: #374151; }
+    .btn-primary { font-size: 15px; font-weight: 600; fill: white; }
+    .btn-secondary { font-size: 14px; fill: #374151; }
+    .divider-text { font-size: 12px; fill: #9CA3AF; }
+    .social-btn { font-size: 14px; fill: #374151; }
+    .footer-link { font-size: 14px; fill: #6B7280; }
+    .footer-link-accent { fill: #3B82F6; font-weight: 500; }
+    .info-box { font-size: 13px; fill: #1E40AF; }
+  </style>
 
-  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="60" y="100" font-size="24" font-weight="700" fill="#111827">PUBLICAR CARTA EN VENTA</text>
-  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="60" y="125" font-size="14" fill="#6B7280">Completa la información para listar tu carta</text>
+  <rect width="1200" height="1200" fill="#F3F4F6"/>
+  <rect width="1200" height="64" fill="url(#hg)"/>
+  <text x="40" y="42" font-size="20" font-weight="700" fill="white">🃏 CardTrade Market</text>
+
+  <text x="60" y="100" class="title">PUBLICAR CARTA EN VENTA</text>
+  <text x="60" y="125" class="subtitle">Completa la información para listar tu carta</text>
 
   <!-- Progress Steps -->
   <rect x="60" y="155" width="1080" height="40" rx="20" fill="#E5E7EB"/>
   <rect x="60" y="155" width="270" height="40" rx="20" fill="#3B82F6"/>
-  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="195" y="180" text-anchor="middle" fill="white" font-size="12" font-weight="600">1. Básico</text>
-  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="465" y="180" text-anchor="middle" font-size="12" fill="#9CA3AF">2. Detalles</text>
-  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="735" y="180" text-anchor="middle" font-size="12" fill="#9CA3AF">3. Fotos</text>
-  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="1005" y="180" text-anchor="middle" font-size="12" fill="#9CA3AF">4. Revisar</text>
+  <text x="195" y="180" text-anchor="middle" fill="white" font-size="12" font-weight="600">1. Básico</text>
+  <text x="465" y="180" text-anchor="middle" font-size="12" fill="#9CA3AF">2. Detalles</text>
+  <text x="735" y="180" text-anchor="middle" font-size="12" fill="#9CA3AF">3. Fotos</text>
+  <text x="1005" y="180" text-anchor="middle" font-size="12" fill="#9CA3AF">4. Revisar</text>
 
-  <!-- Form Grid -->
-  <rect x="60" y="210" width="1080" height="910" rx="12" fill="white" filter="url(#sh)"/>
+  <!-- Form Container -->
+  <rect x="60" y="210" width="1080" height="930" rx="12" fill="white" filter="url(#sh)"/>
 
   <!-- Photos Section -->
-  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="100" y="255" font-size="16" font-weight="700" fill="#111827">📷 FOTOS DE LA CARTA</text>
-  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="100" y="275" font-size="12" fill="#6B7280">Máx. 5 fotos • JPG/PNG • Máx. 5MB cada una</text>
+  <text x="100" y="260" font-size="16" font-weight="700" fill="#111827">📷 FOTOS DE LA CARTA</text>
+  <text x="100" y="280" font-size="12" fill="#6B7280">Máx. 5 fotos • JPG/PNG • Máx. 5MB cada una</text>
 
-  <g transform="translate(100, 290)">
+  <g transform="translate(100, 300)">
     <rect width="180" height="180" rx="12" fill="#F3F4F6" stroke="#D1D5DB" stroke-width="2" stroke-dasharray="8,4"/>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="90" y="100" text-anchor="middle" font-size="40">📷</text>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="90" y="140" text-anchor="middle" font-size="12" fill="#6B7280">Foto frontal</text>
+    <text x="90" y="100" text-anchor="middle" font-size="40">📷</text>
+    <text x="90" y="140" text-anchor="middle" font-size="12" fill="#6B7280">Foto frontal</text>
   </g>
 
-  <g transform="translate(300, 290)">
+  <g transform="translate(300, 300)">
     <rect width="180" height="180" rx="12" fill="#F3F4F6" stroke="#D1D5DB" stroke-width="2" stroke-dasharray="8,4"/>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="90" y="100" text-anchor="middle" font-size="40">📷</text>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="90" y="140" text-anchor="middle" font-size="12" fill="#6B7280">Foto trasera</text>
+    <text x="90" y="100" text-anchor="middle" font-size="40">📷</text>
+    <text x="90" y="140" text-anchor="middle" font-size="12" fill="#6B7280">Foto trasera</text>
   </g>
 
-  <g transform="translate(500, 290)">
+  <g transform="translate(500, 300)">
     <rect width="180" height="180" rx="12" fill="#F3F4F6" stroke="#D1D5DB" stroke-width="2" stroke-dasharray="8,4"/>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="90" y="100" text-anchor="middle" font-size="40">📷</text>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="90" y="140" text-anchor="middle" font-size="12" fill="#6B7280">Detalle holo</text>
+    <text x="90" y="100" text-anchor="middle" font-size="40">📷</text>
+    <text x="90" y="140" text-anchor="middle" font-size="12" fill="#6B7280">Detalle holo</text>
   </g>
 
-  <g transform="translate(700, 290)">
+  <g transform="translate(700, 300)">
     <rect width="180" height="180" rx="12" fill="#F3F4F6" stroke="#D1D5DB" stroke-width="2" stroke-dasharray="8,4"/>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="90" y="100" text-anchor="middle" font-size="40">📷</text>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="90" y="140" text-anchor="middle" font-size="12" fill="#6B7280">En funda</text>
+    <text x="90" y="100" text-anchor="middle" font-size="40">📷</text>
+    <text x="90" y="140" text-anchor="middle" font-size="12" fill="#6B7280">En funda</text>
   </g>
 
-  <g transform="translate(900, 290)">
+  <g transform="translate(900, 300)">
     <rect width="180" height="180" rx="12" fill="#F3F4F6" stroke="#D1D5DB" stroke-width="2" stroke-dasharray="8,4"/>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="90" y="100" text-anchor="middle" font-size="40">+</text>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="90" y="140" text-anchor="middle" font-size="12" fill="#6B7280">Agregar más</text>
+    <text x="90" y="100" text-anchor="middle" font-size="40">+</text>
+    <text x="90" y="140" text-anchor="middle" font-size="12" fill="#6B7280">Agregar más</text>
   </g>
 
   <!-- Basic Info -->
-  <line x1="100" y1="510" x2="1060" y2="510" stroke="#E5E7EB" stroke-width="1"/>
-  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="100" y="540" font-size="16" font-weight="700" fill="#111827">INFORMACIÓN BÁSICA</text>
+  <line x1="100" y1="520" x2="1060" y2="520" stroke="#E5E7EB" stroke-width="1"/>
+  <text x="100" y="555" font-size="16" font-weight="700" fill="#111827">INFORMACIÓN BÁSICA</text>
 
-  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="100" y="580" font-size="13" font-weight="500" fill="#374151">Nombre de la Carta *</text>
-  <rect x="100" y="590" width="480" height="44" rx="8" fill="white" stroke="#D1D5DB" stroke-width="1.5"/>
-  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="120" y="618" fill="#111827" font-size="14">Charizard ex</text>
+  <text x="100" y="595" class="label">Nombre de la Carta *</text>
+  <rect x="100" y="605" width="480" height="44" rx="8" fill="white" stroke="#D1D5DB" stroke-width="1.5"/>
+  <text x="120" y="633" class="input-value">Charizard ex</text>
 
-  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="620" y="580" font-size="13" font-weight="500" fill="#374151">Juego *</text>
-  <rect x="620" y="590" width="480" height="44" rx="8" fill="white" stroke="#D1D5DB" stroke-width="1.5"/>
-  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="640" y="618" fill="#111827" font-size="14">Pokémon TCG ▼</text>
+  <text x="620" y="595" class="label">Juego *</text>
+  <rect x="620" y="605" width="480" height="44" rx="8" fill="white" stroke="#D1D5DB" stroke-width="1.5"/>
+  <text x="640" y="633" class="input-value">Pokémon TCG ▼</text>
 
-  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="100" y="660" font-size="13" font-weight="500" fill="#374151">Set / Expansión *</text>
-  <rect x="100" y="670" width="480" height="44" rx="8" fill="white" stroke="#D1D5DB" stroke-width="1.5"/>
-  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="120" y="698" fill="#111827" font-size="14">Obsidian Flames ▼</text>
+  <text x="100" y="670" class="label">Set / Expansión *</text>
+  <rect x="100" y="680" width="480" height="44" rx="8" fill="white" stroke="#D1D5DB" stroke-width="1.5"/>
+  <text x="120" y="708" class="input-value">Obsidian Flames ▼</text>
 
-  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="620" y="660" font-size="13" font-weight="500" fill="#374151">Número de Carta *</text>
-  <rect x="620" y="670" width="480" height="44" rx="8" fill="white" stroke="#D1D5DB" stroke-width="1.5"/>
-  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="640" y="698" fill="#111827" font-size="14">199/165</text>
+  <text x="620" y="670" class="label">Número de Carta *</text>
+  <rect x="620" y="680" width="480" height="44" rx="8" fill="white" stroke="#D1D5DB" stroke-width="1.5"/>
+  <text x="640" y="708" class="input-value">199/165</text>
 
   <!-- Details -->
-  <line x1="100" y1="740" x2="1060" y2="740" stroke="#E5E7EB" stroke-width="1"/>
-  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="100" y="770" font-size="16" font-weight="700" fill="#111827">DETALLES</text>
+  <line x1="100" y1="750" x2="1060" y2="750" stroke="#E5E7EB" stroke-width="1"/>
+  <text x="100" y="785" font-size="16" font-weight="700" fill="#111827">DETALLES</text>
 
-  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="100" y="810" font-size="13" font-weight="500" fill="#374151">Rareza *</text>
-  <rect x="100" y="820" width="220" height="44" rx="8" fill="white" stroke="#D1D5DB" stroke-width="1.5"/>
-  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="120" y="848" fill="#111827" font-size="14">Ultra Rare ▼</text>
+  <text x="100" y="825" class="label">Rareza *</text>
+  <rect x="100" y="835" width="220" height="44" rx="8" fill="white" stroke="#D1D5DB" stroke-width="1.5"/>
+  <text x="120" y="863" class="input-value">Ultra Rare ▼</text>
 
-  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="350" y="810" font-size="13" font-weight="500" fill="#374151">Estado *</text>
-  <rect x="350" y="820" width="230" height="44" rx="8" fill="white" stroke="#D1D5DB" stroke-width="1.5"/>
-  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="370" y="848" fill="#111827" font-size="14">Nuevo (Sellado) ▼</text>
+  <text x="350" y="825" class="label">Estado *</text>
+  <rect x="350" y="835" width="230" height="44" rx="8" fill="white" stroke="#D1D5DB" stroke-width="1.5"/>
+  <text x="370" y="863" class="input-value">Nuevo (Sellado) ▼</text>
 
-  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="620" y="810" font-size="13" font-weight="500" fill="#374151">Idioma *</text>
-  <rect x="620" y="820" width="230" height="44" rx="8" fill="white" stroke="#D1D5DB" stroke-width="1.5"/>
-  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="640" y="848" fill="#111827" font-size="14">Español ▼</text>
+  <text x="620" y="825" class="label">Idioma *</text>
+  <rect x="620" y="835" width="230" height="44" rx="8" fill="white" stroke="#D1D5DB" stroke-width="1.5"/>
+  <text x="640" y="863" class="input-value">Español ▼</text>
 
-  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="880" y="810" font-size="13" font-weight="500" fill="#374151">Graded *</text>
-  <rect x="880" y="820" width="220" height="44" rx="8" fill="white" stroke="#D1D5DB" stroke-width="1.5"/>
-  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="900" y="848" fill="#111827" font-size="14">No / PSA 10 / BGS 9.5 ▼</text>
+  <text x="880" y="825" class="label">Graded *</text>
+  <rect x="880" y="835" width="220" height="44" rx="8" fill="white" stroke="#D1D5DB" stroke-width="1.5"/>
+  <text x="900" y="863" class="input-value">No / PSA 10 / BGS 9.5 ▼</text>
 
   <!-- Description -->
-  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="100" y="890" font-size="13" font-weight="500" fill="#374151">Descripción *</text>
-  <rect x="100" y="900" width="1000" height="100" rx="8" fill="white" stroke="#D1D5DB" stroke-width="1.5"/>
-  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="120" y="930" fill="#111827" font-size="14">Carta en excelente estado, perfecta para coleccionistas.</text>
-  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="120" y="950" fill="#111827" font-size="14">Envío con tracking y seguro incluido. Se vende con protector y sobre grade.</text>
+  <text x="100" y="895" class="label">Descripción *</text>
+  <rect x="100" y="905" width="1000" height="100" rx="8" fill="white" stroke="#D1D5DB" stroke-width="1.5"/>
+  <text x="120" y="930" class="input-value">Carta en excelente estado, perfecta para coleccionistas.</text>
+  <text x="120" y="950" class="input-value">Envío con tracking y seguro incluido. Se vende con protector y sobre grade.</text>
 
   <!-- Price Section -->
-  <line x1="100" y1="1030" x2="1060" y2="1030" stroke="#E5E7EB" stroke-width="1"/>
-  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="100" y="1060" font-size="16" font-weight="700" fill="#111827">PRECIO Y ENVÍO</text>
+  <line x1="100" y1="1035" x2="1060" y2="1035" stroke="#E5E7EB" stroke-width="1"/>
+  <text x="100" y="1070" font-size="16" font-weight="700" fill="#111827">PRECIO Y ENVÍO</text>
 
-  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="100" y="1100" font-size="13" font-weight="500" fill="#374151">Precio (MXN) *</text>
-  <rect x="100" y="1110" width="280" height="44" rx="8" fill="white" stroke="#D1D5DB" stroke-width="1.5"/>
-  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="120" y="1138" fill="#111827" font-size="14">$45.00</text>
+  <text x="100" y="1110" class="label">Precio (MXN) *</text>
+  <rect x="100" y="1120" width="280" height="44" rx="8" fill="white" stroke="#D1D5DB" stroke-width="1.5"/>
+  <text x="120" y="1148" class="input-value">$45.00</text>
 
-  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="420" y="1100" font-size="13" font-weight="500" fill="#374151">Envío</text>
-  <rect x="420" y="1110" width="280" height="44" rx="8" fill="white" stroke="#D1D5DB" stroke-width="1.5"/>
-  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="440" y="1138" fill="#111827" font-size="14">Gratis ▼</text>
+  <text x="420" y="1110" class="label">Envío</text>
+  <rect x="420" y="1120" width="280" height="44" rx="8" fill="white" stroke="#D1D5DB" stroke-width="1.5"/>
+  <text x="440" y="1148" class="input-value">Gratis ▼</text>
 
-  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="740" y="1100" font-size="13" font-weight="500" fill="#374151">Cantidad *</text>
-  <rect x="740" y="1110" width="120" height="44" rx="8" fill="white" stroke="#D1D5DB" stroke-width="1.5"/>
-  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Nueva, Arial, sans-serif" x="760" y="1138" fill="#111827" font-size="14">1</text>
+  <text x="740" y="1110" class="label">Cantidad *</text>
+  <rect x="740" y="1120" width="120" height="44" rx="8" fill="white" stroke="#D1D5DB" stroke-width="1.5"/>
+  <text x="760" y="1148" class="input-value">1</text>
 
-  <rect x="900" y="1110" width="200" height="44" rx="8" fill="white" stroke="#D1D5DB" stroke-width="1.5"/>
-  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="1000" y="1138" text-anchor="middle" fill="#6B7280" font-size="14">Guardar Borrador</text>
+  <rect x="900" y="1120" width="200" height="44" rx="8" fill="white" stroke="#D1D5DB" stroke-width="1.5"/>
+  <text x="1000" y="1148" text-anchor="middle" font-size="14" fill="#6B7280">Guardar Borrador</text>
 
-  <rect x="60" y="1040" width="1080" height="60" rx="12" fill="#EFF6FF" stroke="#BFDBFE" stroke-width="1"/>
-  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Nueva, Arial, sans-serif" x="600" y="1075" text-anchor="middle" font-size="13" fill="#1E40AF">💡 Comisión de la plataforma: 5% ($2.25) • Recibirás: $42.75</text>
+  <rect x="60" y="1050" width="1080" height="60" rx="12" fill="#EFF6FF" stroke="#BFDBFE" stroke-width="1"/>
+  <text x="600" y="1085" text-anchor="middle" class="info-box">💡 Comisión de la plataforma: 5% ($2.25) • Recibirás: $42.75</text>
 </svg>

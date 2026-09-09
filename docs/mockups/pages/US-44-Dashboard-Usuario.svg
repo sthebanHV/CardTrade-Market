@@ -1,136 +1,154 @@
 ﻿<svg viewBox="0 0 1200 960" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <linearGradient id="hg" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#1E40AF"/><stop offset="100%" style="stop-color:#3B82F6"/>
+      <stop offset="0%" stop-color="#1E40AF"/><stop offset="100%" stop-color="#3B82F6"/>
     </linearGradient>
     <filter id="sh"><feDropShadow dx="0" dy="2" stdDeviation="6" flood-opacity="0.08"/></filter>
   </defs>
+  
+  <style>
+    text { font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; }
+    .title { font-size: 24px; font-weight: 700; fill: #111827; }
+    .subtitle { font-size: 14px; fill: #6B7280; }
+    .section-title { font-size: 18px; font-weight: 700; fill: #111827; }
+    .stat-value { font-size: 32px; font-weight: 700; }
+    .stat-label { font-size: 14px; fill: #6B7280; }
+    .stat-delta { font-size: 12px; }
+    .card-title { font-size: 13px; font-weight: 600; fill: #111827; }
+    .card-meta { font-size: 12px; fill: #6B7280; }
+    .card-delta { font-size: 12px; font-weight: 600; }
+    .btn-primary { font-size: 14px; font-weight: 600; fill: white; }
+    .btn-secondary { font-size: 13px; fill: #6B7280; }
+    .link { font-size: 13px; fill: #6B7280; }
+    .link-accent { fill: #3B82F6; font-weight: 500; }
+  </style>
+
   <rect width="1200" height="960" fill="#F3F4F6"/>
   <rect width="1200" height="64" fill="url(#hg)"/>
-  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="40" y="40" fill="white" font-size="20" font-weight="700">🃏 CardTrade Market</text>
+  <text x="40" y="42" font-size="20" font-weight="700" fill="white">🃏 CardTrade Market</text>
   <circle cx="1100" cy="32" r="16" fill="rgba(255,255,255,0.2)"/>
-  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="1095" y="37" fill="white" font-size="14">🛒(2)</text>
+  <text x="1095" y="38" font-size="14" fill="white">🛒(2)</text>
   <circle cx="1150" cy="32" r="16" fill="rgba(255,255,255,0.2)"/>
-  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="1145" y="37" fill="white" font-size="14">🔔(3)</text>
+  <text x="1145" y="38" font-size="14" fill="white">🔔(3)</text>
 
-  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="60" y="110" font-size="24" font-weight="700" fill="#111827">DASHBOARD</text>
-  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="60" y="135" font-size="14" fill="#6B7280">Bienvenido, CardMaster MX</text>
+  <text x="60" y="110" class="title">DASHBOARD</text>
+  <text x="60" y="135" class="subtitle">Bienvenido, CardMaster MX</text>
 
   <!-- Stats Cards -->
   <g transform="translate(60, 160)">
     <rect width="260" height="150" rx="16" fill="white" filter="url(#sh)"/>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="130" y="190" text-anchor="middle" font-size="32" font-weight="700" fill="#10B981">$1,240</text>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Nueva, Arial, sans-serif" x="130" y="220" text-anchor="middle" font-size="14" fill="#6B7280">Ventas este mes</text>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Nueva, Arial, sans-serif" x="130" y="242" text-anchor="middle" font-size="12" fill="#10B981">📈 +23% vs mes anterior</text>
+    <text x="130" y="180" text-anchor="middle" class="stat-value" fill="#10B981">$1,240</text>
+    <text x="130" y="210" text-anchor="middle" class="stat-label">Ventas este mes</text>
+    <text x="130" y="230" text-anchor="middle" class="stat-delta" fill="#10B981">📈 +23% vs mes anterior</text>
   </g>
 
   <g transform="translate(340, 160)">
     <rect width="260" height="150" rx="16" fill="white" filter="url(#sh)"/>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Nueva, Arial, sans-serif" x="130" y="190" text-anchor="middle" font-size="32" font-weight="700" fill="#3B82F6">8</text>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Nueva, Arial, sans-serif" x="130" y="220" text-anchor="middle" font-size="14" fill="#6B7280">Publicaciones activas</text>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Nueva, Arial, sans-serif" x="130" y="242" text-anchor="middle" font-size="12" fill="#6B7280">3 borradores pendientes</text>
+    <text x="130" y="180" text-anchor="middle" class="stat-value" fill="#3B82F6">8</text>
+    <text x="130" y="210" text-anchor="middle" class="stat-label">Publicaciones activas</text>
+    <text x="130" y="230" text-anchor="middle" class="stat-delta" fill="#6B7280">3 borradores pendientes</text>
   </g>
 
   <g transform="translate(620, 160)">
     <rect width="260" height="150" rx="16" fill="white" filter="url(#sh)"/>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Nueva, Arial, sans-serif" x="130" y="190" text-anchor="middle" font-size="32" font-weight="700" fill="#F59E0B">3</text>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Nueva, Arial, sans-serif" x="130" y="220" text-anchor="middle" font-size="14" fill="#6B7280">Compras este mes</text>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Nueva, Arial, sans-serif" x="130" y="242" text-anchor="middle" font-size="12" fill="#6B7280">$450 gastados</text>
+    <text x="130" y="180" text-anchor="middle" class="stat-value" fill="#F59E0B">3</text>
+    <text x="130" y="210" text-anchor="middle" class="stat-label">Compras este mes</text>
+    <text x="130" y="230" text-anchor="middle" class="stat-delta" fill="#6B7280">$450 gastados</text>
   </g>
 
   <g transform="translate(900, 160)">
     <rect width="260" height="150" rx="16" fill="white" filter="url(#sh)"/>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Nueva, Arial, sans-serif" x="130" y="190" text-anchor="middle" font-size="32" font-weight="700" fill="#A855F7">127</text>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Nueva, Arial, sans-serif" x="130" y="220" text-anchor="middle" font-size="14" fill="#6B7280">Cartas en colección</text>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Nueva, Arial, sans-serif" x="130" y="242" text-anchor="middle" font-size="12" fill="#A855F7">📈 Valor: $12,450</text>
+    <text x="130" y="180" text-anchor="middle" class="stat-value" fill="#A855F7">127</text>
+    <text x="130" y="210" text-anchor="middle" class="stat-label">Cartas en colección</text>
+    <text x="130" y="230" text-anchor="middle" class="stat-delta" fill="#A855F7">📈 Valor: $12,450</text>
   </g>
 
   <!-- Quick Actions -->
   <rect x="60" y="330" width="520" height="220" rx="16" fill="white" filter="url(#sh)"/>
-  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Nueva, Arial, sans-serif" x="100" y="365" font-size="18" font-weight="700" fill="#111827">ACCESOS RÁPIDOS</text>
+  <text x="100" y="365" font-size="18" font-weight="700" fill="#111827">ACCESOS RÁPIDOS</text>
   
   <rect x="100" y="380" width="220" height="90" rx="12" fill="#EFF6FF" stroke="#BFDBFE" stroke-width="1"/>
-  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Nueva, Arial, sans-serif" x="210" y="425" text-anchor="middle" font-size="28">➕</text>
-  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Nueva, Arial, sans-serif" x="210" y="450" text-anchor="middle" font-size="13" font-weight="600" fill="#3B82F6">Publicar Carta</text>
+  <text x="210" y="420" text-anchor="middle" font-size="28">➕</text>
+  <text x="210" y="445" text-anchor="middle" class="btn-primary" fill="#3B82F6">Publicar Carta</text>
 
   <rect x="340" y="380" width="220" height="90" rx="12" fill="#ECFDF5" stroke="#A7F3D0" stroke-width="1"/>
-  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Nueva, Arial, sans-serif" x="450" y="425" text-anchor="middle" font-size="28">🛒</text>
-  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Nueva, Arial, sans-serif" x="450" y="450" text-anchor="middle" font-size="13" font-weight="600" fill="#10B981">Ver Carrito</text>
+  <text x="450" y="420" text-anchor="middle" font-size="28">🛒</text>
+  <text x="450" y="445" text-anchor="middle" class="btn-primary" fill="#10B981">Ver Carrito</text>
 
   <rect x="100" y="485" width="220" height="90" rx="12" fill="#FEF3C7" stroke="#FCD34D" stroke-width="1"/>
-  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Nueva, Arial, sans-serif" x="210" y="530" text-anchor="middle" font-size="28">📦</text>
-  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Nueva, Arial, sans-serif" x="210" y="555" text-anchor="middle" font-size="13" font-weight="600" fill="#F59E0B">Gestionar Ventas</text>
+  <text x="210" y="525" text-anchor="middle" font-size="28">📦</text>
+  <text x="210" y="550" text-anchor="middle" class="btn-primary" fill="#F59E0B">Gestionar Ventas</text>
 
   <rect x="340" y="485" width="220" height="90" rx="12" fill="#F3E8FF" stroke="#D8B4FE" stroke-width="1"/>
-  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Nueva, Arial, sans-serif" x="450" y="530" text-anchor="middle" font-size="28">📊</text>
-  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Nueva, Arial, sans-serif" x="450" y="555" text-anchor="middle" font-size="13" font-weight="600" fill="#A855F7">Analytics</text>
+  <text x="450" y="525" text-anchor="middle" font-size="28">📊</text>
+  <text x="450" y="550" text-anchor="middle" class="btn-primary" fill="#A855F7">Analytics</text>
 
   <!-- Messages & Notifications -->
   <rect x="600" y="330" width="520" height="220" rx="16" fill="white" filter="url(#sh)"/>
-  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Nueva, Arial, sans-serif" x="640" y="365" font-size="18" font-weight="700" fill="#111827">MENSAJES Y NOTIFICACIONES</text>
-  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Nueva, Arial, sans-serif" x="640" y="390" font-size="13" fill="#6B7280">💬 3 mensajes sin leer • 🔔 2 notificaciones nuevas</text>
+  <text x="640" y="365" font-size="18" font-weight="700" fill="#111827">MENSAJES Y NOTIFICACIONES</text>
+  <text x="640" y="390" class="subtitle">💬 3 mensajes sin leer • 🔔 2 notificaciones nuevas</text>
   <rect x="640" y="410" width="440" height="44" rx="8" fill="#EFF6FF"/>
-  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Nueva, Arial, sans-serif" x="860" y="438" text-anchor="middle" fill="#3B82F6" font-size="13" font-weight="600">Ver Mensajes (3)</text>
+  <text x="860" y="438" text-anchor="middle" class="btn-primary" fill="#3B82F6">Ver Mensajes (3)</text>
   <rect x="640" y="470" width="440" height="44" rx="8" fill="#FEF3C7"/>
-  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Nueva, Arial, sans-serif" x="860" y="498" text-anchor="middle" fill="#F59E0B" font-size="13" font-weight="600">Ver Notificaciones (2)</text>
+  <text x="860" y="498" text-anchor="middle" class="btn-primary" fill="#F59E0B">Ver Notificaciones (2)</text>
 
   <!-- Recent Activity -->
   <rect x="60" y="570" width="1080" height="350" rx="16" fill="white" filter="url(#sh)"/>
-  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Nueva, Arial, sans-serif" x="100" y="605" font-size="18" font-weight="700" fill="#111827">ACTIVIDAD RECIENTE</text>
+  <text x="100" y="605" font-size="18" font-weight="700" fill="#111827">ACTIVIDAD RECIENTE</text>
 
   <g transform="translate(100, 625)">
     <circle cx="15" cy="15" r="15" fill="#3B82F6"/>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Nueva, Arial, sans-serif" x="15" y="19" text-anchor="middle" fill="white" font-size="10">💰</text>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Nueva, Arial, sans-serif" x="50" y="22" font-size="14" fill="#111827">Vendiste "Charizard ex" por $45.00</text>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Nueva, Arial, sans-serif" x="50" y="44" font-size="12" fill="#6B7280">Hace 2 horas • Comprador: Juan P.</text>
+    <text x="15" y="19" text-anchor="middle" fill="white" font-size="10">💰</text>
+    <text x="50" y="22" font-size="14" fill="#111827">Vendiste "Charizard ex" por $45.00</text>
+    <text x="50" y="44" font-size="12" fill="#6B7280">Hace 2 horas • Comprador: Juan P.</text>
   </g>
 
   <g transform="translate(100, 685)">
     <circle cx="15" cy="15" r="15" fill="#10B981"/>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Nueva, Arial, sans-serif" x="15" y="19" text-anchor="middle" fill="white" font-size="10">💬</text>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Nueva, Arial, sans-serif" x="50" y="22" font-size="14" fill="#111827">Nuevo mensaje de PikachuFan99</text>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Nueva, Arial, sans-serif" x="50" y="44" font-size="12" fill="#6B7280">Hace 4 horas • Sobre: Pikachu VMAX</text>
+    <text x="15" y="19" text-anchor="middle" fill="white" font-size="10">💬</text>
+    <text x="50" y="22" font-size="14" fill="#111827">Nuevo mensaje de PikachuFan99</text>
+    <text x="50" y="44" font-size="12" fill="#6B7280">Hace 4 horas • Sobre: Pikachu VMAX</text>
   </g>
 
   <g transform="translate(100, 745)">
     <circle cx="15" cy="15" r="15" fill="#F59E0B"/>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Nueva, Arial, sans-serif" x="15" y="19" text-anchor="middle" fill="white" font-size="10">⚡</text>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Nueva, Arial, sans-serif" x="50" y="22" font-size="14" fill="#111827">Alerta de precio: Charizard bajó a $42</text>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Nueva, Arial, sans-serif" x="50" y="44" font-size="12" fill="#6B7280">Hace 6 horas • Tu alerta: $45</text>
+    <text x="15" y="19" text-anchor="middle" fill="white" font-size="10">⚡</text>
+    <text x="50" y="22" font-size="14" fill="#111827">Alerta de precio: Charizard bajó a $42</text>
+    <text x="50" y="44" font-size="12" fill="#6B7280">Hace 6 horas • Tu alerta: $45</text>
   </g>
 
   <g transform="translate(100, 805)">
     <circle cx="15" cy="15" r="15" fill="#A855F7"/>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Nueva, Arial, sans-serif" x="15" y="19" text-anchor="middle" fill="white" font-size="10">📦</text>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Nueva, Arial, sans-serif" x="50" y="22" font-size="14" fill="#111827">Tu pedido CT-2025-015201 está en camino</text>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Nueva, Arial, sans-serif" x="50" y="44" font-size="12" fill="#6B7280">Hace 8 horas • Estafeta: MX123456789</text>
+    <text x="15" y="19" text-anchor="middle" fill="white" font-size="10">📦</text>
+    <text x="50" y="22" font-size="14" fill="#111827">Tu pedido CT-2025-015201 está en camino</text>
+    <text x="50" y="44" font-size="12" fill="#6B7280">Hace 8 horas • Estafeta: MX123456789</text>
   </g>
 
   <g transform="translate(500, 625)">
     <circle cx="15" cy="15" r="15" fill="#3B82F6"/>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Nueva, Arial, sans-serif" x="15" y="19" text-anchor="middle" fill="white" font-size="10">💰</text>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Nueva, Arial, sans-serif" x="50" y="22" font-size="14" fill="#111827">Vendiste "Mewtwo VSTAR" por $52.00</text>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Nueva, Arial, sans-serif" x="50" y="44" font-size="12" fill="#6B7280">Hace 1 día • Comprador: Ana L.</text>
+    <text x="15" y="19" text-anchor="middle" fill="white" font-size="10">💰</text>
+    <text x="50" y="22" font-size="14" fill="#111827">Vendiste "Mewtwo VSTAR" por $52.00</text>
+    <text x="50" y="44" font-size="12" fill="#6B7280">Hace 1 día • Comprador: Ana L.</text>
   </g>
 
   <g transform="translate(500, 685)">
     <circle cx="15" cy="15" r="15" fill="#10B981"/>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Nueva, Arial, sans-serif" x="15" y="19" text-anchor="middle" fill="white" font-size="10">⭐</text>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Nueva, Arial, sans-serif" x="50" y="22" font-size="14" fill="#111827">Nueva reseña 5★ de CollectorPro</text>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Nueva, Arial, sans-serif" x="50" y="44" font-size="12" fill="#6B7280">Hace 2 días • "Excelente vendedor"</text>
+    <text x="15" y="19" text-anchor="middle" fill="white" font-size="10">⭐</text>
+    <text x="50" y="22" font-size="14" fill="#111827">Nueva reseña 5★ de CollectorPro</text>
+    <text x="50" y="44" font-size="12" fill="#6B7280">Hace 2 días • "Excelente vendedor"</text>
   </g>
 
   <g transform="translate(500, 745)">
     <circle cx="15" cy="15" r="15" fill="#F59E0B"/>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Nueva, Arial, sans-serif" x="15" y="19" text-anchor="middle" fill="white" font-size="10">📦</text>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Nueva, Arial, sans-serif" x="50" y="22" font-size="14" fill="#111827">Envío entregado: Pedido CT-2025-015189</text>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Nueva, Arial, sans-serif" x="50" y="44" font-size="12" fill="#6B7280">Hace 3 días • DHL Express</text>
+    <text x="15" y="19" text-anchor="middle" fill="white" font-size="10">📦</text>
+    <text x="50" y="22" font-size="14" fill="#111827">Envío entregado: Pedido CT-2025-015189</text>
+    <text x="50" y="44" font-size="12" fill="#6B7280">Hace 3 días • DHL Express</text>
   </g>
 
   <g transform="translate(500, 805)">
     <circle cx="15" cy="15" r="15" fill="#A855F7"/>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Nueva, Arial, sans-serif" x="15" y="19" text-anchor="middle" fill="white" font-size="10">🎯</text>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Nueva, Arial, sans-serif" x="50" y="22" font-size="14" fill="#111827">Completaste set: Base Set 1st Ed.</text>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Nueva, Arial, sans-serif" x="50" y="44" font-size="12" fill="#6B7280">Hace 5 días • Logro desbloqueado</text>
+    <text x="15" y="19" text-anchor="middle" fill="white" font-size="10">🎯</text>
+    <text x="50" y="22" font-size="14" fill="#111827">Completaste set: Base Set 1st Ed.</text>
+    <text x="50" y="44" font-size="12" fill="#6B7280">Hace 5 días • Logro desbloqueado</text>
   </g>
 </svg>
