@@ -1,159 +1,59 @@
 # [US-06] Cerrar Sesión
 
-**Epic:** Gestión de Usuarios
-**Prioridad:** Alta
-**Estimación:** 2 puntos
+## Modelo INVEST
+- **Independiente**: No depende de otras historias
+- **Negociable**: No hay elementos negociables
+- **Valioso**: Protege la cuenta cuando el usuario comparte dispositivo
+- **Estimable**: 2 puntos de esfuerzo
+- **Pequeño**: Implementación muy simple
+- **Testable**: Verificar que la sesión se cierre correctamente
 
 ---
 
-## Descripción
+## Historia de Usuario
 
-**Como** usuario autenticado,
+**Como** usuario registrado,
 **quiero** cerrar mi sesión de forma segura,
-**para** proteger mi cuenta cuando uso un dispositivo compartido o público.
+**para** proteger mi cuenta cuando uso un dispositivo compartido.
 
 ---
 
 ## Criterios de Aceptación
 
-1. Se muestra un botón o link "Cerrar sesión" en el menú de navegación o header.
-2. Al hacer clic, se muestra un diálogo de confirmación: "¿Estás seguro de que deseas cerrar sesión?".
-3. El usuario puede confirmar o cancelar la acción.
-4. Al confirmar, se invalida el token JWT actual en el servidor.
-5. Se eliminan todos los datos de sesión del navegador (localStorage, cookies).
-6. El usuario es redirigido a la página principal (Home) o al login.
-7. Se muestra un breve mensaje de confirmación: "Has cerrado sesión correctamente".
-8. La acción es rápida y no causa bloqueos en la interfaz.
-9. En caso de error al cerrar sesión, se muestra un mensaje y se fuerza la limpieza local.
-10. El proceso funciona correctamente en dispositivos móviles y de escritorio.
+1. Debe haber un botón "Cerrar Sesión" accesible en el menú
+2. Al hacer clic, se elimina la sesión y se redirige al home
+3. Se debe limpiar el token de autenticación del navegador
+4. Si el usuario tenía "Recordarme", se elimina esa preferencia
+5. Se muestra un mensaje de confirmación: "Sesión cerrada exitosamente"
 
 ---
 
 ## Wireframe
 
-### Menú con opción de cerrar sesión
+### Menú con Opción de Cerrar Sesión
 
 ```
-┌─────────────────────────────────────────────────────────────────┐
-│  🃏 CardTrade Market    Inicio  Mi Perfil  Mis Cartas  👤 Juan │
-├─────────────────────────────────────────────────────────────────┤
-│                                                                 │
-│  ┌───────────────────────────────────────────────────────────┐  │
-│  │                                                          │  │
-│  │                              ┌─────────────────────┐     │  │
-│  │                              │ Mi Perfil           │     │  │
-│  │                              │ Mis Cartas          │     │  │
-│  │                              │ Configuración       │     │  │
-│  │  ────────────────────────────│─────────────────────│───  │  │
-│  │                              │ 🔓 Cerrar Sesión    │ ←── │  │
-│  │                              └─────────────────────┘     │  │
-│  │                                                          │  │
-│  └───────────────────────────────────────────────────────────┘  │
-│                                                                 │
-└─────────────────────────────────────────────────────────────────┘
-```
-
-### Diálogo de confirmación
-
-```
-┌─────────────────────────────────────────────────────────────────┐
-│  🃏 CardTrade Market    Inicio  Mi Perfil  Mis Cartas  👤 Juan │
-├─────────────────────────────────────────────────────────────────┤
-│                                                                 │
-│  ┌───────────────────────────────────────────────────────────┐  │
-│  │                                                          │  │
-│  │         ┌─────────────────────────────────────┐          │  │
-│  │         │       🔒 Cerrar Sesión              │          │  │
-│  │         │                                     │          │  │
-│  │         │  ¿Estás seguro de que deseas        │          │  │
-│  │         │  cerrar sesión?                      │          │  │
-│  │         │                                     │          │  │
-│  │         │  Si cierras sesión, tendrás que     │          │  │
-│  │         │  volver a iniciar sesión para       │          │  │
-│  │         │  acceder a tu cuenta.               │          │  │
-│  │         │                                     │          │  │
-│  │         │  ┌──────────┐  ┌────────────────┐  │          │  │
-│  │         │  │ Cancelar │  │ Cerrar Sesión  │  │          │  │
-│  │         │  └──────────┘  └────────────────┘  │          │  │
-│  │         └─────────────────────────────────────┘          │  │
-│  │                                                          │  │
-│  └───────────────────────────────────────────────────────────┘  │
-│                                                                 │
-└─────────────────────────────────────────────────────────────────┘
-```
-
-### Mobile
-
-```
-┌─────────────────────────┐
-│  🃏 CardTrade    👤  ≡  │
-├─────────────────────────┤
-│                         │
-│  ┌───────────────────┐  │
-│  │ Mi Perfil         │  │
-│  │ Mis Cartas        │  │
-│  │ Configuración     │  │
-│  │───────────────────│  │
-│  │ 🔓 Cerrar Sesión  │  │
-│  └───────────────────┘  │
-│                         │
-└─────────────────────────┘
-```
-
-### Diálogo de confirmación Mobile
-
-```
-┌─────────────────────────┐
-│                         │
-│   🔒 Cerrar Sesión      │
-│                         │
-│   ¿Estás seguro de      │
-│   que deseas cerrar     │
-│   sesión?               │
-│                         │
-│   Tendrás que volver a  │
-│   iniciar sesión.       │
-│                         │
-│  ┌─────────┐ ┌────────┐ │
-│  │ Cancelar│ │ Cerrar │ │
-│  └─────────┘ └────────┘ │
-│                         │
-└─────────────────────────┘
-```
-
-### Mensaje de confirmación tras cerrar
-
-```
-┌─────────────────────────────────────────────────────────────────┐
-│  🃏 CardTrade Market          Iniciar Sesión    Registrarse    │
-├─────────────────────────────────────────────────────────────────┤
-│                                                                 │
-│                    ┌───────────────────────┐                    │
-│                    │  ✅ Sesión Cerrada    │                    │
-│                    │                       │                    │
-│                    │  Has cerrado sesión   │                    │
-│                    │  correctamente.       │                    │
-│                    │                       │                    │
-│                    │  ┌─────────────────┐  │                    │
-│                    │  │   Iniciar Sesión│  │                    │
-│                    │  └─────────────────┘  │                    │
-│                    │                       │                    │
-│                    │  ┌─────────────────┐  │                    │
-│                    │  │  Volver al Inicio│ │                    │
-│                    │  └─────────────────┘  │                    │
-│                    └───────────────────────┘                    │
-│                                                                 │
-└─────────────────────────────────────────────────────────────────┘
++----------------------------------------------------------+
+|  [Logo]  CardTrade Market    [🔍 Buscar...]  [🛒] [👤]   |
++----------------------------------------------------------+
+                                                  [▼]
+                                            +----------------+
+                                            | Mi Perfil      |
+                                            | Mis Compras    |
+                                            | Mis Ventas     |
+                                            | Favoritos      |
+                                            | ─────────────  |
+                                            | Cerrar Sesión  |
+                                            +----------------+
 ```
 
 ---
 
 ## Notas Técnicas
 
-- **Ruta:** N/A (acción global desde el header)
-- **Componentes:** LogoutButton, ConfirmDialog, UserMenu
-- **Endpoints:** POST /api/auth/logout
-- **Tokens:** Invalidar token JWT en el servidor (blacklist o revocación)
-- **Almacenamiento:** Limpiar localStorage, sessionStorage y cookies HttpOnly
-- **Estado:** Resetear estado global de autenticación (Context/Zustand)
-- **UX:** Usar modal del sistema o componente personalizado para confirmación
+- **Ruta**: Se ejecuta desde cualquier página
+- **Componentes**: `UserMenu`, `LogoutButton`
+- **Endpoints**:
+  - `POST /api/auth/logout` - Cerrar sesión
+- **Seguridad**: Invalidar token JWT en servidor
+- **Cookies**: Eliminar cookies de sesión

@@ -400,49 +400,77 @@ Las historias de usuario están documentadas como Issues en el repositorio de Gi
 - Wireframes ASCII art (Desktop, Mobile, Estados vacíos/error)
 - Notas técnicas (Rutas, Componentes, Endpoints)
 - Prioridad y Epic asociado
+- **Modelo INVEST**: Independiente, Negociable, Valioso, Estimable, Pequeño, Testable
 
 Ver Issues del repositorio: https://github.com/sthebanHV/CardTrade-Market/issues
 
-### Lista de 32 Historias de Usuario
+### Lista de 45 Historias de Usuario
 
-| ID | Título | Epic | Prioridad |
-|----|--------|------|-----------|
-| US-01 | Registro de Usuario Nuevo | Gestión de Usuarios | Alta |
-| US-02 | Inicio de Sesión | Gestión de Usuarios | Alta |
-| US-03 | Perfil de Usuario | Gestión de Usuarios | Media |
-| US-04 | Recuperación de Contraseña | Gestión de Usuarios | Alta |
-| US-05 | Cambio de Contraseña | Gestión de Usuarios | Media |
-| US-06 | Cerrar Sesión | Gestión de Usuarios | Alta |
-| US-07 | Página Principal (Home) | Catálogo de Cartas | Alta |
-| US-08 | Búsqueda de Cartas | Catálogo de Cartas | Alta |
-| US-09 | Filtros Avanzados | Catálogo de Cartas | Media |
-| US-10 | Detalle de Carta | Catálogo de Cartas | Alta |
-| US-11 | Comparar Cartas | Catálogo de Cartas | Baja |
-| US-12 | Publicar Carta en Venta | Publicación y Venta | Alta |
-| US-13 | Gestionar Mis Publicaciones | Publicación y Venta | Media |
-| US-14 | Perfil de Vendedor | Publicación y Venta | Media |
-| US-15 | Reportar Publicación | Publicación y Venta | Baja |
-| US-16 | Carrito de Compras | Proceso de Compra | Alta |
-| US-17 | Checkout y Pago | Proceso de Compra | Alta |
-| US-18 | Confirmación de Compra | Proceso de Compra | Alta |
-| US-19 | Gestionar Direcciones | Proceso de Compra | Media |
-| US-20 | Agregar Carta a Colección | Colección Personal | Media |
-| US-21 | Ver y Gestionar Mi Colección | Colección Personal | Media |
-| US-22 | Valor de Colección | Colección Personal | Baja |
-| US-23 | Exportar Colección | Colección Personal | Baja |
-| US-24 | Historial de Compras | Historial y Seguimiento | Media |
-| US-25 | Historial de Ventas | Historial y Seguimiento | Media |
-| US-26 | Seguir Vendedor | Historial y Seguimiento | Baja |
-| US-27 | Alertas de Precio | Historial y Seguimiento | Baja |
-| US-28 | Reseñas y Calificaciones | Interacción Social | Media |
-| US-29 | Chat entre Usuarios | Interacción Social | Baja |
-| US-30 | Sistema de Favoritos | Interacción Social | Media |
-| US-31 | Dashboard del Usuario | Panel de Control y Extras | Media |
-| US-32 | Sistema de Notificaciones | Panel de Control y Extras | Media |
+| ID | Título | Epic | Prioridad | Puntos |
+|----|--------|------|-----------|--------|
+| **US-01** | Registro de Usuario Nuevo | Gestión de Usuarios | Alta | 5 |
+| **US-02** | Registro con Redes Sociales | Gestión de Usuarios | Media | 4 |
+| **US-03** | Inicio de Sesión | Gestión de Usuarios | Alta | 4 |
+| **US-04** | Recuperación de Contraseña | Gestión de Usuarios | Alta | 4 |
+| **US-05** | Cambio de Contraseña | Gestión de Usuarios | Media | 3 |
+| **US-06** | Cerrar Sesión | Gestión de Usuarios | Alta | 2 |
+| **US-07** | Gestión de Perfil | Gestión de Usuarios | Media | 6 |
+| **US-08** | Autenticación de Dos Factores | Gestión de Usuarios | Baja | 5 |
+| **US-09** | Verificación de Email | Gestión de Usuarios | Alta | 3 |
+| **US-10** | Página Principal (Home) | Catálogo de Cartas | Alta | 6 |
+| **US-11** | Búsqueda de Cartas | Catálogo de Cartas | Alta | 5 |
+| **US-12** | Filtros Avanzados de Búsqueda | Catálogo de Cartas | Media | 5 |
+| **US-13** | Detalle de Carta | Catálogo de Cartas | Alta | 8 |
+| **US-14** | Comparar Cartas | Catálogo de Cartas | Baja | 5 |
+| **US-15** | Catálogo por Juego | Catálogo de Cartas | Media | 4 |
+| **US-16** | Cartas en Oferta | Catálogo de Cartas | Media | 3 |
+| **US-17** | Publicar Carta en Venta | Publicación y Venta | Alta | 8 |
+| **US-18** | Gestionar Mis Publicaciones | Publicación y Venta | Media | 6 |
+| **US-19** | Perfil de Vendedor | Publicación y Venta | Media | 5 |
+| **US-20** | Reportar Publicación | Publicación y Venta | Baja | 3 |
+| **US-21** | Editar Precio | Publicación y Venta | Media | 2 |
+| **US-22** | Marcar como Vendido | Publicación y Venta | Alta | 2 |
+| **US-23** | Carrito de Compras | Proceso de Compra | Alta | 8 |
+| **US-24** | Checkout y Proceso de Pago | Proceso de Compra | Alta | 13 |
+| **US-25** | Confirmación de Compra | Proceso de Compra | Alta | 5 |
+| **US-26** | Gestionar Direcciones | Proceso de Compra | Media | 8 |
+| **US-27** | Métodos de Pago | Proceso de Compra | Media | 5 |
+| **US-28** | Compra como Invitado | Proceso de Compra | Baja | 5 |
+| **US-29** | Agregar Carta a Colección | Colección Personal | Media | 5 |
+| **US-30** | Gestionar Mi Colección | Colección Personal | Media | 8 |
+| **US-31** | Valor y Estadísticas de Colección | Colección Personal | Baja | 5 |
+| **US-32** | Exportar Colección | Colección Personal | Baja | 3 |
+| **US-33** | Colecciones Temáticas | Colección Personal | Baja | 4 |
+| **US-34** | Historial de Compras | Historial y Seguimiento | Media | 5 |
+| **US-35** | Historial de Ventas | Historial y Seguimiento | Media | 5 |
+| **US-36** | Seguir Vendedor | Historial y Seguimiento | Baja | 3 |
+| **US-37** | Alertas de Precio | Historial y Seguimiento | Baja | 4 |
+| **US-38** | Rastrear Envío | Historial y Seguimiento | Media | 3 |
+| **US-39** | Reseñas y Calificaciones | Interacción Social | Media | 5 |
+| **US-40** | Chat entre Usuarios | Interacción Social | Baja | 8 |
+| **US-41** | Sistema de Favoritos | Interacción Social | Media | 3 |
+| **US-42** | Lista de Deseos | Interacción Social | Baja | 4 |
+| **US-43** | Compartir en Redes Sociales | Interacción Social | Baja | 3 |
+| **US-44** | Dashboard de Usuario | Panel de Control y Extras | Media | 6 |
+| **US-45** | Centro de Notificaciones | Panel de Control y Extras | Media | 5 |
+
+### Resumen por Épica
+
+| Épica | Historias | Puntos Totales |
+|-------|-----------|----------------|
+| Gestión de Usuarios | US-01 a US-09 | 36 |
+| Catálogo de Cartas | US-10 a US-16 | 36 |
+| Publicación y Venta | US-17 a US-22 | 26 |
+| Proceso de Compra | US-23 a US-28 | 42 |
+| Colección Personal | US-29 a US-33 | 25 |
+| Historial y Seguimiento | US-34 a US-38 | 20 |
+| Interacción Social | US-39 a US-43 | 23 |
+| Panel de Control y Extras | US-44 a US-45 | 11 |
+| **TOTAL** | **45 historias** | **219 puntos** |
 
 ---
 
-## 6. Criterios de Aceptance Generales
+## 6. Criterios de Aceptación Generales
 
 - [ ] Todas las funcionalidades funcionan en mobile y desktop
 - [ ] Formularios con validación client-side y server-side
@@ -455,7 +483,7 @@ Ver Issues del repositorio: https://github.com/sthebanHV/CardTrade-Market/issues
 
 ---
 
-## 7. Glossario
+## 7. Glosario
 
 | Término | Definición |
 |---------|------------|
@@ -466,3 +494,4 @@ Ver Issues del repositorio: https://github.com/sthebanHV/CardTrade-Market/issues
 | **Colección** | Conjunto de cartas que posee un usuario |
 | **Publicación** | Anuncio de venta de una carta |
 | **Orden** | Transacción de compra-venta completada |
+| **INVEST** | Modelo de historias: Independiente, Negociable, Valioso, Estimable, Pequeño, Testable |
