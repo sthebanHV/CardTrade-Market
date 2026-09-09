@@ -1,0 +1,56 @@
+<svg viewBox="0 0 1200 900" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>text { font-family: 'Inter', sans-serif; }</style>
+    <linearGradient id="hg" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#1E40AF"/><stop offset="100%" style="stop-color:#3B82F6"/>
+    </linearGradient>
+    <filter id="sh"><feDropShadow dx="0" dy="2" stdDeviation="6" flood-opacity="0.08"/></filter>
+  </defs>
+  <rect width="1200" height="900" fill="#F3F4F6"/>
+  <rect width="1200" height="64" fill="url(#hg)"/>
+  <text x="40" y="40" fill="white" font-size="20" font-weight="700">🃏 CardTrade Market</text>
+
+  <text x="60" y="110" font-size="24" font-weight="700" fill="#111827">AGREGAR A MI COLECCIÓN</text>
+  <text x="60" y="135" font-size="14" fill="#6B7280">Charizard ex 199/165 • Obsidian Flames</text>
+
+  <!-- Card Preview -->
+  <rect x="60" y="155" width="400" height="400" rx="16" fill="#FEF3C7"/>
+  <text x="260" y="330" text-anchor="middle" font-size="120">🃏</text>
+
+  <!-- Form -->
+  <rect x="490" y="155" width="650" height="520" rx="16" fill="white" filter="url(#sh)"/>
+
+  <text x="530" y="200" font-size="18" font-weight="700" fill="#111827">DETALLES DE TU EJEMPLAR</text>
+
+  <text x="530" y="240" font-size="13" font-weight="500" fill="#374151">Colección *</text>
+  <rect x="530" y="250" width="570" height="44" rx="8" fill="white" stroke="#D1D5DB" stroke-width="1.5"/>
+  <text x="550" y="278" fill="#111827" font-size="14">Mi Colección Principal ▼</text>
+
+  <text x="530" y="310" font-size="13" font-weight="500" fill="#374151">Estado *</text>
+  <rect x="530" y="320" width="265" height="44" rx="8" fill="white" stroke="#D1D5DB" stroke-width="1.5"/>
+  <text x="550" y="348" fill="#111827" font-size="14">Nuevo (Sellado) ▼</text>
+  <text x="825" y="310" font-size="13" font-weight="500" fill="#374151">Idioma</text>
+  <rect x="825" y="320" width="275" height="44" rx="8" fill="white" stroke="#D1D5DB" stroke-width="1.5"/>
+  <text x="845" y="348" fill="#111827" font-size="14">Español ▼</text>
+
+  <text x="530" y="380" font-size="13" font-weight="500" fill="#374151">¿Está gradada? *</text>
+  <rect x="530" y="390" width="265" height="44" rx="8" fill="white" stroke="#D1D5DB" stroke-width="1.5"/>
+  <text x="550" y="418" fill="#111827" font-size="14">No ▼</text>
+  <text x="825" y="380" font-size="13" font-weight="500" fill="#374151">Empresa / Grado</text>
+  <rect x="825" y="390" width="275" height="44" rx="8" fill="#F3F4F6" stroke="#D1D5DB" stroke-width="1.5"/>
+  <text x="845" y="418" fill="#9CA3AF" font-size="14">PSA 10 / BGS 9.5 / CGC 9.5</text>
+
+  <text x="530" y="450" font-size="13" font-weight="500" fill="#374151">Precio de compra</text>
+  <rect x="530" y="460" width="265" height="44" rx="8" fill="white" stroke="#D1D5DB" stroke-width="1.5"/>
+  <text x="550" y="488" fill="#9CA3AF" font-size="14">$45.00 MXN</text>
+  <text x="825" y="450" font-size="13" font-weight="500" fill="#374151">Fecha de compra</text>
+  <rect x="825" y="460" width="275" height="44" rx="8" fill="white" stroke="#D1D5DB" stroke-width="1.5"/>
+  <text x="845" y="488" fill="#9CA3AF" font-size="14">15/01/2025 ▼</text>
+
+  <text x="530" y="520" font-size="13" font-weight="500" fill="#374151">Notas privadas</text>
+  <rect x="530" y="530" width="570" height="80" rx="8" fill="white" stroke="#D1D5DB" stroke-width="1.5"/>
+  <text x="550" y="560" fill="#9CA3AF" font-size="14">Comprada en preventa. Sellado original intacto.</text>
+
+  <rect x="530" y="620" width="570" height="44" rx="8" fill="#3B82F6"/>
+  <text x="815" y="650" text-anchor="middle" fill="white" font-size="14" font-weight="600">AGREGAR A COLECCIÓN</text>
+</svg>

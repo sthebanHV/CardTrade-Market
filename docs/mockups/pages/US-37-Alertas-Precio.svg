@@ -1,0 +1,114 @@
+<svg viewBox="0 0 1200 900" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>text { font-family: 'Inter', sans-serif; }</style>
+    <linearGradient id="hg" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#1E40AF"/><stop offset="100%" style="stop-color:#3B82F6"/>
+    </linearGradient>
+    <filter id="sh"><feDropShadow dx="0" dy="2" stdDeviation="6" flood-opacity="0.08"/></filter>
+  </defs>
+  <rect width="1200" height="900" fill="#F3F4F6"/>
+  <rect width="1200" height="64" fill="url(#hg)"/>
+  <text x="40" y="40" fill="white" font-size="20" font-weight="700">🃏 CardTrade Market</text>
+
+  <text x="60" y="110" font-size="24" font-weight="700" fill="#111827">ALERTAS DE PRECIO</text>
+  <text x="60" y="135" font-size="14" fill="#6B7280">7 alertas activas • 3 disparadas esta semana</text>
+
+  <!-- Create Alert Button -->
+  <rect x="900" y="70" width="200" height="44" rx="8" fill="#3B82F6"/>
+  <text x="1000" y="98" text-anchor="middle" fill="white" font-size="14" font-weight="600">+ Nueva Alerta</text>
+
+  <!-- Active Alerts -->
+  <g transform="translate(60, 160)">
+    <rect width="1080" height="130" rx="12" fill="white" filter="url(#sh)" stroke="#10B981" stroke-width="2"/>
+    <rect x="20" y="15" width="100" height="100" rx="8" fill="#FEF3C7"/>
+    <text x="70" y="75" text-anchor="middle" font-size="32">🃏</text>
+    <text x="140" y="35" font-size="16" font-weight="600" fill="#111827">Charizard ex 199/165</text>
+    <text x="140" y="55" font-size="12" fill="#6B7280">Pokémon • Obsidian Flames</text>
+    <text x="140" y="75" font-size="12" fill="#6B7280">Precio actual: <tspan font-weight="600" fill="#3B82F6">$45.00</tspan></text>
+    <text x="140" y="95" font-size="12" fill="#10B981">🎯 ALERTA: $50.00 → DISPARADA</text>
+    <rect x="800" y="15" width="120" height="36" rx="6" fill="#ECFDF5"/>
+    <text x="860" y="38" text-anchor="middle" fill="#10B981" font-size="12" font-weight="600">✓ Disparada</text>
+    <rect x="800" y="55" width="120" height="36" rx="6" fill="white" stroke="#D1D5DB" stroke-width="1.5"/>
+    <text x="860" y="78" text-anchor="middle" fill="#6B7280" font-size="12">Editar</text>
+    <rect x="940" y="55" width="120" height="36" rx="6" fill="#FEF2F2" stroke="#FECACA" stroke-width="1"/>
+    <text x="1000" y="78" text-anchor="middle" fill="#EF4444" font-size="12">Eliminar</text>
+  </g>
+
+  <g transform="translate(60, 310)">
+    <rect width="1080" height="130" rx="12" fill="white" filter="url(#sh)"/>
+    <rect x="20" y="15" width="100" height="100" rx="8" fill="#DBEAFE"/>
+    <text x="70" y="75" text-anchor="middle" font-size="32">🃏</text>
+    <text x="140" y="35" font-size="16" font-weight="600" fill="#111827">Pikachu VMAX 188/185</text>
+    <text x="140" y="55" font-size="12" fill="#6B7280">Pokémon • Vivid Voltage</text>
+    <text x="140" y="75" font-size="12" fill="#6B7280">Precio actual: <tspan font-weight="600" fill="#3B82F6">$28.00</tspan></text>
+    <text x="140" y="95" font-size="12" fill="#F59E0B">🎯 Alerta en: $25.00 (falta $3)</text>
+    <rect x="800" y="15" width="120" height="36" rx="6" fill="#EFF6FF"/>
+    <text x="860" y="38" text-anchor="middle" fill="#3B82F6" font-size="12" font-weight="600">Activa</text>
+    <rect x="800" y="55" width="120" height="36" rx="6" fill="white" stroke="#D1D5DB" stroke-width="1.5"/>
+    <text x="860" y="78" text-anchor="middle" fill="#6B7280" font-size="12">Editar</text>
+    <rect x="940" y="55" width="120" height="36" rx="6" fill="#FEF2F2" stroke="#FECACA" stroke-width="1"/>
+    <text x="1000" y="78" text-anchor="middle" fill="#EF4444" font-size="12">Eliminar</text>
+  </g>
+
+  <g transform="translate(60, 460)">
+    <rect width="1080" height="130" rx="12" fill="white" filter="url(#sh)"/>
+    <rect x="20" y="15" width="100" height="100" rx="8" fill="#FEF3C7"/>
+    <text x="70" y="75" text-anchor="middle" font-size="32">🃏</text>
+    <text x="140" y="35" font-size="16" font-weight="600" fill="#111827">Mewtwo VSTAR 172/172</text>
+    <text x="140" y="55" font-size="12" fill="#6B7280">Pokémon • Brilliant Stars</text>
+    <text x="140" y="75" font-size="12" fill="#6B7280">Precio actual: <tspan font-weight="600" fill="#3B82F6">$52.00</tspan></text>
+    <text x="140" y="95" font-size="12" fill="#F59E0B">🎯 Alerta en: $45.00 (falta $7)</text>
+    <rect x="800" y="15" width="120" height="36" rx="6" fill="#EFF6FF"/>
+    <text x="860" y="38" text-anchor="middle" fill="#3B82F6" font-size="12" font-weight="600">Activa</text>
+    <rect x="800" y="55" width="120" height="36" rx="6" fill="white" stroke="#D1D5DB" stroke-width="1.5"/>
+    <text x="860" y="78" text-anchor="middle" fill="#6B7280" font-size="12">Editar</text>
+    <rect x="940" y="55" width="120" height="36" rx="6" fill="#FEF2F2" stroke="#FECACA" stroke-width="1"/>
+    <text x="1000" y="78" text-anchor="middle" fill="#EF4444" font-size="12">Eliminar</text>
+  </g>
+
+  <g transform="translate(60, 610)">
+    <rect width="1080" height="130" rx="12" fill="white" filter="url(#sh)"/>
+    <rect x="20" y="15" width="100" height="100" rx="8" fill="#F3E8FF"/>
+    <text x="70" y="75" text-anchor="middle" font-size="32">🃏</text>
+    <text x="140" y="35" font-size="16" font-weight="600" fill="#111827">Black Lotus (Beta)</text>
+    <text x="140" y="55" font-size="12" fill="#6B7280">Magic • Beta • Rare</text>
+    <text x="140" y="75" font-size="12" fill="#6B7280">Precio actual: <tspan font-weight="600" fill="#3B82F6">$8,500</tspan></text>
+    <text x="140" y="95" font-size="12" fill="#F59E0B">🎯 Alerta en: $7,500 (falta $1,000)</text>
+    <rect x="800" y="15" width="120" height="36" rx="6" fill="#EFF6FF"/>
+    <text x="860" y="38" text-anchor="middle" fill="#3B82F6" font-size="12" font-weight="600">Activa</text>
+    <rect x="800" y="55" width="120" height="36" rx="6" fill="white" stroke="#D1D5DB" stroke-width="1.5"/>
+    <text x="860" y="78" text-anchor="middle" fill="#6B7280" font-size="12">Editar</text>
+    <rect x="940" y="55" width="120" height="36" rx="6" fill="#FEF2F2" stroke="#FECACA" stroke-width="1"/>
+    <text x="1000" y="78" text-anchor="middle" fill="#EF4444" font-size="12">Eliminar</text>
+  </g>
+
+  <!-- Create Alert Modal -->
+  <rect x="300" y="150" width="600" height="450" rx="16" fill="white" filter="url(#sh)"/>
+  <text x="600" y="190" text-anchor="middle" font-size="22" font-weight="700" fill="#111827">CREAR NUEVA ALERTA</text>
+
+  <text x="340" y="230" font-size="13" font-weight="500" fill="#374151">Buscar Carta *</text>
+  <rect x="340" y="240" width="520" height="44" rx="8" fill="white" stroke="#D1D5DB" stroke-width="1.5"/>
+  <text x="360" y="268" fill="#9CA3AF" font-size="14">Escribe el nombre (ej. Charizard ex)...</text>
+
+  <text x="340" y="305" font-size="13" font-weight="500" fill="#374151">Precio Objetivo (MXN) *</text>
+  <rect x="340" y="315" width="240" height="44" rx="8" fill="white" stroke="#D1D5DB" stroke-width="1.5"/>
+  <text x="360" y="343" fill="#9CA3AF" font-size="14">$45.00</text>
+  <text x="620" y="305" font-size="13" font-weight="500" fill="#374151">Tipo de Alerta</text>
+  <rect x="620" y="315" width="240" height="44" rx="8" fill="white" stroke="#D1D5DB" stroke-width="1.5"/>
+  <text x="740" y="343" text-anchor="middle" fill="#111827" font-size="14">Precio igual o menor ▼</text>
+
+  <text x="340" y="375" font-size="13" font-weight="500" fill="#374151">Notificar por</text>
+  <rect x="360" y="390" width="24" height="24" rx="4" fill="#3B82F6"/>
+  <circle cx="372" cy="402" r="6" fill="white"/>
+  <text x="395" y="408" font-size="13" fill="#374151">Email</text>
+  <rect x="550" y="390" width="24" height="24" rx="4" fill="#3B82F6"/>
+  <circle cx="562" cy="402" r="6" fill="white"/>
+  <text x="585" y="408" font-size="13" fill="#374151">Notificación en App</text>
+  <rect x="750" y="390" width="24" height="24" rx="4" fill="white" stroke="#D1D5DB" stroke-width="1.5"/>
+  <text x="785" y="408" font-size="13" fill="#374151">Push Móvil</text>
+
+  <rect x="340" y="450" width="240" height="44" rx="8" fill="white" stroke="#D1D5DB" stroke-width="1.5"/>
+  <text x="460" y="478" text-anchor="middle" fill="#6B7280" font-size="14">Cancelar</text>
+  <rect x="600" y="450" width="260" height="44" rx="8" fill="#3B82F6"/>
+  <text x="730" y="478" text-anchor="middle" fill="white" font-size="14" font-weight="600">CREAR ALERTA</text>
+</svg>

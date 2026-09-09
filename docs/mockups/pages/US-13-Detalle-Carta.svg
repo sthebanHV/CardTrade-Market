@@ -1,0 +1,80 @@
+<svg viewBox="0 0 1200 900" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>text { font-family: 'Inter', sans-serif; }</style>
+    <linearGradient id="hg" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#1E40AF"/><stop offset="100%" style="stop-color:#3B82F6"/>
+    </linearGradient>
+    <filter id="sh"><feDropShadow dx="0" dy="2" stdDeviation="6" flood-opacity="0.08"/></filter>
+  </defs>
+  <rect width="1200" height="900" fill="#F3F4F6"/>
+  <rect width="1200" height="64" fill="url(#hg)"/>
+  <text x="40" y="40" fill="white" font-size="20" font-weight="700">🃏 CardTrade Market</text>
+
+  <!-- Breadcrumb -->
+  <text x="60" y="100" font-size="12" fill="#6B7280">Inicio / Pokémon / Charizard ex</text>
+
+  <!-- Card Image -->
+  <rect x="60" y="120" width="350" height="500" rx="16" fill="#FEF3C7"/>
+  <text x="235" y="350" text-anchor="middle" font-size="120">🃏</text>
+  <text x="235" y="420" text-anchor="middle" font-size="14" font-weight="600" fill="#92400E">Pokémon TCG</text>
+
+  <!-- Card Info -->
+  <rect x="440" y="120" width="700" height="500" rx="16" fill="white" filter="url(#sh)"/>
+  
+  <text x="480" y="170" font-size="12" font-weight="500" fill="#3B82F6" text-transform="uppercase">POKÉMON TCG</text>
+  <text x="480" y="200" font-size="28" font-weight="700" fill="#111827">Charizard ex 199/165</text>
+  <text x="480" y="225" font-size="14" fill="#6B7280">Obsidian Flames • Ultra Rare</text>
+
+  <!-- Price -->
+  <rect x="480" y="245" width="200" height="60" rx="8" fill="#EFF6FF"/>
+  <text x="500" y="280" font-size="28" font-weight="700" fill="#1E40AF">$45.00</text>
+
+  <!-- Seller Info -->
+  <rect x="720" y="245" width="400" height="60" rx="8" fill="#F3F4F6"/>
+  <circle cx="755" cy="275" r="20" fill="#3B82F6"/>
+  <text x="755" y="280" text-anchor="middle" fill="white" font-size="12" font-weight="600">CM</text>
+  <text x="790" y="268" font-size="14" font-weight="600" fill="#111827">CardMaster MX</text>
+  <text x="790" y="288" font-size="12" fill="#6B7280">⭐ 4.8 (125 reseñas) • 342 ventas</text>
+
+  <!-- Details -->
+  <line x1="480" y1="330" x2="1100" y2="330" stroke="#E5E7EB" stroke-width="1"/>
+  
+  <text x="480" y="365" font-size="13" font-weight="600" fill="#374151">Detalles</text>
+  <text x="480" y="390" font-size="13" fill="#6B7280">Juego:</text>
+  <text x="560" y="390" font-size="13" fill="#111827">Pokémon TCG</text>
+  <text x="480" y="415" font-size="13" fill="#6B7280">Set:</text>
+  <text x="560" y="415" font-size="13" fill="#111827">Obsidian Flames</text>
+  <text x="480" y="440" font-size="13" fill="#6B7280">Número:</text>
+  <text x="560" y="440" font-size="13" fill="#111827">199/165</text>
+  <text x="480" y="465" font-size="13" fill="#6B7280">Rareza:</text>
+  <text x="560" y="465" font-size="13" fill="#111827">Ultra Rare</text>
+  <text x="480" y="490" font-size="13" fill="#6B7280">Estado:</text>
+  <text x="560" y="490" font-size="13" fill="#111827">Nuevo (Sellado)</text>
+  <text x="480" y="515" font-size="13" fill="#6B7280">Envío:</text>
+  <text x="560" y="515" font-size="13" fill="#111827">Gratis (México)</text>
+
+  <!-- Actions -->
+  <rect x="480" y="545" width="300" height="48" rx="8" fill="#3B82F6"/>
+  <text x="630" y="575" text-anchor="middle" fill="white" font-size="15" font-weight="600">🛒 AGREGAR AL CARRITO</text>
+
+  <rect x="800" y="545" width="140" height="48" rx="8" fill="white" stroke="#D1D5DB" stroke-width="1.5"/>
+  <text x="870" y="575" text-anchor="middle" fill="#6B7280" font-size="14">♡ Favorito</text>
+
+  <rect x="960" y="545" width="140" height="48" rx="8" fill="white" stroke="#D1D5DB" stroke-width="1.5"/>
+  <text x="1030" y="575" text-anchor="middle" fill="#6B7280" font-size="14">📤 Compartir</text>
+
+  <!-- Description -->
+  <text x="480" y="640" font-size="13" font-weight="600" fill="#374151">Descripción</text>
+  <text x="480" y="665" font-size="13" fill="#6B7280">Carta en excelente estado, perfecta para coleccionistas. Envío con tracking incluido.</text>
+  <text x="480" y="685" font-size="13" fill="#6B7280">Se vende con protector y sobre grade.</text>
+
+  <!-- Reviews Section -->
+  <rect x="60" y="650" width="1080" height="200" rx="12" fill="white" filter="url(#sh)"/>
+  <text x="80" y="690" font-size="16" font-weight="700" fill="#111827">RESEÑAS DEL VENDEDOR</text>
+  
+  <circle cx="100" cy="730" r="20" fill="#10B981"/>
+  <text x="100" y="735" text-anchor="middle" fill="white" font-size="12" font-weight="600">JD</text>
+  <text x="130" y="725" font-size="13" font-weight="600" fill="#111827">Juan D.</text>
+  <text x="130" y="745" font-size="12" fill="#6B7280">⭐⭐⭐⭐⭐ • Hace 2 días</text>
+  <text x="130" y="765" font-size="13" fill="#374151">Excelente vendedor, cartas en perfecto estado.</text>
+</svg>

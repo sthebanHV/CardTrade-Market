@@ -1,0 +1,100 @@
+<svg viewBox="0 0 1200 900" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>text { font-family: 'Inter', sans-serif; }</style>
+    <linearGradient id="hg" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#1E40AF"/><stop offset="100%" style="stop-color:#3B82F6"/>
+    </linearGradient>
+    <filter id="sh"><feDropShadow dx="0" dy="2" stdDeviation="6" flood-opacity="0.08"/></filter>
+  </defs>
+  <rect width="1200" height="900" fill="#F3F4F6"/>
+  <rect width="1200" height="64" fill="url(#hg)"/>
+  <text x="40" y="40" fill="white" font-size="20" font-weight="700">🃏 CardTrade Market</text>
+
+  <text x="60" y="110" font-size="24" font-weight="700" fill="#111827">COLECCIONES TEMÁTICAS</text>
+  <text x="60" y="135" font-size="14" fill="#6B7280">Organiza tus cartas por temáticas personalizadas</text>
+
+  <!-- Create Button -->
+  <rect x="900" y="70" width="200" height="44" rx="8" fill="#3B82F6"/>
+  <text x="1000" y="98" text-anchor="middle" fill="white" font-size="14" font-weight="600">+ Nueva Colección</text>
+
+  <!-- Thematic Collections -->
+  <g transform="translate(60, 160)">
+    <rect width="240" height="280" rx="16" fill="white" filter="url(#sh)"/>
+    <rect width="240" height="120" rx="16" fill="#DBEAFE"/>
+    <text x="120" y="70" text-anchor="middle" font-size="50">🔥</text>
+    <text x="120" y="140" text-anchor="middle" font-size="14" font-weight="700" fill="#111827">Charizards</text>
+    <text x="120" y="160" text-anchor="middle" font-size="12" fill="#6B7280">12 cartas • $4,250</text>
+    <text x="120" y="180" text-anchor="middle" font-size="12" fill="#10B981">📈 +18% (30d)</text>
+    <text x="12" y="205" font-size="11" fill="#6B7280">Base, Fossil, Evolutions</text>
+    <text x="12" y="220" font-size="11" fill="#6B7280">Obsidian, Brilliant Stars</text>
+    <text x="12" y="235" font-size="11" fill="#6B7280">Crown Zenith, 151</text>
+    <rect x="20" y="250" width="200" height="36" rx="6" fill="#3B82F6"/>
+    <text x="120" y="273" text-anchor="middle" fill="white" font-size="12" font-weight="600">Ver Detalle</text>
+  </g>
+
+  <g transform="translate(320, 160)">
+    <rect width="240" height="280" rx="16" fill="white" filter="url(#sh)"/>
+    <rect width="240" height="120" rx="16" fill="#FEF3C7"/>
+    <text x="120" y="70" text-anchor="middle" font-size="50">⚡</text>
+    <text x="120" y="140" text-anchor="middle" font-size="14" font-weight="700" fill="#111827">Pikachus</text>
+    <text x="120" y="160" text-anchor="middle" font-size="12" fill="#6B7280">18 cartas • $1,850</text>
+    <text x="120" y="180" text-anchor="middle" font-size="12" fill="#10B981">📈 +8% (30d)</text>
+    <text x="12" y="205" font-size="11" fill="#6B7280">VMAX, VSTAR, ex</text>
+    <text x="12" y="220" font-size="11" fill="#6B7280">Promos, Illustrator Rares</text>
+    <rect x="20" y="250" width="200" height="36" rx="6" fill="#3B82F6"/>
+    <text x="120" y="273" text-anchor="middle" fill="white" font-size="12" font-weight="600">Ver Detalle</text>
+  </g>
+
+  <g transform="translate(580, 160)">
+    <rect width="240" height="280" rx="16" fill="white" filter="url(#sh)"/>
+    <rect width="240" height="120" rx="16" fill="#F3E8FF"/>
+    <text x="120" y="70" text-anchor="middle" font-size="50">💎</text>
+    <text x="120" y="140" text-anchor="middle" font-size="14" font-weight="700" fill="#111827">Cartas Graded</text>
+    <text x="120" y="160" text-anchor="middle" font-size="12" fill="#6B7280">15 cartas • $4,800</text>
+    <text x="120" y="180" text-anchor="middle" font-size="12" fill="#10B981">📈 +22% (30d)</text>
+    <text x="12" y="205" font-size="11" fill="#6B7280">PSA 10: 5 • PSA 9: 3</text>
+    <text x="12" y="220" font-size="11" fill="#6B7280">BGS 9.5: 4 • CGC 9.5: 3</text>
+    <rect x="20" y="250" width="200" height="36" rx="6" fill="#3B82F6"/>
+    <text x="120" y="273" text-anchor="middle" fill="white" font-size="12" font-weight="600">Ver Detalle</text>
+  </g>
+
+  <g transform="translate(840, 160)">
+    <rect width="300" height="280" rx="16" fill="white" filter="url(#sh)"/>
+    <rect width="300" height="120" rx="16" fill="#ECFDF5"/>
+    <text x="150" y="70" text-anchor="middle" font-size="50">🎴</text>
+    <text x="150" y="140" text-anchor="middle" font-size="14" font-weight="700" fill="#111827">Magic Power 9</text>
+    <text x="150" y="160" text-anchor="middle" font-size="12" fill="#6B7280">7/9 cartas • $12,400</text>
+    <text x="150" y="180" text-anchor="middle" font-size="12" fill="#F59E0B">📈 +12% (30d)</text>
+    <text x="12" y="205" font-size="11" fill="#6B7280">Black Lotus • Mox Sapphire</text>
+    <text x="12" y="220" font-size="11" fill="#6B7280">Mox Jet • Mox Ruby</text>
+    <text x="12" y="235" font-size="11" fill="#6B7280">Mox Pearl • Mox Emerald</text>
+    <text x="12" y="250" font-size="11" fill="#EF4444">Faltan: Time Walk, Ancestral</text>
+    <rect x="50" y="265" width="200" height="36" rx="6" fill="#3B82F6"/>
+    <text x="150" y="288" text-anchor="middle" fill="white" font-size="12" font-weight="600">Ver Detalle</text>
+  </g>
+
+  <!-- Create New Collection Modal -->
+  <rect x="250" y="200" width="700" height="400" rx="16" fill="white" filter="url(#sh)"/>
+  <text x="600" y="240" text-anchor="middle" font-size="22" font-weight="700" fill="#111827">CREAR COLECCIÓN TEMÁTICA</text>
+
+  <text x="300" y="280" font-size="13" font-weight="500" fill="#374151">Nombre de la Colección *</text>
+  <rect x="300" y="290" width="600" height="44" rx="8" fill="white" stroke="#D1D5DB" stroke-width="1.5"/>
+  <text x="320" y="318" fill="#9CA3AF" font-size="14">Ej: Eeveelutions, Legendarios, Shinies</text>
+
+  <text x="300" y="350" font-size="13" font-weight="500" fill="#374151">Descripción</text>
+  <rect x="300" y="360" width="600" height="80" rx="8" fill="white" stroke="#D1D5DB" stroke-width="1.5"/>
+  <text x="320" y="390" fill="#9CA3AF" font-size="14">Todas las evoluciones de Eevee en todas las rarezas...</text>
+
+  <text x="300" y="455" font-size="13" font-weight="500" fill="#374151">Icono / Emoji</text>
+  <rect x="300" y="465" width="120" height="50" rx="8" fill="#F3F4F6"/>
+  <text x="360" y="500" text-anchor="middle" font-size="28">🦊</text>
+  <text x="450" y="455" font-size="13" font-weight="500" fill="#374151">Color del tema</text>
+  <rect x="450" y="465" width="60" height="50" rx="8" fill="#3B82F6"/>
+  <rect x="530" y="465" width="60" height="50" rx="8" fill="#10B981"/>
+  <rect x="610" y="465" width="60" height="50" rx="8" fill="#F59E0B"/>
+  <rect x="690" y="465" width="60" height="50" rx="8" fill="#A855F7"/>
+  <rect x="770" y="465" width="60" height="50" rx="8" fill="#EF4444"/>
+
+  <rect x="300" y="530" width="600" height="44" rx="8" fill="#3B82F6"/>
+  <text x="600" y="560" text-anchor="middle" fill="white" font-size="14" font-weight="600">CREAR COLECCIÓN</text>
+</svg>

@@ -1,0 +1,137 @@
+<svg viewBox="0 0 1200 900" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>text { font-family: 'Inter', sans-serif; }</style>
+    <linearGradient id="hg" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#1E40AF"/><stop offset="100%" style="stop-color:#3B82F6"/>
+    </linearGradient>
+    <filter id="sh"><feDropShadow dx="0" dy="2" stdDeviation="6" flood-opacity="0.08"/></filter>
+  </defs>
+  <rect width="1200" height="900" fill="#F3F4F6"/>
+  <rect width="1200" height="64" fill="url(#hg)"/>
+  <text x="40" y="40" fill="white" font-size="20" font-weight="700">🃏 CardTrade Market</text>
+  <circle cx="1100" cy="32" r="16" fill="rgba(255,255,255,0.2)"/>
+  <text x="1095" y="37" fill="white" font-size="14">🛒(2)</text>
+  <circle cx="1150" cy="32" r="16" fill="rgba(255,255,255,0.2)"/>
+  <text x="1145" y="37" fill="white" font-size="14">🔔(3)</text>
+
+  <text x="60" y="110" font-size="24" font-weight="700" fill="#111827">DASHBOARD</text>
+  <text x="60" y="135" font-size="14" fill="#6B7280">Bienvenido, CardMaster MX</text>
+
+  <!-- Stats Cards -->
+  <g transform="translate(60, 160)">
+    <rect width="260" height="140" rx="16" fill="white" filter="url(#sh)"/>
+    <text x="130" y="195" text-anchor="middle" font-size="32" font-weight="700" fill="#10B981">$1,240</text>
+    <text x="130" y="215" text-anchor="middle" font-size="14" fill="#6B7280">Ventas este mes</text>
+    <text x="130" y="235" text-anchor="middle" font-size="12" fill="#10B981">📈 +23% vs mes anterior</text>
+  </g>
+
+  <g transform="translate(340, 160)">
+    <rect width="260" height="140" rx="16" fill="white" filter="url(#sh)"/>
+    <text x="130" y="195" text-anchor="middle" font-size="32" font-weight="700" fill="#3B82F6">8</text>
+    <text x="130" y="215" text-anchor="middle" font-size="14" fill="#6B7280">Publicaciones activas</text>
+    <text x="130" y="235" text-anchor="middle" font-size="12" fill="#6B7280">3 borradores pendientes</text>
+  </g>
+
+  <g transform="translate(620, 160)">
+    <rect width="260" height="140" rx="16" fill="white" filter="url(#sh)"/>
+    <text x="130" y="195" text-anchor="middle" font-size="32" font-weight="700" fill="#F59E0B">3</text>
+    <text x="130" y="215" text-anchor="middle" font-size="14" fill="#6B7280">Compras este mes</text>
+    <text x="130" y="235" text-anchor="middle" font-size="12" fill="#6B7280">$450 gastados</text>
+  </g>
+
+  <g transform="translate(900, 160)">
+    <rect width="260" height="140" rx="16" fill="white" filter="url(#sh)"/>
+    <text x="130" y="195" text-anchor="middle" font-size="32" font-weight="700" fill="#A855F7">127</text>
+    <text x="130" y="215" text-anchor="middle" font-size="14" fill="#6B7280">Cartas en colección</text>
+    <text x="130" y="235" text-anchor="middle" font-size="12" fill="#A855F7">📈 Valor: $12,450</text>
+  </g>
+
+  <!-- Quick Actions -->
+  <rect x="60" y="320" width="520" height="200" rx="16" fill="white" filter="url(#sh)"/>
+  <text x="100" y="355" font-size="18" font-weight="700" fill="#111827">ACCESOS RÁPIDOS</text>
+  
+  <rect x="100" y="370" width="220" height="80" rx="12" fill="#EFF6FF" stroke="#BFDBFE" stroke-width="1"/>
+  <text x="210" y="410" text-anchor="middle" font-size="28">➕</text>
+  <text x="210" y="430" text-anchor="middle" font-size="13" font-weight="600" fill="#3B82F6">Publicar Carta</text>
+
+  <rect x="340" y="370" width="220" height="80" rx="12" fill="#ECFDF5" stroke="#A7F3D0" stroke-width="1"/>
+  <text x="450" y="410" text-anchor="middle" font-size="28">🛒</text>
+  <text x="450" y="430" text-anchor="middle" font-size="13" font-weight="600" fill="#10B981">Ver Carrito</text>
+
+  <rect x="100" y="460" width="220" height="80" rx="12" fill="#FEF3C7" stroke="#FCD34D" stroke-width="1"/>
+  <text x="210" y="500" text-anchor="middle" font-size="28">📦</text>
+  <text x="210" y="520" text-anchor="middle" font-size="13" font-weight="600" fill="#F59E0B">Gestionar Ventas</text>
+
+  <rect x="340" y="460" width="220" height="80" rx="12" fill="#F3E8FF" stroke="#D8B4FE" stroke-width="1"/>
+  <text x="450" y="500" text-anchor="middle" font-size="28">📊</text>
+  <text x="450" y="520" text-anchor="middle" font-size="13" font-weight="600" fill="#A855F7">Analytics</text>
+
+  <!-- Messages & Notifications -->
+  <rect x="600" y="320" width="520" height="200" rx="16" fill="white" filter="url(#sh)"/>
+  <text x="640" y="355" font-size="18" font-weight="700" fill="#111827">MENSAJES Y NOTIFICACIONES</text>
+  <text x="640" y="380" font-size="13" fill="#6B7280">💬 3 mensajes sin leer • 🔔 2 notificaciones nuevas</text>
+  <rect x="640" y="400" width="440" height="40" rx="8" fill="#EFF6FF"/>
+  <text x="860" y="425" text-anchor="middle" fill="#3B82F6" font-size="13" font-weight="600">Ver Mensajes (3)</text>
+  <rect x="640" y="450" width="440" height="40" rx="8" fill="#FEF3C7"/>
+  <text x="860" y="475" text-anchor="middle" fill="#F59E0B" font-size="13" font-weight="600">Ver Notificaciones (2)</text>
+
+  <!-- Recent Activity -->
+  <rect x="60" y="540" width="1080" height="320" rx="16" fill="white" filter="url(#sh)"/>
+  <text x="100" y="575" font-size="18" font-weight="700" fill="#111827">ACTIVIDAD RECIENTE</text>
+
+  <g transform="translate(100, 595)">
+    <circle cx="15" cy="15" r="15" fill="#3B82F6"/>
+    <text x="15" y="19" text-anchor="middle" fill="white" font-size="10">💰</text>
+    <text x="50" y="22" font-size="14" fill="#111827">Vendiste "Charizard ex" por $45.00</text>
+    <text x="50" y="40" font-size="12" fill="#6B7280">Hace 2 horas • Comprador: Juan P.</text>
+  </g>
+
+  <g transform="translate(100, 640)">
+    <circle cx="15" cy="15" r="15" fill="#10B981"/>
+    <text x="15" y="19" text-anchor="middle" fill="white" font-size="10">💬</text>
+    <text x="50" y="22" font-size="14" fill="#111827">Nuevo mensaje de PikachuFan99</text>
+    <text x="50" y="40" font-size="12" fill="#6B7280">Hace 4 horas • Sobre: Pikachu VMAX</text>
+  </g>
+
+  <g transform="translate(100, 685)">
+    <circle cx="15" cy="15" r="15" fill="#F59E0B"/>
+    <text x="15" y="19" text-anchor="middle" fill="white" font-size="10">⚡</text>
+    <text x="50" y="22" font-size="14" fill="#111827">Alerta de precio: Charizard bajó a $42</text>
+    <text x="50" y="40" font-size="12" fill="#6B7280">Hace 6 horas • Tu alerta: $45</text>
+  </g>
+
+  <g transform="translate(100, 730)">
+    <circle cx="15" cy="15" r="15" fill="#A855F7"/>
+    <text x="15" y="19" text-anchor="middle" fill="white" font-size="10">📦</text>
+    <text x="50" y="22" font-size="14" fill="#111827">Tu pedido CT-2025-015201 está en camino</text>
+    <text x="50" y="40" font-size="12" fill="#6B7280">Hace 8 horas • Estafeta: MX123456789</text>
+  </g>
+
+  <g transform="translate(500, 595)">
+    <circle cx="15" cy="15" r="15" fill="#3B82F6"/>
+    <text x="15" y="19" text-anchor="middle" fill="white" font-size="10">💰</text>
+    <text x="50" y="22" font-size="14" fill="#111827">Vendiste "Mewtwo VSTAR" por $52.00</text>
+    <text x="50" y="40" font-size="12" fill="#6B7280">Hace 1 día • Comprador: Ana L.</text>
+  </g>
+
+  <g transform="translate(500, 640)">
+    <circle cx="15" cy="15" r="15" fill="#10B981"/>
+    <text x="15" y="19" text-anchor="middle" fill="white" font-size="10">⭐</text>
+    <text x="50" y="22" font-size="14" fill="#111827">Nueva reseña 5★ de CollectorPro</text>
+    <text x="50" y="40" font-size="12" fill="#6B7280">Hace 2 días • "Excelente vendedor"</text>
+  </g>
+
+  <g transform="translate(500, 685)">
+    <circle cx="15" cy="15" r="15" fill="#F59E0B"/>
+    <text x="15" y="19" text-anchor="middle" fill="white" font-size="10">📦</text>
+    <text x="50" y="22" font-size="14" fill="#111827">Envío entregado: Pedido CT-2025-015189</text>
+    <text x="50" y="40" font-size="12" fill="#6B7280">Hace 3 días • DHL Express</text>
+  </g>
+
+  <g transform="translate(500, 730)">
+    <circle cx="15" cy="15" r="15" fill="#A855F7"/>
+    <text x="15" y="19" text-anchor="middle" fill="white" font-size="10">🎯</text>
+    <text x="50" y="22" font-size="14" fill="#111827">Completaste set: Base Set 1st Ed.</text>
+    <text x="50" y="40" font-size="12" fill="#6B7280">Hace 5 días • Logro desbloqueado</text>
+  </g>
+</svg>

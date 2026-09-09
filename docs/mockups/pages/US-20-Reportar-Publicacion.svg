@@ -1,0 +1,64 @@
+<svg viewBox="0 0 1200 900" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>text { font-family: 'Inter', sans-serif; }</style>
+    <linearGradient id="hg" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#1E40AF"/><stop offset="100%" style="stop-color:#3B82F6"/>
+    </linearGradient>
+    <filter id="sh"><feDropShadow dx="0" dy="2" stdDeviation="6" flood-opacity="0.08"/></filter>
+  </defs>
+  <rect width="1200" height="900" fill="#F3F4F6"/>
+  <rect width="1200" height="64" fill="url(#hg)"/>
+  <text x="40" y="40" fill="white" font-size="20" font-weight="700">🃏 CardTrade Market</text>
+
+  <text x="60" y="110" font-size="24" font-weight="700" fill="#111827">REPORTAR PUBLICACIÓN</text>
+  <text x="60" y="135" font-size="14" fill="#6B7280">Ayúdanos a mantener la comunidad segura</text>
+
+  <!-- Card Preview -->
+  <rect x="60" y="155" width="1080" height="180" rx="12" fill="white" filter="url(#sh)"/>
+  <rect x="80" y="175" width="140" height="140" rx="12" fill="#FEF3C7"/>
+  <text x="150" y="255" text-anchor="middle" font-size="48">🃏</text>
+  <text x="250" y="210" font-size="18" font-weight="600" fill="#111827">Charizard ex 199/165</text>
+  <text x="250" y="235" font-size="13" fill="#6B7280">Por: CardMaster MX ⭐ 4.8</text>
+  <text x="250" y="255" font-size="16" font-weight="700" fill="#3B82F6">$45.00</text>
+  <text x="250" y="280" font-size="12" fill="#6B7280">Pokémon • Obsidian Flames • Ultra Rare</text>
+
+  <!-- Report Form -->
+  <rect x="60" y="360" width="1080" height="480" rx="12" fill="white" filter="url(#sh)"/>
+
+  <text x="100" y="405" font-size="16" font-weight="700" fill="#111827">MOTIVO DEL REPORTE</text>
+
+  <rect x="100" y="430" width="1000" height="56" rx="8" fill="#F3F4F6"/>
+  <rect x="120" y="438" width="24" height="24" rx="4" fill="white" stroke="#3B82F6" stroke-width="2"/>
+  <text x="160" y="468" font-size="14" fill="#111827">Precio sospechoso / Fraude de precio</text>
+  <text x="950" y="468" font-size="12" fill="#6B7280">Precio muy bajo para carta de alto valor</text>
+
+  <rect x="100" y="495" width="1000" height="56" rx="8" fill="#F3F4F6"/>
+  <rect x="120" y="503" width="24" height="24" rx="4" fill="white" stroke="#D1D5DB" stroke-width="1.5"/>
+  <text x="160" y="533" font-size="14" fill="#111827">Foto no coincide con la descripción</text>
+  <text x="950" y="533" font-size="12" fill="#6B7280">Imagen genérica o de otra carta</text>
+
+  <rect x="100" y="560" width="1000" height="56" rx="8" fill="#F3F4F6"/>
+  <rect x="120" y="568" width="24" height="24" rx="4" fill="white" stroke="#D1D5DB" stroke-width="1.5"/>
+  <text x="160" y="598" font-size="14" fill="#111827">Vendedor no responde / Inactivo</text>
+  <text x="950" y="598" font-size="12" fill="#6B7280">Sin respuesta en 48+ horas</text>
+
+  <rect x="100" y="625" width="1000" height="56" rx="8" fill="#F3F4F6"/>
+  <rect x="120" y="633" width="24" height="24" rx="4" fill="white" stroke="#D1D5DB" stroke-width="1.5"/>
+  <text x="160" y="663" font-size="14" fill="#111827">Información engañosa / Estado incorrecto</text>
+  <text x="950" y="663" font-size="12" fill="#6B7280">Carta dañada listada como nueva</text>
+
+  <rect x="100" y="690" width="1000" height="56" rx="8" fill="#F3F4F6"/>
+  <rect x="120" y="698" width="24" height="24" rx="4" fill="white" stroke="#D1D5DB" stroke-width="1.5"/>
+  <text x="160" y="728" font-size="14" fill="#111827">Contenido prohibido / Spam</text>
+  <text x="950" y="728" font-size="12" fill="#6B7280">Enlaces externos, publicidad, etc.</text>
+
+  <rect x="100" y="755" width="1000" height="56" rx="8" fill="#F3F4F6"/>
+  <rect x="120" y="763" width="24" height="24" rx="4" fill="white" stroke="#D1D5DB" stroke-width="1.5"/>
+  <text x="160" y="793" font-size="14" fill="#111827">Otro motivo</text>
+
+  <!-- Details -->
+  <line x1="100" y1="830" x2="1060" y2="830" stroke="#E5E7EB" stroke-width="1"/>
+  <text x="100" y="855" font-size="13" font-weight="500" fill="#374151">Detalles adicionales (opcional)</text>
+  <rect x="100" y="860" width="1000" height="60" rx="8" fill="white" stroke="#D1D5DB" stroke-width="1.5"/>
+  <text x="120" y="895" fill="#9CA3AF" font-size="13">Describe el problema con más detalle...</text>
+</svg>

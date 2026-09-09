@@ -1,0 +1,102 @@
+<svg viewBox="0 0 1200 900" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>text { font-family: 'Inter', sans-serif; }</style>
+    <linearGradient id="hg" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#1E40AF"/><stop offset="100%" style="stop-color:#3B82F6"/>
+    </linearGradient>
+    <filter id="sh"><feDropShadow dx="0" dy="2" stdDeviation="6" flood-opacity="0.08"/></filter>
+  </defs>
+  <rect width="1200" height="900" fill="#F3F4F6"/>
+  <rect width="1200" height="64" fill="url(#hg)"/>
+  <text x="40" y="40" fill="white" font-size="20" font-weight="700">🃏 CardTrade Market</text>
+
+  <text x="60" y="110" font-size="24" font-weight="700" fill="#111827">HISTORIAL DE VENTAS</text>
+
+  <!-- Summary Stats -->
+  <rect x="60" y="140" width="240" height="100" rx="12" fill="white" filter="url(#sh)"/>
+  <text x="180" y="180" text-anchor="middle" font-size="28" font-weight="700" fill="#10B981">$12,450</text>
+  <text x="180" y="210" text-anchor="middle" font-size="13" fill="#6B7280">Total Ventas (Año)</text>
+
+  <rect x="320" y="140" width="240" height="100" rx="12" fill="white" filter="url(#sh)"/>
+  <text x="440" y="180" text-anchor="middle" font-size="28" font-weight="700" fill="#3B82F6">342</text>
+  <text x="440" y="210" text-anchor="middle" font-size="13" fill="#6B7280">Artículos Vendidos</text>
+
+  <rect x="580" y="140" width="240" height="100" rx="12" fill="white" filter="url(#sh)"/>
+  <text x="700" y="180" text-anchor="middle" font-size="28" font-weight="700" fill="#F59E0B">$8,920</text>
+  <text x="700" y="210" text-anchor="middle" font-size="13" fill="#6B7280">Ganancia Neta (tras com.)</text>
+
+  <rect x="840" y="140" width="300" height="100" rx="12" fill="white" filter="url(#sh)"/>
+  <text x="990" y="180" text-anchor="middle" font-size="28" font-weight="700" fill="#A855F7">99.2%</text>
+  <text x="990" y="210" text-anchor="middle" font-size="13" fill="#6B7280">Tasa de Éxito</text>
+
+  <!-- Filters -->
+  <rect x="60" y="260" width="1080" height="50" rx="8" fill="white" filter="url(#sh)"/>
+  <text x="80" y="290" font-size="13" font-weight="500" fill="#374151">Mes:</text>
+  <rect x="130" y="268" width="120" height="36" rx="6" fill="white" stroke="#D1D5DB" stroke-width="1.5"/>
+  <text x="190" y="290" text-anchor="middle" fill="#111827" font-size="12">Enero 2025 ▼</text>
+  <text x="300" y="290" font-size="13" font-weight="500" fill="#374151">Estado:</text>
+  <rect x="370" y="268" width="140" height="36" rx="6" fill="white" stroke="#D1D5DB" stroke-width="1.5"/>
+  <text x="440" y="290" text-anchor="middle" fill="#111827" font-size="12">Completadas ▼</text>
+  <rect x="900" y="268" width="200" height="36" rx="6" fill="#3B82F6"/>
+  <text x="1000" y="290" text-anchor="middle" fill="white" font-size="12" font-weight="600">📊 Descargar CSV</text>
+
+  <!-- Sales List -->
+  <g transform="translate(60, 330)">
+    <rect width="1080" height="110" rx="12" fill="white" filter="url(#sh)"/>
+    <rect x="20" y="10" width="90" height="90" rx="8" fill="#FEF3C7"/>
+    <text x="65" y="62" text-anchor="middle" font-size="30">🃏</text>
+    <text x="130" y="35" font-size="15" font-weight="600" fill="#111827">Charizard ex 199/165</text>
+    <text x="130" y="55" font-size="12" fill="#6B7280">A: Juan Pérez • 15 Ene 2025</text>
+    <text x="130" y="75" font-size="12" fill="#6B7280">Pokémon • Obsidian Flames</text>
+    <text x="750" y="35" font-size="18" font-weight="700" fill="#10B981">$45.00</text>
+    <text x="750" y="55" font-size="12" fill="#6B7280">Comisión: -$2.25</text>
+    <text x="750" y="75" font-size="12" fill="#6B7280">Neto: $42.75</text>
+    <rect x="950" y="15" width="100" height="30" rx="15" fill="#D1FAE5"/>
+    <text x="1000" y="33" text-anchor="middle" fill="#065F46" font-size="11" font-weight="600">COMPLETADA</text>
+    <text x="1000" y="75" font-size="11" fill="#10B981">📦 Enviado: 16 Ene</text>
+  </g>
+
+  <g transform="translate(60, 460)">
+    <rect width="1080" height="110" rx="12" fill="white" filter="url(#sh)"/>
+    <rect x="20" y="10" width="90" height="90" rx="8" fill="#DBEAFE"/>
+    <text x="65" y="62" text-anchor="middle" font-size="30">🃏</text>
+    <text x="130" y="35" font-size="15" font-weight="600" fill="#111827">Pikachu VMAX 188/185</text>
+    <text x="130" y="55" font-size="12" fill="#6B7280">A: María González • 12 Ene 2025</text>
+    <text x="130" y="75" font-size="12" fill="#6B7280">Pokémon • Vivid Voltage</text>
+    <text x="750" y="35" font-size="18" font-weight="700" fill="#10B981">$28.00</text>
+    <text x="750" y="55" font-size="12" fill="#6B7280">Comisión: -$1.40</text>
+    <text x="750" y="75" font-size="12" fill="#6B7280">Neto: $26.60</text>
+    <rect x="950" y="15" width="100" height="30" rx="15" fill="#D1FAE5"/>
+    <text x="1000" y="33" text-anchor="middle" fill="#065F46" font-size="11" font-weight="600">COMPLETADA</text>
+    <text x="1000" y="75" font-size="11" fill="#10B981">📦 Enviado: 13 Ene</text>
+  </g>
+
+  <g transform="translate(60, 590)">
+    <rect width="1080" height="110" rx="12" fill="white" filter="url(#sh)"/>
+    <rect x="20" y="10" width="90" height="90" rx="8" fill="#FEF3C7"/>
+    <text x="65" y="62" text-anchor="middle" font-size="30">🃏</text>
+    <text x="130" y="35" font-size="15" font-weight="600" fill="#111827">Black Lotus (Beta)</text>
+    <text x="130" y="55" font-size="12" fill="#6B7280">A: CollectorPro • 5 Ene 2025</text>
+    <text x="130" y="75" font-size="12" fill="#6B7280">Magic • Beta • Rare</text>
+    <text x="750" y="35" font-size="18" font-weight="700" fill="#10B981">$8,500</text>
+    <text x="750" y="55" font-size="12" fill="#6B7280">Comisión: -$425.00</text>
+    <text x="750" y="75" font-size="12" fill="#6B7280">Neto: $8,075</text>
+    <rect x="950" y="15" width="100" height="30" rx="15" fill="#D1FAE5"/>
+    <text x="1000" y="33" text-anchor="middle" fill="#065F46" font-size="11" font-weight="600">COMPLETADA</text>
+    <text x="1000" y="75" font-size="11" fill="#10B981">📦 DHL Express</text>
+  </g>
+
+  <g transform="translate(60, 720)">
+    <rect width="1080" height="110" rx="12" fill="white" filter="url(#sh)" opacity="0.6"/>
+    <rect x="20" y="10" width="90" height="90" rx="8" fill="#F3F4F6"/>
+    <text x="65" y="62" text-anchor="middle" font-size="30">🃏</text>
+    <text x="130" y="35" font-size="15" font-weight="600" fill="#9CA3AF">Mox Sapphire (Unl.)</text>
+    <text x="130" y="55" font-size="12" fill="#9CA3AF">A: pendiente • 18 Ene 2025</text>
+    <text x="130" y="75" font-size="12" fill="#9CA3AF">Magic • Unlimited</text>
+    <text x="750" y="35" font-size="18" font-weight="700" fill="#F59E0B">$450.00</text>
+    <text x="750" y="55" font-size="12" fill="#6B7280">Comisión: -$22.50</text>
+    <rect x="950" y="15" width="100" height="30" rx="15" fill="#FEF3C7"/>
+    <text x="1000" y="33" text-anchor="middle" fill="#92400E" font-size="11" font-weight="600">PENDIENTE</text>
+    <text x="1000" y="75" font-size="11" fill="#F59E0B">⏳ Esperando pago</text>
+  </g>
+</svg>

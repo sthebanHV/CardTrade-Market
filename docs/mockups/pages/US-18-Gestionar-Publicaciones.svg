@@ -1,0 +1,93 @@
+<svg viewBox="0 0 1200 900" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>text { font-family: 'Inter', sans-serif; }</style>
+    <linearGradient id="hg" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#1E40AF"/><stop offset="100%" style="stop-color:#3B82F6"/>
+    </linearGradient>
+    <filter id="sh"><feDropShadow dx="0" dy="2" stdDeviation="6" flood-opacity="0.08"/></filter>
+  </defs>
+  <rect width="1200" height="900" fill="#F3F4F6"/>
+  <rect width="1200" height="64" fill="url(#hg)"/>
+  <text x="40" y="40" fill="white" font-size="20" font-weight="700">🃏 CardTrade Market</text>
+
+  <text x="60" y="110" font-size="24" font-weight="700" fill="#111827">MIS PUBLICACIONES</text>
+  <text x="60" y="135" font-size="14" fill="#6B7280">Gestiona tus cartas en venta</text>
+
+  <!-- Stats -->
+  <rect x="60" y="155" width="1080" height="60" rx="12" fill="white" filter="url(#sh)"/>
+  <text x="120" y="190" font-size="24" font-weight="700" fill="#3B82F6">12</text>
+  <text x="120" y="205" font-size="12" fill="#6B7280">Activas</text>
+  <text x="300" y="190" font-size="24" font-weight="700" fill="#10B981">8</text>
+  <text x="300" y="205" font-size="12" fill="#6B7280">Vendidas</text>
+  <text x="480" y="190" font-size="24" font-weight="700" fill="#F59E0B">3</text>
+  <text x="480" y="205" font-size="12" fill="#6B7280">Borradores</text>
+  <text x="660" y="190" font-size="24" font-weight="700" fill="#EF4444">1</text>
+  <text x="660" y="205" font-size="12" fill="#6B7280">Expiradas</text>
+  <text x="840" y="190" font-size="24" font-weight="700" fill="#3B82F6">$1,240</text>
+  <text x="840" y="205" font-size="12" fill="#6B7280">Ganancias totales</text>
+
+  <!-- Filter Tabs -->
+  <rect x="60" y="240" width="1080" height="44" rx="8" fill="white" filter="url(#sh)"/>
+  <rect x="65" y="245" width="100" height="34" rx="6" fill="#3B82F6"/>
+  <text x="115" y="267" text-anchor="middle" fill="white" font-size="12" font-weight="500">Todas (12)</text>
+  <text x="200" y="267" font-size="12" fill="#6B7280">Activas (8)</text>
+  <text x="290" y="267" font-size="12" fill="#6B7280">Vendidas (4)</text>
+  <text x="380" y="267" font-size="12" fill="#6B7280">Borradores (3)</text>
+  <text x="470" y="267" font-size="12" fill="#6B7280">Expiradas (1)</text>
+
+  <!-- Listings -->
+  <g transform="translate(60, 310)">
+    <rect width="1080" height="110" rx="12" fill="white" filter="url(#sh)"/>
+    <rect x="20" y="10" width="90" height="90" rx="8" fill="#FEF3C7"/>
+    <text x="65" y="62" text-anchor="middle" font-size="36">🃏</text>
+    <text x="130" y="40" font-size="16" font-weight="600" fill="#111827">Charizard ex 199/165</text>
+    <text x="130" y="60" font-size="12" fill="#6B7280">Pokémon • Obsidian Flames • Ultra Rare</text>
+    <text x="130" y="80" font-size="12" fill="#6B7280">Publicado: 15 Ene 2025 • 23 vistas</text>
+    <rect x="800" y="15" width="80" height="30" rx="15" fill="#D1FAE5"/>
+    <text x="840" y="33" text-anchor="middle" fill="#065F46" font-size="11" font-weight="600">ACTIVA</text>
+    <text x="950" y="45" font-size="20" font-weight="700" fill="#3B82F6">$45.00</text>
+    <rect x="950" y="70" width="80" height="30" rx="15" fill="#EFF6FF"/>
+    <text x="990" y="88" text-anchor="middle" fill="#3B82F6" font-size="11" font-weight="600">Editar</text>
+  </g>
+
+  <g transform="translate(60, 440)">
+    <rect width="1080" height="110" rx="12" fill="white" filter="url(#sh)"/>
+    <rect x="20" y="10" width="90" height="90" rx="8" fill="#DBEAFE"/>
+    <text x="65" y="62" text-anchor="middle" font-size="36">🃏</text>
+    <text x="130" y="40" font-size="16" font-weight="600" fill="#111827">Pikachu VMAX 188/185</text>
+    <text x="130" y="60" font-size="12" fill="#6B7280">Pokémon • Vivid Voltage • VMAX</text>
+    <text x="130" y="80" font-size="12" fill="#6B7280">Publicado: 10 Ene 2025 • 45 vistas</text>
+    <rect x="800" y="15" width="80" height="30" rx="15" fill="#D1FAE5"/>
+    <text x="840" y="33" text-anchor="middle" fill="#065F46" font-size="11" font-weight="600">ACTIVA</text>
+    <text x="950" y="45" font-size="20" font-weight="700" fill="#3B82F6">$28.00</text>
+    <rect x="950" y="70" width="80" height="30" rx="15" fill="#EFF6FF"/>
+    <text x="990" y="88" text-anchor="middle" fill="#3B82F6" font-size="11" font-weight="600">Editar</text>
+  </g>
+
+  <g transform="translate(60, 570)">
+    <rect width="1080" height="110" rx="12" fill="white" filter="url(#sh)"/>
+    <rect x="20" y="10" width="90" height="90" rx="8" fill="#FEF3C7"/>
+    <text x="65" y="62" text-anchor="middle" font-size="36">🃏</text>
+    <text x="130" y="40" font-size="16" font-weight="600" fill="#111827">Mewtwo VSTAR 172/172</text>
+    <text x="130" y="60" font-size="12" fill="#6B7280">Pokémon • Brilliant Stars • VSTAR</text>
+    <text x="130" y="80" font-size="12" fill="#6B7280">Publicado: 5 Ene 2025 • 67 vistas</text>
+    <rect x="800" y="15" width="90" height="30" rx="15" fill="#FEF3C7"/>
+    <text x="845" y="33" text-anchor="middle" fill="#92400E" font-size="11" font-weight="600">VENDIDA</text>
+    <text x="950" y="45" font-size="20" font-weight="700" fill="#10B981">$52.00</text>
+    <text x="950" y="75" font-size="11" fill="#10B981">✓ Pagado y enviado</text>
+  </g>
+
+  <g transform="translate(60, 700)">
+    <rect width="1080" height="110" rx="12" fill="white" filter="url(#sh)" opacity="0.6"/>
+    <rect x="20" y="10" width="90" height="90" rx="8" fill="#F3F4F6"/>
+    <text x="65" y="62" text-anchor="middle" font-size="36">🃏</text>
+    <text x="130" y="40" font-size="16" font-weight="600" fill="#9CA3AF">Gyarados VMAX (Borrador)</text>
+    <text x="130" y="60" font-size="12" fill="#9CA3AF">Pokémon • Fusion Strike • VMAX</text>
+    <text x="130" y="80" font-size="12" fill="#9CA3AF">Última edición: 12 Ene 2025</text>
+    <rect x="800" y="15" width="90" height="30" rx="15" fill="#F3F4F6"/>
+    <text x="845" y="33" text-anchor="middle" fill="#9CA3AF" font-size="11" font-weight="600">BORRADOR</text>
+    <text x="950" y="45" font-size="20" font-weight="700" fill="#9CA3AF">$72.00</text>
+    <rect x="950" y="70" width="80" height="30" rx="15" fill="#EFF6FF"/>
+    <text x="990" y="88" text-anchor="middle" fill="#3B82F6" font-size="11" font-weight="600">Publicar</text>
+  </g>
+</svg>

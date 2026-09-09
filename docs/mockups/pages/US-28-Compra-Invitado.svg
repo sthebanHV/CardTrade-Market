@@ -1,0 +1,79 @@
+<svg viewBox="0 0 1200 900" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>text { font-family: 'Inter', sans-serif; }</style>
+    <linearGradient id="hg" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#1E40AF"/><stop offset="100%" style="stop-color:#3B82F6"/>
+    </linearGradient>
+    <filter id="sh"><feDropShadow dx="0" dy="2" stdDeviation="6" flood-opacity="0.08"/></filter>
+  </defs>
+  <rect width="1200" height="900" fill="#F3F4F6"/>
+  <rect width="1200" height="64" fill="url(#hg)"/>
+  <text x="40" y="40" fill="white" font-size="20" font-weight="700">🃏 CardTrade Market</text>
+
+  <!-- Guest Badge -->
+  <rect x="1000" y="16" width="160" height="32" rx="16" fill="#FEF3C7"/>
+  <text x="1080" y="37" text-anchor="middle" font-size="12" font-weight="600" fill="#92400E">👤 MODO INVITADO</text>
+
+  <text x="60" y="110" font-size="24" font-weight="700" fill="#111827">COMPRA RÁPIDA (INVITADO)</text>
+  <text x="60" y="135" font-size="14" fill="#6B7280">Completa tu compra sin crear cuenta</text>
+
+  <!-- Progress -->
+  <rect x="60" y="155" width="1080" height="40" rx="20" fill="#E5E7EB"/>
+  <rect x="60" y="155" width="270" height="40" rx="20" fill="#3B82F6"/>
+  <text x="195" y="180" text-anchor="middle" fill="white" font-size="12" font-weight="600">1. Email</text>
+  <text x="465" y="180" text-anchor="middle" font-size="12" fill="#9CA3AF">2. Envío</text>
+  <text x="735" y="180" text-anchor="middle" font-size="12" fill="#9CA3AF">3. Pago</text>
+  <text x="1005" y="180" text-anchor="middle" font-size="12" fill="#9CA3AF">4. Confirmar</text>
+
+  <!-- Email Step -->
+  <rect x="60" y="220" width="1080" height="550" rx="12" fill="white" filter="url(#sh)"/>
+
+  <text x="100" y="265" font-size="16" font-weight="700" fill="#111827">CORREO ELECTRÓNICO</text>
+  <text x="100" y="285" font-size="13" fill="#6B7280">Te enviaremos la confirmación y tracking aquí</text>
+
+  <text x="100" y="320" font-size="13" font-weight="500" fill="#374151">Email *</text>
+  <rect x="100" y="330" width="500" height="44" rx="8" fill="white" stroke="#D1D5DB" stroke-width="1.5"/>
+  <text x="120" y="358" fill="#9CA3AF" font-size="14">comprador@email.com</text>
+
+  <text x="100" y="395" font-size="13" font-weight="500" fill="#374151">Confirmar Email *</text>
+  <rect x="100" y="405" width="500" height="44" rx="8" fill="white" stroke="#D1D5DB" stroke-width="1.5"/>
+  <text x="120" y="433" fill="#9CA3AF" font-size="14">comprador@email.com</text>
+
+  <rect x="100" y="460" width="500" height="48" rx="8" fill="#3B82F6"/>
+  <text x="350" y="490" text-anchor="middle" fill="white" font-size="15" font-weight="600">CONTINUAR AL ENVÍO</text>
+
+  <text x="350" y="530" text-anchor="middle" font-size="12" fill="#6B7280">¿Ya tienes cuenta? <tspan fill="#3B82F6" font-weight="500">Inicia sesión</tspan> para guardar tus datos</text>
+
+  <!-- Order Summary Right -->
+  <rect x="650" y="265" width="450" height="400" rx="12" fill="#F3F4F6"/>
+  <text x="875" y="300" text-anchor="middle" font-size="16" font-weight="700" fill="#111827">TU PEDIDO</text>
+
+  <g transform="translate(670, 320)">
+    <rect width="80" height="80" rx="8" fill="#FEF3C7"/>
+    <text x="40" y="50" text-anchor="middle" font-size="28">🃏</text>
+    <text x="110" y="30" font-size="13" font-weight="600" fill="#111827">Charizard ex</text>
+    <text x="110" y="50" font-size="12" fill="#6B7280">$45.00</text>
+    <text x="110" y="70" font-size="12" fill="#6B7280">Vendedor: CardMaster MX</text>
+  </g>
+
+  <g transform="translate(670, 420)">
+    <rect width="80" height="80" rx="8" fill="#DBEAFE"/>
+    <text x="40" y="50" text-anchor="middle" font-size="28">🃏</text>
+    <text x="110" y="30" font-size="13" font-weight="600" fill="#111827">Pikachu VMAX</text>
+    <text x="110" y="50" font-size="12" fill="#6B7280">$28.00</text>
+    <text x="110" y="70" font-size="12" fill="#6B7280">Vendedor: PikaFan99</text>
+  </g>
+
+  <line x1="670" y1="510" x2="1050" y2="510" stroke="#E5E7EB" stroke-width="2"/>
+
+  <text x="670" y="535" font-size="13" fill="#6B7280">Subtotal</text>
+  <text x="1050" y="535" text-anchor="end" font-size="13" font-weight="600" fill="#111827">$73.00</text>
+  <text x="670" y="560" font-size="13" fill="#6B7280">Envío</text>
+  <text x="1050" y="560" text-anchor="end" font-size="13" fill="#3B82F6">Gratis</text>
+  <text x="670" y="585" font-size="13" fill="#6B7280">Comisión (5%)</text>
+  <text x="1050" y="585" text-anchor="end" font-size="13" fill="#6B7280">$3.65</text>
+
+  <line x1="670" y1="605" x2="1050" y2="605" stroke="#E5E7EB" stroke-width="2"/>
+  <text x="670" y="630" font-size="16" font-weight="700" fill="#111827">TOTAL</text>
+  <text x="1050" y="630" text-anchor="end" font-size="20" font-weight="700" fill="#3B82F6">$76.65</text>
+</svg>

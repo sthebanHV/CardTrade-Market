@@ -1,0 +1,93 @@
+<svg viewBox="0 0 1200 900" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>text { font-family: 'Inter', sans-serif; }</style>
+    <linearGradient id="hg" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#1E40AF"/><stop offset="100%" style="stop-color:#3B82F6"/>
+    </linearGradient>
+    <filter id="sh"><feDropShadow dx="0" dy="2" stdDeviation="6" flood-opacity="0.08"/></filter>
+  </defs>
+  <rect width="1200" height="900" fill="#F3F4F6"/>
+  <rect width="1200" height="64" fill="url(#hg)"/>
+  <text x="40" y="40" fill="white" font-size="20" font-weight="700">🃏 CardTrade Market</text>
+
+  <text x="60" y="110" font-size="24" font-weight="700" fill="#111827">VALOR Y ESTADÍSTICAS DE COLECCIÓN</text>
+
+  <!-- Main Stats -->
+  <g transform="translate(60, 140)">
+    <rect width="260" height="140" rx="16" fill="white" filter="url(#sh)"/>
+    <text x="130" y="195" text-anchor="middle" font-size="36" font-weight="700" fill="#3B82F6">$12,450</text>
+    <text x="130" y="215" text-anchor="middle" font-size="14" fill="#6B7280">Valor Total Estimado</text>
+    <text x="130" y="235" text-anchor="middle" font-size="12" fill="#10B981">📈 +15.2% (30 días)</text>
+  </g>
+
+  <g transform="translate(340, 140)">
+    <rect width="260" height="140" rx="16" fill="white" filter="url(#sh)"/>
+    <text x="130" y="195" text-anchor="middle" font-size="36" font-weight="700" fill="#10B981">127</text>
+    <text x="130" y="215" text-anchor="middle" font-size="14" fill="#6B7280">Cartas Totales</text>
+    <text x="130" y="235" text-anchor="middle" font-size="12" fill="#3B82F6">89 Pokémon • 28 Magic</text>
+  </g>
+
+  <g transform="translate(620, 140)">
+    <rect width="260" height="140" rx="16" fill="white" filter="url(#sh)"/>
+    <text x="130" y="195" text-anchor="middle" font-size="36" font-weight="700" fill="#F59E0B">15</text>
+    <text x="130" y="215" text-anchor="middle" font-size="14" fill="#6B7280">Cartas Graded</text>
+    <text x="130" y="235" text-anchor="middle" font-size="12" fill="#10B981">PSA: 8 • BGS: 5 • CGC: 2</text>
+  </g>
+
+  <g transform="translate(900, 140)">
+    <rect width="260" height="140" rx="16" fill="white" filter="url(#sh)"/>
+    <text x="130" y="195" text-anchor="middle" font-size="36" font-weight="700" fill="#A855F7">3</text>
+    <text x="130" y="215" text-anchor="middle" font-size="14" fill="#6B7280">Sets Completos</text>
+    <text x="130" y="235" text-anchor="middle" font-size="12" fill="#A855F7">Base, Jungle, Fossil</text>
+  </g>
+
+  <!-- Value Chart Placeholder -->
+  <rect x="60" y="310" width="1080" height="300" rx="16" fill="white" filter="url(#sh)"/>
+  <text x="100" y="350" font-size="18" font-weight="700" fill="#111827">EVOLUCIÓN DEL VALOR (12 MESES)</text>
+  <rect x="100" y="370" width="1000" height="220" fill="#F3F4F6" rx="8"/>
+  <text x="600" y="480" text-anchor="middle" font-size="16" fill="#9CA3AF">📈 Gráfica de línea: $8,200 → $12,450</text>
+  <text x="600" y="500" text-anchor="middle" font-size="12" fill="#9CA3AF">Picos: Marzo (Charizard Base PSA 9) • Agosto (Black Lotus)</text>
+
+  <!-- Breakdown by Game -->
+  <rect x="60" y="630" width="520" height="220" rx="16" fill="white" filter="url(#sh)"/>
+  <text x="100" y="670" font-size="18" font-weight="700" fill="#111827">VALOR POR JUEGO</text>
+  <text x="100" y="705" font-size="14" fill="#111827">Pokémon TCG</text>
+  <text x="480" y="705" text-anchor="end" font-size="14" font-weight="600" fill="#3B82F6">$8,950 (71.9%)</text>
+  <rect x="100" y="710" width="380" height="8" rx="4" fill="#DBEAFE"/>
+  <rect x="100" y="710" width="273" height="8" rx="4" fill="#3B82F6"/>
+
+  <text x="100" y="735" font-size="14" fill="#111827">Magic: The Gathering</text>
+  <text x="480" y="735" text-anchor="end" font-size="14" font-weight="600" fill="#F59E0B">$2,800 (22.5%)</text>
+  <rect x="100" y="740" width="380" height="8" rx="4" fill="#FEF3C7"/>
+  <rect x="100" y="740" width="85" height="8" rx="4" fill="#F59E0B"/>
+
+  <text x="100" y="765" font-size="14" fill="#111827">Yu-Gi-Oh!</text>
+  <text x="480" y="765" text-anchor="end" font-size="14" font-weight="600" fill="#A855F7">$700 (5.6%)</text>
+  <rect x="100" y="770" width="380" height="8" rx="4" fill="#F3E8FF"/>
+  <rect x="100" y="770" width="21" height="8" rx="4" fill="#A855F7"/>
+
+  <!-- Top Cards -->
+  <rect x="600" y="630" width="540" height="220" rx="16" fill="white" filter="url(#sh)"/>
+  <text x="640" y="670" font-size="18" font-weight="700" fill="#111827">TOP 5 CARTAS MÁS VALIOSAS</text>
+
+  <g transform="translate(640, 685)">
+    <text y="20" font-size="13" font-weight="600" fill="#111827">1. Black Lotus (Beta) - PSA 9</text>
+    <text y="20" x="400" text-anchor="end" font-size="14" font-weight="600" fill="#3B82F6">$8,500</text>
+  </g>
+  <g transform="translate(640, 715)">
+    <text y="20" font-size="13" font-weight="600" fill="#111827">2. Charizard 1st Ed. (Base) - PSA 9</text>
+    <text y="20" x="400" text-anchor="end" font-size="14" font-weight="600" fill="#3B82F6">$3,200</text>
+  </g>
+  <g transform="translate(640, 745)">
+    <text y="20" font-size="13" font-weight="600" fill="#111827">3. Mox Sapphire (Unlimited) - BGS 9</text>
+    <text y="20" x="400" text-anchor="end" font-size="14" font-weight="600" fill="#3B82F6">$450</text>
+  </g>
+  <g transform="translate(640, 775)">
+    <text y="20" font-size="13" font-weight="600" fill="#111827">4. Charizard VMAX (Evolving) - PSA 10</text>
+    <text y="20" x="400" text-anchor="end" font-size="14" font-weight="600" fill="#3B82F6">$320</text>
+  </g>
+  <g transform="translate(640, 805)">
+    <text y="20" font-size="13" font-weight="600" fill="#111827">5. Time Walk (Unlimited) - CGC 9.5</text>
+    <text y="20" x="400" text-anchor="end" font-size="14" font-weight="600" fill="#3B82F6">$280</text>
+  </g>
+</svg>
