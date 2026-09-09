@@ -395,12 +395,50 @@ CardTrade Market es una plataforma web para la compra y venta de cartas coleccio
 
 Las historias de usuario están documentadas como Issues en el repositorio de GitHub. Cada Issue incluye:
 - Título descriptivo
-- Formato: "Como [rol], quiero [función], para [beneficio]"
-- Criterios de aceptance
-- Wireframe ASCII art
-- Prioridad y epic asociado
+- Formato: **Como** [rol], **quiero** [función], **para** [beneficio]
+- Criterios de aceptación detallados
+- Wireframes ASCII art (Desktop, Mobile, Estados vacíos/error)
+- Notas técnicas (Rutas, Componentes, Endpoints)
+- Prioridad y Epic asociado
 
 Ver Issues del repositorio: https://github.com/sthebanHV/CardTrade-Market/issues
+
+### Lista de 32 Historias de Usuario
+
+| ID | Título | Epic | Prioridad |
+|----|--------|------|-----------|
+| US-01 | Registro de Usuario Nuevo | Gestión de Usuarios | Alta |
+| US-02 | Inicio de Sesión | Gestión de Usuarios | Alta |
+| US-03 | Perfil de Usuario | Gestión de Usuarios | Media |
+| US-04 | Recuperación de Contraseña | Gestión de Usuarios | Alta |
+| US-05 | Cambio de Contraseña | Gestión de Usuarios | Media |
+| US-06 | Cerrar Sesión | Gestión de Usuarios | Alta |
+| US-07 | Página Principal (Home) | Catálogo de Cartas | Alta |
+| US-08 | Búsqueda de Cartas | Catálogo de Cartas | Alta |
+| US-09 | Filtros Avanzados | Catálogo de Cartas | Media |
+| US-10 | Detalle de Carta | Catálogo de Cartas | Alta |
+| US-11 | Comparar Cartas | Catálogo de Cartas | Baja |
+| US-12 | Publicar Carta en Venta | Publicación y Venta | Alta |
+| US-13 | Gestionar Mis Publicaciones | Publicación y Venta | Media |
+| US-14 | Perfil de Vendedor | Publicación y Venta | Media |
+| US-15 | Reportar Publicación | Publicación y Venta | Baja |
+| US-16 | Carrito de Compras | Proceso de Compra | Alta |
+| US-17 | Checkout y Pago | Proceso de Compra | Alta |
+| US-18 | Confirmación de Compra | Proceso de Compra | Alta |
+| US-19 | Gestionar Direcciones | Proceso de Compra | Media |
+| US-20 | Agregar Carta a Colección | Colección Personal | Media |
+| US-21 | Ver y Gestionar Mi Colección | Colección Personal | Media |
+| US-22 | Valor de Colección | Colección Personal | Baja |
+| US-23 | Exportar Colección | Colección Personal | Baja |
+| US-24 | Historial de Compras | Historial y Seguimiento | Media |
+| US-25 | Historial de Ventas | Historial y Seguimiento | Media |
+| US-26 | Seguir Vendedor | Historial y Seguimiento | Baja |
+| US-27 | Alertas de Precio | Historial y Seguimiento | Baja |
+| US-28 | Reseñas y Calificaciones | Interacción Social | Media |
+| US-29 | Chat entre Usuarios | Interacción Social | Baja |
+| US-30 | Sistema de Favoritos | Interacción Social | Media |
+| US-31 | Dashboard del Usuario | Panel de Control y Extras | Media |
+| US-32 | Sistema de Notificaciones | Panel de Control y Extras | Media |
 
 ---
 
