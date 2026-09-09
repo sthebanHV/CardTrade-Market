@@ -13,124 +13,124 @@
   
   <!-- Header -->
   <rect width="1200" height="64" fill="url(#hg)"/>
-  <text x="40" y="40" fill="white" font-size="20" font-weight="700">🃏 CardTrade Market</text>
+  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="40" y="40" fill="white" font-size="20" font-weight="700">🃏 CardTrade Market</text>
   <rect x="350" y="16" width="400" height="32" rx="6" fill="rgba(255,255,255,0.15)"/>
-  <text x="370" y="37" fill="rgba(255,255,255,0.6)" font-size="14">🔍 Buscar cartas...</text>
+  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="370" y="37" fill="rgba(255,255,255,0.6)" font-size="14">🔍 Buscar cartas...</text>
   <circle cx="1100" cy="32" r="16" fill="rgba(255,255,255,0.2)"/>
-  <text x="1095" y="37" fill="white" font-size="14">🛒(2)</text>
+  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="1095" y="37" fill="white" font-size="14">🛒(2)</text>
   <circle cx="1150" cy="32" r="16" fill="rgba(255,255,255,0.2)"/>
-  <text x="1145" y="37" fill="white" font-size="14">👤</text>
+  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="1145" y="37" fill="white" font-size="14">👤</text>
 
   <!-- Hero Banner -->
   <rect x="60" y="84" width="1080" height="200" rx="16" fill="url(#banner)"/>
-  <text x="120" y="140" font-size="32" font-weight="700" fill="white">Descubre Cartas Únicas</text>
-  <text x="120" y="170" font-size="18" fill="rgba(255,255,255,0.85)">Miles de cartas coleccionables esperan por ti</text>
+  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="120" y="140" font-size="32" font-weight="700" fill="white">Descubre Cartas Únicas</text>
+  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="120" y="170" font-size="18" fill="rgba(255,255,255,0.85)">Miles de cartas coleccionables esperan por ti</text>
   <rect x="120" y="195" width="200" height="44" rx="8" fill="white"/>
-  <text x="220" y="223" text-anchor="middle" fill="#3B82F6" font-size="14" font-weight="600">EXPLORAR CARTAS</text>
+  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="220" y="223" text-anchor="middle" fill="#3B82F6" font-size="14" font-weight="600">EXPLORAR CARTAS</text>
 
   <!-- Stats -->
-  <text x="60" y="320" font-size="14" fill="#6B7280">12,500+ Usuarios  •  45,000+ Cartas  •  8,200+ Ventas</text>
+  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="60" y="320" font-size="14" fill="#6B7280">12,500+ Usuarios  •  45,000+ Cartas  •  8,200+ Ventas</text>
 
   <!-- Categories -->
-  <text x="60" y="370" font-size="18" font-weight="700" fill="#111827">CATEGORÍAS POPULARES</text>
+  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="60" y="370" font-size="18" font-weight="700" fill="#111827">CATEGORÍAS POPULARES</text>
   
   <rect x="60" y="390" width="240" height="100" rx="12" fill="white" filter="url(#sh)"/>
-  <text x="180" y="430" text-anchor="middle" font-size="32">🎨</text>
-  <text x="180" y="460" text-anchor="middle" font-size="14" font-weight="600" fill="#111827">Pokémon</text>
-  <text x="180" y="478" text-anchor="middle" font-size="12" fill="#6B7280">18,500 cartas</text>
+  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="180" y="430" text-anchor="middle" font-size="32">🎨</text>
+  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="180" y="460" text-anchor="middle" font-size="14" font-weight="600" fill="#111827">Pokémon</text>
+  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="180" y="478" text-anchor="middle" font-size="12" fill="#6B7280">18,500 cartas</text>
 
   <rect x="320" y="390" width="240" height="100" rx="12" fill="white" filter="url(#sh)"/>
-  <text x="440" y="430" text-anchor="middle" font-size="32">🔥</text>
-  <text x="440" y="460" text-anchor="middle" font-size="14" font-weight="600" fill="#111827">Magic: The Gathering</text>
-  <text x="440" y="478" text-anchor="middle" font-size="12" fill="#6B7280">12,300 cartas</text>
+  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="440" y="430" text-anchor="middle" font-size="32">🔥</text>
+  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="440" y="460" text-anchor="middle" font-size="14" font-weight="600" fill="#111827">Magic: The Gathering</text>
+  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="440" y="478" text-anchor="middle" font-size="12" fill="#6B7280">12,300 cartas</text>
 
   <rect x="580" y="390" width="240" height="100" rx="12" fill="white" filter="url(#sh)"/>
-  <text x="700" y="430" text-anchor="middle" font-size="32">⚡</text>
-  <text x="700" y="460" text-anchor="middle" font-size="14" font-weight="600" fill="#111827">Yu-Gi-Oh!</text>
-  <text x="700" y="478" text-anchor="middle" font-size="12" fill="#6B7280">9,200 cartas</text>
+  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="700" y="430" text-anchor="middle" font-size="32">⚡</text>
+  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="700" y="460" text-anchor="middle" font-size="14" font-weight="600" fill="#111827">Yu-Gi-Oh!</text>
+  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="700" y="478" text-anchor="middle" font-size="12" fill="#6B7280">9,200 cartas</text>
 
   <rect x="840" y="390" width="300" height="100" rx="12" fill="white" filter="url(#sh)"/>
-  <text x="990" y="430" text-anchor="middle" font-size="32">🐉</text>
-  <text x="990" y="460" text-anchor="middle" font-size="14" font-weight="600" fill="#111827">One Piece</text>
-  <text x="990" y="478" text-anchor="middle" font-size="12" fill="#6B7280">5,000 cartas</text>
+  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="990" y="430" text-anchor="middle" font-size="32">🐉</text>
+  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="990" y="460" text-anchor="middle" font-size="14" font-weight="600" fill="#111827">One Piece</text>
+  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="990" y="478" text-anchor="middle" font-size="12" fill="#6B7280">5,000 cartas</text>
 
   <!-- Featured Cards -->
-  <text x="60" y="540" font-size="18" font-weight="700" fill="#111827">CARTAS DESTACADAS</text>
-  <text x="1080" y="540" font-size="14" fill="#3B82F6" font-weight="500">Ver todas →</text>
+  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="60" y="540" font-size="18" font-weight="700" fill="#111827">CARTAS DESTACADAS</text>
+  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="1080" y="540" font-size="14" fill="#3B82F6" font-weight="500">Ver todas →</text>
 
   <g transform="translate(60, 560)">
     <rect width="240" height="180" rx="12" fill="white" filter="url(#sh)"/>
     <rect width="240" height="120" rx="12" fill="#FEF3C7"/>
-    <text x="120" y="70" text-anchor="middle" font-size="40">🃏</text>
-    <text x="120" y="105" text-anchor="middle" font-size="12" font-weight="600" fill="#92400E">Pokémon</text>
-    <text x="12" y="145" font-size="14" font-weight="600" fill="#111827">Charizard ex</text>
-    <text x="12" y="165" font-size="13" fill="#3B82F6" font-weight="600">$45.00</text>
+    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="120" y="70" text-anchor="middle" font-size="40">🃏</text>
+    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="120" y="105" text-anchor="middle" font-size="12" font-weight="600" fill="#92400E">Pokémon</text>
+    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="12" y="145" font-size="14" font-weight="600" fill="#111827">Charizard ex</text>
+    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="12" y="165" font-size="13" fill="#3B82F6" font-weight="600">$45.00</text>
   </g>
 
   <g transform="translate(320, 560)">
     <rect width="240" height="180" rx="12" fill="white" filter="url(#sh)"/>
     <rect width="240" height="120" rx="12" fill="#DBEAFE"/>
-    <text x="120" y="70" text-anchor="middle" font-size="40">🃏</text>
-    <text x="120" y="105" text-anchor="middle" font-size="12" font-weight="600" fill="#1E40AF">Magic</text>
-    <text x="12" y="145" font-size="14" font-weight="600" fill="#111827">Black Lotus</text>
-    <text x="12" y="165" font-size="13" fill="#3B82F6" font-weight="600">$850.00</text>
+    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="120" y="70" text-anchor="middle" font-size="40">🃏</text>
+    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="120" y="105" text-anchor="middle" font-size="12" font-weight="600" fill="#1E40AF">Magic</text>
+    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="12" y="145" font-size="14" font-weight="600" fill="#111827">Black Lotus</text>
+    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="12" y="165" font-size="13" fill="#3B82F6" font-weight="600">$850.00</text>
   </g>
 
   <g transform="translate(580, 560)">
     <rect width="240" height="180" rx="12" fill="white" filter="url(#sh)"/>
     <rect width="240" height="120" rx="12" fill="#FCE7F3"/>
-    <text x="120" y="70" text-anchor="middle" font-size="40">🃏</text>
-    <text x="120" y="105" text-anchor="middle" font-size="12" font-weight="600" fill="#9D174D">Yu-Gi-Oh!</text>
-    <text x="12" y="145" font-size="14" font-weight="600" fill="#111827">Blue-Eyes White</text>
-    <text x="12" y="165" font-size="13" fill="#3B82F6" font-weight="600">$125.00</text>
+    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="120" y="70" text-anchor="middle" font-size="40">🃏</text>
+    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="120" y="105" text-anchor="middle" font-size="12" font-weight="600" fill="#9D174D">Yu-Gi-Oh!</text>
+    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="12" y="145" font-size="14" font-weight="600" fill="#111827">Blue-Eyes White</text>
+    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="12" y="165" font-size="13" fill="#3B82F6" font-weight="600">$125.00</text>
   </g>
 
   <g transform="translate(840, 560)">
     <rect width="300" height="180" rx="12" fill="white" filter="url(#sh)"/>
     <rect width="300" height="120" rx="12" fill="#D1FAE5"/>
-    <text x="150" y="70" text-anchor="middle" font-size="40">🃏</text>
-    <text x="150" y="105" text-anchor="middle" font-size="12" font-weight="600" fill="#065F46">One Piece</text>
-    <text x="12" y="145" font-size="14" font-weight="600" fill="#111827">Monkey D. Luffy</text>
-    <text x="12" y="165" font-size="13" fill="#3B82F6" font-weight="600">$32.00</text>
+    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="150" y="70" text-anchor="middle" font-size="40">🃏</text>
+    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="150" y="105" text-anchor="middle" font-size="12" font-weight="600" fill="#065F46">One Piece</text>
+    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="12" y="145" font-size="14" font-weight="600" fill="#111827">Monkey D. Luffy</text>
+    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="12" y="165" font-size="13" fill="#3B82F6" font-weight="600">$32.00</text>
   </g>
 
   <!-- Recent Listings -->
-  <text x="60" y="780" font-size="18" font-weight="700" fill="#111827">PUBLICACIONES RECIENTES</text>
+  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="60" y="780" font-size="18" font-weight="700" fill="#111827">PUBLICACIONES RECIENTES</text>
 
   <g transform="translate(60, 800)">
     <rect width="240" height="160" rx="12" fill="white" filter="url(#sh)"/>
     <rect width="240" height="100" rx="12" fill="#FEF3C7"/>
-    <text x="120" y="60" text-anchor="middle" font-size="36">🃏</text>
-    <text x="12" y="125" font-size="13" font-weight="600" fill="#111827">Pikachu VMAX</text>
-    <text x="12" y="145" font-size="12" fill="#6B7280">⭐ 4.9 • $28.00</text>
+    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="120" y="60" text-anchor="middle" font-size="36">🃏</text>
+    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="12" y="125" font-size="13" font-weight="600" fill="#111827">Pikachu VMAX</text>
+    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="12" y="145" font-size="12" fill="#6B7280">⭐ 4.9 • $28.00</text>
   </g>
 
   <g transform="translate(320, 800)">
     <rect width="240" height="160" rx="12" fill="white" filter="url(#sh)"/>
     <rect width="240" height="100" rx="12" fill="#DBEAFE"/>
-    <text x="120" y="60" text-anchor="middle" font-size="36">🃏</text>
-    <text x="12" y="125" font-size="13" font-weight="600" fill="#111827">Liliana of the Veil</text>
-    <text x="12" y="145" font-size="12" fill="#6B7280">⭐ 4.7 • $85.00</text>
+    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="120" y="60" text-anchor="middle" font-size="36">🃏</text>
+    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="12" y="125" font-size="13" font-weight="600" fill="#111827">Liliana of the Veil</text>
+    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="12" y="145" font-size="12" fill="#6B7280">⭐ 4.7 • $85.00</text>
   </g>
 
   <g transform="translate(580, 800)">
     <rect width="240" height="160" rx="12" fill="white" filter="url(#sh)"/>
     <rect width="240" height="100" rx="12" fill="#FCE7F3"/>
-    <text x="120" y="60" text-anchor="middle" font-size="36">🃏</text>
-    <text x="12" y="125" font-size="13" font-weight="600" fill="#111827">Dark Magician</text>
-    <text x="12" y="145" font-size="12" fill="#6B7280">⭐ 4.8 • $18.00</text>
+    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="120" y="60" text-anchor="middle" font-size="36">🃏</text>
+    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="12" y="125" font-size="13" font-weight="600" fill="#111827">Dark Magician</text>
+    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="12" y="145" font-size="12" fill="#6B7280">⭐ 4.8 • $18.00</text>
   </g>
 
   <g transform="translate(840, 800)">
     <rect width="300" height="160" rx="12" fill="white" filter="url(#sh)"/>
     <rect width="300" height="100" rx="12" fill="#D1FAE5"/>
-    <text x="150" y="60" text-anchor="middle" font-size="36">🃏</text>
-    <text x="12" y="125" font-size="13" font-weight="600" fill="#111827">Roronoa Zoro</text>
-    <text x="12" y="145" font-size="12" fill="#6B7280">⭐ 4.6 • $15.00</text>
+    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="150" y="60" text-anchor="middle" font-size="36">🃏</text>
+    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="12" y="125" font-size="13" font-weight="600" fill="#111827">Roronoa Zoro</text>
+    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="12" y="145" font-size="12" fill="#6B7280">⭐ 4.6 • $15.00</text>
   </g>
 
   <!-- Footer -->
   <rect x="0" y="920" width="1200" height="80" fill="#1F2937"/>
-  <text x="600" y="955" text-anchor="middle" font-size="13" fill="#9CA3AF">© 2026 CardTrade Market. Todos los derechos reservados.</text>
-  <text x="600" y="975" text-anchor="middle" font-size="12" fill="#6B7280">Términos | Privacidad | Contacto | Ayuda</text>
+  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="600" y="955" text-anchor="middle" font-size="13" fill="#9CA3AF">© 2026 CardTrade Market. Todos los derechos reservados.</text>
+  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="600" y="975" text-anchor="middle" font-size="12" fill="#6B7280">Términos | Privacidad | Contacto | Ayuda</text>
 </svg>

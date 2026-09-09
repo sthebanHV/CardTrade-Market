@@ -8,99 +8,99 @@
   </defs>
   <rect width="1200" height="900" fill="#F3F4F6"/>
   <rect width="1200" height="64" fill="url(#hg)"/>
-  <text x="40" y="40" fill="white" font-size="20" font-weight="700">🃏 CardTrade Market</text>
+  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="40" y="40" fill="white" font-size="20" font-weight="700">🃏 CardTrade Market</text>
 
-  <text x="60" y="110" font-size="24" font-weight="700" fill="#111827">RESEÑAS Y CALIFICACIONES</text>
+  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="60" y="110" font-size="24" font-weight="700" fill="#111827">RESEÑAS Y CALIFICACIONES</text>
 
   <!-- Seller Header -->
   <rect x="60" y="140" width="1080" height="100" rx="12" fill="white" filter="url(#sh)"/>
   <circle cx="110" cy="190" r="35" fill="#3B82F6"/>
-  <text x="110" y="196" text-anchor="middle" fill="white" font-size="16" font-weight="700">CM</text>
-  <text x="160" y="175" font-size="18" font-weight="600" fill="#111827">CardMaster MX</text>
-  <text x="160" y="195" font-size="13" fill="#6B7280">Vendedor • 342 ventas</text>
-  <text x="900" y="175" font-size="36" font-weight="700" fill="#111827">⭐ 4.8</text>
-  <text x="900" y="200" font-size="13" fill="#6B7280">(125 reseñas)</text>
-  <text x="1050" y="175" font-size="13" fill="#10B981">99% positivas</text>
-  <text x="1050" y="195" font-size="13" fill="#6B7280">Tiempo resp.: 2.3h</text>
+  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="110" y="196" text-anchor="middle" fill="white" font-size="16" font-weight="700">CM</text>
+  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="160" y="175" font-size="18" font-weight="600" fill="#111827">CardMaster MX</text>
+  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="160" y="195" font-size="13" fill="#6B7280">Vendedor • 342 ventas</text>
+  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="900" y="175" font-size="36" font-weight="700" fill="#111827">⭐ 4.8</text>
+  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="900" y="200" font-size="13" fill="#6B7280">(125 reseñas)</text>
+  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="1050" y="175" font-size="13" fill="#10B981">99% positivas</text>
+  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="1050" y="195" font-size="13" fill="#6B7280">Tiempo resp.: 2.3h</text>
 
   <!-- Rating Breakdown -->
   <rect x="60" y="260" width="500" height="300" rx="12" fill="white" filter="url(#sh)"/>
-  <text x="80" y="295" font-size="16" font-weight="700" fill="#111827">DISTRIBUCIÓN DE ESTRELLAS</text>
+  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="80" y="295" font-size="16" font-weight="700" fill="#111827">DISTRIBUCIÓN DE ESTRELLAS</text>
   
   <g transform="translate(80, 310)">
-    <text y="20" font-size="13" fill="#111827">5 ⭐</text>
+    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" y="20" font-size="13" fill="#111827">5 ⭐</text>
     <rect x="60" y="8" width="300" height="16" rx="8" fill="#FEF3C7"/>
     <rect x="60" y="8" width="279" height="16" rx="8" fill="#F59E0B"/>
-    <text x="380" y="20" font-size="13" fill="#6B7280">112 (89.6%)</text>
+    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="380" y="20" font-size="13" fill="#6B7280">112 (89.6%)</text>
   </g>
   <g transform="translate(80, 350)">
-    <text y="20" font-size="13" fill="#111827">4 ⭐</text>
+    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" y="20" font-size="13" fill="#111827">4 ⭐</text>
     <rect x="60" y="8" width="300" height="16" rx="8" fill="#FEF3C7"/>
     <rect x="60" y="8" width="15" height="16" rx="8" fill="#F59E0B"/>
-    <text x="380" y="20" font-size="13" fill="#6B7280">6 (4.8%)</text>
+    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="380" y="20" font-size="13" fill="#6B7280">6 (4.8%)</text>
   </g>
   <g transform="translate(80, 390)">
-    <text y="20" font-size="13" fill="#111827">3 ⭐</text>
+    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" y="20" font-size="13" fill="#111827">3 ⭐</text>
     <rect x="60" y="8" width="300" height="16" rx="8" fill="#FEF3C7"/>
     <rect x="60" y="8" width="9" height="16" rx="8" fill="#F59E0B"/>
-    <text x="380" y="20" font-size="13" fill="#6B7280">3 (2.4%)</text>
+    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="380" y="20" font-size="13" fill="#6B7280">3 (2.4%)</text>
   </g>
   <g transform="translate(80, 430)">
-    <text y="20" font-size="13" fill="#111827">2 ⭐</text>
+    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" y="20" font-size="13" fill="#111827">2 ⭐</text>
     <rect x="60" y="8" width="300" height="16" rx="8" fill="#FEF3C7"/>
     <rect x="60" y="8" width="6" height="16" rx="8" fill="#F59E0B"/>
-    <text x="380" y="20" font-size="13" fill="#6B7280">2 (1.6%)</text>
+    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="380" y="20" font-size="13" fill="#6B7280">2 (1.6%)</text>
   </g>
   <g transform="translate(80, 470)">
-    <text y="20" font-size="13" fill="#111827">1 ⭐</text>
+    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" y="20" font-size="13" fill="#111827">1 ⭐</text>
     <rect x="60" y="8" width="300" height="16" rx="8" fill="#FEF3C7"/>
     <rect x="60" y="8" width="3" height="16" rx="8" fill="#F59E0B"/>
-    <text x="380" y="20" font-size="13" fill="#6B7280">2 (1.6%)</text>
+    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="380" y="20" font-size="13" fill="#6B7280">2 (1.6%)</text>
   </g>
 
   <!-- Write Review Form -->
   <rect x="580" y="260" width="560" height="300" rx="12" fill="white" filter="url(#sh)"/>
-  <text x="600" y="295" font-size="16" font-weight="700" fill="#111827">ESCRIBIR RESEÑA</text>
-  <text x="600" y="315" font-size="12" fill="#6B7280">Solo si compraste a este vendedor</text>
+  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="600" y="295" font-size="16" font-weight="700" fill="#111827">ESCRIBIR RESEÑA</text>
+  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="600" y="315" font-size="12" fill="#6B7280">Solo si compraste a este vendedor</text>
 
-  <text x="600" y="350" font-size="14" font-weight="600" fill="#111827">Tu Calificación</text>
+  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="600" y="350" font-size="14" font-weight="600" fill="#111827">Tu Calificación</text>
   <g transform="translate(600, 365)">
-    <text x="0" y="25" font-size="28" fill="#E5E7EB">☆</text>
-    <text x="40" y="25" font-size="28" fill="#E5E7EB">☆</text>
-    <text x="80" y="25" font-size="28" fill="#E5E7EB">☆</text>
-    <text x="120" y="25" font-size="28" fill="#E5E7EB">☆</text>
-    <text x="160" y="25" font-size="28" fill="#E5E7EB">☆</text>
+    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="0" y="25" font-size="28" fill="#E5E7EB">☆</text>
+    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="40" y="25" font-size="28" fill="#E5E7EB">☆</text>
+    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="80" y="25" font-size="28" fill="#E5E7EB">☆</text>
+    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="120" y="25" font-size="28" fill="#E5E7EB">☆</text>
+    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="160" y="25" font-size="28" fill="#E5E7EB">☆</text>
   </g>
 
-  <text x="600" y="410" font-size="13" font-weight="500" fill="#374151">Tu Comentario (opcional)</text>
+  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="600" y="410" font-size="13" font-weight="500" fill="#374151">Tu Comentario (opcional)</text>
   <rect x="600" y="420" width="520" height="80" rx="8" fill="white" stroke="#D1D5DB" stroke-width="1.5"/>
-  <text x="620" y="450" fill="#9CA3AF" font-size="13">¿Cómo fue tu experiencia? ¿Llegó bien el paquete?...</text>
+  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="620" y="450" fill="#9CA3AF" font-size="13">¿Cómo fue tu experiencia? ¿Llegó bien el paquete?...</text>
 
   <rect x="600" y="510" width="240" height="40" rx="8" fill="white" stroke="#D1D5DB" stroke-width="1.5"/>
-  <text x="720" y="538" text-anchor="middle" fill="#6B7280" font-size="13">Cancelar</text>
+  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="720" y="538" text-anchor="middle" fill="#6B7280" font-size="13">Cancelar</text>
   <rect x="860" y="510" width="260" height="40" rx="8" fill="#3B82F6"/>
-  <text x="990" y="538" text-anchor="middle" fill="white" font-size="13" font-weight="600">PUBLICAR RESEÑA</text>
+  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="990" y="538" text-anchor="middle" fill="white" font-size="13" font-weight="600">PUBLICAR RESEÑA</text>
 
   <!-- Reviews List -->
-  <text x="60" y="590" font-size="18" font-weight="700" fill="#111827">RESEÑAS RECIENTES</text>
+  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="60" y="590" font-size="18" font-weight="700" fill="#111827">RESEÑAS RECIENTES</text>
 
   <g transform="translate(60, 610)">
     <rect width="1080" height="120" rx="12" fill="white" filter="url(#sh)"/>
     <circle cx="50" cy="60" r="25" fill="#10B981"/>
-    <text x="50" y="65" text-anchor="middle" fill="white" font-size="12" font-weight="600">JD</text>
-    <text x="90" y="40" font-size="14" font-weight="600" fill="#111827">Juan D.</text>
-    <text x="90" y="60" font-size="12" fill="#F59E0B">⭐⭐⭐⭐⭐</text>
-    <text x="90" y="80" font-size="12" fill="#6B7280">Hace 2 días • Compra: Charizard ex</text>
-    <text x="90" y="100" font-size="13" fill="#374151">Excelente vendedor, carta en perfecto estado y envío rápido.</text>
+    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="50" y="65" text-anchor="middle" fill="white" font-size="12" font-weight="600">JD</text>
+    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="90" y="40" font-size="14" font-weight="600" fill="#111827">Juan D.</text>
+    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="90" y="60" font-size="12" fill="#F59E0B">⭐⭐⭐⭐⭐</text>
+    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="90" y="80" font-size="12" fill="#6B7280">Hace 2 días • Compra: Charizard ex</text>
+    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="90" y="100" font-size="13" fill="#374151">Excelente vendedor, carta en perfecto estado y envío rápido.</text>
   </g>
 
   <g transform="translate(60, 750)">
     <rect width="1080" height="120" rx="12" fill="white" filter="url(#sh)"/>
     <circle cx="50" cy="60" r="25" fill="#3B82F6"/>
-    <text x="50" y="65" text-anchor="middle" fill="white" font-size="12" font-weight="600">MG</text>
-    <text x="90" y="40" font-size="14" font-weight="600" fill="#111827">María G.</text>
-    <text x="90" y="60" font-size="12" fill="#F59E0B">⭐⭐⭐⭐⭐</text>
-    <text x="90" y="80" font-size="12" fill="#6B7280">Hace 5 días • Compra: Pikachu VMAX</text>
-    <text x="90" y="100" font-size="13" fill="#374151">Muy buena comunicación, empaque seguro. Volveré a comprar.</text>
+    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="50" y="65" text-anchor="middle" fill="white" font-size="12" font-weight="600">MG</text>
+    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="90" y="40" font-size="14" font-weight="600" fill="#111827">María G.</text>
+    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="90" y="60" font-size="12" fill="#F59E0B">⭐⭐⭐⭐⭐</text>
+    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="90" y="80" font-size="12" fill="#6B7280">Hace 5 días • Compra: Pikachu VMAX</text>
+    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="90" y="100" font-size="13" fill="#374151">Muy buena comunicación, empaque seguro. Volveré a comprar.</text>
   </g>
 </svg>

@@ -8,80 +8,80 @@
   </defs>
   <rect width="1200" height="900" fill="#F3F4F6"/>
   <rect width="1200" height="64" fill="url(#hg)"/>
-  <text x="40" y="40" fill="white" font-size="20" font-weight="700">🃏 CardTrade Market</text>
+  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="40" y="40" fill="white" font-size="20" font-weight="700">🃏 CardTrade Market</text>
 
-  <text x="60" y="110" font-size="24" font-weight="700" fill="#111827">HISTORIAL DE COMPRAS</text>
-  <text x="60" y="135" font-size="14" fill="#6B7280">24 pedidos • $3,245 gastados este año</text>
+  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="60" y="110" font-size="24" font-weight="700" fill="#111827">HISTORIAL DE COMPRAS</text>
+  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="60" y="135" font-size="14" fill="#6B7280">24 pedidos • $3,245 gastados este año</text>
 
   <!-- Filter Tabs -->
   <rect x="60" y="155" width="1080" height="44" rx="8" fill="white" filter="url(#sh)"/>
   <rect x="65" y="160" width="100" height="34" rx="6" fill="#3B82F6"/>
-  <text x="115" y="182" text-anchor="middle" fill="white" font-size="12" font-weight="500">Todas (24)</text>
-  <text x="200" y="182" font-size="12" fill="#6B7280">Entregados (18)</text>
-  <text x="300" y="182" font-size="12" fill="#6B7280">En camino (3)</text>
-  <text x="400" y="182" font-size="12" fill="#6B7280">Pendientes (2)</text>
-  <text x="500" y="182" font-size="12" fill="#6B7280">Cancelados (1)</text>
+  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="115" y="182" text-anchor="middle" fill="white" font-size="12" font-weight="500">Todas (24)</text>
+  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="200" y="182" font-size="12" fill="#6B7280">Entregados (18)</text>
+  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="300" y="182" font-size="12" fill="#6B7280">En camino (3)</text>
+  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="400" y="182" font-size="12" fill="#6B7280">Pendientes (2)</text>
+  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="500" y="182" font-size="12" fill="#6B7280">Cancelados (1)</text>
   <rect x="900" y="160" width="200" height="34" rx="6" fill="white" stroke="#D1D5DB" stroke-width="1.5"/>
-  <text x="1000" y="182" text-anchor="middle" fill="#6B7280" font-size="12">Filtrar por fecha ▼</text>
+  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="1000" y="182" text-anchor="middle" fill="#6B7280" font-size="12">Filtrar por fecha ▼</text>
 
   <!-- Orders List -->
   <g transform="translate(60, 220)">
     <rect width="1080" height="130" rx="12" fill="white" filter="url(#sh)"/>
     <rect x="20" y="15" width="100" height="100" rx="12" fill="#FEF3C7"/>
-    <text x="70" y="75" text-anchor="middle" font-size="32">🃏</text>
-    <text x="140" y="40" font-size="16" font-weight="600" fill="#111827">Charizard ex 199/165</text>
-    <text x="140" y="60" font-size="12" fill="#6B7280">Pokémon • Obsidian Flames • $45.00</text>
-    <text x="140" y="80" font-size="12" fill="#6B7280">Pedido: CT-2025-015234 • 15 Ene 2025</text>
+    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="70" y="75" text-anchor="middle" font-size="32">🃏</text>
+    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="140" y="40" font-size="16" font-weight="600" fill="#111827">Charizard ex 199/165</text>
+    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="140" y="60" font-size="12" fill="#6B7280">Pokémon • Obsidian Flames • $45.00</text>
+    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="140" y="80" font-size="12" fill="#6B7280">Pedido: CT-2025-015234 • 15 Ene 2025</text>
     <rect x="800" y="15" width="100" height="30" rx="15" fill="#D1FAE5"/>
-    <text x="850" y="33" text-anchor="middle" fill="#065F46" font-size="11" font-weight="600">ENTREGADO</text>
-    <text x="950" y="45" font-size="16" font-weight="700" fill="#3B82F6">$45.00</text>
-    <text x="950" y="70" font-size="11" fill="#10B981">📦 Estafeta: MX987654321</text>
+    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="850" y="33" text-anchor="middle" fill="#065F46" font-size="11" font-weight="600">ENTREGADO</text>
+    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="950" y="45" font-size="16" font-weight="700" fill="#3B82F6">$45.00</text>
+    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="950" y="70" font-size="11" fill="#10B981">📦 Estafeta: MX987654321</text>
     <rect x="950" y="90" width="80" height="30" rx="15" fill="#EFF6FF"/>
-    <text x="990" y="108" text-anchor="middle" fill="#3B82F6" font-size="11" font-weight="600">Ver Detalle</text>
+    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="990" y="108" text-anchor="middle" fill="#3B82F6" font-size="11" font-weight="600">Ver Detalle</text>
   </g>
 
   <g transform="translate(60, 370)">
     <rect width="1080" height="130" rx="12" fill="white" filter="url(#sh)"/>
     <rect x="20" y="15" width="100" height="100" rx="12" fill="#DBEAFE"/>
-    <text x="70" y="75" text-anchor="middle" font-size="32">🃏</text>
-    <text x="140" y="40" font-size="16" font-weight="600" fill="#111827">Pikachu VMAX 188/185</text>
-    <text x="140" y="60" font-size="12" fill="#6B7280">Pokémon • Vivid Voltage • $28.00</text>
-    <text x="140" y="80" font-size="12" fill="#6B7280">Pedido: CT-2025-015201 • 10 Ene 2025</text>
+    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="70" y="75" text-anchor="middle" font-size="32">🃏</text>
+    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="140" y="40" font-size="16" font-weight="600" fill="#111827">Pikachu VMAX 188/185</text>
+    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="140" y="60" font-size="12" fill="#6B7280">Pokémon • Vivid Voltage • $28.00</text>
+    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="140" y="80" font-size="12" fill="#6B7280">Pedido: CT-2025-015201 • 10 Ene 2025</text>
     <rect x="800" y="15" width="100" height="30" rx="15" fill="#FEF3C7"/>
-    <text x="850" y="33" text-anchor="middle" fill="#92400E" font-size="11" font-weight="600">EN CAMINO</text>
-    <text x="950" y="45" font-size="16" font-weight="700" fill="#3B82F6">$28.00</text>
-    <text x="950" y="70" font-size="11" fill="#F59E0B">📦 Estafeta: MX123456789</text>
+    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="850" y="33" text-anchor="middle" fill="#92400E" font-size="11" font-weight="600">EN CAMINO</text>
+    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="950" y="45" font-size="16" font-weight="700" fill="#3B82F6">$28.00</text>
+    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="950" y="70" font-size="11" fill="#F59E0B">📦 Estafeta: MX123456789</text>
     <rect x="950" y="90" width="80" height="30" rx="15" fill="#EFF6FF"/>
-    <text x="990" y="108" text-anchor="middle" fill="#3B82F6" font-size="11" font-weight="600">Rastrear</text>
+    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="990" y="108" text-anchor="middle" fill="#3B82F6" font-size="11" font-weight="600">Rastrear</text>
   </g>
 
   <g transform="translate(60, 520)">
     <rect width="1080" height="130" rx="12" fill="white" filter="url(#sh)"/>
     <rect x="20" y="15" width="100" height="100" rx="12" fill="#FEF3C7"/>
-    <text x="70" y="75" text-anchor="middle" font-size="32">🃏</text>
-    <text x="140" y="40" font-size="16" font-weight="600" fill="#111827">Mewtwo VSTAR 172/172</text>
-    <text x="140" y="60" font-size="12" fill="#6B7280">Pokémon • Brilliant Stars • $52.00</text>
-    <text x="140" y="80" font-size="12" fill="#6B7280">Pedido: CT-2025-015189 • 5 Ene 2025</text>
+    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="70" y="75" text-anchor="middle" font-size="32">🃏</text>
+    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="140" y="40" font-size="16" font-weight="600" fill="#111827">Mewtwo VSTAR 172/172</text>
+    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="140" y="60" font-size="12" fill="#6B7280">Pokémon • Brilliant Stars • $52.00</text>
+    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="140" y="80" font-size="12" fill="#6B7280">Pedido: CT-2025-015189 • 5 Ene 2025</text>
     <rect x="800" y="15" width="100" height="30" rx="15" fill="#D1FAE5"/>
-    <text x="850" y="33" text-anchor="middle" fill="#065F46" font-size="11" font-weight="600">ENTREGADO</text>
-    <text x="950" y="45" font-size="16" font-weight="700" fill="#3B82F6">$52.00</text>
-    <text x="950" y="70" font-size="11" fill="#6B7280">⭐ Reseñar vendedor</text>
+    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="850" y="33" text-anchor="middle" fill="#065F46" font-size="11" font-weight="600">ENTREGADO</text>
+    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="950" y="45" font-size="16" font-weight="700" fill="#3B82F6">$52.00</text>
+    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="950" y="70" font-size="11" fill="#6B7280">⭐ Reseñar vendedor</text>
     <rect x="950" y="90" width="80" height="30" rx="15" fill="#FCE7F3"/>
-    <text x="990" y="108" text-anchor="middle" fill="#EF4444" font-size="11" font-weight="600">Reseñar</text>
+    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="990" y="108" text-anchor="middle" fill="#EF4444" font-size="11" font-weight="600">Reseñar</text>
   </g>
 
   <g transform="translate(60, 670)">
     <rect width="1080" height="130" rx="12" fill="white" filter="url(#sh)"/>
     <rect x="20" y="15" width="100" height="100" rx="12" fill="#FCE7F3"/>
-    <text x="70" y="75" text-anchor="middle" font-size="32">🃏</text>
-    <text x="140" y="40" font-size="16" font-weight="600" fill="#111827">Black Lotus (Beta)</text>
-    <text x="140" y="60" font-size="12" fill="#6B7280">Magic • Beta • $8,500.00</text>
-    <text x="140" y="80" font-size="12" fill="#6B7280">Pedido: CT-2024-012045 • 15 Dic 2024</text>
+    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="70" y="75" text-anchor="middle" font-size="32">🃏</text>
+    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="140" y="40" font-size="16" font-weight="600" fill="#111827">Black Lotus (Beta)</text>
+    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="140" y="60" font-size="12" fill="#6B7280">Magic • Beta • $8,500.00</text>
+    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="140" y="80" font-size="12" fill="#6B7280">Pedido: CT-2024-012045 • 15 Dic 2024</text>
     <rect x="800" y="15" width="100" height="30" rx="15" fill="#D1FAE5"/>
-    <text x="850" y="33" text-anchor="middle" fill="#065F46" font-size="11" font-weight="600">ENTREGADO</text>
-    <text x="950" y="45" font-size="16" font-weight="700" fill="#3B82F6">$8,500</text>
-    <text x="950" y="70" font-size="11" fill="#6B7280">📦 DHL: 1234567890</text>
+    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="850" y="33" text-anchor="middle" fill="#065F46" font-size="11" font-weight="600">ENTREGADO</text>
+    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="950" y="45" font-size="16" font-weight="700" fill="#3B82F6">$8,500</text>
+    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="950" y="70" font-size="11" fill="#6B7280">📦 DHL: 1234567890</text>
     <rect x="950" y="90" width="80" height="30" rx="15" fill="#EFF6FF"/>
-    <text x="990" y="108" text-anchor="middle" fill="#3B82F6" font-size="11" font-weight="600">Factura</text>
+    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="990" y="108" text-anchor="middle" fill="#3B82F6" font-size="11" font-weight="600">Factura</text>
   </g>
 </svg>
