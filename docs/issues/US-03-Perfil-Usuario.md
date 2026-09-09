@@ -2,123 +2,193 @@
 
 **Epic:** Gestión de Usuarios
 **Prioridad:** Media
-**Estimación:** 5 puntos
+**Estimación:** 6 puntos
 
 ---
 
-## Historia de Usuario
+## Descripción
 
 **Como** usuario registrado,
-**quiero** poder ver y editar mi perfil con información como nombre, avatar y biografía,
-**para** personalizar mi presencia en la plataforma y que otros usuarios me identifiquen.
+**quiero** ver y editar mi perfil con mi nombre, avatar y biografía,
+**para** personalizar mi presencia en la plataforma y construir confianz con otros usuarios.
 
 ---
 
-## Criterios de Aceptance
+## Criterios de Aceptación
 
-- [ ] El perfil muestra: nombre de usuario, avatar, biografía, ubicación, fecha de registro, calificación
-- [ ] Puedo editar mi nombre, avatar, biografía y ubicación
-- [ ] El nombre de usuario es único (validación al editar)
-- [ ] La biografía tiene un límite de 200 caracteres con contador
-- [ ] Puedo subir/cambiar mi foto de avatar
-- [ ] Puedo cambiar mi contraseña (requiere contraseña actual)
-- [ ] Los cambios se guardan exitosamente con mensaje de confirmación
-- [ ] Otros usuarios pueden ver mi perfil público
-- [ ] Mi perfil público muestra: nombre, avatar, bio, publicaciones activas, calificación
-
----
-
-## Wireframe - Mi Perfil (Edición)
-
-```
-+----------------------------------------------------------+
-|  [Logo]  [Home] [Cartas] [Mi Colección] [Mi Perfil] [≡]  |
-+----------------------------------------------------------+
-|                                                          |
-|  +----------------------------------------------------+ |
-|  |  MI PERFIL                                          | |
-|  +----------------------------------------------------+ |
-|  |                                                     | |
-|  |       +-------------+                               | |
-|  |       |             |                               | |
-|  |       |   [Avatar]  |   Mi Nombre de Usuario        | |
-|  |       |             |   usuario@email.com           | |
-|  |       |   [Cambiar] |   Miembro desde: Ene 2024     | |
-|  |       +-------------+   Calificación: ★★★★☆ (4.2)   | |
-|  |                                                     | |
-|  |  ─────────────────────────────────────────────────  | |
-|  |                                                     | |
-|  |  Nombre de Usuario                                  | |
-|  |  +-----------------------------+                    | |
-|  |  | MiNombreUsuario             |                    | |
-|  |  +-----------------------------+                    | |
-|  |                                                     | |
-|  |  Biografía (0/200)                                  | |
-|  |  +-----------------------------+                    | |
-|  |  | Coleccionista de cartas     |                    | |
-|  |  | desde 2020...               |                    | |
-|  |  +-----------------------------+                    | |
-|  |                                                     | |
-|  |  Ubicación                                          | |
-|  |  +-----------------------------+                    | |
-|  |  | Ciudad de México            |                    | |
-|  |  +-----------------------------+                    | |
-|  |                                                     | |
-|  |  +-----------------------------+                    | |
-|  |  |      GUARDAR CAMBIOS       |                     | |
-|  |  +-----------------------------+                    | |
-|  |                                                     | |
-|  |  [Cambiar Contraseña]                               | |
-|  |                                                     | |
-|  +----------------------------------------------------+ |
-|                                                          |
-+----------------------------------------------------------+
-```
+1. Se muestra la información del perfil: nombre, avatar, biografía, ubicación, fecha de registro y calificación promedio.
+2. El usuario puede editar su nombre (debe ser único en el sistema).
+3. El usuario puede subir y cambiar su avatar (formato jpg/png, máx 2MB).
+4. El usuario puede agregar/editar una biografía de máximo 200 caracteres.
+5. El usuario puede establecer/editar su ubicación.
+6. El usuario puede cambiar su contraseña desde una sección dedicada del perfil.
+7. Los cambios se guardan con un botón "Guardar cambios" y se muestra una confirmación visual.
+8. El perfil es visible públicamente para otros usuarios (con información limitada).
+9. La vista de perfil propio muestra botones de edición, la vista de otro usuario muestra botón de contacto.
+10. El formulario de edición es responsive en dispositivos móviles y de escritorio.
+11. Se valida que el nombre no esté en uso por otro usuario antes de guardar.
+12. Se muestra un indicador de carga durante la subida del avatar.
 
 ---
 
-## Wireframe - Perfil Público
+## Wireframe
 
 ```
-+----------------------------------------------------------+
-|  [Logo]  [Home] [Cartas] [Mi Colección] [≡]              |
-+----------------------------------------------------------+
-|                                                          |
-|  +----------------------------------------------------+ |
-|  |  PERFIL DE USUARIO                                  | |
-|  +----------------------------------------------------+ |
-|  |                                                     | |
-|  |       +-------------+                               | |
-|  |       |             |                               | |
-|  |       |   [Avatar]  |   Nombre del Vendedor         | |
-|  |       |             |   Ubicación                   | |
-|  |       +-------------+   Calificación: ★★★★★ (4.8)  | |
-|  |                             Miembro desde: Mar 2023 | |
-|  |                                                     | |
-|  |  "Coleccionista apasionado de cartas Pokémon"       | |
-|  |                                                     | |
-|  |  ─────────────────────────────────────────────────  | |
-|  |                                                     | |
-|  |  PUBLICACIONES ACTIVAS (12)                         | |
-|  |                                                     | |
-|  |  +----------+  +----------+  +----------+          | |
-|  |  | [Img]    |  | [Img]    |  | [Img]    |          | |
-|  |  | Charizar |  | Pikachu  |  | Mewtwo   |          | |
-|  |  | $45.00   |  | $12.00   |  | $89.00   |          | |
-|  |  +----------+  +----------+  +----------+          | |
-|  |                                                     | |
-|  +----------------------------------------------------+ |
-|                                                          |
-+----------------------------------------------------------+
+┌─────────────────────────────────────────────────────────────────┐
+│  🃏 CardTrade Market    Inicio  Mi Perfil  Mis Cartas  ≡      │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│  ┌───────────────────────────────────────────────────────────┐  │
+│  │                   Mi Perfil                               │  │
+│  │                                                           │  │
+│  │           ┌─────────┐                                     │  │
+│  │           │  Avatar │  ← Cambiar foto                     │  │
+│  │           │  👤     │                                     │  │
+│  │           └─────────┘                                     │  │
+│  │                                                           │  │
+│  │  Nombre del Usuario                                       │  │
+│  │  ┌─────────────────────────────────────────────────────┐  │  │
+│  │  │ Juan Pérez                                        ✏️│  │  │
+│  │  └─────────────────────────────────────────────────────┘  │  │
+│  │                                                           │  │
+│  │  Biografía                                               │  │
+│  │  ┌─────────────────────────────────────────────────────┐  │  │
+│  │  │ Coleccionista de cartas Pokémon desde 2005.        │  │  │
+│  │  │ Especialista en cartas raras y promo.              ✏️│  │  │
+│  │  └─────────────────────────────────────────────────────┘  │  │
+│  │  156/200 caracteres                                       │  │
+│  │                                                           │  │
+│  │  Ubicación        Fecha de Registro    Calificación       │  │
+│  │  Buenos Aires     15 Ene 2024          ⭐ 4.8             │  │
+│  │  ┌─────────────┐                                         │  │
+│  │  │ Buenos Aires│                                         │  │
+│  │  └─────────────┘                                         │  │
+│  │                                                           │  │
+│  │  ┌──────────────────────────────────────────────────────┐ │  │
+│  │  │               Guardar Cambios                        │ │  │
+│  │  └──────────────────────────────────────────────────────┘ │  │
+│  │                                                           │  │
+│  └───────────────────────────────────────────────────────────┘  │
+│                                                                 │
+│  ┌───────────────────────────────────────────────────────────┐  │
+│  │              Cambiar Contraseña                            │  │
+│  │  Contraseña actual    ┌──────────────────────────────┐    │  │
+│  │                       │                              │    │  │
+│  │  Nueva contraseña     └──────────────────────────────┘    │  │
+│  │                       ┌──────────────────────────────┐    │  │
+│  │  Confirmar nueva      │                              │    │  │
+│  │                       └──────────────────────────────┘    │  │
+│  │  ┌──────────────────────────────────────────────────────┐ │  │
+│  │  │              Actualizar Contraseña                   │ │  │
+│  │  └──────────────────────────────────────────────────────┘ │  │
+│  └───────────────────────────────────────────────────────────┘  │
+│                                                                 │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+### Mobile
+
+```
+┌─────────────────────────┐
+│  🃏 CardTrade    ≡      │
+├─────────────────────────┤
+│                         │
+│      Mi Perfil          │
+│                         │
+│       ┌───────┐         │
+│       │Avatar │         │
+│       │  👤   │         │
+│       └───────┘         │
+│   Cambiar foto          │
+│                         │
+│  Nombre                 │
+│  ┌───────────────────┐  │
+│  │ Juan Pérez        │  │
+│  └───────────────────┘  │
+│                         │
+│  Biografía              │
+│  ┌───────────────────┐  │
+│  │ Coleccionista de  │  │
+│  │ cartas Pokémon... │  │
+│  └───────────────────┘  │
+│  156/200                │
+│                         │
+│  Ubicación              │
+│  ┌───────────────────┐  │
+│  │ Buenos Aires      │  │
+│  └───────────────────┘  │
+│                         │
+│  Registro: 15 Ene 2024  │
+│  Calificación: ⭐ 4.8   │
+│                         │
+│  ┌───────────────────┐  │
+│  │  Guardar Cambios  │  │
+│  └───────────────────┘  │
+│                         │
+│  ─────────────────────  │
+│  Cambiar Contraseña     │
+│  ┌───────────────────┐  │
+│  │ Contraseña actual │  │
+│  └───────────────────┘  │
+│  ┌───────────────────┐  │
+│  │ Nueva contraseña  │  │
+│  └───────────────────┘  │
+│  ┌───────────────────┐  │
+│  │ Confirmar nueva   │  │
+│  └───────────────────┘  │
+│  ┌───────────────────┐  │
+│  │ Actualizar        │  │
+│  └───────────────────┘  │
+│                         │
+└─────────────────────────┘
+```
+
+### Perfil Público (otro usuario)
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│  🃏 CardTrade Market    Inicio  Buscar  Mis Cartas  ≡         │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│  ┌───────────────────────────────────────────────────────────┐  │
+│  │                  Perfil de Juan Pérez                      │  │
+│  │                                                           │  │
+│  │           ┌─────────┐                                     │  │
+│  │           │  Avatar │                                     │  │
+│  │           │  👤     │                                     │  │
+│  │           └─────────┘                                     │  │
+│  │                                                           │  │
+│  │  Nombre: Juan Pérez                                       │  │
+│  │  Ubicación: Buenos Aires                                  │  │
+│  │  Miembro desde: 15 Ene 2024                               │  │
+│  │  Calificación: ⭐ 4.8 (23 reseñas)                        │  │
+│  │                                                           │  │
+│  │  "Coleccionista de cartas Pokémon desde 2005.            │  │
+│  │   Especialista en cartas raras y promo."                 │  │
+│  │                                                           │  │
+│  │  ┌──────────────────────────────────────────────────────┐ │  │
+│  │  │              💬 Contactar                            │ │  │
+│  │  └──────────────────────────────────────────────────────┘ │  │
+│  │                                                           │  │
+│  └───────────────────────────────────────────────────────────┘  │
+│                                                                 │
+│  ┌───────────────────────────────────────────────────────────┐  │
+│  │                Cartas de Juan (12)                         │  │
+│  │  ┌─────────┐ ┌─────────┐ ┌─────────┐ ┌─────────┐         │  │
+│  │  │ Carta 1 │ │ Carta 2 │ │ Carta 3 │ │ Carta 4 │         │  │
+│  │  │ $25.00  │ │ $12.50  │ │ $45.00  │ │ $8.00   │         │  │
+│  │  └─────────┘ └─────────┘ └─────────┘ └─────────┘         │  │
+│  └───────────────────────────────────────────────────────────┘  │
+└─────────────────────────────────────────────────────────────────┘
 ```
 
 ---
 
 ## Notas Técnicas
 
-- **Rutas:** `/profile` (mi perfil), `/user/:id` (perfil público)
-- **Componentes:** `ProfilePage`, `ProfileForm`, `AvatarUpload`, `PublicProfile`
-- **Endpoints:**
-  - `GET /api/users/:id` - Obtener perfil
-  - `PUT /api/users/profile` - Actualizar perfil
-  - `POST /api/users/avatar` - Subir avatar
+- **Ruta:** /profile (mi perfil), /profile/:id (perfil público)
+- **Componentes:** ProfileView, ProfileEdit, AvatarUpload, PasswordChange, PublicProfile
+- **Endpoints:** GET /api/users/me, PUT /api/users/me, GET /api/users/:id, POST /api/users/me/avatar
+- **Almacenamiento:** Multer para uploads, Cloudinary o S3 para almacenamiento de imágenes
+- **Validación:** Unique constraint en nombre, validación de tipo y tamaño de archivo
+- **Cache:** Invalidación de cache de perfil tras actualización
