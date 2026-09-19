@@ -1,4 +1,4 @@
-<svg viewBox="0 0 1200 900" xmlns="http://www.w3.org/2000/svg">
+<svg viewBox="0 0 1200 1100" xmlns="http://www.w3.org/2000/svg">
   <title>Perfil de Vendedor</title>
   <desc>Wireframe de pagina de perfil de vendedor con informacion, estadisticas y publicaciones activas</desc>
   <defs>
@@ -10,7 +10,7 @@
   <style>
     text{font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif}
     .page-title{font-size:24px;font-weight:700;fill:#111827}
-    .section-title{font-size:16px;font-weight:700;fill:#111827}
+    .section-title{font-size:18px;font-weight:700;fill:#111827}
     .card-title{font-size:14px;font-weight:600;fill:#111827}
     .card-meta{font-size:12px;fill:#6B7280}
     .header-text{font-size:20px;font-weight:700;fill:white}
@@ -21,98 +21,118 @@
     .link{font-size:13px;fill:#3B82F6;font-weight:500}
     .footer-text{font-size:12px;fill:#9CA3AF}
     .footer-link{font-size:12px;fill:#6B7280}
+    .stat-value{font-size:28px;font-weight:700}
+    .stat-label{font-size:12px}
+    .price{font-size:20px;font-weight:700;fill:#3B82F6}
   </style>
-  <rect width="1200" height="900" fill="#F3F4F6"/>
+  <rect width="1200" height="1100" fill="#F3F4F6"/>
+
   <g id="header">
     <rect width="1200" height="64" fill="url(#headerGrad)"/>
     <text x="40" y="42" class="header-text">&#x1F0CF; CardTrade Market</text>
   </g>
+
   <g id="main-content">
-    <text x="60" y="100" class="small-muted">Inicio / Vendedor / CardMaster MX</text>
-    <rect x="60" y="120" width="1080" height="180" rx="16" fill="white" filter="url(#cardShadow)"/>
-    <circle cx="160" cy="210" r="60" fill="#3B82F6"/>
-    <text x="160" y="218" text-anchor="middle" fill="white" font-size="32" font-weight="700">CM</text>
-    <text x="250" y="180" class="page-title">CardMaster MX</text>
-    <text x="250" y="205" class="muted">&#x1F4CD; Ciudad de Mexico, Mexico</text>
-    <text x="250" y="225" class="label">Miembro desde Enero 2024</text>
-    <text x="250" y="245" font-size="16" font-weight="600" fill="#111827">&#x2B50; 4.8 (125 resenas)</text>
-    <rect x="900" y="160" width="180" height="44" rx="8" fill="#3B82F6"/>
-    <text x="990" y="188" text-anchor="middle" fill="white" font-size="14" font-weight="600">&#x1F4AC; Contactar</text>
-    <rect x="900" y="215" width="180" height="44" rx="8" fill="white" stroke="#D1D5DB" stroke-width="1.5"/>
-    <text x="990" y="243" text-anchor="middle" class="muted">&#x1F514; Seguir</text>
-    <g transform="translate(480,160)">
-      <rect width="120" height="120" rx="12" fill="#EFF6FF"/>
-      <text x="60" y="45" text-anchor="middle" font-size="28" font-weight="700" fill="#1E40AF">342</text>
-      <text x="60" y="70" text-anchor="middle" class="small-muted" fill="#3B82F6">Ventas Totales</text>
+    <text x="60" y="105" class="small-muted">Inicio / Vendedor / CardMaster MX</text>
+
+    <!-- Profile Header Card -->
+    <rect x="60" y="125" width="1080" height="180" rx="16" fill="white" filter="url(#cardShadow)"/>
+    <circle cx="150" cy="215" r="55" fill="#3B82F6"/>
+    <text x="150" y="223" text-anchor="middle" fill="white" font-size="30" font-weight="700">CM</text>
+    <text x="230" y="180" class="page-title">CardMaster MX</text>
+    <text x="230" y="205" class="muted">&#x1F4CD; Ciudad de Mexico, Mexico</text>
+    <text x="230" y="230" class="label">Miembro desde Enero 2024</text>
+    <text x="230" y="260" font-size="16" font-weight="600" fill="#111827">&#x2B50; 4.8 (125 resenas)</text>
+    <rect x="880" y="155" width="220" height="44" rx="8" fill="#3B82F6"/>
+    <text x="990" y="183" text-anchor="middle" fill="white" font-size="14" font-weight="600">&#x1F4AC; Contactar</text>
+    <rect x="880" y="210" width="220" height="44" rx="8" fill="white" stroke="#D1D5DB" stroke-width="1.5"/>
+    <text x="990" y="238" text-anchor="middle" class="muted">&#x1F514; Seguir</text>
+
+    <!-- Stats Row -->
+    <g transform="translate(60, 330)">
+      <rect width="240" height="100" rx="12" fill="white" filter="url(#cardShadow)"/>
+      <text x="120" y="45" text-anchor="middle" class="stat-value" fill="#1E40AF">342</text>
+      <text x="120" y="70" text-anchor="middle" class="stat-label" fill="#3B82F6">Ventas Totales</text>
     </g>
-    <g transform="translate(620,160)">
-      <rect width="120" height="120" rx="12" fill="#ECFDF5"/>
-      <text x="60" y="45" text-anchor="middle" font-size="28" font-weight="700" fill="#059669">99.2%</text>
-      <text x="60" y="70" text-anchor="middle" class="small-muted" fill="#10B981">Tasa de Exito</text>
+    <g transform="translate(330, 330)">
+      <rect width="240" height="100" rx="12" fill="white" filter="url(#cardShadow)"/>
+      <text x="120" y="45" text-anchor="middle" class="stat-value" fill="#059669">99.2%</text>
+      <text x="120" y="70" text-anchor="middle" class="stat-label" fill="#10B981">Tasa de Exito</text>
     </g>
-    <g transform="translate(760,160)">
-      <rect width="120" height="120" rx="12" fill="#FEF3C7"/>
-      <text x="60" y="45" text-anchor="middle" font-size="28" font-weight="700" fill="#D97706">2.3h</text>
-      <text x="60" y="70" text-anchor="middle" class="small-muted" fill="#F59E0B">Tiempo Resp. Prom.</text>
+    <g transform="translate(600, 330)">
+      <rect width="240" height="100" rx="12" fill="white" filter="url(#cardShadow)"/>
+      <text x="120" y="45" text-anchor="middle" class="stat-value" fill="#D97706">2.3h</text>
+      <text x="120" y="70" text-anchor="middle" class="stat-label" fill="#F59E0B">Tiempo Resp. Prom.</text>
     </g>
-    <g transform="translate(900,160)">
-      <rect width="120" height="120" rx="12" fill="#F3E8FF"/>
-      <text x="60" y="45" text-anchor="middle" font-size="28" font-weight="700" fill="#9333EA">89</text>
-      <text x="60" y="70" text-anchor="middle" class="small-muted" fill="#A855F7">Seguidores</text>
+    <g transform="translate(870, 330)">
+      <rect width="270" height="100" rx="12" fill="white" filter="url(#cardShadow)"/>
+      <text x="135" y="45" text-anchor="middle" class="stat-value" fill="#9333EA">89</text>
+      <text x="135" y="70" text-anchor="middle" class="stat-label" fill="#A855F7">Seguidores</text>
     </g>
-    <rect x="60" y="320" width="500" height="200" rx="12" fill="white" filter="url(#cardShadow)"/>
-    <text x="80" y="355" class="section-title">SOBRE EL VENDEDOR</text>
-    <text x="80" y="385" class="input-text">Coleccionista de Pokemon desde 2005. Especialista en cartas vintage y grading. Todos mis envios incluyen tracking y seguro.</text>
-    <text x="80" y="415" class="input-text">Especialidades: Pokemon TCG Base Set, 1st Edition, Cartas Graded PSA/BGS</text>
-    <rect x="60" y="540" width="500" height="200" rx="12" fill="white" filter="url(#cardShadow)"/>
-    <text x="80" y="575" class="section-title">POLITICAS DE ENVIO</text>
-    <text x="80" y="605" class="label">&#x1F4E6; Envio gratis en compras &gt; MXN</text>
-    <text x="80" y="625" class="label">&#x1F69A; Envio estandar:  MXN (2-5 dias)</text>
-    <text x="80" y="645" class="label">&#x26A1; Envio express:  MXN (24-48h)</text>
-    <text x="80" y="665" class="label">&#x1F6E1;&#xFE0F; Seguro incluido en todos los envios</text>
-    <text x="80" y="685" class="label">&#x1F4F8; Fotos del paquete antes de enviar</text>
-    <rect x="590" y="320" width="550" height="420" rx="12" fill="white" filter="url(#cardShadow)"/>
-    <text x="610" y="355" class="section-title">PUBLICACIONES ACTIVAS (8)</text>
-    <g transform="translate(610,370)">
-      <rect width="510" height="80" rx="8" fill="#F3F4F6"/>
+
+    <!-- Two Column Layout -->
+    <!-- Left Column -->
+    <rect x="60" y="460" width="500" height="220" rx="12" fill="white" filter="url(#cardShadow)"/>
+    <text x="85" y="495" class="section-title">SOBRE EL VENDEDOR</text>
+    <text x="85" y="525" class="input-text">Coleccionista de Pokemon desde 2005. Especialista en cartas vintage y grading. Todos mis envios incluyen tracking y seguro.</text>
+    <text x="85" y="555" class="input-text">Especialidades: Pokemon TCG Base Set, 1st Edition, Cartas Graded PSA/BGS</text>
+
+    <rect x="60" y="700" width="500" height="240" rx="12" fill="white" filter="url(#cardShadow)"/>
+    <text x="85" y="735" class="section-title">POLITICAS DE ENVIO</text>
+    <text x="85" y="768" class="label">&#x1F4E6; Envio gratis en compras &gt; $500 MXN</text>
+    <text x="85" y="798" class="label">&#x1F69A; Envio estandar: $89 MXN (2-5 dias)</text>
+    <text x="85" y="828" class="label">&#x26A1; Envio express: $189 MXN (24-48h)</text>
+    <text x="85" y="858" class="label">&#x1F6E1;&#xFE0F; Seguro incluido en todos los envios</text>
+    <text x="85" y="888" class="label">&#x1F4F8; Fotos del paquete antes de enviar</text>
+
+    <!-- Right Column - Active Listings -->
+    <rect x="590" y="460" width="550" height="480" rx="12" fill="white" filter="url(#cardShadow)"/>
+    <text x="615" y="495" class="section-title">PUBLICACIONES ACTIVAS (8)</text>
+
+    <g transform="translate(615, 515)">
+      <rect width="500" height="80" rx="8" fill="#F3F4F6"/>
       <rect x="10" y="10" width="60" height="60" rx="8" fill="#FEF3C7"/>
       <text x="40" y="48" text-anchor="middle" font-size="24">&#x1F0CF;</text>
       <text x="90" y="35" class="label">Charizard ex</text>
-      <text x="90" y="55" class="card-meta">.00 &#x2022; 23 vistas</text>
-      <rect x="420" y="20" width="80" height="30" rx="15" fill="#D1FAE5"/>
-      <text x="460" y="38" text-anchor="middle" fill="#065F46" font-size="11" font-weight="600">ACTIVA</text>
+      <text x="90" y="55" class="card-meta">$45.00 &#x2022; 23 vistas</text>
+      <rect x="400" y="25" width="80" height="30" rx="15" fill="#D1FAE5"/>
+      <text x="440" y="43" text-anchor="middle" fill="#065F46" font-size="11" font-weight="600">ACTIVA</text>
     </g>
-    <g transform="translate(610,465)">
-      <rect width="510" height="80" rx="8" fill="#F3F4F6"/>
+
+    <g transform="translate(615, 605)">
+      <rect width="500" height="80" rx="8" fill="#F3F4F6"/>
       <rect x="10" y="10" width="60" height="60" rx="8" fill="#DBEAFE"/>
       <text x="40" y="48" text-anchor="middle" font-size="24">&#x1F0CF;</text>
       <text x="90" y="35" class="label">Pikachu VMAX</text>
-      <text x="90" y="55" class="card-meta">.00 &#x2022; 45 vistas</text>
-      <rect x="420" y="20" width="80" height="30" rx="15" fill="#D1FAE5"/>
-      <text x="460" y="38" text-anchor="middle" fill="#065F46" font-size="11" font-weight="600">ACTIVA</text>
+      <text x="90" y="55" class="card-meta">$28.00 &#x2022; 45 vistas</text>
+      <rect x="400" y="25" width="80" height="30" rx="15" fill="#D1FAE5"/>
+      <text x="440" y="43" text-anchor="middle" fill="#065F46" font-size="11" font-weight="600">ACTIVA</text>
     </g>
-    <g transform="translate(610,560)">
-      <rect width="510" height="80" rx="8" fill="#F3F4F6"/>
+
+    <g transform="translate(615, 695)">
+      <rect width="500" height="80" rx="8" fill="#F3F4F6"/>
       <rect x="10" y="10" width="60" height="60" rx="8" fill="#FEF3C7"/>
       <text x="40" y="48" text-anchor="middle" font-size="24">&#x1F0CF;</text>
       <text x="90" y="35" class="label">Rayquaza VMAX</text>
-      <text x="90" y="55" class="card-meta">.00 &#x2022; 12 vistas</text>
-      <rect x="420" y="20" width="80" height="30" rx="15" fill="#D1FAE5"/>
-      <text x="460" y="38" text-anchor="middle" fill="#065F46" font-size="11" font-weight="600">ACTIVA</text>
+      <text x="90" y="55" class="card-meta">$180.00 &#x2022; 12 vistas</text>
+      <rect x="400" y="25" width="80" height="30" rx="15" fill="#D1FAE5"/>
+      <text x="440" y="43" text-anchor="middle" fill="#065F46" font-size="11" font-weight="600">ACTIVA</text>
     </g>
-    <g transform="translate(610,655)">
-      <rect width="510" height="80" rx="8" fill="#F3F4F6"/>
+
+    <g transform="translate(615, 785)">
+      <rect width="500" height="80" rx="8" fill="#F3F4F6"/>
       <rect x="10" y="10" width="60" height="60" rx="8" fill="#FCE7F3"/>
       <text x="40" y="48" text-anchor="middle" font-size="24">&#x1F0CF;</text>
       <text x="90" y="35" class="label">Umbreon VMAX</text>
-      <text x="90" y="55" class="card-meta">.00 &#x2022; 8 vistas</text>
-      <rect x="420" y="20" width="80" height="30" rx="15" fill="#D1FAE5"/>
-      <text x="460" y="38" text-anchor="middle" fill="#065F46" font-size="11" font-weight="600">ACTIVA</text>
+      <text x="90" y="55" class="card-meta">$220.00 &#x2022; 8 vistas</text>
+      <rect x="400" y="25" width="80" height="30" rx="15" fill="#D1FAE5"/>
+      <text x="440" y="43" text-anchor="middle" fill="#065F46" font-size="11" font-weight="600">ACTIVA</text>
     </g>
   </g>
+
   <g id="footer">
-    <rect x="0" y="820" width="1200" height="80" fill="#1F2937"/>
-    <text x="600" y="855" text-anchor="middle" class="footer-text">&#xA9; 2026 CardTrade Market. Todos los derechos reservados.</text>
-    <text x="600" y="875" text-anchor="middle" class="footer-link">Terminos | Privacidad | Contacto | Ayuda</text>
+    <rect x="0" y="1000" width="1200" height="100" fill="#1F2937"/>
+    <text x="600" y="1040" text-anchor="middle" class="footer-text">&#xA9; 2026 CardTrade Market. Todos los derechos reservados.</text>
+    <text x="600" y="1065" text-anchor="middle" class="footer-link">Terminos | Privacidad | Contacto | Ayuda</text>
   </g>
 </svg>
