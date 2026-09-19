@@ -1,147 +1,118 @@
-﻿<svg viewBox="0 0 1200 1200" xmlns="http://www.w3.org/2000/svg">
+<svg viewBox="0 0 1200 1200" xmlns="http://www.w3.org/2000/svg">
+  <title>Publicar Carta</title>
+  <desc>Wireframe de formulario para publicar carta en venta con pasos de progreso y campos de formulario</desc>
   <defs>
-    <linearGradient id="hg" x1="0%" y1="0%" x2="100%" y2="0%">
+    <linearGradient id="headerGrad" x1="0%" y1="0%" x2="100%" y2="0%">
       <stop offset="0%" stop-color="#1E40AF"/><stop offset="100%" stop-color="#3B82F6"/>
     </linearGradient>
-    <filter id="sh"><feDropShadow dx="0" dy="2" stdDeviation="6" flood-opacity="0.08"/></filter>
+    <filter id="cardShadow"><feDropShadow dx="0" dy="2" stdDeviation="6" flood-opacity="0.08"/></filter>
   </defs>
-  
   <style>
-    text { font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; }
-    .title { font-size: 24px; font-weight: 700; fill: #111827; }
-    .subtitle { font-size: 14px; fill: #6B7280; }
-    .section-title { font-size: 16px; font-weight: 700; fill: #111827; }
-    .label { font-size: 13px; font-weight: 500; fill: #374151; }
-    .input-placeholder { font-size: 14px; fill: #9CA3AF; }
-    .input-value { font-size: 14px; fill: #111827; }
-    .help-text { font-size: 11px; fill: #6B7280; }
-    .checkbox-label { font-size: 13px; fill: #374151; }
-    .btn-primary { font-size: 15px; font-weight: 600; fill: white; }
-    .btn-secondary { font-size: 14px; fill: #374151; }
-    .divider-text { font-size: 12px; fill: #9CA3AF; }
-    .social-btn { font-size: 14px; fill: #374151; }
-    .footer-link { font-size: 14px; fill: #6B7280; }
-    .footer-link-accent { fill: #3B82F6; font-weight: 500; }
-    .info-box { font-size: 13px; fill: #1E40AF; }
+    text{font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif}
+    .title{font-size:24px;font-weight:700;fill:#111827}
+    .subtitle{font-size:14px;fill:#6B7280}
+    .section-title{font-size:16px;font-weight:700;fill:#111827}
+    .label{font-size:13px;font-weight:500;fill:#374151}
+    .input-value{font-size:14px;fill:#111827}
+    .help-text{font-size:11px;fill:#6B7280}
+    .header-text{font-size:20px;font-weight:700;fill:white}
+    .footer-text{font-size:12px;fill:#9CA3AF}
+    .footer-link{font-size:12px;fill:#6B7280}
+    .info-box{font-size:13px;fill:#1E40AF}
   </style>
-
   <rect width="1200" height="1200" fill="#F3F4F6"/>
-  <rect width="1200" height="64" fill="url(#hg)"/>
-  <text x="40" y="42" font-size="20" font-weight="700" fill="white">🃏 CardTrade Market</text>
-
-  <text x="60" y="100" class="title">PUBLICAR CARTA EN VENTA</text>
-  <text x="60" y="125" class="subtitle">Completa la información para listar tu carta</text>
-
-  <!-- Progress Steps -->
-  <rect x="60" y="155" width="1080" height="40" rx="20" fill="#E5E7EB"/>
-  <rect x="60" y="155" width="270" height="40" rx="20" fill="#3B82F6"/>
-  <text x="195" y="180" text-anchor="middle" fill="white" font-size="12" font-weight="600">1. Básico</text>
-  <text x="465" y="180" text-anchor="middle" font-size="12" fill="#9CA3AF">2. Detalles</text>
-  <text x="735" y="180" text-anchor="middle" font-size="12" fill="#9CA3AF">3. Fotos</text>
-  <text x="1005" y="180" text-anchor="middle" font-size="12" fill="#9CA3AF">4. Revisar</text>
-
-  <!-- Form Container -->
-  <rect x="60" y="210" width="1080" height="930" rx="12" fill="white" filter="url(#sh)"/>
-
-  <!-- Photos Section -->
-  <text x="100" y="260" font-size="16" font-weight="700" fill="#111827">📷 FOTOS DE LA CARTA</text>
-  <text x="100" y="280" font-size="12" fill="#6B7280">Máx. 5 fotos • JPG/PNG • Máx. 5MB cada una</text>
-
-  <g transform="translate(100, 300)">
-    <rect width="180" height="180" rx="12" fill="#F3F4F6" stroke="#D1D5DB" stroke-width="2" stroke-dasharray="8,4"/>
-    <text x="90" y="100" text-anchor="middle" font-size="40">📷</text>
-    <text x="90" y="140" text-anchor="middle" font-size="12" fill="#6B7280">Foto frontal</text>
+  <g id="header">
+    <rect width="1200" height="64" fill="url(#headerGrad)"/>
+    <text x="40" y="42" class="header-text">&#x1F0CF; CardTrade Market</text>
   </g>
-
-  <g transform="translate(300, 300)">
-    <rect width="180" height="180" rx="12" fill="#F3F4F6" stroke="#D1D5DB" stroke-width="2" stroke-dasharray="8,4"/>
-    <text x="90" y="100" text-anchor="middle" font-size="40">📷</text>
-    <text x="90" y="140" text-anchor="middle" font-size="12" fill="#6B7280">Foto trasera</text>
+  <g id="main-content">
+    <text x="60" y="100" class="title">PUBLICAR CARTA EN VENTA</text>
+    <text x="60" y="125" class="subtitle">Completa la informacion para listar tu carta</text>
+    <rect x="60" y="155" width="1080" height="40" rx="20" fill="#E5E7EB"/>
+    <rect x="60" y="155" width="270" height="40" rx="20" fill="#3B82F6"/>
+    <text x="195" y="180" text-anchor="middle" fill="white" font-size="12" font-weight="600">1. Basico</text>
+    <text x="465" y="180" text-anchor="middle" font-size="12" fill="#9CA3AF">2. Detalles</text>
+    <text x="735" y="180" text-anchor="middle" font-size="12" fill="#9CA3AF">3. Fotos</text>
+    <text x="1005" y="180" text-anchor="middle" font-size="12" fill="#9CA3AF">4. Revisar</text>
+    <rect x="60" y="210" width="1080" height="930" rx="12" fill="white" filter="url(#cardShadow)"/>
+    <text x="100" y="260" class="section-title">&#x1F4F7; FOTOS DE LA CARTA</text>
+    <text x="100" y="280" class="help-text">Max. 5 fotos &#x2022; JPG/PNG &#x2022; Max. 5MB cada una</text>
+    <g transform="translate(100,300)">
+      <rect width="180" height="180" rx="12" fill="#F3F4F6" stroke="#D1D5DB" stroke-width="2" stroke-dasharray="8,4"/>
+      <text x="90" y="100" text-anchor="middle" font-size="40">&#x1F4F7;</text>
+      <text x="90" y="140" text-anchor="middle" font-size="12" fill="#6B7280">Foto frontal</text>
+    </g>
+    <g transform="translate(300,300)">
+      <rect width="180" height="180" rx="12" fill="#F3F4F6" stroke="#D1D5DB" stroke-width="2" stroke-dasharray="8,4"/>
+      <text x="90" y="100" text-anchor="middle" font-size="40">&#x1F4F7;</text>
+      <text x="90" y="140" text-anchor="middle" font-size="12" fill="#6B7280">Foto trasera</text>
+    </g>
+    <g transform="translate(500,300)">
+      <rect width="180" height="180" rx="12" fill="#F3F4F6" stroke="#D1D5DB" stroke-width="2" stroke-dasharray="8,4"/>
+      <text x="90" y="100" text-anchor="middle" font-size="40">&#x1F4F7;</text>
+      <text x="90" y="140" text-anchor="middle" font-size="12" fill="#6B7280">Detalle holo</text>
+    </g>
+    <g transform="translate(700,300)">
+      <rect width="180" height="180" rx="12" fill="#F3F4F6" stroke="#D1D5DB" stroke-width="2" stroke-dasharray="8,4"/>
+      <text x="90" y="100" text-anchor="middle" font-size="40">&#x1F4F7;</text>
+      <text x="90" y="140" text-anchor="middle" font-size="12" fill="#6B7280">En funda</text>
+    </g>
+    <g transform="translate(900,300)">
+      <rect width="180" height="180" rx="12" fill="#F3F4F6" stroke="#D1D5DB" stroke-width="2" stroke-dasharray="8,4"/>
+      <text x="90" y="100" text-anchor="middle" font-size="40">+</text>
+      <text x="90" y="140" text-anchor="middle" font-size="12" fill="#6B7280">Agregar mas</text>
+    </g>
+    <line x1="100" y1="520" x2="1060" y2="520" stroke="#E5E7EB" stroke-width="1"/>
+    <text x="100" y="555" class="section-title">INFORMACION BASICA</text>
+    <text x="100" y="595" class="label">Nombre de la Carta *</text>
+    <rect x="100" y="605" width="480" height="44" rx="8" fill="white" stroke="#D1D5DB" stroke-width="1.5"/>
+    <text x="120" y="633" class="input-value">Charizard ex</text>
+    <text x="620" y="595" class="label">Juego *</text>
+    <rect x="620" y="605" width="480" height="44" rx="8" fill="white" stroke="#D1D5DB" stroke-width="1.5"/>
+    <text x="640" y="633" class="input-value">Pokemon TCG &#x25BC;</text>
+    <text x="100" y="670" class="label">Set / Expansion *</text>
+    <rect x="100" y="680" width="480" height="44" rx="8" fill="white" stroke="#D1D5DB" stroke-width="1.5"/>
+    <text x="120" y="708" class="input-value">Obsidian Flames &#x25BC;</text>
+    <text x="620" y="670" class="label">Numero de Carta *</text>
+    <rect x="620" y="680" width="480" height="44" rx="8" fill="white" stroke="#D1D5DB" stroke-width="1.5"/>
+    <text x="640" y="708" class="input-value">199/165</text>
+    <line x1="100" y1="750" x2="1060" y2="750" stroke="#E5E7EB" stroke-width="1"/>
+    <text x="100" y="785" class="section-title">DETALLES</text>
+    <text x="100" y="825" class="label">Rareza *</text>
+    <rect x="100" y="835" width="220" height="44" rx="8" fill="white" stroke="#D1D5DB" stroke-width="1.5"/>
+    <text x="120" y="863" class="input-value">Ultra Rare &#x25BC;</text>
+    <text x="350" y="825" class="label">Estado *</text>
+    <rect x="350" y="835" width="230" height="44" rx="8" fill="white" stroke="#D1D5DB" stroke-width="1.5"/>
+    <text x="370" y="863" class="input-value">Nuevo (Sellado) &#x25BC;</text>
+    <text x="620" y="825" class="label">Idioma *</text>
+    <rect x="620" y="835" width="230" height="44" rx="8" fill="white" stroke="#D1D5DB" stroke-width="1.5"/>
+    <text x="640" y="863" class="input-value">Espanol &#x25BC;</text>
+    <text x="880" y="825" class="label">Graded *</text>
+    <rect x="880" y="835" width="220" height="44" rx="8" fill="white" stroke="#D1D5DB" stroke-width="1.5"/>
+    <text x="900" y="863" class="input-value">No / PSA 10 / BGS 9.5 &#x25BC;</text>
+    <text x="100" y="895" class="label">Descripcion *</text>
+    <rect x="100" y="905" width="1000" height="100" rx="8" fill="white" stroke="#D1D5DB" stroke-width="1.5"/>
+    <text x="120" y="930" class="input-value">Carta en excelente estado, perfecta para coleccionistas.</text>
+    <text x="120" y="950" class="input-value">Envio con tracking y seguro incluido. Se vende con protector y sobre grade.</text>
+    <line x1="100" y1="1035" x2="1060" y2="1035" stroke="#E5E7EB" stroke-width="1"/>
+    <text x="100" y="1070" class="section-title">PRECIO Y ENVIO</text>
+    <rect x="60" y="1050" width="1080" height="60" rx="12" fill="#EFF6FF" stroke="#BFDBFE" stroke-width="1"/>
+    <text x="600" y="1085" text-anchor="middle" class="info-box">&#x1F4A1; Comision de la plataforma: 5% (.25) &#x2022; Recibiras: .75</text>
+    <text x="100" y="1110" class="label">Precio (MXN) *</text>
+    <rect x="100" y="1120" width="280" height="44" rx="8" fill="white" stroke="#D1D5DB" stroke-width="1.5"/>
+    <text x="120" y="1148" class="input-value">.00</text>
+    <text x="420" y="1110" class="label">Envio</text>
+    <rect x="420" y="1120" width="280" height="44" rx="8" fill="white" stroke="#D1D5DB" stroke-width="1.5"/>
+    <text x="440" y="1148" class="input-value">Gratis &#x25BC;</text>
+    <text x="740" y="1110" class="label">Cantidad *</text>
+    <rect x="740" y="1120" width="120" height="44" rx="8" fill="white" stroke="#D1D5DB" stroke-width="1.5"/>
+    <text x="760" y="1148" class="input-value">1</text>
+    <rect x="900" y="1120" width="200" height="44" rx="8" fill="white" stroke="#D1D5DB" stroke-width="1.5"/>
+    <text x="1000" y="1148" text-anchor="middle" font-size="14" fill="#6B7280">Guardar Borrador</text>
   </g>
-
-  <g transform="translate(500, 300)">
-    <rect width="180" height="180" rx="12" fill="#F3F4F6" stroke="#D1D5DB" stroke-width="2" stroke-dasharray="8,4"/>
-    <text x="90" y="100" text-anchor="middle" font-size="40">📷</text>
-    <text x="90" y="140" text-anchor="middle" font-size="12" fill="#6B7280">Detalle holo</text>
+  <g id="footer">
+    <rect x="0" y="1120" width="1200" height="80" fill="#1F2937"/>
+    <text x="600" y="1155" text-anchor="middle" class="footer-text">&#xA9; 2026 CardTrade Market. Todos los derechos reservados.</text>
+    <text x="600" y="1175" text-anchor="middle" class="footer-link">Terminos | Privacidad | Contacto | Ayuda</text>
   </g>
-
-  <g transform="translate(700, 300)">
-    <rect width="180" height="180" rx="12" fill="#F3F4F6" stroke="#D1D5DB" stroke-width="2" stroke-dasharray="8,4"/>
-    <text x="90" y="100" text-anchor="middle" font-size="40">📷</text>
-    <text x="90" y="140" text-anchor="middle" font-size="12" fill="#6B7280">En funda</text>
-  </g>
-
-  <g transform="translate(900, 300)">
-    <rect width="180" height="180" rx="12" fill="#F3F4F6" stroke="#D1D5DB" stroke-width="2" stroke-dasharray="8,4"/>
-    <text x="90" y="100" text-anchor="middle" font-size="40">+</text>
-    <text x="90" y="140" text-anchor="middle" font-size="12" fill="#6B7280">Agregar más</text>
-  </g>
-
-  <!-- Basic Info -->
-  <line x1="100" y1="520" x2="1060" y2="520" stroke="#E5E7EB" stroke-width="1"/>
-  <text x="100" y="555" font-size="16" font-weight="700" fill="#111827">INFORMACIÓN BÁSICA</text>
-
-  <text x="100" y="595" class="label">Nombre de la Carta *</text>
-  <rect x="100" y="605" width="480" height="44" rx="8" fill="white" stroke="#D1D5DB" stroke-width="1.5"/>
-  <text x="120" y="633" class="input-value">Charizard ex</text>
-
-  <text x="620" y="595" class="label">Juego *</text>
-  <rect x="620" y="605" width="480" height="44" rx="8" fill="white" stroke="#D1D5DB" stroke-width="1.5"/>
-  <text x="640" y="633" class="input-value">Pokémon TCG ▼</text>
-
-  <text x="100" y="670" class="label">Set / Expansión *</text>
-  <rect x="100" y="680" width="480" height="44" rx="8" fill="white" stroke="#D1D5DB" stroke-width="1.5"/>
-  <text x="120" y="708" class="input-value">Obsidian Flames ▼</text>
-
-  <text x="620" y="670" class="label">Número de Carta *</text>
-  <rect x="620" y="680" width="480" height="44" rx="8" fill="white" stroke="#D1D5DB" stroke-width="1.5"/>
-  <text x="640" y="708" class="input-value">199/165</text>
-
-  <!-- Details -->
-  <line x1="100" y1="750" x2="1060" y2="750" stroke="#E5E7EB" stroke-width="1"/>
-  <text x="100" y="785" font-size="16" font-weight="700" fill="#111827">DETALLES</text>
-
-  <text x="100" y="825" class="label">Rareza *</text>
-  <rect x="100" y="835" width="220" height="44" rx="8" fill="white" stroke="#D1D5DB" stroke-width="1.5"/>
-  <text x="120" y="863" class="input-value">Ultra Rare ▼</text>
-
-  <text x="350" y="825" class="label">Estado *</text>
-  <rect x="350" y="835" width="230" height="44" rx="8" fill="white" stroke="#D1D5DB" stroke-width="1.5"/>
-  <text x="370" y="863" class="input-value">Nuevo (Sellado) ▼</text>
-
-  <text x="620" y="825" class="label">Idioma *</text>
-  <rect x="620" y="835" width="230" height="44" rx="8" fill="white" stroke="#D1D5DB" stroke-width="1.5"/>
-  <text x="640" y="863" class="input-value">Español ▼</text>
-
-  <text x="880" y="825" class="label">Graded *</text>
-  <rect x="880" y="835" width="220" height="44" rx="8" fill="white" stroke="#D1D5DB" stroke-width="1.5"/>
-  <text x="900" y="863" class="input-value">No / PSA 10 / BGS 9.5 ▼</text>
-
-  <!-- Description -->
-  <text x="100" y="895" class="label">Descripción *</text>
-  <rect x="100" y="905" width="1000" height="100" rx="8" fill="white" stroke="#D1D5DB" stroke-width="1.5"/>
-  <text x="120" y="930" class="input-value">Carta en excelente estado, perfecta para coleccionistas.</text>
-  <text x="120" y="950" class="input-value">Envío con tracking y seguro incluido. Se vende con protector y sobre grade.</text>
-
-  <!-- Price Section -->
-  <line x1="100" y1="1035" x2="1060" y2="1035" stroke="#E5E7EB" stroke-width="1"/>
-  <text x="100" y="1070" font-size="16" font-weight="700" fill="#111827">PRECIO Y ENVÍO</text>
-
-  <text x="100" y="1110" class="label">Precio (MXN) *</text>
-  <rect x="100" y="1120" width="280" height="44" rx="8" fill="white" stroke="#D1D5DB" stroke-width="1.5"/>
-  <text x="120" y="1148" class="input-value">$45.00</text>
-
-  <text x="420" y="1110" class="label">Envío</text>
-  <rect x="420" y="1120" width="280" height="44" rx="8" fill="white" stroke="#D1D5DB" stroke-width="1.5"/>
-  <text x="440" y="1148" class="input-value">Gratis ▼</text>
-
-  <text x="740" y="1110" class="label">Cantidad *</text>
-  <rect x="740" y="1120" width="120" height="44" rx="8" fill="white" stroke="#D1D5DB" stroke-width="1.5"/>
-  <text x="760" y="1148" class="input-value">1</text>
-
-  <rect x="900" y="1120" width="200" height="44" rx="8" fill="white" stroke="#D1D5DB" stroke-width="1.5"/>
-  <text x="1000" y="1148" text-anchor="middle" font-size="14" fill="#6B7280">Guardar Borrador</text>
-
-  <rect x="60" y="1050" width="1080" height="60" rx="12" fill="#EFF6FF" stroke="#BFDBFE" stroke-width="1"/>
-  <text x="600" y="1085" text-anchor="middle" class="info-box">💡 Comisión de la plataforma: 5% ($2.25) • Recibirás: $42.75</text>
 </svg>

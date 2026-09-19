@@ -1,139 +1,141 @@
-﻿<svg viewBox="0 0 1200 900" xmlns="http://www.w3.org/2000/svg">
+<svg viewBox="0 0 1200 900" xmlns="http://www.w3.org/2000/svg">
+  <title>Catalogo de Juego</title>
+  <desc>Wireframe de pagina de catalogo de juego con tabs de subcategorias y grid de cartas</desc>
   <defs>
-    
-    <linearGradient id="hg" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#1E40AF"/><stop offset="100%" style="stop-color:#3B82F6"/>
+    <linearGradient id="headerGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#1E40AF"/><stop offset="100%" stop-color="#3B82F6"/>
     </linearGradient>
-    <filter id="sh"><feDropShadow dx="0" dy="2" stdDeviation="6" flood-opacity="0.08"/></filter>
+    <filter id="cardShadow"><feDropShadow dx="0" dy="2" stdDeviation="6" flood-opacity="0.08"/></filter>
   </defs>
+  <style>
+    text{font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif}
+    .page-title{font-size:24px;font-weight:700;fill:#111827}
+    .card-title{font-size:14px;font-weight:600;fill:#111827}
+    .card-meta{font-size:12px;fill:#6B7280}
+    .card-price{font-size:14px;font-weight:700;fill:#3B82F6}
+    .header-text{font-size:20px;font-weight:700;fill:white}
+    .muted{font-size:14px;fill:#6B7280}
+    .small-muted{font-size:12px;fill:#6B7280}
+    .footer-text{font-size:12px;fill:#9CA3AF}
+    .footer-link{font-size:12px;fill:#6B7280}
+  </style>
   <rect width="1200" height="900" fill="#F3F4F6"/>
-  <rect width="1200" height="64" fill="url(#hg)"/>
-  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="40" y="40" fill="white" font-size="20" font-weight="700">🃏 CardTrade Market</text>
-
-  <!-- Breadcrumb -->
-  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="60" y="100" font-size="12" fill="#6B7280">Inicio / Catálogo / Pokémon</text>
-
-  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="60" y="135" font-size="24" font-weight="700" fill="#111827">CATÁLOGO: POKÉMON</text>
-  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="60" y="160" font-size="14" fill="#6B7280">18,500 cartas disponibles</text>
-
-  <!-- Sub-category Tabs -->
-  <rect x="60" y="180" width="1080" height="48" rx="8" fill="white" filter="url(#sh)"/>
-  <rect x="65" y="185" width="140" height="38" rx="6" fill="#3B82F6"/>
-  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="135" y="208" text-anchor="middle" fill="white" font-size="13" font-weight="500">Todas</text>
-  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="240" y="208" font-size="13" fill="#6B7280">Serie Escarlata y Púrpura</text>
-  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="420" y="208" font-size="13" fill="#6B7280">Serie Espada y Escudo</text>
-  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="590" y="208" font-size="13" fill="#6B7280">Serie Sol y Luna</text>
-  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="730" y="208" font-size="13" fill="#6B7280">Series Clásicas</text>
-  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="870" y="208" font-size="13" fill="#6B7280">Promocionales</text>
-
-  <!-- Results Grid -->
-  <g transform="translate(60, 250)">
-    <rect width="240" height="200" rx="12" fill="white" filter="url(#sh)"/>
-    <rect width="240" height="130" rx="12" fill="#FEF3C7"/>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="120" y="80" text-anchor="middle" font-size="48">🃏</text>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="12" y="155" font-size="14" font-weight="600" fill="#111827">Charizard ex</text>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="12" y="175" font-size="12" fill="#6B7280">Obsidian Flames</text>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="12" y="193" font-size="14" fill="#3B82F6" font-weight="700">$45.00</text>
+  <g id="header">
+    <rect width="1200" height="64" fill="url(#headerGrad)"/>
+    <text x="40" y="42" class="header-text">&#x1F0CF; CardTrade Market</text>
   </g>
-
-  <g transform="translate(320, 250)">
-    <rect width="240" height="200" rx="12" fill="white" filter="url(#sh)"/>
-    <rect width="240" height="130" rx="12" fill="#FEF3C7"/>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="120" y="80" text-anchor="middle" font-size="48">🃏</text>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="12" y="155" font-size="14" font-weight="600" fill="#111827">Pikachu ex</text>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="12" y="175" font-size="12" fill="#6B7280">Paradox Rift</text>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="12" y="193" font-size="14" fill="#3B82F6" font-weight="700">$32.00</text>
+  <g id="main-content">
+    <text x="60" y="100" class="small-muted">Inicio / Catalogo / Pokemon</text>
+    <text x="60" y="135" class="page-title">CATALOGO: POKEMON</text>
+    <text x="60" y="160" class="muted">18,500 cartas disponibles</text>
+    <rect x="60" y="180" width="1080" height="48" rx="8" fill="white" filter="url(#cardShadow)"/>
+    <rect x="65" y="185" width="140" height="38" rx="6" fill="#3B82F6"/>
+    <text x="135" y="208" text-anchor="middle" fill="white" font-size="13" font-weight="500">Todas</text>
+    <text x="240" y="208" class="small-muted">Serie Escarlata y Purpura</text>
+    <text x="420" y="208" class="small-muted">Serie Espada y Escudo</text>
+    <text x="590" y="208" class="small-muted">Serie Sol y Luna</text>
+    <text x="730" y="208" class="small-muted">Series Clasicas</text>
+    <text x="870" y="208" class="small-muted">Promocionales</text>
+    <g transform="translate(60,250)">
+      <rect width="240" height="200" rx="12" fill="white" filter="url(#cardShadow)"/>
+      <rect width="240" height="130" rx="12" fill="#FEF3C7"/>
+      <text x="120" y="80" text-anchor="middle" font-size="48">&#x1F0CF;</text>
+      <text x="12" y="155" class="card-title">Charizard ex</text>
+      <text x="12" y="175" class="card-meta">Obsidian Flames</text>
+      <text x="12" y="193" class="card-price">.00</text>
+    </g>
+    <g transform="translate(320,250)">
+      <rect width="240" height="200" rx="12" fill="white" filter="url(#cardShadow)"/>
+      <rect width="240" height="130" rx="12" fill="#FEF3C7"/>
+      <text x="120" y="80" text-anchor="middle" font-size="48">&#x1F0CF;</text>
+      <text x="12" y="155" class="card-title">Pikachu ex</text>
+      <text x="12" y="175" class="card-meta">Paradox Rift</text>
+      <text x="12" y="193" class="card-price">.00</text>
+    </g>
+    <g transform="translate(580,250)">
+      <rect width="240" height="200" rx="12" fill="white" filter="url(#cardShadow)"/>
+      <rect width="240" height="130" rx="12" fill="#FEF3C7"/>
+      <text x="120" y="80" text-anchor="middle" font-size="48">&#x1F0CF;</text>
+      <text x="12" y="155" class="card-title">Miraidon ex</text>
+      <text x="12" y="175" class="card-meta">Paradox Rift</text>
+      <text x="12" y="193" class="card-price">.00</text>
+    </g>
+    <g transform="translate(840,250)">
+      <rect width="300" height="200" rx="12" fill="white" filter="url(#cardShadow)"/>
+      <rect width="300" height="130" rx="12" fill="#FEF3C7"/>
+      <text x="150" y="80" text-anchor="middle" font-size="48">&#x1F0CF;</text>
+      <text x="12" y="155" class="card-title">Koraidon ex</text>
+      <text x="12" y="175" class="card-meta">Paradox Rift</text>
+      <text x="12" y="193" class="card-price">.00</text>
+    </g>
+    <g transform="translate(60,470)">
+      <rect width="240" height="200" rx="12" fill="white" filter="url(#cardShadow)"/>
+      <rect width="240" height="130" rx="12" fill="#DBEAFE"/>
+      <text x="120" y="80" text-anchor="middle" font-size="48">&#x1F0CF;</text>
+      <text x="12" y="155" class="card-title">Rayquaza VMAX</text>
+      <text x="12" y="175" class="card-meta">Evolving Skies</text>
+      <text x="12" y="193" class="card-price">.00</text>
+    </g>
+    <g transform="translate(320,470)">
+      <rect width="240" height="200" rx="12" fill="white" filter="url(#cardShadow)"/>
+      <rect width="240" height="130" rx="12" fill="#DBEAFE"/>
+      <text x="120" y="80" text-anchor="middle" font-size="48">&#x1F0CF;</text>
+      <text x="12" y="155" class="card-title">Umbreon VMAX</text>
+      <text x="12" y="175" class="card-meta">Evolving Skies</text>
+      <text x="12" y="193" class="card-price">.00</text>
+    </g>
+    <g transform="translate(580,470)">
+      <rect width="240" height="200" rx="12" fill="white" filter="url(#cardShadow)"/>
+      <rect width="240" height="130" rx="12" fill="#FEF3C7"/>
+      <text x="120" y="80" text-anchor="middle" font-size="48">&#x1F0CF;</text>
+      <text x="12" y="155" class="card-title">Gyarados VMAX</text>
+      <text x="12" y="175" class="card-meta">Evolving Skies</text>
+      <text x="12" y="193" class="card-price">.00</text>
+    </g>
+    <g transform="translate(840,470)">
+      <rect width="300" height="200" rx="12" fill="white" filter="url(#cardShadow)"/>
+      <rect width="300" height="130" rx="12" fill="#FEF3C7"/>
+      <text x="150" y="80" text-anchor="middle" font-size="48">&#x1F0CF;</text>
+      <text x="12" y="155" class="card-title">Sylveon VMAX</text>
+      <text x="12" y="175" class="card-meta">Evolving Skies</text>
+      <text x="12" y="193" class="card-price">.00</text>
+    </g>
+    <g transform="translate(60,690)">
+      <rect width="240" height="180" rx="12" fill="white" filter="url(#cardShadow)"/>
+      <rect width="240" height="110" rx="12" fill="#FCE7F3"/>
+      <text x="120" y="65" text-anchor="middle" font-size="40">&#x1F0CF;</text>
+      <text x="12" y="135" class="card-title" font-size="13">Eevee Heroes</text>
+      <text x="12" y="155" class="card-meta">Promocional</text>
+      <text x="12" y="173" class="card-price">.00</text>
+    </g>
+    <g transform="translate(320,690)">
+      <rect width="240" height="180" rx="12" fill="white" filter="url(#cardShadow)"/>
+      <rect width="240" height="110" rx="12" fill="#D1FAE5"/>
+      <text x="120" y="65" text-anchor="middle" font-size="40">&#x1F0CF;</text>
+      <text x="12" y="135" class="card-title" font-size="13">Professors Research</text>
+      <text x="12" y="155" class="card-meta">Full Art Trainer</text>
+      <text x="12" y="173" class="card-price">.00</text>
+    </g>
+    <g transform="translate(580,690)">
+      <rect width="240" height="180" rx="12" fill="white" filter="url(#cardShadow)"/>
+      <rect width="240" height="110" rx="12" fill="#E0E7FF"/>
+      <text x="120" y="65" text-anchor="middle" font-size="40">&#x1F0CF;</text>
+      <text x="12" y="135" class="card-title" font-size="13">Bosss Orders</text>
+      <text x="12" y="155" class="card-meta">Full Art Trainer</text>
+      <text x="12" y="173" class="card-price">.00</text>
+    </g>
+    <g transform="translate(840,690)">
+      <rect width="300" height="180" rx="12" fill="white" filter="url(#cardShadow)"/>
+      <rect width="300" height="110" rx="12" fill="#F3E8FF"/>
+      <text x="150" y="65" text-anchor="middle" font-size="40">&#x1F0CF;</text>
+      <text x="12" y="135" class="card-title" font-size="13">Quick Ball</text>
+      <text x="12" y="155" class="card-meta">Secret Rare</text>
+      <text x="12" y="173" class="card-price">.00</text>
+    </g>
   </g>
-
-  <g transform="translate(580, 250)">
-    <rect width="240" height="200" rx="12" fill="white" filter="url(#sh)"/>
-    <rect width="240" height="130" rx="12" fill="#FEF3C7"/>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="120" y="80" text-anchor="middle" font-size="48">🃏</text>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="12" y="155" font-size="14" font-weight="600" fill="#111827">Miraidon ex</text>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="12" y="175" font-size="12" fill="#6B7280">Paradox Rift</text>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="12" y="193" font-size="14" fill="#3B82F6" font-weight="700">$28.00</text>
-  </g>
-
-  <g transform="translate(840, 250)">
-    <rect width="300" height="200" rx="12" fill="white" filter="url(#sh)"/>
-    <rect width="300" height="130" rx="12" fill="#FEF3C7"/>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="150" y="80" text-anchor="middle" font-size="48">🃏</text>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="12" y="155" font-size="14" font-weight="600" fill="#111827">Koraidon ex</text>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="12" y="175" font-size="12" fill="#6B7280">Paradox Rift</text>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="12" y="193" font-size="14" fill="#3B82F6" font-weight="700">$35.00</text>
-  </g>
-
-  <!-- Second Row -->
-  <g transform="translate(60, 470)">
-    <rect width="240" height="200" rx="12" fill="white" filter="url(#sh)"/>
-    <rect width="240" height="130" rx="12" fill="#DBEAFE"/>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="120" y="80" text-anchor="middle" font-size="48">🃏</text>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="12" y="155" font-size="14" font-weight="600" fill="#111827">Rayquaza VMAX</text>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="12" y="175" font-size="12" fill="#6B7280">Evolving Skies</text>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="12" y="193" font-size="14" fill="#3B82F6" font-weight="700">$180.00</text>
-  </g>
-
-  <g transform="translate(320, 470)">
-    <rect width="240" height="200" rx="12" fill="white" filter="url(#sh)"/>
-    <rect width="240" height="130" rx="12" fill="#DBEAFE"/>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="120" y="80" text-anchor="middle" font-size="48">🃏</text>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="12" y="155" font-size="14" font-weight="600" fill="#111827">Umbreon VMAX</text>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="12" y="175" font-size="12" fill="#6B7280">Evolving Skies</text>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="12" y="193" font-size="14" fill="#3B82F6" font-weight="700">$220.00</text>
-  </g>
-
-  <g transform="translate(580, 470)">
-    <rect width="240" height="200" rx="12" fill="white" filter="url(#sh)"/>
-    <rect width="240" height="130" rx="12" fill="#FEF3C7"/>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="120" y="80" text-anchor="middle" font-size="48">🃏</text>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="12" y="155" font-size="14" font-weight="600" fill="#111827">Gyarados VMAX</text>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="12" y="175" font-size="12" fill="#6B7280">Evolving Skies</text>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="12" y="193" font-size="14" fill="#3B82F6" font-weight="700">$95.00</text>
-  </g>
-
-  <g transform="translate(840, 470)">
-    <rect width="300" height="200" rx="12" fill="white" filter="url(#sh)"/>
-    <rect width="300" height="130" rx="12" fill="#FEF3C7"/>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="150" y="80" text-anchor="middle" font-size="48">🃏</text>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="12" y="155" font-size="14" font-weight="600" fill="#111827">Sylveon VMAX</text>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="12" y="175" font-size="12" fill="#6B7280">Evolving Skies</text>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="12" y="193" font-size="14" fill="#3B82F6" font-weight="700">$140.00</text>
-  </g>
-
-  <!-- Third Row -->
-  <g transform="translate(60, 690)">
-    <rect width="240" height="180" rx="12" fill="white" filter="url(#sh)"/>
-    <rect width="240" height="110" rx="12" fill="#FCE7F3"/>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="120" y="65" text-anchor="middle" font-size="40">🃏</text>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="12" y="135" font-size="13" font-weight="600" fill="#111827">Eevee Heroes</text>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="12" y="155" font-size="12" fill="#6B7280">Promocional</text>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="12" y="173" font-size="14" fill="#3B82F6" font-weight="700">$55.00</text>
-  </g>
-
-  <g transform="translate(320, 690)">
-    <rect width="240" height="180" rx="12" fill="white" filter="url(#sh)"/>
-    <rect width="240" height="110" rx="12" fill="#D1FAE5"/>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="120" y="65" text-anchor="middle" font-size="40">🃏</text>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="12" y="135" font-size="13" font-weight="600" fill="#111827">Professor's Research</text>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="12" y="155" font-size="12" fill="#6B7280">Full Art Trainer</text>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="12" y="173" font-size="14" fill="#3B82F6" font-weight="700">$18.00</text>
-  </g>
-
-  <g transform="translate(580, 690)">
-    <rect width="240" height="180" rx="12" fill="white" filter="url(#sh)"/>
-    <rect width="240" height="110" rx="12" fill="#E0E7FF"/>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="120" y="65" text-anchor="middle" font-size="40">🃏</text>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="12" y="135" font-size="13" font-weight="600" fill="#111827">Boss's Orders</text>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="12" y="155" font-size="12" fill="#6B7280">Full Art Trainer</text>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="12" y="173" font-size="14" fill="#3B82F6" font-weight="700">$22.00</text>
-  </g>
-
-  <g transform="translate(840, 690)">
-    <rect width="300" height="180" rx="12" fill="white" filter="url(#sh)"/>
-    <rect width="300" height="110" rx="12" fill="#F3E8FF"/>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="150" y="65" text-anchor="middle" font-size="40">🃏</text>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="12" y="135" font-size="13" font-weight="600" fill="#111827">Quick Ball</text>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="12" y="155" font-size="12" fill="#6B7280">Secret Rare</text>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="12" y="173" font-size="14" fill="#3B82F6" font-weight="700">$35.00</text>
+  <g id="footer">
+    <rect x="0" y="820" width="1200" height="80" fill="#1F2937"/>
+    <text x="600" y="855" text-anchor="middle" class="footer-text">&#xA9; 2026 CardTrade Market. Todos los derechos reservados.</text>
+    <text x="600" y="875" text-anchor="middle" class="footer-link">Terminos | Privacidad | Contacto | Ayuda</text>
   </g>
 </svg>

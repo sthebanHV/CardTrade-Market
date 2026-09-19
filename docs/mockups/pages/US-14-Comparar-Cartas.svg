@@ -1,128 +1,125 @@
-﻿<svg viewBox="0 0 1200 900" xmlns="http://www.w3.org/2000/svg">
+<svg viewBox="0 0 1200 900" xmlns="http://www.w3.org/2000/svg">
+  <title>Comparar Cartas</title>
+  <desc>Wireframe de pagina de comparacion de cartas con seleccion y tabla de comparacion</desc>
   <defs>
-    
-    <linearGradient id="hg" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#1E40AF"/><stop offset="100%" style="stop-color:#3B82F6"/>
+    <linearGradient id="headerGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#1E40AF"/><stop offset="100%" stop-color="#3B82F6"/>
     </linearGradient>
-    <filter id="sh"><feDropShadow dx="0" dy="2" stdDeviation="6" flood-opacity="0.08"/></filter>
+    <filter id="cardShadow"><feDropShadow dx="0" dy="2" stdDeviation="6" flood-opacity="0.08"/></filter>
   </defs>
+  <style>
+    text{font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif}
+    .page-title{font-size:24px;font-weight:700;fill:#111827}
+    .section-title{font-size:16px;font-weight:700;fill:#111827}
+    .card-meta{font-size:12px;fill:#6B7280}
+    .header-text{font-size:20px;font-weight:700;fill:white}
+    .label{font-size:13px;font-weight:500;fill:#374151}
+    .input-text{font-size:14px;fill:#111827}
+    .muted{font-size:14px;fill:#6B7280}
+    .small-muted{font-size:12px;fill:#6B7280}
+    .footer-text{font-size:12px;fill:#9CA3AF}
+    .footer-link{font-size:12px;fill:#6B7280}
+  </style>
   <rect width="1200" height="900" fill="#F3F4F6"/>
-  <rect width="1200" height="64" fill="url(#hg)"/>
-  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="40" y="40" fill="white" font-size="20" font-weight="700">🃏 CardTrade Market</text>
-
-  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="60" y="110" font-size="24" font-weight="700" fill="#111827">COMPARAR CARTAS</text>
-  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="60" y="135" font-size="14" fill="#6B7280">Selecciona hasta 4 cartas para comparar</text>
-
-  <!-- Selection Cards -->
-  <g transform="translate(60, 155)">
-    <rect width="240" height="180" rx="12" fill="white" filter="url(#sh)" stroke="#3B82F6" stroke-width="2"/>
-    <rect width="240" height="120" rx="12" fill="#DBEAFE"/>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="120" y="70" text-anchor="middle" font-size="48">🃏</text>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="12" y="155" font-size="13" font-weight="600" fill="#111827">Charizard ex</text>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="12" y="170" font-size="12" fill="#6B7280">$45.00 • ⭐ 4.9</text>
-    <rect x="200" y="10" width="30" height="30" rx="15" fill="#3B82F6"/>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="215" y="28" text-anchor="middle" fill="white" font-size="14">✓</text>
+  <g id="header">
+    <rect width="1200" height="64" fill="url(#headerGrad)"/>
+    <text x="40" y="42" class="header-text">&#x1F0CF; CardTrade Market</text>
   </g>
-
-  <g transform="translate(320, 155)">
-    <rect width="240" height="180" rx="12" fill="white" filter="url(#sh)" stroke="#3B82F6" stroke-width="2"/>
-    <rect width="240" height="120" rx="12" fill="#FEF3C7"/>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="120" y="70" text-anchor="middle" font-size="48">🃏</text>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="12" y="155" font-size="13" font-weight="600" fill="#111827">Charizard VMAX</text>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="12" y="170" font-size="12" fill="#6B7280">$62.00 • ⭐ 4.8</text>
-    <rect x="200" y="10" width="30" height="30" rx="15" fill="#3B82F6"/>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="215" y="28" text-anchor="middle" fill="white" font-size="14">✓</text>
+  <g id="main-content">
+    <text x="60" y="110" class="page-title">COMPARAR CARTAS</text>
+    <text x="60" y="135" class="muted">Selecciona hasta 4 cartas para comparar</text>
+    <g transform="translate(60,155)">
+      <rect width="240" height="180" rx="12" fill="white" filter="url(#cardShadow)" stroke="#3B82F6" stroke-width="2"/>
+      <rect width="240" height="120" rx="12" fill="#DBEAFE"/>
+      <text x="120" y="70" text-anchor="middle" font-size="48">&#x1F0CF;</text>
+      <text x="12" y="155" class="label">Charizard ex</text>
+      <text x="12" y="170" class="card-meta">$45.00 &#x2022; &#x2B50; 4.9</text>
+      <rect x="200" y="10" width="30" height="30" rx="15" fill="#3B82F6"/>
+      <text x="215" y="28" text-anchor="middle" fill="white" font-size="14">&#x2713;</text>
+    </g>
+    <g transform="translate(320,155)">
+      <rect width="240" height="180" rx="12" fill="white" filter="url(#cardShadow)" stroke="#3B82F6" stroke-width="2"/>
+      <rect width="240" height="120" rx="12" fill="#FEF3C7"/>
+      <text x="120" y="70" text-anchor="middle" font-size="48">&#x1F0CF;</text>
+      <text x="12" y="155" class="label">Charizard VMAX</text>
+      <text x="12" y="170" class="card-meta">$62.00 &#x2022; &#x2B50; 4.8</text>
+      <rect x="200" y="10" width="30" height="30" rx="15" fill="#3B82F6"/>
+      <text x="215" y="28" text-anchor="middle" fill="white" font-size="14">&#x2713;</text>
+    </g>
+    <g transform="translate(580,155)">
+      <rect width="240" height="180" rx="12" fill="white" filter="url(#cardShadow)"/>
+      <rect width="240" height="120" rx="12" fill="#FCE7F3"/>
+      <text x="120" y="70" text-anchor="middle" font-size="48">&#x1F0CF;</text>
+      <text x="12" y="155" class="label">Agregar carta...</text>
+      <text x="12" y="170" class="card-meta">Seleccionar</text>
+    </g>
+    <g transform="translate(840,155)">
+      <rect width="300" height="180" rx="12" fill="white" filter="url(#cardShadow)"/>
+      <rect width="300" height="120" rx="12" fill="#D1FAE5"/>
+      <text x="150" y="70" text-anchor="middle" font-size="48">&#x1F0CF;</text>
+      <text x="12" y="155" class="label">Agregar carta...</text>
+      <text x="12" y="170" class="card-meta">Seleccionar</text>
+    </g>
+    <rect x="60" y="360" width="1080" height="480" rx="12" fill="white" filter="url(#cardShadow)"/>
+    <text x="80" y="395" class="section-title">TABLA DE COMPARACION</text>
+    <rect x="80" y="420" width="980" height="50" rx="8" fill="#F3F4F6"/>
+    <text x="100" y="452" class="label">ATRIBUTO</text>
+    <text x="350" y="452" text-anchor="middle" class="label">CHARIZARD EX</text>
+    <text x="600" y="452" text-anchor="middle" class="label">CHARIZARD VMAX</text>
+    <text x="850" y="452" text-anchor="middle" class="label">&#x2014;</text>
+    <text x="1000" y="452" text-anchor="middle" class="label">&#x2014;</text>
+    <g transform="translate(80,480)">
+      <text y="25" class="small-muted">Precio</text>
+      <text x="270" y="25" text-anchor="middle" class="label" fill="#1E40AF">$45.00</text>
+      <text x="520" y="25" text-anchor="middle" class="label" fill="#1E40AF">$62.00</text>
+      <text x="770" y="25" text-anchor="middle" class="small-muted">&#x2014;</text>
+      <text x="920" y="25" text-anchor="middle" class="small-muted">&#x2014;</text>
+    </g>
+    <line x1="80" y1="520" x2="1060" y2="520" stroke="#E5E7EB" stroke-width="1"/>
+    <g transform="translate(80,530)">
+      <text y="25" class="small-muted">Set / Expansion</text>
+      <text x="270" y="25" text-anchor="middle" class="input-text">Obsidian Flames</text>
+      <text x="520" y="25" text-anchor="middle" class="input-text">Brilliant Stars</text>
+    </g>
+    <line x1="80" y1="570" x2="1060" y2="570" stroke="#E5E7EB" stroke-width="1"/>
+    <g transform="translate(80,580)">
+      <text y="25" class="small-muted">Rareza</text>
+      <text x="270" y="25" text-anchor="middle" class="input-text">Ultra Rare</text>
+      <text x="520" y="25" text-anchor="middle" class="input-text">VMAX Ultra Rare</text>
+    </g>
+    <line x1="80" y1="620" x2="1060" y2="620" stroke="#E5E7EB" stroke-width="1"/>
+    <g transform="translate(80,630)">
+      <text y="25" class="small-muted">HP / Puntos de vida</text>
+      <text x="270" y="25" text-anchor="middle" class="input-text">330</text>
+      <text x="520" y="25" text-anchor="middle" class="input-text">330</text>
+    </g>
+    <line x1="80" y1="670" x2="1060" y2="670" stroke="#E5E7EB" stroke-width="1"/>
+    <g transform="translate(80,680)">
+      <text y="25" class="small-muted">Tipo</text>
+      <text x="270" y="25" text-anchor="middle" class="input-text">Fuego</text>
+      <text x="520" y="25" text-anchor="middle" class="input-text">Fuego</text>
+    </g>
+    <line x1="80" y1="720" x2="1060" y2="720" stroke="#E5E7EB" stroke-width="1"/>
+    <g transform="translate(80,730)">
+      <text y="25" class="small-muted">Ataque Principal</text>
+      <text x="270" y="25" text-anchor="middle" class="input-text">Explosion Ardiente (300)</text>
+      <text x="520" y="25" text-anchor="middle" class="input-text">Max Llamarada (300)</text>
+    </g>
+    <line x1="80" y1="770" x2="1060" y2="770" stroke="#E5E7EB" stroke-width="1"/>
+    <g transform="translate(80,780)">
+      <text y="25" class="small-muted">Calificacion</text>
+      <text x="270" y="25" text-anchor="middle" class="input-text">&#x2B50; 4.9 (127)</text>
+      <text x="520" y="25" text-anchor="middle" class="input-text">&#x2B50; 4.8 (89)</text>
+    </g>
+    <line x1="80" y1="820" x2="1060" y2="820" stroke="#E5E7EB" stroke-width="1"/>
+    <rect x="80" y="825" width="980" height="50" rx="8" fill="#F3F4F6"/>
+    <text x="100" y="857" class="label">Estado</text>
+    <text x="350" y="857" text-anchor="middle" class="label" fill="#10B981">Nuevo (Sellado)</text>
+    <text x="600" y="857" text-anchor="middle" class="label" fill="#10B981">Nuevo (Sellado)</text>
   </g>
-
-  <g transform="translate(580, 155)">
-    <rect width="240" height="180" rx="12" fill="white" filter="url(#sh)"/>
-    <rect width="240" height="120" rx="12" fill="#FCE7F3"/>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="120" y="70" text-anchor="middle" font-size="48">🃏</text>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="12" y="155" font-size="13" font-weight="600" fill="#111827">Agregar carta...</text>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="12" y="170" font-size="12" fill="#6B7280">Seleccionar</text>
+  <g id="footer">
+    <rect x="0" y="820" width="1200" height="80" fill="#1F2937"/>
+    <text x="600" y="855" text-anchor="middle" class="footer-text">&#xA9; 2026 CardTrade Market. Todos los derechos reservados.</text>
+    <text x="600" y="875" text-anchor="middle" class="footer-link">Terminos | Privacidad | Contacto | Ayuda</text>
   </g>
-
-  <g transform="translate(840, 155)">
-    <rect width="300" height="180" rx="12" fill="white" filter="url(#sh)"/>
-    <rect width="300" height="120" rx="12" fill="#D1FAE5"/>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="150" y="70" text-anchor="middle" font-size="48">🃏</text>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="12" y="155" font-size="13" font-weight="600" fill="#111827">Agregar carta...</text>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="12" y="170" font-size="12" fill="#6B7280">Seleccionar</text>
-  </g>
-
-  <!-- Comparison Table -->
-  <rect x="60" y="360" width="1080" height="480" rx="12" fill="white" filter="url(#sh)"/>
-  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="80" y="395" font-size="18" font-weight="700" fill="#111827">TABLA DE COMPARACIÓN</text>
-
-  <!-- Table Header -->
-  <rect x="80" y="420" width="980" height="50" rx="8" fill="#F3F4F6"/>
-  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="100" y="452" font-size="13" font-weight="600" fill="#374151">ATRIBUTO</text>
-  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="350" y="452" text-anchor="middle" font-size="13" font-weight="600" fill="#374151">CHARIZARD EX</text>
-  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="600" y="452" text-anchor="middle" font-size="13" font-weight="600" fill="#374151">CHARIZARD VMAX</text>
-  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="850" y="452" text-anchor="middle" font-size="13" font-weight="600" fill="#374151">—</text>
-  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="1000" y="452" text-anchor="middle" font-size="13" font-weight="600" fill="#374151">—</text>
-
-  <!-- Table Rows -->
-  <g transform="translate(80, 480)">
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" y="25" font-size="13" fill="#6B7280">Precio</text>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="270" y="25" text-anchor="middle" font-size="13" font-weight="600" fill="#1E40AF">$45.00</text>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="520" y="25" text-anchor="middle" font-size="13" font-weight="600" fill="#1E40AF">$62.00</text>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="770" y="25" text-anchor="middle" font-size="13" fill="#9CA3AF">—</text>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="920" y="25" text-anchor="middle" font-size="13" fill="#9CA3AF">—</text>
-  </g>
-
-  <line x1="80" y1="520" x2="1060" y2="520" stroke="#E5E7EB" stroke-width="1"/>
-
-  <g transform="translate(80, 530)">
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" y="25" font-size="13" fill="#6B7280">Set / Expansión</text>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="270" y="25" text-anchor="middle" font-size="13" fill="#111827">Obsidian Flames</text>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="520" y="25" text-anchor="middle" font-size="13" fill="#111827">Brilliant Stars</text>
-  </g>
-
-  <line x1="80" y1="570" x2="1060" y2="570" stroke="#E5E7EB" stroke-width="1"/>
-
-  <g transform="translate(80, 580)">
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" y="25" font-size="13" fill="#6B7280">Rareza</text>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="270" y="25" text-anchor="middle" font-size="13" fill="#111827">Ultra Rare</text>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="520" y="25" text-anchor="middle" font-size="13" fill="#111827">VMAX Ultra Rare</text>
-  </g>
-
-  <line x1="80" y1="620" x2="1060" y2="620" stroke="#E5E7EB" stroke-width="1"/>
-
-  <g transform="translate(80, 630)">
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" y="25" font-size="13" fill="#6B7280">HP / Puntos de vida</text>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="270" y="25" text-anchor="middle" font-size="13" fill="#111827">330</text>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="520" y="25" text-anchor="middle" font-size="13" fill="#111827">330</text>
-  </g>
-
-  <line x1="80" y1="670" x2="1060" y2="670" stroke="#E5E7EB" stroke-width="1"/>
-
-  <g transform="translate(80, 680)">
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" y="25" font-size="13" fill="#6B7280">Tipo</text>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="270" y="25" text-anchor="middle" font-size="13" fill="#111827">Fuego</text>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="520" y="25" text-anchor="middle" font-size="13" fill="#111827">Fuego</text>
-  </g>
-
-  <line x1="80" y1="720" x2="1060" y2="720" stroke="#E5E7EB" stroke-width="1"/>
-
-  <g transform="translate(80, 730)">
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" y="25" font-size="13" fill="#6B7280">Ataque Principal</text>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="270" y="25" text-anchor="middle" font-size="13" fill="#111827">Explosión Ardiente (300)</text>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="520" y="25" text-anchor="middle" font-size="13" fill="#111827">Max Llamarada (300)</text>
-  </g>
-
-  <line x1="80" y1="770" x2="1060" y2="770" stroke="#E5E7EB" stroke-width="1"/>
-
-  <g transform="translate(80, 780)">
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" y="25" font-size="13" fill="#6B7280">Calificación</text>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="270" y="25" text-anchor="middle" font-size="13" fill="#111827">⭐ 4.9 (127)</text>
-    <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="520" y="25" text-anchor="middle" font-size="13" fill="#111827">⭐ 4.8 (89)</text>
-  </g>
-
-  <line x1="80" y1="820" x2="1060" y2="820" stroke="#E5E7EB" stroke-width="1"/>
-
-  <rect x="80" y="825" width="980" height="50" rx="8" fill="#F3F4F6"/>
-  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="100" y="857" font-size="13" font-weight="600" fill="#374151">Estado</text>
-  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="350" y="857" text-anchor="middle" font-size="13" fill="#10B981" font-weight="600">Nuevo (Sellado)</text>
-  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="600" y="857" text-anchor="middle" font-size="13" fill="#10B981" font-weight="600">Nuevo (Sellado)</text>
 </svg>
