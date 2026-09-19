@@ -1,4 +1,4 @@
-﻿<svg viewBox="0 0 1200 950" xmlns="http://www.w3.org/2000/svg">
+﻿<svg viewBox="0 0 1200 1050" xmlns="http://www.w3.org/2000/svg">
   <title>Compra como Invitado</title>
   <desc>Flujo de compra rapida sin crear cuenta</desc>
   <defs>
@@ -22,7 +22,6 @@
     .login-link{font-size:12px;fill:#6B7280}
     .card-title{font-size:13px;font-weight:600;fill:#111827}
     .card-meta{font-size:12px;fill:#6B7280}
-    .price{font-size:13px;font-weight:700;fill:#3B82F6}
     .summary-label{font-size:13px;fill:#6B7280}
     .summary-value{font-size:13px;font-weight:600;fill:#111827}
     .total-label{font-size:16px;font-weight:700;fill:#111827}
@@ -30,7 +29,7 @@
     .footer-text{font-size:12px;fill:#9CA3AF}
     .footer-link{font-size:12px;fill:#6B7280}
   </style>
-  <rect width="1200" height="950" fill="#F3F4F6"/>
+  <rect width="1200" height="1050" fill="#F3F4F6"/>
   <g id="header">
     <rect width="1200" height="64" fill="url(#headerGrad)"/>
     <text x="40" y="42" class="header-text">&#x1F0CF; CardTrade Market</text>
@@ -46,6 +45,7 @@
     <text x="465" y="180" text-anchor="middle" class="step-pending">2. Envio</text>
     <text x="735" y="180" text-anchor="middle" class="step-pending">3. Pago</text>
     <text x="1005" y="180" text-anchor="middle" class="step-pending">4. Confirmar</text>
+    <!-- Left Form -->
     <rect x="60" y="215" width="570" height="340" rx="12" fill="white" filter="url(#cardShadow)"/>
     <text x="100" y="260" class="section-title">CORREO ELECTRONICO</text>
     <text x="100" y="285" class="subtitle">Te enviaremos la confirmacion y tracking aqui</text>
@@ -58,7 +58,8 @@
     <rect x="100" y="470" width="500" height="48" rx="8" fill="#3B82F6"/>
     <text x="350" y="500" text-anchor="middle" class="btn-primary">CONTINUAR AL ENVIO</text>
     <text x="350" y="535" text-anchor="middle" class="login-link">&#xBF;Ya tienes cuenta? Inicia sesion para guardar tus datos</text>
-    <rect x="660" y="215" width="480" height="340" rx="12" fill="#F9FAFB"/>
+    <!-- Right Summary -->
+    <rect x="660" y="215" width="480" height="400" rx="12" fill="#F9FAFB"/>
     <text x="900" y="260" text-anchor="middle" class="section-title">TU PEDIDO</text>
     <rect x="685" y="280" width="80" height="80" rx="8" fill="#FEF3C7"/>
     <text x="725" y="330" text-anchor="middle" font-size="28">&#x1F0CF;</text>
@@ -71,19 +72,19 @@
     <text x="780" y="425" class="card-meta">$28.00</text>
     <text x="780" y="445" class="card-meta">Vendedor: PikaFan99</text>
     <line x1="685" y1="475" x2="1100" y2="475" stroke="#E5E7EB" stroke-width="1"/>
-    <text x="685" y="500" class="summary-label">Subtotal</text>
-    <text x="1100" y="500" text-anchor="end" class="summary-value">$73.00</text>
-    <text x="685" y="525" class="summary-label">Envio</text>
-    <text x="1100" y="525" text-anchor="end" style="font-size:13px;fill:#3B82F6">Gratis</text>
-    <text x="685" y="550" class="summary-label">Comision (5%)</text>
-    <text x="1100" y="550" text-anchor="end" class="summary-label">$3.65</text>
-    <line x1="685" y1="575" x2="1100" y2="575" stroke="#E5E7EB" stroke-width="2"/>
-    <text x="685" y="600" class="total-label">TOTAL</text>
-    <text x="1100" y="600" text-anchor="end" class="total-value">$76.65</text>
+    <text x="685" y="505" class="summary-label">Subtotal</text>
+    <text x="1100" y="505" text-anchor="end" class="summary-value">$73.00</text>
+    <text x="685" y="530" class="summary-label">Envio</text>
+    <text x="1100" y="530" text-anchor="end" style="font-size:13px;fill:#3B82F6">Gratis</text>
+    <text x="685" y="555" class="summary-label">Comision (5%)</text>
+    <text x="1100" y="555" text-anchor="end" class="summary-label">$3.65</text>
+    <line x1="685" y1="580" x2="1100" y2="580" stroke="#E5E7EB" stroke-width="2"/>
+    <text x="685" y="610" class="total-label">TOTAL</text>
+    <text x="1100" y="610" text-anchor="end" class="total-value">$76.65</text>
   </g>
   <g id="footer">
-    <rect x="0" y="870" width="1200" height="80" fill="#1F2937"/>
-    <text x="600" y="905" text-anchor="middle" class="footer-text">&#xA9; 2026 CardTrade Market. Todos los derechos reservados.</text>
-    <text x="600" y="925" text-anchor="middle" class="footer-link">Terminos | Privacidad | Contacto | Ayuda</text>
+    <rect x="0" y="970" width="1200" height="80" fill="#1F2937"/>
+    <text x="600" y="1005" text-anchor="middle" class="footer-text">&#xA9; 2026 CardTrade Market. Todos los derechos reservados.</text>
+    <text x="600" y="1025" text-anchor="middle" class="footer-link">Terminos | Privacidad | Contacto | Ayuda</text>
   </g>
 </svg>

@@ -1,4 +1,4 @@
-﻿<svg viewBox="0 0 1200 850" xmlns="http://www.w3.org/2000/svg">
+﻿<svg viewBox="0 0 1200 950" xmlns="http://www.w3.org/2000/svg">
   <title>Agregar a Coleccion</title>
   <desc>Formulario para agregar carta a coleccion personal</desc>
   <defs>
@@ -20,7 +20,7 @@
     .footer-text{font-size:12px;fill:#9CA3AF}
     .footer-link{font-size:12px;fill:#6B7280}
   </style>
-  <rect width="1200" height="850" fill="#F3F4F6"/>
+  <rect width="1200" height="950" fill="#F3F4F6"/>
   <g id="header">
     <rect width="1200" height="64" fill="url(#headerGrad)"/>
     <text x="40" y="42" class="header-text">&#x1F0CF; CardTrade Market</text>
@@ -28,9 +28,11 @@
   <g id="main-content">
     <text x="60" y="115" class="page-title">AGREGAR A MI COLECCION</text>
     <text x="60" y="140" class="subtitle">Charizard ex 199/165 &#x2022; Obsidian Flames</text>
+    <!-- Card Preview -->
     <rect x="60" y="160" width="380" height="380" rx="16" fill="#FEF3C7"/>
     <text x="250" y="360" text-anchor="middle" font-size="120">&#x1F0CF;</text>
-    <rect x="460" y="160" width="680" height="520" rx="16" fill="white" filter="url(#cardShadow)"/>
+    <!-- Form -->
+    <rect x="460" y="160" width="680" height="600" rx="16" fill="white" filter="url(#cardShadow)"/>
     <text x="500" y="210" class="section-title">DETALLES DE TU EJEMPLAR</text>
     <text x="500" y="250" class="label">Coleccion *</text>
     <rect x="500" y="260" width="600" height="44" rx="8" fill="white" stroke="#D1D5DB" stroke-width="1.5"/>
@@ -56,12 +58,12 @@
     <text x="500" y="555" class="label">Notas privadas</text>
     <rect x="500" y="565" width="600" height="80" rx="8" fill="white" stroke="#D1D5DB" stroke-width="1.5"/>
     <text x="520" y="598" class="placeholder">Comprada en preventa. Sellado original intacto.</text>
-    <rect x="500" y="660" width="600" height="44" rx="8" fill="#3B82F6"/>
-    <text x="800" y="688" text-anchor="middle" class="btn-primary">AGREGAR A COLECCION</text>
+    <rect x="500" y="665" width="600" height="48" rx="8" fill="#3B82F6"/>
+    <text x="800" y="695" text-anchor="middle" class="btn-primary">AGREGAR A COLECCION</text>
   </g>
   <g id="footer">
-    <rect x="0" y="770" width="1200" height="80" fill="#1F2937"/>
-    <text x="600" y="805" text-anchor="middle" class="footer-text">&#xA9; 2026 CardTrade Market. Todos los derechos reservados.</text>
-    <text x="600" y="825" text-anchor="middle" class="footer-link">Terminos | Privacidad | Contacto | Ayuda</text>
+    <rect x="0" y="870" width="1200" height="80" fill="#1F2937"/>
+    <text x="600" y="905" text-anchor="middle" class="footer-text">&#xA9; 2026 CardTrade Market. Todos los derechos reservados.</text>
+    <text x="600" y="925" text-anchor="middle" class="footer-link">Terminos | Privacidad | Contacto | Ayuda</text>
   </g>
 </svg>
