@@ -1,12 +1,14 @@
 ﻿<svg viewBox="0 0 1200 1080" xmlns="http://www.w3.org/2000/svg">
+  <title>Home Page</title>
+  <desc>Wireframe de la pagina principal con banner hero, estadisticas, categorias populares, cartas destacadas y publicaciones recientes</desc>
   <defs>
-    <linearGradient id="hg" x1="0%" y1="0%" x2="100%" y2="0%">
+    <linearGradient id="headerGrad" x1="0%" y1="0%" x2="100%" y2="0%">
       <stop offset="0%" stop-color="#1E40AF"/><stop offset="100%" stop-color="#3B82F6"/>
     </linearGradient>
     <linearGradient id="banner" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#1E40AF"/><stop offset="100%" stop-color="#3B82F6"/>
     </linearGradient>
-    <filter id="sh"><feDropShadow dx="0" dy="2" stdDeviation="6" flood-opacity="0.08"/></filter>
+    <filter id="cardShadow"><feDropShadow dx="0" dy="2" stdDeviation="6" flood-opacity="0.08"/></filter>
   </defs>
   
   <style>
@@ -28,8 +30,8 @@
 
   <rect width="1200" height="1080" fill="#F3F4F6"/>
   
-  <!-- Header -->
-  <rect width="1200" height="64" fill="url(#hg)"/>
+  <g id="header">
+  <rect width="1200" height="64" fill="url(#headerGrad)"/>
   <text x="40" y="42" class="header-text">🃏 CardTrade Market</text>
   <rect x="350" y="16" width="400" height="32" rx="6" fill="rgba(255,255,255,0.15)"/>
   <text x="370" y="38" class="search-placeholder">🔍 Buscar cartas...</text>
@@ -38,7 +40,9 @@
   <circle cx="1150" cy="32" r="16" fill="rgba(255,255,255,0.2)"/>
   <text x="1145" y="38" text-anchor="middle" font-size="14" fill="white">👤</text>
 
-  <!-- Hero Banner -->
+  </g>
+
+  <g id="main-content">
   <rect x="60" y="96" width="1080" height="220" rx="16" fill="url(#banner)"/>
   <text x="120" y="150" class="hero-title">Descubre Cartas Únicas</text>
   <text x="120" y="185" class="hero-subtitle">Miles de cartas coleccionables esperan por ti</text>
@@ -52,28 +56,28 @@
   <text x="60" y="400" class="section-title">CATEGORÍAS POPULARES</text>
   
   <g transform="translate(60, 420)">
-    <rect width="240" height="110" rx="12" fill="white" filter="url(#sh)"/>
+    <rect width="240" height="110" rx="12" fill="white" filter="url(#cardShadow)"/>
     <text x="120" y="70" text-anchor="middle" font-size="32">🎨</text>
     <text x="120" y="95" text-anchor="middle" class="card-title">Pokémon</text>
     <text x="120" y="115" text-anchor="middle" class="card-meta">18,500 cartas</text>
   </g>
 
   <g transform="translate(320, 420)">
-    <rect width="240" height="110" rx="12" fill="white" filter="url(#sh)"/>
+    <rect width="240" height="110" rx="12" fill="white" filter="url(#cardShadow)"/>
     <text x="120" y="70" text-anchor="middle" font-size="32">🔥</text>
     <text x="120" y="95" text-anchor="middle" class="card-title">Magic: The Gathering</text>
     <text x="120" y="115" text-anchor="middle" class="card-meta">12,300 cartas</text>
   </g>
 
   <g transform="translate(580, 420)">
-    <rect width="240" height="110" rx="12" fill="white" filter="url(#sh)"/>
+    <rect width="240" height="110" rx="12" fill="white" filter="url(#cardShadow)"/>
     <text x="120" y="70" text-anchor="middle" font-size="32">⚡</text>
     <text x="120" y="95" text-anchor="middle" class="card-title">Yu-Gi-Oh!</text>
     <text x="120" y="115" text-anchor="middle" class="card-meta">9,200 cartas</text>
   </g>
 
   <g transform="translate(840, 420)">
-    <rect width="300" height="110" rx="12" fill="white" filter="url(#sh)"/>
+    <rect width="300" height="110" rx="12" fill="white" filter="url(#cardShadow)"/>
     <text x="150" y="70" text-anchor="middle" font-size="32">🐉</text>
     <text x="150" y="95" text-anchor="middle" class="card-title">One Piece</text>
     <text x="150" y="115" text-anchor="middle" class="card-meta">5,000 cartas</text>
@@ -84,7 +88,7 @@
   <text x="1080" y="572" font-size="14" fill="#3B82F6" font-weight="500">Ver todas →</text>
 
   <g transform="translate(60, 596)">
-    <rect width="240" height="200" rx="12" fill="white" filter="url(#sh)"/>
+    <rect width="240" height="200" rx="12" fill="white" filter="url(#cardShadow)"/>
     <rect width="240" height="130" rx="12" fill="#FEF3C7"/>
     <text x="120" y="80" text-anchor="middle" font-size="40">🃏</text>
     <text x="120" y="115" text-anchor="middle" font-size="12" font-weight="600" fill="#92400E">Pokémon</text>
@@ -93,7 +97,7 @@
   </g>
 
   <g transform="translate(320, 596)">
-    <rect width="240" height="200" rx="12" fill="white" filter="url(#sh)"/>
+    <rect width="240" height="200" rx="12" fill="white" filter="url(#cardShadow)"/>
     <rect width="240" height="130" rx="12" fill="#DBEAFE"/>
     <text x="120" y="80" text-anchor="middle" font-size="40">🃏</text>
     <text x="120" y="115" text-anchor="middle" font-size="12" font-weight="600" fill="#1E40AF">Magic</text>
@@ -102,7 +106,7 @@
   </g>
 
   <g transform="translate(580, 596)">
-    <rect width="240" height="200" rx="12" fill="white" filter="url(#sh)"/>
+    <rect width="240" height="200" rx="12" fill="white" filter="url(#cardShadow)"/>
     <rect width="240" height="130" rx="12" fill="#FCE7F3"/>
     <text x="120" y="80" text-anchor="middle" font-size="40">🃏</text>
     <text x="120" y="115" text-anchor="middle" font-size="12" font-weight="600" fill="#9D174D">Yu-Gi-Oh!</text>
@@ -111,7 +115,7 @@
   </g>
 
   <g transform="translate(840, 596)">
-    <rect width="300" height="200" rx="12" fill="white" filter="url(#sh)"/>
+    <rect width="300" height="200" rx="12" fill="white" filter="url(#cardShadow)"/>
     <rect width="300" height="130" rx="12" fill="#D1FAE5"/>
     <text x="150" y="80" text-anchor="middle" font-size="40">🃏</text>
     <text x="150" y="115" text-anchor="middle" font-size="12" font-weight="600" fill="#065F46">One Piece</text>
@@ -123,7 +127,7 @@
   <text x="60" y="832" class="section-title">PUBLICACIONES RECIENTES</text>
 
   <g transform="translate(60, 856)">
-    <rect width="240" height="180" rx="12" fill="white" filter="url(#sh)"/>
+    <rect width="240" height="180" rx="12" fill="white" filter="url(#cardShadow)"/>
     <rect width="240" height="110" rx="12" fill="#FEF3C7"/>
     <text x="120" y="70" text-anchor="middle" font-size="36">🃏</text>
     <text x="12" y="135" class="card-title">Pikachu VMAX</text>
@@ -131,7 +135,7 @@
   </g>
 
   <g transform="translate(320, 856)">
-    <rect width="240" height="180" rx="12" fill="white" filter="url(#sh)"/>
+    <rect width="240" height="180" rx="12" fill="white" filter="url(#cardShadow)"/>
     <rect width="240" height="110" rx="12" fill="#DBEAFE"/>
     <text x="120" y="70" text-anchor="middle" font-size="36">🃏</text>
     <text x="12" y="135" class="card-title">Liliana of the Veil</text>
@@ -139,7 +143,7 @@
   </g>
 
   <g transform="translate(580, 856)">
-    <rect width="240" height="180" rx="12" fill="white" filter="url(#sh)"/>
+    <rect width="240" height="180" rx="12" fill="white" filter="url(#cardShadow)"/>
     <rect width="240" height="110" rx="12" fill="#FCE7F3"/>
     <text x="120" y="70" text-anchor="middle" font-size="36">🃏</text>
     <text x="12" y="135" class="card-title">Dark Magician</text>
@@ -147,15 +151,18 @@
   </g>
 
   <g transform="translate(840, 856)">
-    <rect width="300" height="180" rx="12" fill="white" filter="url(#sh)"/>
+    <rect width="300" height="180" rx="12" fill="white" filter="url(#cardShadow)"/>
     <rect width="300" height="110" rx="12" fill="#D1FAE5"/>
     <text x="150" y="70" text-anchor="middle" font-size="36">🃏</text>
     <text x="12" y="135" class="card-title">Roronoa Zoro</text>
     <text x="12" y="155" class="card-meta">⭐ 4.6 • $15.00</text>
   </g>
 
-  <!-- Footer -->
+  </g>
+
+  <g id="footer">
   <rect x="0" y="1000" width="1200" height="80" fill="#1F2937"/>
   <text x="600" y="1035" text-anchor="middle" class="footer-text">© 2026 CardTrade Market. Todos los derechos reservados.</text>
   <text x="600" y="1055" text-anchor="middle" font-size="12" fill="#6B7280">Términos | Privacidad | Contacto | Ayuda</text>
 </svg>
+

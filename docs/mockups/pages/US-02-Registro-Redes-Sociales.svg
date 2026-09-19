@@ -1,40 +1,90 @@
 ﻿<svg viewBox="0 0 1200 900" xmlns="http://www.w3.org/2000/svg">
+  <title>Registro con Redes Sociales</title>
+  <desc>Wireframe de registro mediante redes sociales con botones de Google, Facebook y Twitter, y opcion de registro con correo electronico</desc>
+  
   <defs>
-    
-    <linearGradient id="hg" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#1E40AF"/><stop offset="100%" style="stop-color:#3B82F6"/>
+    <linearGradient id="headerGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#1E40AF"/>
+      <stop offset="100%" stop-color="#3B82F6"/>
     </linearGradient>
-    <filter id="sh"><feDropShadow dx="0" dy="2" stdDeviation="6" flood-opacity="0.08"/></filter>
+    <filter id="cardShadow">
+      <feDropShadow dx="0" dy="2" stdDeviation="6" flood-opacity="0.08"/>
+    </filter>
   </defs>
+
+  <style>
+    text { font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; }
+    .page-title { font-size: 22px; font-weight: 700; fill: #111827; }
+    .page-subtitle { font-size: 14px; fill: #6B7280; }
+    .section-title { font-size: 18px; font-weight: 700; fill: #111827; }
+    .card-title { font-size: 14px; font-weight: 600; fill: #111827; }
+    .card-meta { font-size: 12px; fill: #6B7280; }
+    .card-price { font-size: 13px; font-weight: 600; fill: #3B82F6; }
+    .header-text { font-size: 20px; font-weight: 700; fill: white; }
+    .placeholder { font-size: 14px; fill: #9CA3AF; }
+    .btn-primary { fill: #3B82F6; }
+    .btn-text { font-size: 14px; font-weight: 600; fill: white; }
+    .btn-secondary { fill: white; stroke: #D1D5DB; stroke-width: 1.5; }
+    .label { font-size: 13px; font-weight: 500; fill: #374151; }
+    .input-text { font-size: 14px; fill: #111827; }
+    .input-placeholder { font-size: 14px; fill: #9CA3AF; }
+    .link { font-size: 13px; fill: #3B82F6; font-weight: 500; }
+    .muted { font-size: 14px; fill: #6B7280; }
+    .small-muted { font-size: 12px; fill: #6B7280; }
+    .hint { font-size: 11px; fill: #6B7280; }
+    .footer-text { font-size: 12px; fill: #9CA3AF; }
+    .footer-link { font-size: 12px; fill: #6B7280; }
+    .stat-text { font-size: 14px; fill: #6B7280; }
+    .hero-title { font-size: 32px; font-weight: 700; fill: white; }
+    .hero-subtitle { font-size: 18px; fill: rgba(255,255,255,0.85); }
+    .tab-active { fill: #3B82F6; }
+    .tab-text-active { font-size: 13px; font-weight: 500; fill: white; }
+    .tab-text-inactive { font-size: 13px; fill: #6B7280; }
+    .info-box { fill: #EFF6FF; stroke: #BFDBFE; stroke-width: 1; }
+    .info-text { font-size: 13px; fill: #1E40AF; }
+    .info-link { font-size: 12px; fill: #3B82F6; }
+  </style>
+
   <rect width="1200" height="900" fill="#F3F4F6"/>
-  <rect width="1200" height="64" fill="url(#hg)"/>
-  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="40" y="40" fill="white" font-size="20" font-weight="700">🃏 CardTrade Market</text>
 
-  <rect x="350" y="140" width="500" height="580" rx="12" fill="white" filter="url(#sh)"/>
-  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="600" y="195" text-anchor="middle" font-size="24" font-weight="700" fill="#111827">CREAR CUENTA</text>
-  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="600" y="220" text-anchor="middle" font-size="14" fill="#6B7280">Regístrate rápidamente con tus redes sociales</text>
+  <g id="header">
+    <rect width="1200" height="64" fill="url(#headerGrad)"/>
+    <text x="40" y="42" class="header-text">&#127183; CardTrade Market</text>
+  </g>
 
-  <rect x="400" y="260" width="400" height="52" rx="8" fill="#4285F4"/>
-  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="600" y="292" text-anchor="middle" fill="white" font-size="15" font-weight="600">🔵 Registrarse con Google</text>
+  <g id="main-content">
+    <rect x="350" y="140" width="500" height="580" rx="12" fill="white" filter="url(#cardShadow)"/>
+    <text x="600" y="195" text-anchor="middle" font-size="24" font-weight="700" fill="#111827">CREAR CUENTA</text>
+    <text x="600" y="220" text-anchor="middle" class="muted">Reg&#237;strate r&#225;pidamente con tus redes sociales</text>
 
-  <rect x="400" y="325" width="400" height="52" rx="8" fill="#1877F2"/>
-  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="600" y="357" text-anchor="middle" fill="white" font-size="15" font-weight="600">📘 Registrarse con Facebook</text>
+    <rect x="400" y="260" width="400" height="52" rx="8" fill="#4285F4"/>
+    <text x="600" y="292" text-anchor="middle" fill="white" font-size="15" font-weight="600">&#128309; Registrarse con Google</text>
 
-  <rect x="400" y="390" width="400" height="52" rx="8" fill="#1DA1F2"/>
-  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="600" y="422" text-anchor="middle" fill="white" font-size="15" font-weight="600">🐦 Registrarse con Twitter</text>
+    <rect x="400" y="325" width="400" height="52" rx="8" fill="#1877F2"/>
+    <text x="600" y="357" text-anchor="middle" fill="white" font-size="15" font-weight="600">&#128213; Registrarse con Facebook</text>
 
-  <line x1="400" y1="470" x2="800" y2="470" stroke="#E5E7EB" stroke-width="1"/>
-  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="600" y="478" text-anchor="middle" font-size="12" fill="#9CA3AF">O regístrate con email</text>
+    <rect x="400" y="390" width="400" height="52" rx="8" fill="#1DA1F2"/>
+    <text x="600" y="422" text-anchor="middle" fill="white" font-size="15" font-weight="600">&#128038; Registrarse con Twitter</text>
 
-  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="400" y="520" font-size="13" font-weight="500" fill="#374151">Correo Electrónico</text>
-  <rect x="400" y="530" width="400" height="44" rx="8" fill="white" stroke="#D1D5DB" stroke-width="1.5"/>
+    <line x1="400" y1="470" x2="800" y2="470" stroke="#E5E7EB" stroke-width="1"/>
+    <text x="600" y="478" text-anchor="middle" class="small-muted">O reg&#237;strate con email</text>
 
-  <rect x="400" y="590" width="400" height="48" rx="8" fill="#3B82F6"/>
-  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="600" y="620" text-anchor="middle" fill="white" font-size="15" font-weight="600">CONTINUAR</text>
+    <text x="400" y="520" class="label">Correo Electr&#243;nico</text>
+    <rect x="400" y="530" width="400" height="44" rx="8" fill="white" stroke="#D1D5DB" stroke-width="1.5"/>
 
-  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="600" y="665" text-anchor="middle" font-size="14" fill="#6B7280">¿Ya tienes una cuenta? <tspan fill="#3B82F6" font-weight="500">Iniciar sesión</tspan></text>
+    <rect x="400" y="590" width="400" height="48" rx="8" fill="#3B82F6"/>
+    <text x="600" y="620" text-anchor="middle" fill="white" font-size="15" font-weight="600">CONTINUAR</text>
 
-  <rect x="400" y="700" width="400" height="8" rx="4" fill="#E5E7EB"/>
-  <rect x="400" y="700" width="200" height="8" rx="4" fill="#3B82F6"/>
-  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="600" y="730" text-anchor="middle" font-size="12" fill="#6B7280">Paso 1 de 2: Selecciona método</text>
+    <text x="600" y="665" text-anchor="middle" class="muted">&#191;Ya tienes una cuenta? <tspan fill="#3B82F6" font-weight="500">Iniciar sesi&#243;n</tspan></text>
+
+    <rect x="400" y="700" width="400" height="8" rx="4" fill="#E5E7EB"/>
+    <rect x="400" y="700" width="200" height="8" rx="4" fill="#3B82F6"/>
+    <text x="600" y="730" text-anchor="middle" class="small-muted">Paso 1 de 2: Selecciona m&#233;todo</text>
+  </g>
+
+  <g id="footer">
+    <rect x="0" y="820" width="1200" height="80" fill="#1F2937"/>
+    <text x="600" y="855" text-anchor="middle" class="footer-text">&#169; 2026 CardTrade Market. Todos los derechos reservados.</text>
+    <text x="600" y="875" text-anchor="middle" class="footer-link">T&#233;rminos | Privacidad | Contacto | Ayuda</text>
+  </g>
 </svg>

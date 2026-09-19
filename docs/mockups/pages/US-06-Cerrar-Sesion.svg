@@ -1,37 +1,84 @@
 ﻿<svg viewBox="0 0 1200 900" xmlns="http://www.w3.org/2000/svg">
+  <title>Cerrar Sesion</title>
+  <desc>Wireframe de confirmacion de cierre de sesion con menu desplegable de usuario mostrando opciones de perfil, publicaciones, compras, configuracion y cerrar sesion</desc>
+  
   <defs>
-    
-    <linearGradient id="hg" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#1E40AF"/><stop offset="100%" style="stop-color:#3B82F6"/>
+    <linearGradient id="headerGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#1E40AF"/>
+      <stop offset="100%" stop-color="#3B82F6"/>
     </linearGradient>
+    <filter id="cardShadow">
+      <feDropShadow dx="0" dy="2" stdDeviation="6" flood-opacity="0.08"/>
+    </filter>
   </defs>
+
+  <style>
+    text { font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; }
+    .page-title { font-size: 22px; font-weight: 700; fill: #111827; }
+    .page-subtitle { font-size: 14px; fill: #6B7280; }
+    .section-title { font-size: 18px; font-weight: 700; fill: #111827; }
+    .card-title { font-size: 14px; font-weight: 600; fill: #111827; }
+    .card-meta { font-size: 12px; fill: #6B7280; }
+    .card-price { font-size: 13px; font-weight: 600; fill: #3B82F6; }
+    .header-text { font-size: 20px; font-weight: 700; fill: white; }
+    .placeholder { font-size: 14px; fill: #9CA3AF; }
+    .btn-primary { fill: #3B82F6; }
+    .btn-text { font-size: 14px; font-weight: 600; fill: white; }
+    .btn-secondary { fill: white; stroke: #D1D5DB; stroke-width: 1.5; }
+    .label { font-size: 13px; font-weight: 500; fill: #374151; }
+    .input-text { font-size: 14px; fill: #111827; }
+    .input-placeholder { font-size: 14px; fill: #9CA3AF; }
+    .link { font-size: 13px; fill: #3B82F6; font-weight: 500; }
+    .muted { font-size: 14px; fill: #6B7280; }
+    .small-muted { font-size: 12px; fill: #6B7280; }
+    .hint { font-size: 11px; fill: #6B7280; }
+    .footer-text { font-size: 12px; fill: #9CA3AF; }
+    .footer-link { font-size: 12px; fill: #6B7280; }
+    .stat-text { font-size: 14px; fill: #6B7280; }
+    .hero-title { font-size: 32px; font-weight: 700; fill: white; }
+    .hero-subtitle { font-size: 18px; fill: rgba(255,255,255,0.85); }
+    .tab-active { fill: #3B82F6; }
+    .tab-text-active { font-size: 13px; font-weight: 500; fill: white; }
+    .tab-text-inactive { font-size: 13px; fill: #6B7280; }
+    .info-box { fill: #EFF6FF; stroke: #BFDBFE; stroke-width: 1; }
+    .info-text { font-size: 13px; fill: #1E40AF; }
+    .info-link { font-size: 12px; fill: #3B82F6; }
+  </style>
+
   <rect width="1200" height="900" fill="#F3F4F6"/>
-  <rect width="1200" height="64" fill="url(#hg)"/>
-  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="40" y="40" fill="white" font-size="20" font-weight="700">🃏 CardTrade Market</text>
-  <rect x="350" y="16" width="400" height="32" rx="6" fill="rgba(255,255,255,0.15)"/>
-  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="370" y="37" fill="rgba(255,255,255,0.6)" font-size="14">🔍 Buscar cartas...</text>
-  <circle cx="1100" cy="32" r="16" fill="rgba(255,255,255,0.2)"/>
-  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="1095" y="37" fill="white" font-size="14">🛒</text>
 
-  <!-- User Menu Dropdown -->
-  <rect x="1020" y="64" width="180" height="220" rx="8" fill="white" stroke="#E5E7EB" stroke-width="1" filter="url(#sh)"/>
-  <defs><filter id="sh"><feDropShadow dx="0" dy="2" stdDeviation="6" flood-opacity="0.1"/></filter></defs>
+  <g id="header">
+    <rect width="1200" height="64" fill="url(#headerGrad)"/>
+    <text x="40" y="42" class="header-text">&#127183; CardTrade Market</text>
+    <rect x="350" y="16" width="400" height="32" rx="6" fill="rgba(255,255,255,0.15)"/>
+    <text x="370" y="37" class="placeholder">&#128269; Buscar cartas...</text>
+    <circle cx="1100" cy="32" r="16" fill="rgba(255,255,255,0.2)"/>
+    <text x="1095" y="37" class="header-text" font-size="14">&#128722;</text>
+  </g>
 
-  <!-- User Info -->
-  <circle cx="1040" cy="95" r="18" fill="#3B82F6"/>
-  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="1040" y="100" text-anchor="middle" fill="white" font-size="14" font-weight="600">CM</text>
-  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="1065" y="92" font-size="13" font-weight="600" fill="#111827">CardMaster</text>
-  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="1065" y="108" font-size="11" fill="#6B7280">cardmaster@email.com</text>
-  <line x1="1030" y1="125" x2="1180" y2="125" stroke="#E5E7EB" stroke-width="1"/>
+  <g id="main-content">
+    <rect x="1020" y="64" width="180" height="220" rx="8" fill="white" stroke="#E5E7EB" stroke-width="1" filter="url(#cardShadow)"/>
 
-  <!-- Menu Items -->
-  <rect x="1025" y="132" width="170" height="36" rx="6" fill="#F3F4F6"/>
-  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="1045" y="155" font-size="13" fill="#111827">👤 Mi Perfil</text>
+    <circle cx="1040" cy="95" r="18" fill="#3B82F6"/>
+    <text x="1040" y="100" text-anchor="middle" fill="white" font-size="14" font-weight="600">CM</text>
+    <text x="1065" y="92" font-size="13" font-weight="600" fill="#111827">CardMaster</text>
+    <text x="1065" y="108" class="small-muted">cardmaster@email.com</text>
+    <line x1="1030" y1="125" x2="1180" y2="125" stroke="#E5E7EB" stroke-width="1"/>
 
-  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="1045" y="188" font-size="13" fill="#374151">📦 Mis Publicaciones</text>
-  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="1045" y="218" font-size="13" fill="#374151">🛒 Mis Compras</text>
-  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="1045" y="248" font-size="13" fill="#374151">⚙️ Configuración</text>
-  <line x1="1030" y1="260" x2="1180" y2="260" stroke="#E5E7EB" stroke-width="1"/>
+    <rect x="1025" y="132" width="170" height="36" rx="6" fill="#F3F4F6"/>
+    <text x="1045" y="155" font-size="13" fill="#111827">&#128100; Mi Perfil</text>
 
-  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="1045" y="282" font-size="13" fill="#EF4444">🚪 Cerrar Sesión</text>
+    <text x="1045" y="188" font-size="13" fill="#374151">&#128230; Mis Publicaciones</text>
+    <text x="1045" y="218" font-size="13" fill="#374151">&#128722; Mis Compras</text>
+    <text x="1045" y="248" font-size="13" fill="#374151">&#9881;&#65039; Configuraci&#243;n</text>
+    <line x1="1030" y1="260" x2="1180" y2="260" stroke="#E5E7EB" stroke-width="1"/>
+
+    <text x="1045" y="282" font-size="13" fill="#EF4444">&#128682; Cerrar Sesi&#243;n</text>
+  </g>
+
+  <g id="footer">
+    <rect x="0" y="820" width="1200" height="80" fill="#1F2937"/>
+    <text x="600" y="855" text-anchor="middle" class="footer-text">&#169; 2026 CardTrade Market. Todos los derechos reservados.</text>
+    <text x="600" y="875" text-anchor="middle" class="footer-link">T&#233;rminos | Privacidad | Contacto | Ayuda</text>
+  </g>
 </svg>
