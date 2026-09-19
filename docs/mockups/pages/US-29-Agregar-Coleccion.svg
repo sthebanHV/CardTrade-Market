@@ -1,56 +1,67 @@
-﻿<svg viewBox="0 0 1200 900" xmlns="http://www.w3.org/2000/svg">
+﻿<svg viewBox="0 0 1200 850" xmlns="http://www.w3.org/2000/svg">
+  <title>Agregar a Coleccion</title>
+  <desc>Formulario para agregar carta a coleccion personal</desc>
   <defs>
-    
-    <linearGradient id="hg" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#1E40AF"/><stop offset="100%" style="stop-color:#3B82F6"/>
+    <linearGradient id="headerGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#1E40AF"/><stop offset="100%" stop-color="#3B82F6"/>
     </linearGradient>
-    <filter id="sh"><feDropShadow dx="0" dy="2" stdDeviation="6" flood-opacity="0.08"/></filter>
+    <filter id="cardShadow"><feDropShadow dx="0" dy="2" stdDeviation="6" flood-opacity="0.08"/></filter>
   </defs>
-  <rect width="1200" height="900" fill="#F3F4F6"/>
-  <rect width="1200" height="64" fill="url(#hg)"/>
-  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="40" y="40" fill="white" font-size="20" font-weight="700">🃏 CardTrade Market</text>
-
-  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="60" y="110" font-size="24" font-weight="700" fill="#111827">AGREGAR A MI COLECCIÓN</text>
-  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="60" y="135" font-size="14" fill="#6B7280">Charizard ex 199/165 • Obsidian Flames</text>
-
-  <!-- Card Preview -->
-  <rect x="60" y="155" width="400" height="400" rx="16" fill="#FEF3C7"/>
-  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="260" y="330" text-anchor="middle" font-size="120">🃏</text>
-
-  <!-- Form -->
-  <rect x="490" y="155" width="650" height="520" rx="16" fill="white" filter="url(#sh)"/>
-
-  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="530" y="200" font-size="18" font-weight="700" fill="#111827">DETALLES DE TU EJEMPLAR</text>
-
-  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="530" y="240" font-size="13" font-weight="500" fill="#374151">Colección *</text>
-  <rect x="530" y="250" width="570" height="44" rx="8" fill="white" stroke="#D1D5DB" stroke-width="1.5"/>
-  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="550" y="278" fill="#111827" font-size="14">Mi Colección Principal ▼</text>
-
-  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="530" y="310" font-size="13" font-weight="500" fill="#374151">Estado *</text>
-  <rect x="530" y="320" width="265" height="44" rx="8" fill="white" stroke="#D1D5DB" stroke-width="1.5"/>
-  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="550" y="348" fill="#111827" font-size="14">Nuevo (Sellado) ▼</text>
-  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="825" y="310" font-size="13" font-weight="500" fill="#374151">Idioma</text>
-  <rect x="825" y="320" width="275" height="44" rx="8" fill="white" stroke="#D1D5DB" stroke-width="1.5"/>
-  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="845" y="348" fill="#111827" font-size="14">Español ▼</text>
-
-  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="530" y="380" font-size="13" font-weight="500" fill="#374151">¿Está gradada? *</text>
-  <rect x="530" y="390" width="265" height="44" rx="8" fill="white" stroke="#D1D5DB" stroke-width="1.5"/>
-  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="550" y="418" fill="#111827" font-size="14">No ▼</text>
-  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="825" y="380" font-size="13" font-weight="500" fill="#374151">Empresa / Grado</text>
-  <rect x="825" y="390" width="275" height="44" rx="8" fill="#F3F4F6" stroke="#D1D5DB" stroke-width="1.5"/>
-  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="845" y="418" fill="#9CA3AF" font-size="14">PSA 10 / BGS 9.5 / CGC 9.5</text>
-
-  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="530" y="450" font-size="13" font-weight="500" fill="#374151">Precio de compra</text>
-  <rect x="530" y="460" width="265" height="44" rx="8" fill="white" stroke="#D1D5DB" stroke-width="1.5"/>
-  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="550" y="488" fill="#9CA3AF" font-size="14">$45.00 MXN</text>
-  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="825" y="450" font-size="13" font-weight="500" fill="#374151">Fecha de compra</text>
-  <rect x="825" y="460" width="275" height="44" rx="8" fill="white" stroke="#D1D5DB" stroke-width="1.5"/>
-  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="845" y="488" fill="#9CA3AF" font-size="14">15/01/2025 ▼</text>
-
-  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="530" y="520" font-size="13" font-weight="500" fill="#374151">Notas privadas</text>
-  <rect x="530" y="530" width="570" height="80" rx="8" fill="white" stroke="#D1D5DB" stroke-width="1.5"/>
-  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="550" y="560" fill="#9CA3AF" font-size="14">Comprada en preventa. Sellado original intacto.</text>
-
-  <rect x="530" y="620" width="570" height="44" rx="8" fill="#3B82F6"/>
-  <text font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" x="815" y="650" text-anchor="middle" fill="white" font-size="14" font-weight="600">AGREGAR A COLECCIÓN</text>
+  <style>
+    text{font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif}
+    .header-text{font-size:20px;font-weight:700;fill:white}
+    .page-title{font-size:24px;font-weight:700;fill:#111827}
+    .subtitle{font-size:14px;fill:#6B7280}
+    .section-title{font-size:18px;font-weight:700;fill:#111827}
+    .label{font-size:13px;font-weight:500;fill:#374151}
+    .select-text{font-size:14px;fill:#111827}
+    .placeholder{font-size:14px;fill:#9CA3AF}
+    .btn-primary{font-size:14px;font-weight:600;fill:white}
+    .footer-text{font-size:12px;fill:#9CA3AF}
+    .footer-link{font-size:12px;fill:#6B7280}
+  </style>
+  <rect width="1200" height="850" fill="#F3F4F6"/>
+  <g id="header">
+    <rect width="1200" height="64" fill="url(#headerGrad)"/>
+    <text x="40" y="42" class="header-text">&#x1F0CF; CardTrade Market</text>
+  </g>
+  <g id="main-content">
+    <text x="60" y="115" class="page-title">AGREGAR A MI COLECCION</text>
+    <text x="60" y="140" class="subtitle">Charizard ex 199/165 &#x2022; Obsidian Flames</text>
+    <rect x="60" y="160" width="380" height="380" rx="16" fill="#FEF3C7"/>
+    <text x="250" y="360" text-anchor="middle" font-size="120">&#x1F0CF;</text>
+    <rect x="460" y="160" width="680" height="520" rx="16" fill="white" filter="url(#cardShadow)"/>
+    <text x="500" y="210" class="section-title">DETALLES DE TU EJEMPLAR</text>
+    <text x="500" y="250" class="label">Coleccion *</text>
+    <rect x="500" y="260" width="600" height="44" rx="8" fill="white" stroke="#D1D5DB" stroke-width="1.5"/>
+    <text x="520" y="288" class="select-text">Mi Coleccion Principal &#x25BC;</text>
+    <text x="500" y="320" class="label">Estado *</text>
+    <rect x="500" y="330" width="280" height="44" rx="8" fill="white" stroke="#D1D5DB" stroke-width="1.5"/>
+    <text x="520" y="358" class="select-text">Nuevo (Sellado) &#x25BC;</text>
+    <text x="820" y="320" class="label">Idioma</text>
+    <rect x="820" y="330" width="280" height="44" rx="8" fill="white" stroke="#D1D5DB" stroke-width="1.5"/>
+    <text x="840" y="358" class="select-text">Espanol &#x25BC;</text>
+    <text x="500" y="395" class="label">&#xBF;Esta gradada? *</text>
+    <rect x="500" y="405" width="280" height="44" rx="8" fill="white" stroke="#D1D5DB" stroke-width="1.5"/>
+    <text x="520" y="433" class="select-text">No &#x25BC;</text>
+    <text x="820" y="395" class="label">Empresa / Grado</text>
+    <rect x="820" y="405" width="280" height="44" rx="8" fill="#F3F4F6" stroke="#D1D5DB" stroke-width="1.5"/>
+    <text x="840" y="433" class="placeholder">PSA 10 / BGS 9.5 / CGC 9.5</text>
+    <text x="500" y="475" class="label">Precio de compra</text>
+    <rect x="500" y="485" width="280" height="44" rx="8" fill="white" stroke="#D1D5DB" stroke-width="1.5"/>
+    <text x="520" y="513" class="placeholder">$45.00 MXN</text>
+    <text x="820" y="475" class="label">Fecha de compra</text>
+    <rect x="820" y="485" width="280" height="44" rx="8" fill="white" stroke="#D1D5DB" stroke-width="1.5"/>
+    <text x="840" y="513" class="placeholder">15/01/2025 &#x25BC;</text>
+    <text x="500" y="555" class="label">Notas privadas</text>
+    <rect x="500" y="565" width="600" height="80" rx="8" fill="white" stroke="#D1D5DB" stroke-width="1.5"/>
+    <text x="520" y="598" class="placeholder">Comprada en preventa. Sellado original intacto.</text>
+    <rect x="500" y="660" width="600" height="44" rx="8" fill="#3B82F6"/>
+    <text x="800" y="688" text-anchor="middle" class="btn-primary">AGREGAR A COLECCION</text>
+  </g>
+  <g id="footer">
+    <rect x="0" y="770" width="1200" height="80" fill="#1F2937"/>
+    <text x="600" y="805" text-anchor="middle" class="footer-text">&#xA9; 2026 CardTrade Market. Todos los derechos reservados.</text>
+    <text x="600" y="825" text-anchor="middle" class="footer-link">Terminos | Privacidad | Contacto | Ayuda</text>
+  </g>
 </svg>
