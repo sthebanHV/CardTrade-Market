@@ -1,6 +1,6 @@
-﻿<svg viewBox="0 0 1200 1000" xmlns="http://www.w3.org/2000/svg">
+﻿<svg viewBox="0 0 1200 950" xmlns="http://www.w3.org/2000/svg">
   <title>Carrito de Compras</title>
-  <desc>Vista del carrito con articulos y resumen de pedido</desc>
+  <desc>Vista del carrito con 2 articulos, resumen de pedido y botones de accion</desc>
   <defs>
     <linearGradient id="headerGrad" x1="0%" y1="0%" x2="100%" y2="0%">
       <stop offset="0%" stop-color="#1E40AF"/><stop offset="100%" stop-color="#3B82F6"/>
@@ -14,80 +14,102 @@
     .section-title{font-size:18px;font-weight:700;fill:#111827}
     .card-title{font-size:16px;font-weight:600;fill:#111827}
     .card-meta{font-size:12px;fill:#6B7280}
-    .price{font-size:18px;font-weight:700;fill:#3B82F6}
-    .remove{font-size:12px;fill:#EF4444}
+    .price{font-size:20px;font-weight:700;fill:#3B82F6}
+    .remove{font-size:13px;fill:#EF4444}
     .summary-label{font-size:14px;fill:#6B7280}
     .summary-value{font-size:14px;font-weight:600;fill:#111827}
-    .shipping{font-size:14px;fill:#3B82F6}
+    .shipping{font-size:14px;font-weight:600;fill:#10B981}
     .total-label{font-size:18px;font-weight:700;fill:#111827}
-    .total-value{font-size:22px;font-weight:700;fill:#3B82F6}
+    .total-value{font-size:24px;font-weight:700;fill:#3B82F6}
     .btn-primary{font-size:15px;font-weight:600;fill:white}
     .btn-secondary{font-size:14px;fill:#6B7280}
-    .benefit{font-size:12px;fill:#6B7280}
+    .benefit{font-size:13px;fill:#6B7280}
     .qty-text{font-size:16px;font-weight:600;fill:#111827}
     .footer-text{font-size:12px;fill:#9CA3AF}
     .footer-link{font-size:12px;fill:#6B7280}
   </style>
-  <rect width="1200" height="1000" fill="#F3F4F6"/>
+  <rect width="1200" height="950" fill="#F3F4F6"/>
+
   <g id="header">
     <rect width="1200" height="64" fill="url(#headerGrad)"/>
     <text x="40" y="42" class="header-text">&#x1F0CF; CardTrade Market</text>
-    <circle cx="1100" cy="32" r="16" fill="rgba(255,255,255,0.2)"/>
-    <text x="1092" y="38" fill="white" font-size="14">&#x1F6D2;(2)</text>
+    <circle cx="1100" cy="32" r="18" fill="rgba(255,255,255,0.2)"/>
+    <text x="1090" y="38" fill="white" font-size="14">&#x1F6D2;(2)</text>
   </g>
+
   <g id="main-content">
     <text x="60" y="115" class="page-title">MI CARRITO (2 articulos)</text>
-    <!-- Items Container -->
-    <rect x="60" y="140" width="760" height="420" rx="12" fill="white" filter="url(#cardShadow)"/>
+
+    <!-- ===== LEFT: Cart Items ===== -->
+    <rect x="60" y="140" width="750" height="540" rx="12" fill="white" filter="url(#cardShadow)"/>
+
     <!-- Item 1 -->
-    <rect x="85" y="165" width="110" height="110" rx="10" fill="#FEF3C7"/>
-    <text x="140" y="235" text-anchor="middle" font-size="44">&#x1F0CF;</text>
-    <text x="220" y="195" class="card-title">Charizard ex 199/165</text>
-    <text x="220" y="220" class="card-meta">Pokemon &#x2022; Obsidian Flames &#x2022; Ultra Rare</text>
-    <text x="220" y="245" class="card-meta">Vendedor: CardMaster MX &#x2B50; 4.8</text>
-    <text x="630" y="195" class="price">$45.00</text>
-    <rect x="610" y="215" width="100" height="36" rx="8" fill="white" stroke="#D1D5DB" stroke-width="1.5"/>
-    <text x="625" y="239" class="qty-text">&#x2212;</text>
-    <text x="655" y="239" class="qty-text">1</text>
-    <text x="685" y="239" class="qty-text">+</text>
-    <text x="610" y="275" class="remove">Eliminar</text>
-    <line x1="85" y1="300" x2="800" y2="300" stroke="#E5E7EB" stroke-width="1"/>
+    <rect x="90" y="170" width="120" height="120" rx="12" fill="#FEF3C7"/>
+    <text x="150" y="245" text-anchor="middle" font-size="48">&#x1F0CF;</text>
+    <text x="240" y="200" class="card-title">Charizard ex 199/165</text>
+    <text x="240" y="228" class="card-meta">Pokemon &#x2022; Obsidian Flames &#x2022; Ultra Rare</text>
+    <text x="240" y="256" class="card-meta">Vendedor: CardMaster MX &#x2B50; 4.8</text>
+    <text x="240" y="284" class="card-meta">Estado: Near Mint &#x2022; 1x</text>
+    <text x="700" y="205" class="price">$45.00</text>
+    <rect x="660" y="230" width="110" height="40" rx="8" fill="white" stroke="#D1D5DB" stroke-width="1.5"/>
+    <text x="678" y="256" class="qty-text">&#x2212;</text>
+    <text x="710" y="256" class="qty-text">1</text>
+    <text x="745" y="256" class="qty-text">+</text>
+    <text x="660" y="305" class="remove">&#x1F5D1; Eliminar</text>
+
+    <line x1="90" y1="340" x2="780" y2="340" stroke="#E5E7EB" stroke-width="1"/>
+
     <!-- Item 2 -->
-    <rect x="85" y="320" width="110" height="110" rx="10" fill="#DBEAFE"/>
-    <text x="140" y="390" text-anchor="middle" font-size="44">&#x1F0CF;</text>
-    <text x="220" y="350" class="card-title">Pikachu VMAX 188/185</text>
-    <text x="220" y="375" class="card-meta">Pokemon &#x2022; Vivid Voltage &#x2022; VMAX</text>
-    <text x="220" y="400" class="card-meta">Vendedor: PikaFan99 &#x2B50; 4.6</text>
-    <text x="630" y="350" class="price">$28.00</text>
-    <rect x="610" y="370" width="100" height="36" rx="8" fill="white" stroke="#D1D5DB" stroke-width="1.5"/>
-    <text x="625" y="394" class="qty-text">&#x2212;</text>
-    <text x="655" y="394" class="qty-text">1</text>
-    <text x="685" y="394" class="qty-text">+</text>
-    <text x="610" y="435" class="remove">Eliminar</text>
-    <!-- Order Summary -->
-    <rect x="860" y="140" width="280" height="420" rx="12" fill="white" filter="url(#cardShadow)"/>
-    <text x="1000" y="185" text-anchor="middle" class="section-title">RESUMEN</text>
-    <line x1="880" y1="200" x2="1120" y2="200" stroke="#E5E7EB" stroke-width="1"/>
-    <text x="880" y="235" class="summary-label">Subtotal (2 articulos)</text>
-    <text x="1120" y="235" text-anchor="end" class="summary-value">$73.00</text>
-    <text x="880" y="270" class="summary-label">Envio estimado</text>
-    <text x="1120" y="270" text-anchor="end" class="shipping">Gratis</text>
-    <text x="880" y="305" class="summary-label">Comision plataforma (5%)</text>
-    <text x="1120" y="305" text-anchor="end" class="summary-label">$3.65</text>
-    <line x1="880" y1="330" x2="1120" y2="330" stroke="#E5E7EB" stroke-width="2"/>
-    <text x="880" y="365" class="total-label">TOTAL</text>
-    <text x="1120" y="365" text-anchor="end" class="total-value">$76.65</text>
-    <rect x="880" y="390" width="200" height="48" rx="8" fill="#3B82F6"/>
-    <text x="980" y="420" text-anchor="middle" class="btn-primary">PROCEDER AL PAGO</text>
-    <rect x="880" y="455" width="200" height="44" rx="8" fill="white" stroke="#D1D5DB" stroke-width="1.5"/>
-    <text x="980" y="483" text-anchor="middle" class="btn-secondary">Seguir comprando</text>
-    <text x="880" y="525" class="benefit">&#x2713; Envio gratis por compra &gt;$500</text>
-    <text x="880" y="550" class="benefit">&#x2713; Seguro incluido</text>
-    <text x="880" y="575" class="benefit">&#x2713; Proteccion al comprador</text>
+    <rect x="90" y="365" width="120" height="120" rx="12" fill="#DBEAFE"/>
+    <text x="150" y="440" text-anchor="middle" font-size="48">&#x1F0CF;</text>
+    <text x="240" y="395" class="card-title">Pikachu VMAX 188/185</text>
+    <text x="240" y="423" class="card-meta">Pokemon &#x2022; Vivid Voltage &#x2022; VMAX</text>
+    <text x="240" y="451" class="card-meta">Vendedor: PikaFan99 &#x2B50; 4.6</text>
+    <text x="240" y="479" class="card-meta">Estado: Near Mint &#x2022; 1x</text>
+    <text x="700" y="400" class="price">$28.00</text>
+    <rect x="660" y="425" width="110" height="40" rx="8" fill="white" stroke="#D1D5DB" stroke-width="1.5"/>
+    <text x="678" y="451" class="qty-text">&#x2212;</text>
+    <text x="710" y="451" class="qty-text">1</text>
+    <text x="745" y="451" class="qty-text">+</text>
+    <text x="660" y="500" class="remove">&#x1F5D1; Eliminar</text>
+
+    <line x1="90" y1="535" x2="780" y2="535" stroke="#E5E7EB" stroke-width="1"/>
+    <text x="90" y="570" class="summary-label">2 articulos en tu carrito</text>
+    <text x="780" y="570" text-anchor="end" class="summary-label">Subtotal: <tspan font-weight="700" fill="#111827">$73.00</tspan></text>
+
+    <!-- ===== RIGHT: Order Summary ===== -->
+    <rect x="840" y="140" width="300" height="540" rx="12" fill="white" filter="url(#cardShadow)"/>
+    <text x="990" y="185" text-anchor="middle" class="section-title">RESUMEN</text>
+    <line x1="870" y1="205" x2="1110" y2="205" stroke="#E5E7EB" stroke-width="1"/>
+
+    <text x="870" y="245" class="summary-label">Subtotal</text>
+    <text x="1110" y="245" text-anchor="end" class="summary-value">$73.00</text>
+
+    <text x="870" y="285" class="summary-label">Envio</text>
+    <text x="1110" y="285" text-anchor="end" class="shipping">Gratis</text>
+
+    <text x="870" y="325" class="summary-label">Comision (5%)</text>
+    <text x="1110" y="325" text-anchor="end" class="summary-value">$3.65</text>
+
+    <line x1="870" y1="355" x2="1110" y2="355" stroke="#E5E7EB" stroke-width="2"/>
+
+    <text x="870" y="400" class="total-label">TOTAL</text>
+    <text x="1110" y="400" text-anchor="end" class="total-value">$76.65</text>
+
+    <rect x="870" y="435" width="240" height="52" rx="8" fill="#3B82F6"/>
+    <text x="990" y="467" text-anchor="middle" class="btn-primary">PROCEDER AL PAGO</text>
+
+    <rect x="870" y="505" width="240" height="46" rx="8" fill="white" stroke="#D1D5DB" stroke-width="1.5"/>
+    <text x="990" y="534" text-anchor="middle" class="btn-secondary">Seguir comprando</text>
+
+    <text x="870" y="585" class="benefit">&#x2713; Envio gratis en compras &gt; $500</text>
+    <text x="870" y="615" class="benefit">&#x2713; Seguro incluido en cada envio</text>
+    <text x="870" y="645" class="benefit">&#x2713; Proteccion al comprador</text>
   </g>
+
   <g id="footer">
-    <rect x="0" y="920" width="1200" height="80" fill="#1F2937"/>
-    <text x="600" y="955" text-anchor="middle" class="footer-text">&#xA9; 2026 CardTrade Market. Todos los derechos reservados.</text>
-    <text x="600" y="975" text-anchor="middle" class="footer-link">Terminos | Privacidad | Contacto | Ayuda</text>
+    <rect x="0" y="870" width="1200" height="80" fill="#1F2937"/>
+    <text x="600" y="905" text-anchor="middle" class="footer-text">&#xA9; 2026 CardTrade Market. Todos los derechos reservados.</text>
+    <text x="600" y="925" text-anchor="middle" class="footer-link">Terminos | Privacidad | Contacto | Ayuda</text>
   </g>
 </svg>
