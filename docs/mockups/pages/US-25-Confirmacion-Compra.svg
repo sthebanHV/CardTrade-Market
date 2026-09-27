@@ -1,6 +1,6 @@
 ﻿<svg viewBox="0 0 1200 950" xmlns="http://www.w3.org/2000/svg">
   <title>Confirmacion de Compra</title>
-  <desc>Pantalla de exito despues de completar una compra</desc>
+  <desc>Pantalla de exito con resumen del pedido, botones de accion y seguimiento</desc>
   <defs>
     <linearGradient id="headerGrad" x1="0%" y1="0%" x2="100%" y2="0%">
       <stop offset="0%" stop-color="#1E40AF"/><stop offset="100%" stop-color="#3B82F6"/>
@@ -10,15 +10,18 @@
   <style>
     text{font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif}
     .header-text{font-size:20px;font-weight:700;fill:white}
-    .success-title{font-size:28px;font-weight:700;fill:#111827}
-    .success-subtitle{font-size:16px;fill:#6B7280}
-    .section-title{font-size:16px;font-weight:700;fill:#065F46}
+    .success-title{font-size:26px;font-weight:700;fill:#111827}
+    .success-sub{font-size:15px;fill:#6B7280}
+    .detail-title{font-size:15px;font-weight:700;fill:#065F46}
     .detail-label{font-size:13px;fill:#6B7280}
     .detail-value{font-size:13px;fill:#111827}
-    .detail-value-bold{font-size:16px;font-weight:700;fill:#10B981}
+    .detail-bold{font-size:13px;font-weight:600;fill:#111827}
+    .total-paid{font-size:18px;font-weight:700;fill:#10B981}
+    .tracking{font-size:13px;font-weight:600;fill:#3B82F6}
     .btn-primary{font-size:15px;font-weight:600;fill:white}
-    .btn-secondary{font-size:14px;fill:#6B7280}
+    .btn-outline{font-size:14px;fill:#6B7280}
     .email-note{font-size:12px;fill:#6B7280}
+    .delivery-est{font-size:14px;fill:#374151}
     .footer-text{font-size:12px;fill:#9CA3AF}
     .footer-link{font-size:12px;fill:#6B7280}
   </style>
@@ -30,44 +33,61 @@
   </g>
 
   <g id="main-content">
-    <rect x="300" y="100" width="600" height="680" rx="16" fill="white" filter="url(#cardShadow)"/>
+    <rect x="280" y="90" width="640" height="760" rx="16" fill="white" filter="url(#cardShadow)"/>
 
-    <circle cx="600" cy="190" r="60" fill="#10B981"/>
-    <text x="600" y="202" text-anchor="middle" fill="white" font-size="40">&#x2713;</text>
+    <!-- Success icon -->
+    <circle cx="600" cy="175" r="50" fill="#10B981"/>
+    <text x="600" y="187" text-anchor="middle" fill="white" font-size="36">&#x2713;</text>
 
-    <text x="600" y="290" text-anchor="middle" class="success-title">Compra Confirmada!</text>
-    <text x="600" y="325" text-anchor="middle" class="success-subtitle">Tu pedido ha sido procesado exitosamente</text>
+    <text x="600" y="260" text-anchor="middle" class="success-title">Compra Confirmada!</text>
+    <text x="600" y="290" text-anchor="middle" class="success-sub">Tu pedido ha sido procesado exitosamente</text>
 
     <!-- Order Details -->
-    <rect x="340" y="360" width="520" height="290" rx="12" fill="#ECFDF5" stroke="#A7F3D0" stroke-width="1"/>
-    <text x="600" y="395" text-anchor="middle" class="section-title">DETALLES DEL PEDIDO</text>
+    <rect x="320" y="315" width="560" height="310" rx="12" fill="#ECFDF5" stroke="#A7F3D0" stroke-width="1"/>
+    <text x="600" y="350" text-anchor="middle" class="detail-title">DETALLES DEL PEDIDO</text>
 
-    <text x="380" y="430" class="detail-label">Numero de pedido:</text>
-    <text x="530" y="430" class="detail-value" style="font-weight:600">CT-2025-015234</text>
+    <text x="355" y="385" class="detail-label">Numero de pedido:</text>
+    <text x="510" y="385" class="detail-bold">CTM-2026-001234</text>
 
-    <text x="380" y="460" class="detail-label">Fecha:</text>
-    <text x="530" y="460" class="detail-value">15 Enero 2025, 14:32</text>
+    <text x="355" y="415" class="detail-label">Fecha:</text>
+    <text x="510" y="415" class="detail-value">26 Septiembre 2026, 14:32</text>
 
-    <text x="380" y="490" class="detail-label">Metodo de pago:</text>
-    <text x="530" y="490" class="detail-value">Visa &#x2022;&#x2022;&#x2022;&#x2022; 4242</text>
+    <text x="355" y="445" class="detail-label">Metodo de pago:</text>
+    <text x="510" y="445" class="detail-value">Visa &#x2022;&#x2022;&#x2022;&#x2022; 4242</text>
 
-    <text x="380" y="520" class="detail-label">Total pagado:</text>
-    <text x="530" y="520" class="detail-value-bold">$76.65 MXN</text>
+    <text x="355" y="475" class="detail-label">Total pagado:</text>
+    <text x="510" y="475" class="total-paid">$76.65 MXN</text>
 
-    <line x1="380" y1="540" x2="820" y2="540" stroke="#A7F3D0" stroke-width="1"/>
+    <line x1="355" y1="500" x2="845" y2="500" stroke="#A7F3D0" stroke-width="1"/>
 
-    <text x="380" y="570" class="detail-label">Envio a:</text>
-    <text x="380" y="590" class="detail-value">Carlos Martinez</text>
-    <text x="380" y="610" class="detail-value">Av. Insurgentes Sur 1234</text>
-    <text x="380" y="630" class="detail-value">Col. Del Valle, CDMX 03100</text>
+    <text x="355" y="530" class="detail-label">Envio a:</text>
+    <text x="355" y="555" class="detail-value">Carlos Martinez &#x2022; Av. Insurgentes Sur 1234</text>
+    <text x="355" y="577" class="detail-value">Col. Del Valle, CDMX 03100</text>
 
-    <text x="380" y="660" class="detail-label">Transportista:</text>
-    <text x="530" y="660" class="detail-value">Estafeta &#x2022; Tracking: MX987654321</text>
+    <text x="355" y="610" class="detail-label">Transportista:</text>
+    <text x="510" y="610" class="detail-value">Estafeta</text>
+
+    <!-- Tracking -->
+    <text x="600" y="655" text-anchor="middle" class="tracking">Tracking: MX987654321</text>
+
+    <!-- Delivery estimate -->
+    <rect x="320" y="675" width="560" height="44" rx="8" fill="#EFF6FF"/>
+    <text x="600" y="703" text-anchor="middle" class="delivery-est">&#x1F4E6; Entrega estimada: 29 Septiembre - 1 Octubre</text>
+
+    <!-- Action Buttons -->
+    <rect x="340" y="745" width="250" height="48" rx="8" fill="#3B82F6"/>
+    <text x="465" y="775" text-anchor="middle" class="btn-primary">VER MI PEDIDO</text>
+
+    <rect x="610" y="745" width="250" height="48" rx="8" fill="white" stroke="#D1D5DB" stroke-width="1.5"/>
+    <text x="735" y="775" text-anchor="middle" class="btn-outline">SEGUIR COMPRANDO</text>
+
+    <!-- Email note -->
+    <text x="600" y="825" text-anchor="middle" class="email-note">&#x1F4E7; Te enviamos la confirmacion a carlos@email.com</text>
   </g>
 
   <g id="footer">
-    <rect x="0" y="870" width="1200" height="80" fill="#1F2937"/>
-    <text x="600" y="905" text-anchor="middle" class="footer-text">&#xA9; 2026 CardTrade Market. Todos los derechos reservados.</text>
-    <text x="600" y="925" text-anchor="middle" class="footer-link">Terminos | Privacidad | Contacto | Ayuda</text>
+    <rect x="0" y="880" width="1200" height="70" fill="#1F2937"/>
+    <text x="600" y="910" text-anchor="middle" class="footer-text">&#xA9; 2026 CardTrade Market. Todos los derechos reservados.</text>
+    <text x="600" y="930" text-anchor="middle" class="footer-link">Terminos | Privacidad | Contacto | Ayuda</text>
   </g>
 </svg>
