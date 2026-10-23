@@ -1,0 +1,13 @@
+{
+  "build": {
+    "command": "npm run build",
+    "outputDirectory": "dist",
+    "outputOutput": "standalone"
+  },
+  "framework": "vite",
+  "functions": {
+    "api/**": {
+      "runtime": "nodejs20"
+    }
+  }
+}
