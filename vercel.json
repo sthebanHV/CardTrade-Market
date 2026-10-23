@@ -1,13 +1,6 @@
 {
-  "build": {
-    "command": "npm run build",
-    "outputDirectory": "dist",
-    "outputOutput": "standalone"
-  },
+  "$schema": "https://openapi.vercel.sh/vercel.json",
   "framework": "vite",
-  "functions": {
-    "api/**": {
-      "runtime": "nodejs20"
-    }
-  }
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist"
 }
