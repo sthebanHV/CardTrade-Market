@@ -1,7 +1,9 @@
 package com.cardtrademarket.controller;
 
 import com.cardtrademarket.model.User;
+import com.cardtrademarket.security.JwtTokenProvider;
 import com.cardtrademarket.service.UserService;
+import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -13,6 +15,9 @@ public class AuthController {
 
     @Autowired
     private UserService userService;
+
+    @Autowired
+    private JwtTokenProvider jwtTokenProvider;
 
     @PostMapping("/register")
     public ResponseEntity<User> register(@Valid @RequestBody User userRequest) {

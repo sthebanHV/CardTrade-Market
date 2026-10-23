@@ -28,7 +28,9 @@ public interface CardRepository extends MongoRepository<Card, String> {
     List<Card> findByEdition(String edition);
     
     // Cartas públicas (no vendidas)
-    List<Card> findByStatusOrderByFechaPublicacionDesc(String status);
+    List<Card> findByStatus(Card.Status status);
+
+    List<Card> findByStatusOrderByFechaPublicacionDesc(Card.Status status);
     
     // Obtener cartas del vendedor
     List<Card> findByVendedorIdOrderByFechaPublicacionDesc(String vendedorId);

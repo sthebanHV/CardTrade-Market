@@ -1,7 +1,7 @@
 package com.cardtrademarket.model;
 
-import jakarta.persistence.Id;
-import org.springframework.data.annotation.Document;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.index.Indexed;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -26,7 +26,7 @@ public class Card {
     private Double precio;
     private List<String> imagenes; // URLs de las imágenes
     private String vendedorId; // ID del usuario vendedor
-    private String status; // Publicado, Vendido, Reservado
+    private Status status; // Publicado, Vendido, Reservado
     private Date fechaPublicacion;
     private Date fechaActualizacion;
     private Double precioAnterior; // Para historial de precios

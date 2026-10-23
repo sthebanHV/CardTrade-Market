@@ -57,13 +57,13 @@ public class CardController {
         return ResponseEntity.ok(cartaActualizada);
     }
 
-    @PutMapping("/{id}/vender")
+    @PutMapping("/{cardId}/vender")
     public ResponseEntity<Void> marcarVendido(@PathVariable String cardId, @RequestParam String compradorId) {
         cardService.marcarVendido(cardId, compradorId);
         return ResponseEntity.ok().build();
     }
 
-    @PutMapping("/{id}/imagenes")
+    @PutMapping("/{cardId}/imagenes")
     public ResponseEntity<Void> actualizarImagenes(@PathVariable String cardId, @RequestBody List<String> imagenes) {
         cardService.actualizarImagenes(cardId, imagenes);
         return ResponseEntity.ok().build();

@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: cardtrademarket-backend
+    runtime: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /api/cards
+    envVars:
+      - key: SPRING_DATA_MONGODB_URI
+        sync: false
+      - key: JWT_SECRET
+        value: tcg_live_1eeeba95f70c4eb26fc09db185e59ac28e64e7ae
+      - key: CORS_ALLOWED_ORIGINS
+        value: https://cardtrade-market.vercel.app
+      - key: JAVA_VERSION
+        value: 17

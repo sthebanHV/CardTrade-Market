@@ -18,19 +18,21 @@ import java.nio.charset.StandardCharsets;
 @Component
 public class JwtTokenProvider {
 
-    private String jwtSecret;
+    @org.springframework.beans.factory.annotation.Value("${jwt.secret}")
+    private String jwtSecretConfig;
+
+    private byte[] jwtSecret;
 
     @PostConstruct
     public void init() {
-        // En producción, usar una clave secreta segura de 256 bits
-        this.jwtSecret = "tcg_live_1eeeba95f70c4eb26fc09db185e59ac28e64e7ae".getBytes(StandardCharsets.UTF_8);
+        this.jwtSecret = jwtSecretConfig.getBytes(StandardCharsets.UTF_8);
     }
 
     public String generateToken(String username) {
         return Jwts.builder()
-                .subject(username)
-                .issuedAt(new java.util.Date())
-                .expiration(new java.util.Date(System.currentTimeMillis() + 86400000))
+                .setSubject(username)
+                .setIssuedAt(new java.util.Date())
+                .setExpiration(new java.util.Date(System.currentTimeMillis() + 86400000))
                 .signWith(Keys.hmacShaKeyFor(jwtSecret))
                 .compact();
     }
@@ -52,3 +54,4 @@ public class JwtTokenProvider {
             return false;
         }
     }
+}

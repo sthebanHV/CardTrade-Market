@@ -53,6 +53,22 @@ public class CardService {
         return cardRepository.findByTipoOrderByNombreAsc(tipo);
     }
 
+    public List<Card> listarPorRareza(String rareza) {
+        return cardRepository.findByRarityOrderByNombreAsc(rareza);
+    }
+
+    public List<Card> buscarPorTipoYRareza(String tipo, String rareza) {
+        return cardRepository.findByTipoOrderByNombreAsc(tipo).stream()
+                .filter(c -> rareza.equals(c.getRarity()))
+                .toList();
+    }
+
+    public List<Card> buscarPorPrecio(Double min, Double max) {
+        double desde = (min != null) ? min : 0.0;
+        double hasta = (max != null) ? max : Double.MAX_VALUE;
+        return cardRepository.findByPrecioBetween(desde, hasta);
+    }
+
     public List<Card> buscarPorTexto(String query) {
         return cardRepository.searchByText(query);
     }

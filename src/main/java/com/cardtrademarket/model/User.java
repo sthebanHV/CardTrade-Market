@@ -1,7 +1,7 @@
 package com.cardtrademarket.model;
 
-import jakarta.persistence.Id;
-import org.springframework.data.annotation.Document;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import lombok.Data;
