@@ -32,7 +32,7 @@ public class JwtTokenProvider {
         return Jwts.builder()
                 .setSubject(username)
                 .setIssuedAt(new java.util.Date())
-                .setExpiration(new java.util.Date(System.currentTimeMillis() + 86400000))
+                .setExpiration(new java.util.Date(System.currentTimeMillis() + 7L * 24 * 60 * 60 * 1000))
                 .signWith(Keys.hmacShaKeyFor(jwtSecret))
                 .compact();
     }

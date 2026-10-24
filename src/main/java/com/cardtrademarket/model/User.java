@@ -30,10 +30,47 @@ public class User implements UserDetails {
     private String nombre;
     private String email;
     private String username;
+    @com.fasterxml.jackson.annotation.JsonProperty(access = com.fasterxml.jackson.annotation.JsonProperty.Access.WRITE_ONLY)
     private String passwordHash;
     private String role;
     private Double rating;
     private boolean emailVerified;
+
+    @Column(length = 500)
+    private String bio;
+
+    @Column(columnDefinition = "text")
+    private String avatarUrl;
+
+    private String pendingEmail;
+
+    @com.fasterxml.jackson.annotation.JsonProperty(access = com.fasterxml.jackson.annotation.JsonProperty.Access.WRITE_ONLY)
+    private String resetToken;
+
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date resetTokenExpiry;
+
+    @com.fasterxml.jackson.annotation.JsonProperty(access = com.fasterxml.jackson.annotation.JsonProperty.Access.WRITE_ONLY)
+    private String verifyToken;
+
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date verifyTokenExpiry;
+
+    private Integer failedAttempts = 0;
+
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date lockedUntil;
+
+    private boolean tfaEnabled = false;
+
+    @com.fasterxml.jackson.annotation.JsonProperty(access = com.fasterxml.jackson.annotation.JsonProperty.Access.WRITE_ONLY)
+    private String tfaSecret;
+
+    @com.fasterxml.jackson.annotation.JsonProperty(access = com.fasterxml.jackson.annotation.JsonProperty.Access.WRITE_ONLY)
+    private String tfaBackupCodes;
+
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date fechaUltimoCambioPassword;
 
     @Temporal(TemporalType.TIMESTAMP)
     private Date fechaCreacion;

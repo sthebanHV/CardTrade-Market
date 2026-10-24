@@ -19,6 +19,9 @@ public class UserService {
     @Autowired
     private com.cardtrademarket.repository.CardRepository cardRepository;
 
+    @Autowired
+    private com.cardtrademarket.repository.ProfileChangeRepository profileChangeRepository;
+
     public java.util.Optional<java.util.Map<String, Object>> getPublicProfile(String id) {
         return userRepository.findById(id).map(u -> {
             java.util.Map<String, Object> m = new java.util.LinkedHashMap<>();
@@ -47,6 +50,30 @@ public class UserService {
         return userRepository.findByUsername(username).orElse(null);
     }
 
+    public User findByEmail(String email) {
+        return userRepository.findByEmail(email).orElse(null);
+    }
+
+    public User findByResetToken(String token) {
+        return userRepository.findByResetToken(token).orElse(null);
+    }
+
+    public User findByVerifyToken(String token) {
+        return userRepository.findByVerifyToken(token).orElse(null);
+    }
+
+    public User guardar(User user) {
+        return userRepository.save(user);
+    }
+
+    public String encode(String raw) {
+        return passwordEncoder.encode(raw);
+    }
+
+    public java.util.List<com.cardtrademarket.model.ProfileChange> historialCambios(String userId) {
+        return profileChangeRepository.findTop20ByUserIdOrderByFechaDesc(userId);
+    }
+
     public boolean verifyPassword(String rawPassword, String encodedPassword) {
         return passwordEncoder.matches(rawPassword, encodedPassword);
     }
@@ -57,12 +84,61 @@ public class UserService {
         }
         User user = userRepository.findById(userDetails.getId())
                 .orElseThrow(() -> new RuntimeException("Usuario no encontrado"));
-        if (userDetails.getNombre() != null) user.setNombre(userDetails.getNombre());
-        if (userDetails.getEmail() != null) user.setEmail(userDetails.getEmail());
+
+        if (userDetails.getNombre() != null && !userDetails.getNombre().equals(user.getNombre())) {
+            registrarCambio(user, "nombre", user.getNombre(), userDetails.getNombre());
+            user.setNombre(userDetails.getNombre());
+        }
+        if (userDetails.getUsername() != null && !userDetails.getUsername().equals(user.getUsername())) {
+            if (userRepository.findByUsername(userDetails.getUsername()).isPresent()) {
+                throw new RuntimeException("El nombre de usuario ya está en uso");
+            }
+            registrarCambio(user, "username", user.getUsername(), userDetails.getUsername());
+            user.setUsername(userDetails.getUsername());
+        }
+        if (userDetails.getEmail() != null
+                && !userDetails.getEmail().equalsIgnoreCase(user.getEmail())) {
+            if (userRepository.findByEmail(userDetails.getEmail().toLowerCase()).isPresent()) {
+                throw new RuntimeException("El correo electrónico ya está registrado");
+            }
+            registrarCambio(user, "email", user.getEmail(), userDetails.getEmail());
+            user.setPendingEmail(userDetails.getEmail().toLowerCase());
+            String token = java.util.UUID.randomUUID().toString().replace("-", "");
+            user.setVerifyToken(token);
+            user.setVerifyTokenExpiry(new java.util.Date(System.currentTimeMillis() + 24 * 60 * 60 * 1000L));
+            user.setEmailVerified(false);
+        }
+        if (userDetails.getBio() != null) {
+            String bio = userDetails.getBio().length() > 500
+                    ? userDetails.getBio().substring(0, 500) : userDetails.getBio();
+            if (!bio.equals(user.getBio())) {
+                registrarCambio(user, "bio", user.getBio(), bio);
+            }
+            user.setBio(bio);
+        }
         if (userDetails.getPasswordHash() != null && !userDetails.getPasswordHash().isBlank()) {
             user.setPasswordHash(passwordEncoder.encode(userDetails.getPasswordHash()));
+            user.setFechaUltimoCambioPassword(new java.util.Date());
         }
         return userRepository.save(user);
+    }
+
+    public User actualizarAvatar(String userId, String dataUrl) {
+        User user = userRepository.findById(userId)
+                .orElseThrow(() -> new RuntimeException("Usuario no encontrado"));
+        registrarCambio(user, "avatar", "foto anterior", "nueva foto");
+        user.setAvatarUrl(dataUrl);
+        return userRepository.save(user);
+    }
+
+    private void registrarCambio(User user, String campo, String anterior, String nuevo) {
+        com.cardtrademarket.model.ProfileChange change = new com.cardtrademarket.model.ProfileChange();
+        change.setUserId(user.getId());
+        change.setCampo(campo);
+        change.setValorAnterior(anterior != null && anterior.length() > 100 ? anterior.substring(0, 100) : anterior);
+        change.setValorNuevo(nuevo != null && nuevo.length() > 100 ? nuevo.substring(0, 100) : nuevo);
+        change.setFecha(new java.util.Date());
+        profileChangeRepository.save(change);
     }
 
     public java.util.Map<String, Object> getDashboardData(String username) {
