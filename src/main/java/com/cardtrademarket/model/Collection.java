@@ -1,33 +1,44 @@
 package com.cardtrademarket.model;
 
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
-import org.springframework.data.mongodb.core.mapping.Field;
+import jakarta.persistence.CollectionTable;
+import jakarta.persistence.Column;
+import jakarta.persistence.ElementCollection;
+import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.Table;
 import java.time.LocalDateTime;
 import java.util.List;
 
-@Document(collection = "collections")
+@Entity
+@Table(name = "collections")
 public class Collection {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.UUID)
     private String id;
 
-    @Field("user_id")
+    @Column(name = "user_id")
     private String userId;
 
-    @Field("card_ids")
+    @ElementCollection(fetch = FetchType.EAGER)
+    @CollectionTable(name = "collection_card_ids", joinColumns = @JoinColumn(name = "collection_id"))
+    @Column(name = "card_id")
     private List<String> cardIds;
 
-    @Field("name")
+    @Column(name = "name")
     private String name;
 
-    @Field("description")
+    @Column(name = "description")
     private String description;
 
-    @Field("created_at")
+    @Column(name = "created_at")
     private LocalDateTime createdAt;
 
-    @Field("updated_at")
+    @Column(name = "updated_at")
     private LocalDateTime updatedAt;
 
     // Constructores

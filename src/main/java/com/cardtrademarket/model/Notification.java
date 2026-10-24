@@ -1,35 +1,40 @@
 package com.cardtrademarket.model;
 
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
-import org.springframework.data.mongodb.core.mapping.Field;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import java.time.LocalDateTime;
 
-@Document(collection = "notifications")
+@Entity
+@Table(name = "notifications")
 public class Notification {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.UUID)
     private String id;
 
-    @Field("user_id")
+    @Column(name = "user_id")
     private String userId;
 
-    @Field("type")
+    @Column(name = "type")
     private String type; // SYSTEM, ORDER_UPDATE, MESSAGE, etc.
 
-    @Field("title")
+    @Column(name = "title")
     private String title;
 
-    @Field("message")
+    @Column(name = "message")
     private String message;
 
-    @Field("action_url")
+    @Column(name = "action_url")
     private String actionUrl; // URL para redirigir al hacer clic
 
-    @Field("is_read")
+    @Column(name = "is_read")
     private Boolean isRead;
 
-    @Field("created_at")
+    @Column(name = "created_at")
     private LocalDateTime createdAt;
 
     // Constructores

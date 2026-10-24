@@ -1,14 +1,13 @@
 package com.cardtrademarket.repository;
 
 import com.cardtrademarket.model.Card;
-import org.springframework.data.mongodb.repository.MongoRepository;
-import org.springframework.data.mongodb.repository.Query;
-import org.springframework.data.repository.query.Param;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface CardRepository extends MongoRepository<Card, String> {
+public interface CardRepository extends JpaRepository<Card, String> {
     
     // Listado paginado y filtrado
     List<Card> findByTipoOrderByNombreAsc(String tipo);
@@ -17,8 +16,8 @@ public interface CardRepository extends MongoRepository<Card, String> {
     
     List<Card> findByConditionOrderByNombreAsc(String condition);
     
-    // Búsqueda por texto en nombre y edición
-    @Query("{ $text: { $search: ?0 } }")
+    // Búsqueda por texto en nombre, tipo y edición
+    @Query("SELECT c FROM Card c WHERE LOWER(c.nombre) LIKE LOWER(CONCAT('%', ?0, '%')) OR LOWER(c.tipo) LIKE LOWER(CONCAT('%', ?0, '%')) OR LOWER(c.edition) LIKE LOWER(CONCAT('%', ?0, '%'))")
     List<Card> searchByText(String query);
     
     // Búsqueda por precio rango

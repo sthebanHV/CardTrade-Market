@@ -1,40 +1,55 @@
 package com.cardtrademarket.model;
 
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
-import org.springframework.data.mongodb.core.mapping.Field;
+import jakarta.persistence.CollectionTable;
+import jakarta.persistence.Column;
+import jakarta.persistence.ElementCollection;
+import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.MapKeyColumn;
+import jakarta.persistence.Table;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Map;
 
-@Document(collection = "orders")
+@Entity
+@Table(name = "orders")
 public class Order {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.UUID)
     private String id;
 
-    @Field("user_id")
+    @Column(name = "user_id")
     private String userId;
 
-    @Field("cards")
+    @ElementCollection(fetch = FetchType.EAGER)
+    @CollectionTable(name = "order_cards", joinColumns = @JoinColumn(name = "order_id"))
+    @Column(name = "card_id")
     private List<String> cardIds;
 
-    @Field("total")
+    @Column(name = "total")
     private Double total;
 
-    @Field("status")
+    @Column(name = "status")
     private String status; // PENDING, PAID, SHIPPED, DELIVERED, CANCELLED
 
-    @Field("payment_method")
+    @Column(name = "payment_method")
     private String paymentMethod;
 
-    @Field("shipping_address")
+    @ElementCollection(fetch = FetchType.EAGER)
+    @CollectionTable(name = "order_shipping_address", joinColumns = @JoinColumn(name = "order_id"))
+    @MapKeyColumn(name = "addr_key")
+    @Column(name = "addr_value")
     private Map<String, String> shippingAddress;
 
-    @Field("created_at")
+    @Column(name = "created_at")
     private LocalDateTime createdAt;
 
-    @Field("updated_at")
+    @Column(name = "updated_at")
     private LocalDateTime updatedAt;
 
     // Constructores

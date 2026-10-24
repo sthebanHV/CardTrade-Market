@@ -1,32 +1,37 @@
 package com.cardtrademarket.model;
 
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
-import org.springframework.data.mongodb.core.mapping.Field;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import java.time.LocalDateTime;
 
-@Document(collection = "alerts")
+@Entity
+@Table(name = "alerts")
 public class Alert {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.UUID)
     private String id;
 
-    @Field("user_id")
+    @Column(name = "user_id")
     private String userId;
 
-    @Field("type")
+    @Column(name = "type")
     private String type; // PRICE_DROP, LISTING_ADDED, OUT_OF_STOCK, etc.
 
-    @Field("message")
+    @Column(name = "message")
     private String message;
 
-    @Field("related_id")
+    @Column(name = "related_id")
     private String relatedId; // ID de la carta relacionada
 
-    @Field("is_read")
+    @Column(name = "is_read")
     private Boolean isRead;
 
-    @Field("created_at")
+    @Column(name = "created_at")
     private LocalDateTime createdAt;
 
     // Constructores
