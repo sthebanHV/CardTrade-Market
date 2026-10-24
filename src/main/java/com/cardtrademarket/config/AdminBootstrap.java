@@ -30,25 +30,29 @@ public class AdminBootstrap implements ApplicationRunner {
 
     @Override
     public void run(ApplicationArguments args) {
-        if (adminEmail == null || adminEmail.isBlank()) {
-            return;
+        try {
+            if (adminEmail == null || adminEmail.isBlank()) {
+                return;
+            }
+            if (userRepository.findByEmail(adminEmail).isPresent()) {
+                return;
+            }
+            if (adminPassword == null || adminPassword.length() < 8) {
+                log.warn("ADMIN_PASSWORD no definido o demasiado corto (min 8); no se crea admin");
+                return;
+            }
+            User admin = new User();
+            admin.setNombre("Administrador");
+            admin.setEmail(adminEmail);
+            admin.setUsername(adminEmail.split("@")[0]);
+            admin.setPasswordHash(passwordEncoder.encode(adminPassword));
+            admin.setRole("ROLE_ADMIN");
+            admin.setEmailVerified(true);
+            admin.setFechaCreacion(new java.util.Date());
+            userRepository.save(admin);
+            log.info("Administrador inicial creado: {}", adminEmail);
+        } catch (Exception e) {
+            log.error("No se pudo verificar/crear el admin inicial: {}", e.getMessage());
         }
-        if (userRepository.findByEmail(adminEmail).isPresent()) {
-            return;
-        }
-        if (adminPassword == null || adminPassword.length() < 8) {
-            log.warn("ADMIN_PASSWORD no definido o demasiado corto (min 8); no se crea admin");
-            return;
-        }
-        User admin = new User();
-        admin.setNombre("Administrador");
-        admin.setEmail(adminEmail);
-        admin.setUsername(adminEmail.split("@")[0]);
-        admin.setPasswordHash(passwordEncoder.encode(adminPassword));
-        admin.setRole("ROLE_ADMIN");
-        admin.setEmailVerified(true);
-        admin.setFechaCreacion(new java.util.Date());
-        userRepository.save(admin);
-        log.info("Administrador inicial creado: {}", adminEmail);
     }
 }
