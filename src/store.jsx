@@ -10,6 +10,7 @@ export const useStore = create(
       cart: [],
       favorites: [],
       wishlist: [],
+      unread: 0,
 
       login: async (username, password) => {
         const token = await authAPI.login(username, password);
@@ -23,6 +24,18 @@ export const useStore = create(
       },
 
       setUser: (user) => set({ user }),
+
+      setUnread: (unread) => set({ unread }),
+
+      refreshUser: async () => {
+        if (!get().token) return;
+        try {
+          const me = await authAPI.me();
+          set({ user: me });
+        } catch {
+          get().logout();
+        }
+      },
 
       logout: () => {
         setAuthToken(null);
@@ -74,4 +87,7 @@ export const useStore = create(
 );
 
 const { token } = useStore.getState();
-if (token) setAuthToken(token);
+if (token) {
+  setAuthToken(token);
+  useStore.getState().refreshUser();
+}

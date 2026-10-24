@@ -33,6 +33,7 @@ export const authAPI = {
     });
     return data;
   },
+  me: async () => (await apiClient.get('/auth/me')).data,
 };
 
 export const cardsAPI = {
