@@ -1,30 +1,37 @@
-import { createStore } from 'zustand';
+import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
-import { useStore } from 'zustand';
+import { authAPI, setAuthToken } from './api/apiClient';
 
-export { useStore };
-
-export const store = create(
+export const useStore = create(
   persist(
-    (set) => ({
+    (set, get) => ({
       user: null,
       token: null,
       cart: [],
       favorites: [],
       wishlist: [],
 
-      login: (email, password) => {
-        set({ user: { email }, token: 'fake-token' });
+      login: async (username, password) => {
+        const token = await authAPI.login(username, password);
+        setAuthToken(token);
+        set({ token });
+        return token;
       },
 
+      register: async (payload) => {
+        return await authAPI.register(payload);
+      },
+
+      setUser: (user) => set({ user }),
+
       logout: () => {
+        setAuthToken(null);
         set({ user: null, token: null, cart: [] });
       },
 
       addToCart: (cardId, cardName, price) =>
         set((state) => {
-          const exists = state.cart.some((item) => item.cardId === cardId);
-          if (exists) return state;
+          if (state.cart.some((item) => item.cardId === cardId)) return state;
           return { cart: [...state.cart, { cardId, cardName, price }] };
         }),
 
@@ -37,8 +44,7 @@ export const store = create(
 
       addToFavorites: (cardId, cardName) =>
         set((state) => {
-          const exists = state.favorites.some((item) => item.cardId === cardId);
-          if (exists) return state;
+          if (state.favorites.some((item) => item.cardId === cardId)) return state;
           return { favorites: [...state.favorites, { cardId, cardName }] };
         }),
 
@@ -49,8 +55,7 @@ export const store = create(
 
       addToWishlist: (cardId, cardName) =>
         set((state) => {
-          const exists = state.wishlist.some((item) => item.cardId === cardId);
-          if (exists) return state;
+          if (state.wishlist.some((item) => item.cardId === cardId)) return state;
           return { wishlist: [...state.wishlist, { cardId, cardName }] };
         }),
 
@@ -59,14 +64,14 @@ export const store = create(
           wishlist: state.wishlist.filter((item) => item.cardId !== cardId),
         })),
 
-      getCartTotal: () =>
-        set((state) =>
-          state.cart.reduce(
-            (total, item) => total + parseFloat(item.price || 0),
-            0
-          )
-        ),
+      getCartTotal: () => {
+        const { cart } = get();
+        return cart.reduce((total, item) => total + parseFloat(item.price || 0), 0);
+      },
     }),
     { name: 'cardtrade-storage' }
   )
 );
+
+const { token } = useStore.getState();
+if (token) setAuthToken(token);

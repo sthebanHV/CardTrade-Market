@@ -1,33 +1,57 @@
 import axios from 'axios';
 
-// Configuración de la API - Backend en Render
 const API_BASE_URL = 'https://cardtrademarket-backend.onrender.com/api';
 
 export const apiClient = axios.create({
   baseURL: API_BASE_URL,
-  headers: {
-    'Content-Type': 'application/json'
-  }
+  headers: { 'Content-Type': 'application/json' },
 });
 
-// Función auxiliar para obtener tokens de sesión
-export const obtenerTokenSesion = async () => {
-  try {
-    const response = await apiClient.post('/auth/session');
-    return response.data.token;
-  } catch (error) {
-    console.error('Error al obtener token de sesión:', error);
-    return null;
+export const setAuthToken = (token) => {
+  if (token) {
+    apiClient.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+  } else {
+    delete apiClient.defaults.headers.common['Authorization'];
   }
 };
 
-// Función para verificar el estado de la API
-export const verificarAPISalud = async () => {
-  try {
-    const response = await apiClient.get('/health');
-    return response.data.status === 'ok';
-  } catch (error) {
-    console.error('Error al verificar API:', error);
-    return false;
-  }
+export const authAPI = {
+  login: async (username, password) => {
+    const { data } = await apiClient.post(
+      '/auth/login',
+      { username, passwordHash: password },
+      { responseType: 'text' }
+    );
+    return data;
+  },
+  register: async ({ nombre, email, username, password }) => {
+    const { data } = await apiClient.post('/auth/register', {
+      nombre,
+      email,
+      username,
+      passwordHash: password,
+    });
+    return data;
+  },
 };
+
+export const cardsAPI = {
+  getAll: async () => (await apiClient.get('/cards')).data,
+  create: async (card, vendedorId) =>
+    (await apiClient.post(`/cards?vendedorId=${encodeURIComponent(vendedorId)}`, card)).data,
+};
+
+export const usersAPI = {
+  getDashboard: async (username) =>
+    (await apiClient.get(`/users/dashboard/${encodeURIComponent(username)}`)).data,
+  getProfile: async (username) =>
+    (await apiClient.get(`/users/profile/${encodeURIComponent(username)}`)).data,
+};
+
+export const ordersAPI = {
+  create: async (payload) => (await apiClient.post('/orders', payload)).data,
+  getByUser: async (userId) =>
+    (await apiClient.get(`/orders/user/${encodeURIComponent(userId)}`)).data,
+};
+
+export const fetchCards = () => cardsAPI.getAll();
