@@ -17,11 +17,10 @@ export const setAuthToken = (token) => {
 
 export const authAPI = {
   login: async (username, password) => {
-    const { data } = await apiClient.post(
-      '/auth/login',
-      { username, passwordHash: password },
-      { responseType: 'text' }
-    );
+    const { data } = await apiClient.post('/auth/login', {
+      username,
+      passwordHash: password,
+    });
     return data;
   },
   register: async ({ nombre, email, username, password }) => {
@@ -34,6 +33,23 @@ export const authAPI = {
     return data;
   },
   me: async () => (await apiClient.get('/auth/me')).data,
+  forgotPassword: async (email) =>
+    (await apiClient.post('/auth/forgot-password', { email })).data,
+  resetPassword: async (token, password) =>
+    (await apiClient.post('/auth/reset-password', { token, password })).data,
+  changePassword: async (currentPassword, newPassword) =>
+    (await apiClient.post('/auth/change-password', { currentPassword, newPassword })).data,
+  verifyEmail: async (email) =>
+    (await apiClient.post('/auth/verify-email', email ? { email } : {})).data,
+  confirmVerifyEmail: async (token) =>
+    (await apiClient.get(`/auth/verify-email/${encodeURIComponent(token)}`)).data,
+  enable2fa: async () => (await apiClient.post('/auth/2fa/enable')).data,
+  verify2fa: async (code, tmpToken) =>
+    (await apiClient.post('/auth/2fa/verify', { code, ...(tmpToken ? { tmpToken } : {}) })).data,
+  disable2fa: async (password) =>
+    (await apiClient.post('/auth/2fa/disable', { password })).data,
+  backupCodes: async () => (await apiClient.get('/auth/2fa/backup-codes')).data,
+  logout: async () => (await apiClient.post('/auth/logout')).data,
 };
 
 export const cardsAPI = {
@@ -63,6 +79,12 @@ export const usersAPI = {
     (await apiClient.get(`/users/profile/${encodeURIComponent(username)}`)).data,
   getPublic: async (id) =>
     (await apiClient.get(`/users/public/${encodeURIComponent(id)}`)).data,
+  getMyProfile: async () => (await apiClient.get('/users/profile')).data,
+  updateProfile: async (payload) =>
+    (await apiClient.put('/users/profile', payload)).data,
+  uploadAvatar: async (dataUrl) =>
+    (await apiClient.post('/users/profile/avatar', { dataUrl })).data,
+  getChanges: async () => (await apiClient.get('/users/profile/changes')).data,
 };
 
 export const ordersAPI = {

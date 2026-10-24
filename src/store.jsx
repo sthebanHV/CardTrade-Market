@@ -12,9 +12,23 @@ export const useStore = create(
       wishlist: [],
       compare: [],
       unread: 0,
+      toast: null,
+
+      showToast: (toast) => set({ toast }),
+      hideToast: () => set({ toast: null }),
 
       login: async (username, password) => {
-        const token = await authAPI.login(username, password);
+        const res = await authAPI.login(username, password);
+        if (res.tfaRequired) return res;
+        const token = res.token || res;
+        setAuthToken(token);
+        set({ token });
+        return { token };
+      },
+
+      complete2fa: async (code, tmpToken) => {
+        const res = await authAPI.verify2fa(code, tmpToken);
+        const token = res.token || res;
         setAuthToken(token);
         set({ token });
         return token;
@@ -40,7 +54,7 @@ export const useStore = create(
 
       logout: () => {
         setAuthToken(null);
-        set({ user: null, token: null, cart: [] });
+        set({ user: null, token: null, cart: [], toast: { message: 'Sesión cerrada exitosamente', severity: 'success' } });
       },
 
       addToCart: (cardId, cardName, price) =>

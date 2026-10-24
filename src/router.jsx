@@ -2,6 +2,13 @@ import { createBrowserRouter, createRoutesFromElements, Route, useParams } from 
 import { App } from './App';
 import { Login } from './components/auth/Login';
 import { Register } from './components/auth/Register';
+import { ForgotPassword } from './components/auth/ForgotPassword';
+import { ResetPassword } from './components/auth/ResetPassword';
+import { VerifyEmail } from './components/auth/VerifyEmail';
+import { ChangePassword } from './components/auth/ChangePassword';
+import { ProfilePage } from './components/auth/ProfilePage';
+import { SettingsPage } from './components/auth/SettingsPage';
+import { SecurityPage } from './components/auth/SecurityPage';
 import { Dashboard } from './components/dashboard/Dashboard';
 import { CartPage } from './components/cart/CartPage';
 import { CheckoutPage } from './components/cart/CheckoutPage';
@@ -26,6 +33,9 @@ export const router = createBrowserRouter(
       <Route index element={<HomePage />} />
       <Route path="login" element={<Login />} />
       <Route path="register" element={<Register />} />
+      <Route path="forgot-password" element={<ForgotPassword />} />
+      <Route path="reset-password/:token" element={<ResetPassword />} />
+      <Route path="verify-email/:token" element={<VerifyEmail />} />
 
       {/* Explorar — US-11/12/13/14/15/16 */}
       <Route path="cards" element={<CatalogPage />} />
@@ -54,8 +64,10 @@ export const router = createBrowserRouter(
 
       {/* Cuenta */}
       <Route path="dashboard" element={guard(<Dashboard />)} />
-      <Route path="profile" element={guard(<ComingSoon title="Mi perfil" hu="US-07 Gestión de Perfil" />)} />
-      <Route path="settings" element={guard(<ComingSoon title="Configuración" hu="US-05 Cambio de Contraseña" />)} />
+      <Route path="profile" element={guard(<ProfilePage />)} />
+      <Route path="settings" element={guard(<SettingsPage />)} />
+      <Route path="settings/change-password" element={guard(<ChangePassword />)} />
+      <Route path="settings/security" element={guard(<SecurityPage />)} />
       <Route path="notifications" element={guard(<ComingSoon title="Notificaciones" hu="US-45 Centro de Notificaciones" />)} />
       <Route path="messages" element={guard(<ComingSoon title="Mensajes" hu="US-40 Chat entre Usuarios" />)} />
 
