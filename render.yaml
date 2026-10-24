@@ -13,7 +13,7 @@ services:
       - key: SPRING_DATASOURCE_PASSWORD
         sync: false
       - key: JWT_SECRET
-        value: tcg_live_1eeeba95f70c4eb26fc09db185e59ac28e64e7ae
+        sync: false
       - key: CORS_ALLOWED_ORIGINS
         value: https://cardtrade-market.vercel.app
       - key: JAVA_VERSION
