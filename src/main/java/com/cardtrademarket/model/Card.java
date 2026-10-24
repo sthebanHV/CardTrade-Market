@@ -38,6 +38,16 @@ public class Card {
     private String condition; // New, Near Mint, Light Play, Heavy Play, Damaged
     private Double precio;
 
+    @Column(length = 2000)
+    private String descripcion;
+
+    private Integer stock = 1;
+
+    private Double precioOferta;
+
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date ofertaExpira;
+
     @ElementCollection(fetch = FetchType.EAGER)
     @CollectionTable(name = "card_imagenes", joinColumns = @JoinColumn(name = "card_id"))
     @Column(name = "imagen")

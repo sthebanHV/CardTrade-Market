@@ -33,7 +33,7 @@ public class SecurityConfig {
             .csrf().disable()
             .authorizeRequests(authorz -> authorz
                 .requestMatchers("/api/admin/**").hasRole("ADMIN")
-                .requestMatchers("/api/auth/**", "/errores/**", "/api/cards/**").permitAll()
+                .requestMatchers("/api/auth/**", "/errores/**", "/api/cards/**", "/api/stats", "/api/categories").permitAll()
                 .requestMatchers("/").permitAll()
                 .anyRequest().authenticated()
             )

@@ -17,26 +17,60 @@ public class CardController {
 
     @GetMapping
     public ResponseEntity<List<Card>> listarTarjetas(
+            @RequestParam(required = false) String q,
+            @RequestParam(required = false) String game,
+            @RequestParam(required = false) String rarity,
+            @RequestParam(required = false) String condition,
+            @RequestParam(required = false) Double priceMin,
+            @RequestParam(required = false) Double priceMax,
+            @RequestParam(required = false) String sort,
             @RequestParam(required = false) String tipo,
             @RequestParam(required = false) String rareza,
             @RequestParam(required = false) Double precioMin,
             @RequestParam(required = false) Double precioMax) {
-        
-        List<Card> cartas;
-        
-        if (tipo != null && rareza != null) {
-            cartas = cardService.buscarPorTipoYRareza(tipo, rareza);
-        } else if (tipo != null) {
-            cartas = cardService.listarPorTipo(tipo);
-        } else if (rareza != null) {
-            cartas = cardService.listarPorRareza(rareza);
-        } else if (precioMin != null || precioMax != null) {
-            cartas = cardService.buscarPorPrecio(precioMin, precioMax);
-        } else {
-            cartas = cardService.listarPublicadas();
-        }
-        
+
+        String g = (game != null && !game.isBlank()) ? game : tipo;
+        String r = (rarity != null && !rarity.isBlank()) ? rarity : rareza;
+        Double min = (priceMin != null) ? priceMin : precioMin;
+        Double max = (priceMax != null) ? priceMax : precioMax;
+
+        List<Card> cartas = cardService.filtrar(q, g, r, condition, min, max, sort);
         return ResponseEntity.ok(cartas);
+    }
+
+    @GetMapping("/featured")
+    public ResponseEntity<List<Card>> destacadas() {
+        return ResponseEntity.ok(cardService.destacadas());
+    }
+
+    @GetMapping("/recent")
+    public ResponseEntity<List<Card>> recientes() {
+        return ResponseEntity.ok(cardService.recientes());
+    }
+
+    @GetMapping("/search")
+    public ResponseEntity<List<Card>> buscar(@RequestParam String q) {
+        return ResponseEntity.ok(cardService.buscar(q));
+    }
+
+    @GetMapping("/suggestions")
+    public ResponseEntity<List<String>> sugerencias(@RequestParam String q) {
+        return ResponseEntity.ok(cardService.sugerencias(q));
+    }
+
+    @GetMapping("/compare")
+    public ResponseEntity<List<Card>> comparar(@RequestParam String ids) {
+        List<String> lista = java.util.Arrays.stream(ids.split(","))
+                .map(String::trim)
+                .filter(s -> !s.isEmpty())
+                .limit(3)
+                .toList();
+        return ResponseEntity.ok(cardService.comparar(lista));
+    }
+
+    @GetMapping("/offers")
+    public ResponseEntity<List<Card>> ofertas() {
+        return ResponseEntity.ok(cardService.ofertas());
     }
 
     @GetMapping("/{id}")

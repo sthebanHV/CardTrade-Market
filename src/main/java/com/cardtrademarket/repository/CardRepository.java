@@ -16,21 +16,24 @@ public interface CardRepository extends JpaRepository<Card, String> {
     
     List<Card> findByConditionOrderByNombreAsc(String condition);
     
-    // Búsqueda por texto en nombre, tipo y edición
-    @Query("SELECT c FROM Card c WHERE LOWER(c.nombre) LIKE LOWER(CONCAT('%', ?1, '%')) OR LOWER(c.tipo) LIKE LOWER(CONCAT('%', ?1, '%')) OR LOWER(c.edition) LIKE LOWER(CONCAT('%', ?1, '%'))")
+    // Búsqueda por texto en nombre, tipo, edición y descripción
+    @Query("SELECT c FROM Card c WHERE LOWER(c.nombre) LIKE LOWER(CONCAT('%', ?1, '%')) OR LOWER(c.tipo) LIKE LOWER(CONCAT('%', ?1, '%')) OR LOWER(c.edition) LIKE LOWER(CONCAT('%', ?1, '%')) OR LOWER(c.descripcion) LIKE LOWER(CONCAT('%', ?1, '%'))")
     List<Card> searchByText(String query);
-    
+
     // Búsqueda por precio rango
     List<Card> findByPrecioBetween(Double min, Double max);
-    
+
     // Búsqueda por edición
     List<Card> findByEdition(String edition);
-    
+
     // Cartas públicas (no vendidas)
     List<Card> findByStatus(Card.Status status);
 
     List<Card> findByStatusOrderByFechaPublicacionDesc(Card.Status status);
-    
-    // Obtener cartas del vendedor
+
+    List<Card> findTop8ByStatusOrderByFechaPublicacionDesc(Card.Status status);
+
+    List<Card> findByIdIn(java.util.List<String> ids);
+
     List<Card> findByVendedorIdOrderByFechaPublicacionDesc(String vendedorId);
 }
