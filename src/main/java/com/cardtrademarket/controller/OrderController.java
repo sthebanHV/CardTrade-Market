@@ -13,16 +13,25 @@ import java.util.Map;
 @RequestMapping("/api/orders")
 public class OrderController {
 
+    public static class OrderRequest {
+        public String userId;
+        public List<String> cardIds;
+        public Double total;
+        public String paymentMethod;
+        public Map<String, String> shippingAddress;
+    }
+
     @Autowired
     private OrderService orderService;
 
     @PostMapping
-    public ResponseEntity<Order> createOrder(@RequestParam String userId,
-                                             @RequestBody List<String> cardIds,
-                                             @RequestParam Double total,
-                                             @RequestParam String paymentMethod,
-                                             @RequestBody Map<String, String> shippingAddress) {
-        Order order = orderService.createOrder(userId, cardIds, total, paymentMethod, shippingAddress);
+    public ResponseEntity<Order> createOrder(@RequestBody OrderRequest request) {
+        Order order = orderService.createOrder(
+                request.userId,
+                request.cardIds,
+                request.total,
+                request.paymentMethod,
+                request.shippingAddress);
         return ResponseEntity.ok(order);
     }
 
