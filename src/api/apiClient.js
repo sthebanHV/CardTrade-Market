@@ -1,15 +1,11 @@
 import axios from 'axios';
 
-// Configuración de la API - Usar la clave proporcionada
-const API_BASE_URL = 'https://api.cardtrademarket.com/api';
-
-// La clave tcg_live_1eeeba95f70c4eb26fc09db185e59ac28e64e7ae se usaría para
-// autenticación con servicios externos o validación de licencia
+// Configuración de la API - Backend en Render
+const API_BASE_URL = 'https://cardtrademarket-backend.onrender.com/api';
 
 export const apiClient = axios.create({
   baseURL: API_BASE_URL,
   headers: {
-    'Authorization': 'Bearer tcg_live_1eeeba95f70c4eb26fc09db185e59ac28e64e7ae',
     'Content-Type': 'application/json'
   }
 });
