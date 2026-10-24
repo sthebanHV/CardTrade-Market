@@ -40,7 +40,9 @@ public class User implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return null;
+        String rol = (role == null || role.isBlank()) ? "ROLE_USER" : role;
+        return java.util.Collections.singletonList(
+                new org.springframework.security.core.authority.SimpleGrantedAuthority(rol));
     }
 
     @Override
@@ -70,6 +72,6 @@ public class User implements UserDetails {
 
     @Override
     public boolean isEnabled() {
-        return emailVerified;
+        return true;
     }
 }

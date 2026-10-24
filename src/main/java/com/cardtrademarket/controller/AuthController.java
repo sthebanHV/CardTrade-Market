@@ -34,6 +34,18 @@ public class AuthController {
         return ResponseEntity.status(401).body("Credenciales inválidas");
     }
 
+    @GetMapping("/me")
+    public ResponseEntity<?> me() {
+        org.springframework.security.core.Authentication auth =
+                org.springframework.security.core.context.SecurityContextHolder.getContext().getAuthentication();
+        if (auth == null || !auth.isAuthenticated() || auth.getPrincipal() instanceof String) {
+            return ResponseEntity.status(401).body("No autenticado");
+        }
+        User user = (User) auth.getPrincipal();
+        user.setPasswordHash(null);
+        return ResponseEntity.ok(user);
+    }
+
     @PostMapping("/logout")
     public ResponseEntity<String> logout(HttpServletRequest request) {
         // Lógica de logout - invalidar token
