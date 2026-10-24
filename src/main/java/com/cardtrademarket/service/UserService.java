@@ -16,6 +16,25 @@ public class UserService {
     @Autowired
     private BCryptPasswordEncoder passwordEncoder;
 
+    @Autowired
+    private com.cardtrademarket.repository.CardRepository cardRepository;
+
+    public java.util.Optional<java.util.Map<String, Object>> getPublicProfile(String id) {
+        return userRepository.findById(id).map(u -> {
+            java.util.Map<String, Object> m = new java.util.LinkedHashMap<>();
+            m.put("id", u.getId());
+            m.put("username", u.getUsername());
+            m.put("nombre", u.getNombre());
+            m.put("rating", u.getRating() != null ? u.getRating() : 0.0);
+            m.put("fechaCreacion", u.getFechaCreacion());
+            long ventas = cardRepository.findByVendedorIdOrderByFechaPublicacionDesc(id).stream()
+                    .filter(c -> c.getStatus() == com.cardtrademarket.model.Card.Status.VENDIDO)
+                    .count();
+            m.put("ventas", ventas);
+            return m;
+        });
+    }
+
     public User register(User user) {
         user.setPasswordHash(passwordEncoder.encode(user.getPasswordHash()));
         user.setRole("ROLE_USER");

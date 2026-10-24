@@ -29,4 +29,11 @@ public class UserController {
     public ResponseEntity<?> getDashboardData(@PathVariable String username) {
         return ResponseEntity.ok(userService.getDashboardData(username));
     }
+
+    @GetMapping("/public/{id}")
+    public ResponseEntity<?> getPublicUser(@PathVariable String id) {
+        return userService.getPublicProfile(id)
+                .map(ResponseEntity::ok)
+                .orElseGet(() -> ResponseEntity.notFound().build());
+    }
 }
