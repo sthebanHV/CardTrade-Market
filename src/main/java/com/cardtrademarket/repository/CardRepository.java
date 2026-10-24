@@ -17,7 +17,7 @@ public interface CardRepository extends JpaRepository<Card, String> {
     List<Card> findByConditionOrderByNombreAsc(String condition);
     
     // Búsqueda por texto en nombre, tipo y edición
-    @Query("SELECT c FROM Card c WHERE LOWER(c.nombre) LIKE LOWER(CONCAT('%', ?0, '%')) OR LOWER(c.tipo) LIKE LOWER(CONCAT('%', ?0, '%')) OR LOWER(c.edition) LIKE LOWER(CONCAT('%', ?0, '%'))")
+    @Query("SELECT c FROM Card c WHERE LOWER(c.nombre) LIKE LOWER(CONCAT('%', ?1, '%')) OR LOWER(c.tipo) LIKE LOWER(CONCAT('%', ?1, '%')) OR LOWER(c.edition) LIKE LOWER(CONCAT('%', ?1, '%'))")
     List<Card> searchByText(String query);
     
     // Búsqueda por precio rango
