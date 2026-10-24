@@ -10,6 +10,7 @@ export const useStore = create(
       cart: [],
       favorites: [],
       wishlist: [],
+      compare: [],
       unread: 0,
 
       login: async (username, password) => {
@@ -71,6 +72,20 @@ export const useStore = create(
           if (state.wishlist.some((item) => item.cardId === cardId)) return state;
           return { wishlist: [...state.wishlist, { cardId, cardName }] };
         }),
+
+      toggleCompare: (card) =>
+        set((state) => {
+          if (state.compare.some((c) => c.id === card.id)) {
+            return { compare: state.compare.filter((c) => c.id !== card.id) };
+          }
+          if (state.compare.length >= 3) return state;
+          return { compare: [...state.compare, { id: card.id, nombre: card.nombre }] };
+        }),
+
+      removeCompare: (cardId) =>
+        set((state) => ({ compare: state.compare.filter((c) => c.id !== cardId) })),
+
+      clearCompare: () => set({ compare: [] }),
 
       removeFromWishlist: (cardId) =>
         set((state) => ({

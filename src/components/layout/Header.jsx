@@ -1,8 +1,9 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import {
   AppBar, Toolbar, Typography, Button, Badge, IconButton, Box, Menu, MenuItem,
   ListItemIcon, ListItemText, Divider, Avatar, Tooltip, InputBase, alpha, Chip,
+  Autocomplete, TextField, InputAdornment, CircularProgress,
 } from '@mui/material';
 import {
   Search as SearchIcon, ShoppingCart as CartIcon, Notifications as BellIcon,
@@ -13,6 +14,7 @@ import {
   ReceiptLong as PurchasesIcon, SellTwoTone as ListIcon, AccountCircle,
 } from '@mui/icons-material';
 import { useStore } from '../../store';
+import { cardsAPI } from '../../api/apiClient';
 
 const perspectivas = [
   {
@@ -56,15 +58,34 @@ export const Header = () => {
   const [anchorEl, setAnchorEl] = useState(null);
   const [userAnchor, setUserAnchor] = useState(null);
   const [q, setQ] = useState('');
+  const [suggestions, setSuggestions] = useState([]);
+  const [loadingSug, setLoadingSug] = useState(false);
+  const debounceRef = useRef(null);
 
   const openMenu = (e) => setAnchorEl(e.currentTarget);
   const closeMenu = () => setAnchorEl(null);
   const openUser = (e) => setUserAnchor(e.currentTarget);
   const closeUser = () => setUserAnchor(null);
 
-  const goSearch = (e) => {
-    e.preventDefault();
-    navigate(`/cards?q=${encodeURIComponent(q.trim())}`);
+  const fetchSuggestions = (text) => {
+    if (debounceRef.current) clearTimeout(debounceRef.current);
+    if (!text || text.trim().length < 2) {
+      setSuggestions([]);
+      return;
+    }
+    setLoadingSug(true);
+    debounceRef.current = setTimeout(() => {
+      cardsAPI.suggestions(text.trim())
+        .then((data) => setSuggestions(data || []))
+        .catch(() => setSuggestions([]))
+        .finally(() => setLoadingSug(false));
+    }, 300);
+  };
+
+  const goSearch = (text) => {
+    const term = (text ?? q).trim();
+    if (!term) return;
+    navigate(`/search?q=${encodeURIComponent(term)}`);
   };
 
   const handleLogout = () => {
@@ -86,18 +107,68 @@ export const Header = () => {
           <Box component="span" sx={{ display: { xs: 'none', sm: 'inline' } }}>CardTrade Market</Box>
         </Typography>
 
-        <Box component="form" onSubmit={goSearch} sx={{
-          ml: { xs: 0, md: 1 }, flexGrow: { xs: 1, md: 0 }, width: { md: 320 },
-          display: 'flex', alignItems: 'center', bgcolor: 'rgba(255,255,255,0.18)',
-          borderRadius: '999px', px: 1.5, height: 38, border: '1px solid rgba(255,255,255,0.25)',
-        }}>
-          <SearchIcon sx={{ color: '#fff', fontSize: 18, mr: 1 }} />
-          <InputBase
-            placeholder="Buscar cartas…"
+        <Box
+          component="form"
+          onSubmit={(e) => { e.preventDefault(); goSearch(); }}
+          sx={{
+            ml: { xs: 0, md: 1 }, flexGrow: { xs: 1, md: 0 }, width: { md: 340 },
+            display: 'flex', alignItems: 'center',
+          }}
+        >
+          <Autocomplete
+            freeSolo
+            options={suggestions}
             value={q}
-            onChange={(e) => setQ(e.target.value)}
-            inputProps={{ 'aria-label': 'Buscar cartas' }}
-            sx={{ color: '#fff', fontSize: 14, width: '100%', '& ::placeholder': { color: 'rgba(255,255,255,0.85)', opacity: 1 } }}
+            onValueChange={(e, v) => setQ(v || '')}
+            onInputChange={(e, v, reason) => {
+              if (reason === 'input') fetchSuggestions(v);
+              if (reason === 'clear') setSuggestions([]);
+            }}
+            onChange={(e, v) => { if (v) goSearch(v); }}
+            loading={loadingSug}
+            sx={{ width: '100%' }}
+            renderOption={(props, option) => (
+              <Box component="li" {...props} key={option}>
+                <SearchIcon sx={{ fontSize: 16, mr: 1, color: 'text.secondary' }} />
+                {option}
+              </Box>
+            )}
+            renderInput={(params) => (
+              <TextField
+                {...params}
+                placeholder="Buscar cartas…"
+                aria-label="Buscar cartas"
+                size="small"
+                sx={{
+                  '& .MuiOutlinedInput-root': {
+                    bgcolor: 'rgba(255,255,255,0.18)',
+                    borderRadius: '999px',
+                    height: 38,
+                    color: '#fff',
+                    pr: 1,
+                    fieldset: { borderColor: 'rgba(255,255,255,0.25)' },
+                    '&:hover fieldset': { borderColor: 'rgba(255,255,255,0.5)' },
+                    '&.Mui-focused fieldset': { borderColor: '#fff' },
+                  },
+                  '& .MuiInputBase-input': { color: '#fff', fontSize: 14 },
+                  '& .MuiInputBase-input::placeholder': { color: 'rgba(255,255,255,0.85)', opacity: 1 },
+                }}
+                InputProps={{
+                  ...params.InputProps,
+                  startAdornment: (
+                    <InputAdornment position="start">
+                      <SearchIcon sx={{ color: '#fff', fontSize: 18 }} />
+                    </InputAdornment>
+                  ),
+                  endAdornment: (
+                    <>
+                      {loadingSug && <CircularProgress size={16} sx={{ color: '#fff' }} />}
+                      {params.InputProps.endAdornment}
+                    </>
+                  ),
+                }}
+              />
+            )}
           />
         </Box>
 
