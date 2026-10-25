@@ -1,11 +1,7 @@
-FROM eclipse-temurin:17-jdk-jammy AS build
-WORKDIR /opt
-ADD https://services.gradle.org/distributions/gradle-8.5-bin.zip /tmp/gradle.zip
-RUN jar xf /tmp/gradle.zip && rm /tmp/gradle.zip
-ENV PATH="/opt/gradle-8.5/bin:$PATH"
-ENV GRADLE_OPTS="-Dorg.gradle.daemon=false -Dorg.gradle.jvmargs=-Xmx448m -XX:MaxMetaspaceSize=192m"
+FROM gradle:8.5-jdk17 AS build
 WORKDIR /app
-COPY build.gradle ./
+ENV GRADLE_OPTS="-Dorg.gradle.daemon=false -Dorg.gradle.jvmargs=-Xmx448m -XX:MaxMetaspaceSize=192m"
+COPY build.gradle .
 COPY src/ src/
 RUN gradle bootJar --no-daemon -x test
 
