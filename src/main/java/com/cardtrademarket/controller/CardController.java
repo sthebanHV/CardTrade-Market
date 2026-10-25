@@ -1,11 +1,15 @@
 package com.cardtrademarket.controller;
 
 import com.cardtrademarket.model.Card;
+import com.cardtrademarket.model.User;
 import com.cardtrademarket.service.CardService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
+import java.util.Map;
+import java.util.NoSuchElementException;
 import java.util.Optional;
 
 @RestController
@@ -14,6 +18,32 @@ public class CardController {
 
     @Autowired
     private CardService cardService;
+
+    private User usuarioActual() {
+        org.springframework.security.core.Authentication auth =
+                org.springframework.security.core.context.SecurityContextHolder.getContext().getAuthentication();
+        if (auth == null || !auth.isAuthenticated() || auth.getPrincipal() instanceof String) {
+            return null;
+        }
+        return (User) auth.getPrincipal();
+    }
+
+    @ExceptionHandler(CardService.NoDuenoException.class)
+    public ResponseEntity<Map<String, String>> noDueno(CardService.NoDuenoException e) {
+        return ResponseEntity.status(HttpStatus.FORBIDDEN)
+                .body(Map.of("error", e.getMessage()));
+    }
+
+    @ExceptionHandler(CardService.ValidacionException.class)
+    public ResponseEntity<Map<String, String>> validacion(CardService.ValidacionException e) {
+        return ResponseEntity.badRequest().body(Map.of("error", e.getMessage()));
+    }
+
+    @ExceptionHandler(NoSuchElementException.class)
+    public ResponseEntity<Map<String, String>> noEncontrado(NoSuchElementException e) {
+        return ResponseEntity.status(HttpStatus.NOT_FOUND)
+                .body(Map.of("error", e.getMessage() == null ? "No encontrado" : e.getMessage()));
+    }
 
     @GetMapping
     public ResponseEntity<List<Card>> listarTarjetas(
@@ -73,33 +103,107 @@ public class CardController {
         return ResponseEntity.ok(cardService.ofertas());
     }
 
+    @GetMapping("/my-listings")
+    public ResponseEntity<?> misPublicaciones(@RequestParam(required = false) String status) {
+        User u = usuarioActual();
+        if (u == null) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
+                    .body(Map.of("error", "Debes iniciar sesión"));
+        }
+        return ResponseEntity.ok(cardService.misPublicaciones(u.getId(), status));
+    }
+
     @GetMapping("/{id}")
-    public ResponseEntity<Optional<Card>> obtenerPorId(@PathVariable String id) {
-        Optional<Card> carta = cardService.obtenerPorId(id);
+    public ResponseEntity<Card> obtenerPorId(@PathVariable String id) {
+        Card carta = cardService.verDetalle(id);
+        if (carta == null) {
+            return ResponseEntity.notFound().build();
+        }
         return ResponseEntity.ok(carta);
     }
 
     @PostMapping
-    public ResponseEntity<Card> crear(@RequestBody Card card, @RequestParam String vendedorId) {
-        Card nuevaTarjeta = cardService.crear(card, vendedorId);
-        return ResponseEntity.status(201).body(nuevaTarjeta);
+    public ResponseEntity<?> crear(@RequestBody Card card) {
+        User u = usuarioActual();
+        if (u == null) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
+                    .body(Map.of("error", "Debes iniciar sesión"));
+        }
+        Card nueva = cardService.crearPropia(card, u.getId());
+        return ResponseEntity.status(201).body(nueva);
     }
 
-    @PutMapping("/{id}/precio")
-    public ResponseEntity<Card> actualizarPrecio(@PathVariable String id, @RequestBody Double nuevoPrecio) {
-        Card cartaActualizada = cardService.actualizarPrecio(id, nuevoPrecio);
-        return ResponseEntity.ok(cartaActualizada);
+    @PutMapping("/{id}")
+    public ResponseEntity<?> editar(@PathVariable String id, @RequestBody Card datos) {
+        User u = usuarioActual();
+        if (u == null) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
+                    .body(Map.of("error", "Debes iniciar sesión"));
+        }
+        Card propia = cardService.propia(id, u.getId());
+        return ResponseEntity.ok(cardService.actualizarDatos(propia, datos));
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<?> eliminar(@PathVariable String id) {
+        User u = usuarioActual();
+        if (u == null) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
+                    .body(Map.of("error", "Debes iniciar sesión"));
+        }
+        Card propia = cardService.propia(id, u.getId());
+        cardService.eliminarPropia(propia);
+        return ResponseEntity.ok(Map.of("ok", "Publicación eliminada"));
+    }
+
+    @PatchMapping("/{id}/status")
+    public ResponseEntity<?> cambiarEstado(@PathVariable String id,
+                                           @RequestBody Map<String, String> body) {
+        User u = usuarioActual();
+        if (u == null) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
+                    .body(Map.of("error", "Debes iniciar sesión"));
+        }
+        String s = body.get("status");
+        if (!"PUBLICADO".equals(s) && !"PAUSADO".equals(s)) {
+            return ResponseEntity.badRequest()
+                    .body(Map.of("error", "Estado no permitido. Usa PUBLICADO o PAUSADO"));
+        }
+        Card propia = cardService.propia(id, u.getId());
+        return ResponseEntity.ok(cardService.cambiarEstado(propia, Card.Status.valueOf(s)));
+    }
+
+    @PatchMapping("/{id}/price")
+    public ResponseEntity<?> cambiarPrecio(@PathVariable String id,
+                                           @RequestBody Map<String, Double> body) {
+        User u = usuarioActual();
+        if (u == null) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
+                    .body(Map.of("error", "Debes iniciar sesión"));
+        }
+        Card propia = cardService.propia(id, u.getId());
+        return ResponseEntity.ok(cardService.cambiarPrecio(propia, body.get("price")));
+    }
+
+    @PatchMapping("/{id}/sold")
+    public ResponseEntity<?> marcarVendida(@PathVariable String id) {
+        User u = usuarioActual();
+        if (u == null) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
+                    .body(Map.of("error", "Debes iniciar sesión"));
+        }
+        Card propia = cardService.propia(id, u.getId());
+        return ResponseEntity.ok(cardService.cambiarEstado(propia, Card.Status.VENDIDO));
     }
 
     @PutMapping("/{cardId}/vender")
-    public ResponseEntity<Void> marcarVendido(@PathVariable String cardId, @RequestParam String compradorId) {
+    public ResponseEntity<?> marcarVendido(@PathVariable String cardId, @RequestParam String compradorId) {
+        User u = usuarioActual();
+        if (u == null) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
+                    .body(Map.of("error", "Debes iniciar sesión"));
+        }
         cardService.marcarVendido(cardId, compradorId);
-        return ResponseEntity.ok().build();
-    }
-
-    @PutMapping("/{cardId}/imagenes")
-    public ResponseEntity<Void> actualizarImagenes(@PathVariable String cardId, @RequestBody List<String> imagenes) {
-        cardService.actualizarImagenes(cardId, imagenes);
         return ResponseEntity.ok().build();
     }
 }

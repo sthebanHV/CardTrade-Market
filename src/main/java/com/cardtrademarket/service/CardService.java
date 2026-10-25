@@ -197,4 +197,120 @@ public class CardService {
                 .sorted((a, b) -> Integer.compare((Integer) b.get("cantidad"), (Integer) a.get("cantidad")))
                 .toList();
     }
+
+    // ===== Fase 4: gestión de publicaciones (US-17..22) =====
+
+    public static class ValidacionException extends RuntimeException {
+        public ValidacionException(String msg) { super(msg); }
+    }
+
+    public static class NoDuenoException extends RuntimeException {
+        public NoDuenoException() { super("No eres el dueño de esta publicación"); }
+    }
+
+    public Card crearPropia(Card card, String vendedorId) {
+        if (card.getNombre() == null || card.getNombre().isBlank()) {
+            throw new ValidacionException("El nombre es obligatorio");
+        }
+        if (card.getTipo() == null || card.getTipo().isBlank()) {
+            throw new ValidacionException("El juego es obligatorio");
+        }
+        if (card.getPrecio() == null || card.getPrecio() <= 0) {
+            throw new ValidacionException("El precio debe ser mayor a 0");
+        }
+        if (card.getImagenes() != null && card.getImagenes().size() > 5) {
+            throw new ValidacionException("Máximo 5 fotos por publicación");
+        }
+        if (card.getImagenes() != null) {
+            for (String img : card.getImagenes()) {
+                if (img != null && img.length() > 3_500_000) {
+                    throw new ValidacionException("Cada foto debe pesar menos de 2.5 MB (imagen demasiado grande)");
+                }
+            }
+        }
+        return crear(card, vendedorId);
+    }
+
+    public Card propia(String cardId, String vendedorId) {
+        Card card = cardRepository.findById(cardId)
+                .orElseThrow(() -> new java.util.NoSuchElementException("Publicación no encontrada"));
+        if (vendedorId == null || !vendedorId.equals(card.getVendedorId())) {
+            throw new NoDuenoException();
+        }
+        return card;
+    }
+
+    public List<Card> misPublicaciones(String vendedorId, String filtro) {
+        List<Card> todas = cardRepository.findByVendedorIdOrderByFechaPublicacionDesc(vendedorId);
+        if (filtro == null || filtro.isBlank() || filtro.equals("todas")) {
+            return todas;
+        }
+        return switch (filtro) {
+            case "activas" -> todas.stream().filter(c -> c.getStatus() == Card.Status.PUBLICADO).toList();
+            case "pausadas" -> todas.stream().filter(c -> c.getStatus() == Card.Status.PAUSADO).toList();
+            case "vendidas" -> todas.stream().filter(c -> c.getStatus() == Card.Status.VENDIDO).toList();
+            default -> todas;
+        };
+    }
+
+    public Card actualizarDatos(Card card, Card datos) {
+        if (datos.getNombre() != null && !datos.getNombre().isBlank()) card.setNombre(datos.getNombre());
+        if (datos.getTipo() != null && !datos.getTipo().isBlank()) card.setTipo(datos.getTipo());
+        if (datos.getEdition() != null) card.setEdition(datos.getEdition());
+        if (datos.getRarity() != null) card.setRarity(datos.getRarity());
+        if (datos.getCondition() != null) card.setCondition(datos.getCondition());
+        if (datos.getDescripcion() != null) card.setDescripcion(datos.getDescripcion());
+        if (datos.getImagenes() != null) {
+            if (datos.getImagenes().size() > 5) throw new ValidacionException("Máximo 5 fotos por publicación");
+            card.setImagenes(datos.getImagenes());
+        }
+        if (datos.getPrecio() != null) {
+            if (datos.getPrecio() <= 0) throw new ValidacionException("El precio debe ser mayor a 0");
+            if (!datos.getPrecio().equals(card.getPrecio())) {
+                card.setPrecioAnterior(card.getPrecio());
+                card.setPrecio(datos.getPrecio());
+            }
+        }
+        card.setFechaActualizacion(new Date());
+        return cardRepository.save(card);
+    }
+
+    public Card cambiarPrecio(Card card, Double nuevoPrecio) {
+        if (nuevoPrecio == null || nuevoPrecio <= 0) {
+            throw new ValidacionException("El precio debe ser mayor a 0");
+        }
+        if (nuevoPrecio.equals(card.getPrecio())) return card;
+        card.setPrecioAnterior(card.getPrecio());
+        card.setPrecio(nuevoPrecio);
+        card.setFechaActualizacion(new Date());
+        return cardRepository.save(card);
+    }
+
+    public Card cambiarEstado(Card card, Card.Status nuevo) {
+        card.setStatus(nuevo);
+        card.setFechaActualizacion(new Date());
+        return cardRepository.save(card);
+    }
+
+    public void eliminarPropia(Card card) {
+        cardRepository.delete(card);
+    }
+
+    @Transactional
+    public Card verDetalle(String id) {
+        Optional<Card> opt = cardRepository.findById(id);
+        if (opt.isEmpty()) return null;
+        cardRepository.incrementarVistas(id);
+        Card c = opt.get();
+        c.setVistas((c.getVistas() == null ? 0 : c.getVistas()) + 1);
+        return c;
+    }
+
+    public long contarPublicadasDe(String vendedorId) {
+        return cardRepository.countByVendedorIdAndStatus(vendedorId, Card.Status.PUBLICADO);
+    }
+
+    public long contarVendidasDe(String vendedorId) {
+        return cardRepository.countByVendedorIdAndStatus(vendedorId, Card.Status.VENDIDO);
+    }
 }

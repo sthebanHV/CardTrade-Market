@@ -36,4 +36,12 @@ public interface CardRepository extends JpaRepository<Card, String> {
     List<Card> findByIdIn(java.util.List<String> ids);
 
     List<Card> findByVendedorIdOrderByFechaPublicacionDesc(String vendedorId);
+
+    List<Card> findByVendedorIdAndStatusOrderByFechaPublicacionDesc(String vendedorId, Card.Status status);
+
+    long countByVendedorIdAndStatus(String vendedorId, Card.Status status);
+
+    @org.springframework.data.jpa.repository.Modifying
+    @Query("UPDATE Card c SET c.vistas = COALESCE(c.vistas, 0) + 1 WHERE c.id = :id")
+    int incrementarVistas(@org.springframework.data.repository.query.Param("id") String id);
 }

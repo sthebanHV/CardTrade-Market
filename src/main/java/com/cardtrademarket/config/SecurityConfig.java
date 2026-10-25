@@ -33,7 +33,9 @@ public class SecurityConfig {
             .csrf().disable()
             .authorizeRequests(authorz -> authorz
                 .requestMatchers("/api/admin/**").hasRole("ADMIN")
-                .requestMatchers("/api/auth/**", "/errores/**", "/api/cards/**", "/api/stats", "/api/categories", "/api/users/public/**", "/error").permitAll()
+                .requestMatchers(org.springframework.http.HttpMethod.GET, "/api/cards/**").permitAll()
+                .requestMatchers(org.springframework.http.HttpMethod.GET, "/api/sellers/**").permitAll()
+                .requestMatchers("/api/auth/**", "/errores/**", "/api/stats", "/api/categories", "/api/users/public/**", "/error").permitAll()
                 .requestMatchers("/").permitAll()
                 .anyRequest().authenticated()
             )

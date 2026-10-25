@@ -66,7 +66,9 @@ public class Card {
 
     private Double precioAnterior; // Para historial de precios
 
+    private Integer vistas = 0; // Estadística de la publicación
+
     public enum Status {
-        PUBLICADO, VENDIDO, RESERVADO, INACTIVO
+        PUBLICADO, PAUSADO, VENDIDO, RESERVADO, INACTIVO
     }
 }
