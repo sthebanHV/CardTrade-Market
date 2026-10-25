@@ -1,5 +1,8 @@
 # CardTrade Market
 
+[![CI](https://github.com/sthebanHV/CardTrade-Market/actions/workflows/ci.yml/badge.svg)](https://github.com/sthebanHV/CardTrade-Market/actions/workflows/ci.yml)
+[![Release](https://img.shields.io/github/v/release/sthebanHV/CardTrade-Market)](https://github.com/sthebanHV/CardTrade-Market/releases)
+
 Plataforma web completa para la compra y venta de cartas coleccionables: catálogo con búsqueda y filtros, publicaciones, carrito y checkout, colección personal, reseñas, chat, alertas de precio, dashboard y panel de administración.
 
 **Producción**
