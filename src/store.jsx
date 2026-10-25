@@ -1,6 +1,6 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
-import { authAPI, setAuthToken } from './api/apiClient';
+import { authAPI, setAuthToken, favoritesAPI, wishlistAPI, notificationsAPI, chatAPI } from './api/apiClient';
 
 export const useStore = create(
   persist(
@@ -23,6 +23,7 @@ export const useStore = create(
         const token = res.token || res;
         setAuthToken(token);
         set({ token });
+        get().syncFromServer();
         return { token };
       },
 
@@ -31,6 +32,7 @@ export const useStore = create(
         const token = res.token || res;
         setAuthToken(token);
         set({ token });
+        get().syncFromServer();
         return token;
       },
 
@@ -41,6 +43,44 @@ export const useStore = create(
       setUser: (user) => set({ user }),
 
       setUnread: (unread) => set({ unread }),
+
+      // US-41/42: sincroniza favoritos y deseos con el backend al iniciar sesión
+      syncFromServer: async () => {
+        if (!get().token) return;
+        try {
+          const [favs, wishes] = await Promise.all([favoritesAPI.list(), wishlistAPI.list()]);
+          set({
+            favorites: favs
+              .filter((f) => f.card)
+              .map((f) => ({ cardId: f.cardId, cardName: f.card.nombre })),
+            wishlist: wishes
+              .filter((w) => w.card)
+              .map((w) => ({ cardId: w.cardId, cardName: w.card.nombre })),
+          });
+        } catch {
+          /* sin conexión: se conserva el estado local */
+        }
+      },
+
+      // US-45: no leídas (notificaciones + mensajes)
+      refreshUnread: async () => {
+        if (!get().token) {
+          set({ unread: 0 });
+          return;
+        }
+        try {
+          const [notifs, chat] = await Promise.all([
+            notificationsAPI.list(),
+            chatAPI.unreadTotal().catch(() => ({ unread: 0 })),
+          ]);
+          const noLeidas = Array.isArray(notifs)
+            ? notifs.filter((n) => !n.isRead && !n.read).length
+            : 0;
+          set({ unread: noLeidas + (chat.unread || 0) });
+        } catch {
+          /* noop */
+        }
+      },
 
       refreshUser: async () => {
         if (!get().token) return;
@@ -72,22 +112,28 @@ export const useStore = create(
 
       clearCart: () => set({ cart: [] }),
 
-      addToFavorites: (cardId, cardName) =>
+      addToFavorites: (cardId, cardName) => {
         set((state) => {
           if (state.favorites.some((item) => item.cardId === cardId)) return state;
           return { favorites: [...state.favorites, { cardId, cardName }] };
-        }),
+        });
+        if (get().token) favoritesAPI.add(cardId).catch(() => {});
+      },
 
-      removeFromFavorites: (cardId) =>
+      removeFromFavorites: (cardId) => {
         set((state) => ({
           favorites: state.favorites.filter((item) => item.cardId !== cardId),
-        })),
+        }));
+        if (get().token) favoritesAPI.remove(cardId).catch(() => {});
+      },
 
-      addToWishlist: (cardId, cardName) =>
+      addToWishlist: (cardId, cardName) => {
         set((state) => {
           if (state.wishlist.some((item) => item.cardId === cardId)) return state;
           return { wishlist: [...state.wishlist, { cardId, cardName }] };
-        }),
+        });
+        if (get().token) wishlistAPI.create({ cardId }).catch(() => {});
+      },
 
       toggleCompare: (card) =>
         set((state) => {
@@ -103,10 +149,12 @@ export const useStore = create(
 
       clearCompare: () => set({ compare: [] }),
 
-      removeFromWishlist: (cardId) =>
+      removeFromWishlist: (cardId) => {
         set((state) => ({
           wishlist: state.wishlist.filter((item) => item.cardId !== cardId),
-        })),
+        }));
+        if (get().token) wishlistAPI.removeByCard(cardId).catch(() => {});
+      },
 
       getCartTotal: () => {
         const { cart } = get();
@@ -140,4 +188,5 @@ const { token } = useStore.getState();
 if (token) {
   setAuthToken(token);
   useStore.getState().refreshUser();
+  useStore.getState().syncFromServer();
 }

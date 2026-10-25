@@ -3,8 +3,8 @@ import {
   Box, Typography, TextField, Button, Alert, Paper, Divider, Stack, Chip,
   Avatar, IconButton, List, ListItem, ListItemText, CircularProgress, Badge,
 } from '@mui/material';
-import { PhotoCamera as AvatarIcon, Verified as VerifiedIcon, History as HistoryIcon } from '@mui/icons-material';
-import { usersAPI } from '../../api/apiClient';
+import { PhotoCamera as AvatarIcon, Verified as VerifiedIcon, History as HistoryIcon, Star as StarIcon, Collections as CollectionIcon, Storefront as StoreIcon } from '@mui/icons-material';
+import { usersAPI, dashboardAPI } from '../../api/apiClient';
 import { useStore } from '../../store';
 
 export const ProfilePage = () => {
@@ -19,6 +19,11 @@ export const ProfilePage = () => {
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
   const [uploading, setUploading] = useState(false);
+  const [stats, setStats] = useState(null);
+
+  useEffect(() => {
+    dashboardAPI.stats().then(setStats).catch(() => setStats(null));
+  }, []);
 
   useEffect(() => {
     let activo = true;
@@ -151,6 +156,20 @@ export const ProfilePage = () => {
                 <Chip size="small" color="warning" label="Correo sin verificar" />
               )}
               {user?.tfaEnabled && <Chip size="small" color="success" variant="outlined" label="2FA activo" />}
+          {stats?.perspectivas?.VENDEDOR_VERIFICADO && (
+            <Chip size="small" color="success" icon={<StarIcon sx={{ fontSize: 15 }} />}
+              label={`Vendedor verificado · ${stats.ratingPromedio || '—'} ★`} />
+          )}
+          {stats?.perspectivas?.VENDEDOR && !stats?.perspectivas?.VENDEDOR_VERIFICADO && (
+            <Chip size="small" color="info" variant="outlined" icon={<StoreIcon sx={{ fontSize: 15 }} />} label="Vendedor" />
+          )}
+          {stats?.perspectivas?.COLECCIONISTA && (
+            <Chip size="small" color="secondary" variant="outlined" icon={<CollectionIcon sx={{ fontSize: 15 }} />}
+              label={`Coleccionista · ${stats.itemsColeccion} cartas`} />
+          )}
+          {stats?.perspectivas?.COMPRADOR && (
+            <Chip size="small" variant="outlined" label={`Comprador · ${stats.comprasTotal} órden(es)`} />
+          )}
             </Stack>
             <Typography variant="body2" color="text.secondary" sx={{ mt: 0.5 }}>
               Miembro desde {user?.fechaCreacion ? new Date(user.fechaCreacion).toLocaleDateString('es') : '—'}

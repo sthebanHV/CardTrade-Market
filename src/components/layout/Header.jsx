@@ -52,7 +52,7 @@ const perspectivas = [
 ];
 
 export const Header = () => {
-  const { token, user, cart, logout, unread } = useStore();
+  const { token, user, cart, logout, unread, refreshUnread } = useStore();
   const navigate = useNavigate();
   const location = useLocation();
   const [anchorEl, setAnchorEl] = useState(null);
@@ -61,6 +61,14 @@ export const Header = () => {
   const [suggestions, setSuggestions] = useState([]);
   const [loadingSug, setLoadingSug] = useState(false);
   const debounceRef = useRef(null);
+
+  // US-45: badge de no leídas (notificaciones + mensajes)
+  useEffect(() => {
+    if (!token) return;
+    refreshUnread();
+    const t = setInterval(() => refreshUnread(), 60000);
+    return () => clearInterval(t);
+  }, [token, refreshUnread]);
 
   const openMenu = (e) => setAnchorEl(e.currentTarget);
   const closeMenu = () => setAnchorEl(null);

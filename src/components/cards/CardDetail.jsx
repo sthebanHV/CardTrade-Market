@@ -2,14 +2,16 @@ import { useEffect, useState } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import {
   Box, Grid, Typography, Button, Chip, Stack, Paper, Divider, CircularProgress,
-  Alert, Rating, Breadcrumbs, Link as MuiLink,
+  Alert, Rating, Breadcrumbs, Link as MuiLink, Dialog, DialogTitle, DialogContent,
+  DialogActions, IconButton, Tooltip,
 } from '@mui/material';
 import {
   ShoppingCart as CartIcon, FlashOn as BuyIcon, Favorite as FavoriteIcon,
   Compare as CompareIcon, Storefront as StoreIcon, CalendarToday as DateIcon,
   Flag as FlagIcon, LibraryAdd as CollectionIcon, NotificationsActive as AlertIcon,
+  Share as ShareIcon, Chat as ChatIcon, Link as LinkIcon, Check as CheckIcon,
 } from '@mui/icons-material';
-import { cardsAPI, usersAPI } from '../../api/apiClient';
+import { cardsAPI, usersAPI, chatAPI } from '../../api/apiClient';
 import { useStore } from '../../store';
 import { ReportModal } from '../sell/ReportModal';
 import { AddToCollectionDialog } from '../collection/AddToCollectionDialog';
@@ -26,6 +28,8 @@ export const CardDetail = () => {
   const [reportOpen, setReportOpen] = useState(false);
   const [collectionOpen, setCollectionOpen] = useState(false);
   const [alertOpen, setAlertOpen] = useState(false);
+  const [shareOpen, setShareOpen] = useState(false);
+  const [copiado, setCopiado] = useState(false);
 
   const { addToCart, addToFavorites, favorites, toggleCompare, compare, token, showToast } = useStore();
 
@@ -36,6 +40,40 @@ export const CardDetail = () => {
       return false;
     }
     return true;
+  };
+
+  // US-40: contactar al vendedor
+  const onContactar = async () => {
+    if (!exigirSesion('contactar al vendedor')) return;
+    try {
+      const vendedorId = seller?.id || card?.vendedorId;
+      await chatAPI.start(vendedorId, card.id);
+      navigate('/messages');
+    } catch (e) {
+      const d = e.response?.data;
+      showToast({ message: (typeof d === 'string' && d) || d?.error || 'No se pudo abrir la conversación', severity: 'error' });
+    }
+  };
+
+  // US-43: compartir
+  const url = typeof window !== 'undefined' ? window.location.href : '';
+  const shareData = {
+    url,
+    text: card ? `${card.nombre} en CardTrade-Market` : 'CardTrade-Market',
+  };
+  const enlaces = [
+    { label: 'Facebook', href: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}` },
+    { label: 'X (Twitter)', href: `https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}&text=${encodeURIComponent(shareData.text)}` },
+    { label: 'WhatsApp', href: `https://wa.me/?text=${encodeURIComponent(`${shareData.text} ${url}`)}` },
+  ];
+  const copiarEnlace = async () => {
+    try {
+      await navigator.clipboard.writeText(url);
+      setCopiado(true);
+      setTimeout(() => setCopiado(false), 2000);
+    } catch {
+      showToast({ message: 'No se pudo copiar', severity: 'error' });
+    }
   };
 
   useEffect(() => {
@@ -235,6 +273,24 @@ export const CardDetail = () => {
                 Alerta de precio
               </Button>
             </Stack>
+            <Stack direction={{ xs: 'column', sm: 'row' }} spacing={1.5} sx={{ mt: 1.5 }}>
+              <Button
+                variant="outlined"
+                startIcon={<ChatIcon />}
+                onClick={onContactar}
+                fullWidth
+              >
+                Contactar vendedor
+              </Button>
+              <Button
+                variant="outlined"
+                startIcon={<ShareIcon />}
+                onClick={() => setShareOpen(true)}
+                fullWidth
+              >
+                Compartir
+              </Button>
+            </Stack>
             <Button
               variant="text"
               color="error"
@@ -315,6 +371,33 @@ export const CardDetail = () => {
         onClose={() => setAlertOpen(false)}
         card={card}
       />
+
+      {/* US-43: compartir en redes */}
+      <Dialog open={shareOpen} onClose={() => setShareOpen(false)} maxWidth="xs" fullWidth>
+        <DialogTitle>Compartir publicación</DialogTitle>
+        <DialogContent>
+          <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
+            {card.nombre}
+          </Typography>
+          <Stack spacing={1}>
+            {enlaces.map((l) => (
+              <Button key={l.label} variant="outlined" href={l.href} target="_blank" rel="noopener noreferrer"
+                sx={{ justifyContent: 'flex-start' }}>
+                {l.label}
+              </Button>
+            ))}
+            <Button variant="contained" startIcon={copiado ? <CheckIcon /> : <LinkIcon />} onClick={copiarEnlace}>
+              {copiado ? '¡Enlace copiado!' : 'Copiar enlace'}
+            </Button>
+          </Stack>
+          <Typography variant="caption" color="text.secondary" sx={{ display: 'block', mt: 1.5, wordBreak: 'break-all' }}>
+            {url}
+          </Typography>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={() => setShareOpen(false)}>Cerrar</Button>
+        </DialogActions>
+      </Dialog>
     </Box>
   );
 };

@@ -198,4 +198,78 @@ export const notificationsAPI = {
   markRead: async (id) =>
     (await apiClient.patch(`/notifications/${encodeURIComponent(id)}/read`)).data,
   markAllRead: async () => (await apiClient.post('/notifications/read-all')).data,
+  remove: async (id) =>
+    (await apiClient.delete(`/notifications/${encodeURIComponent(id)}`)).data,
+};
+
+// ===== Fase 7 (US-39…47) =====
+
+export const favoritesAPI = {
+  list: async () => (await apiClient.get('/favorites')).data,
+  add: async (cardId) => (await apiClient.post('/favorites', { cardId })).data,
+  remove: async (cardId) =>
+    (await apiClient.delete(`/favorites/${encodeURIComponent(cardId)}`)).data,
+};
+
+export const wishlistAPI = {
+  list: async () => (await apiClient.get('/wishlist')).data,
+  create: async (payload) => (await apiClient.post('/wishlist', payload)).data,
+  update: async (id, payload) =>
+    (await apiClient.put(`/wishlist/${encodeURIComponent(id)}`, payload)).data,
+  remove: async (id) =>
+    (await apiClient.delete(`/wishlist/${encodeURIComponent(id)}`)).data,
+  removeByCard: async (cardId) => {
+    const items = (await apiClient.get('/wishlist')).data;
+    const item = (items || []).find((w) => w.cardId === cardId);
+    if (item) await apiClient.delete(`/wishlist/${encodeURIComponent(item.id)}`);
+  },
+  publicList: async (userId) =>
+    (await apiClient.get(`/wishlist/public/${encodeURIComponent(userId)}`)).data,
+};
+
+export const reviewsAPI = {
+  create: async (payload) => (await apiClient.post('/reviews', payload)).data,
+  update: async (id, payload) =>
+    (await apiClient.put(`/reviews/${encodeURIComponent(id)}`, payload)).data,
+  remove: async (id) =>
+    (await apiClient.delete(`/reviews/${encodeURIComponent(id)}`)).data,
+  byOrder: async (orderId) =>
+    (await apiClient.get(`/reviews/order/${encodeURIComponent(orderId)}`)).data,
+  bySeller: async (username) =>
+    (await apiClient.get(`/sellers/${encodeURIComponent(username)}/reviews`)).data,
+};
+
+export const dashboardAPI = {
+  stats: async () => (await apiClient.get('/dashboard/stats')).data,
+  activity: async () => (await apiClient.get('/dashboard/activity')).data,
+};
+
+export const chatAPI = {
+  conversations: async () => (await apiClient.get('/chat/conversations')).data,
+  start: async (userId, cardId) =>
+    (await apiClient.post('/chat/conversations', { userId, ...(cardId ? { cardId } : {}) })).data,
+  messages: async (conversationId) =>
+    (await apiClient.get(`/chat/${encodeURIComponent(conversationId)}/messages`)).data,
+  send: async (conversationId, contenido) =>
+    (await apiClient.post(`/chat/${encodeURIComponent(conversationId)}/messages`, { contenido })).data,
+  unreadTotal: async () => (await apiClient.get('/chat/unread-total')).data,
+};
+
+export const adminAPI = {
+  users: async (params = {}) => {
+    const q = new URLSearchParams();
+    Object.entries(params).forEach(([k, v]) => { if (v !== undefined && v !== null && v !== '') q.set(k, v); });
+    const s = q.toString();
+    return (await apiClient.get(`/admin/users${s ? `?${s}` : ''}`)).data;
+  },
+  setRole: async (id, role) =>
+    (await apiClient.put(`/admin/users/${encodeURIComponent(id)}/role`, { role })).data,
+  setStatus: async (id, status) =>
+    (await apiClient.put(`/admin/users/${encodeURIComponent(id)}/status`, { status })).data,
+  reports: async (estado) =>
+    (await apiClient.get(`/admin/reports${estado ? `?estado=${encodeURIComponent(estado)}` : ''}`)).data,
+  resolveReport: async (id, estado, nota) =>
+    (await apiClient.post(`/admin/reports/${encodeURIComponent(id)}/resolve`, { estado, nota })).data,
+  stats: async () => (await apiClient.get('/admin/stats')).data,
+  audit: async () => (await apiClient.get('/admin/audit')).data,
 };

@@ -7,7 +7,7 @@ import {
 import {
   Notifications as NotifIcon, DoneAll as ReadAllIcon, Circle as DotIcon,
   LocalShipping, Sell as SellIcon, NotificationsActive as PriceIcon,
-  Info as InfoIcon,
+  Info as InfoIcon, Chat as ChatIcon, Star as StarIcon, Delete as DeleteIcon,
 } from '@mui/icons-material';
 import { notificationsAPI } from '../../api/apiClient';
 import { useStore } from '../../store';
@@ -16,6 +16,8 @@ const ICONOS = {
   LISTING_ADDED: <SellIcon color="primary" />,
   PRICE_DROP: <PriceIcon color="error" />,
   ORDER_UPDATE: <LocalShipping color="success" />,
+  MESSAGE: <ChatIcon color="info" />,
+  REVIEW: <StarIcon color="warning" />,
   SYSTEM: <InfoIcon color="action" />,
 };
 

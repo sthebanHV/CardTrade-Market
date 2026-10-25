@@ -38,6 +38,10 @@ import { PurchaseDetailPage } from './components/purchases/PurchaseDetailPage';
 import { MySalesPage } from './components/purchases/MySalesPage';
 import { MyAlertsPage } from './components/alerts/MyAlertsPage';
 import { NotificationsPage } from './components/notifications/NotificationsPage';
+import { FavoritesPage } from './components/favorites/FavoritesPage';
+import { WishlistPage } from './components/wishlist/WishlistPage';
+import { ChatPage } from './components/chat/ChatPage';
+import { AdminPage } from './components/admin/AdminPage';
 
 const guard = (el) => <ProtectedRoute>{el}</ProtectedRoute>;
 
@@ -77,9 +81,9 @@ export const router = createBrowserRouter(
       <Route path="my-collection" element={guard(<CollectionPage />)} />
       <Route path="my-collection/stats" element={guard(<CollectionStatsPage />)} />
       <Route path="my-collections" element={guard(<MyCollectionsPage />)} />
-      <Route path="favorites" element={guard(<ComingSoon title="Favoritos" hu="US-41 Favoritos" />)} />
+      <Route path="favorites" element={guard(<FavoritesPage />)} />
       <Route path="my-alerts" element={guard(<MyAlertsPage />)} />
-      <Route path="wishlist" element={guard(<ComingSoon title="Lista de deseos" hu="US-42 Lista de Deseos" />)} />
+      <Route path="wishlist" element={guard(<WishlistPage />)} />
       <Route path="my-followed" element={guard(<MyFollowedPage />)} />
 
       {/* Cuenta */}
@@ -91,13 +95,13 @@ export const router = createBrowserRouter(
       <Route path="settings/addresses" element={guard(<AddressesPage />)} />
       <Route path="settings/payment" element={guard(<PaymentMethodsPage />)} />
       <Route path="notifications" element={guard(<NotificationsPage />)} />
-      <Route path="messages" element={guard(<ComingSoon title="Mensajes" hu="US-40 Chat entre Usuarios" />)} />
+      <Route path="messages" element={guard(<ChatPage />)} />
 
       {/* Social — US-19 */}
       <Route path="seller/:username" element={<SellerProfile />} />
 
       {/* Admin (ROLE_ADMIN) — US-47 */}
-      <Route path="admin" element={<AdminRoute><ComingSoon title="Panel de administración" hu="US-47 Panel de Administración" /></AdminRoute>} />
+      <Route path="admin" element={<AdminRoute><AdminPage /></AdminRoute>} />
 
       <Route path="403" element={<ForbiddenPage />} />
       <Route path="*" element={<ComingSoon title="Página no encontrada" />} />
