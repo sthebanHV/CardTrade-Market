@@ -101,4 +101,68 @@ public class OrderController {
         Order order = orderService.updateOrderStatus(orderId, status);
         return ResponseEntity.ok(order);
     }
+
+    // ---------- Historiales (US-34/35) ----------
+
+    @GetMapping("/purchases")
+    public ResponseEntity<?> misCompras() {
+        User u = usuarioActual();
+        if (u == null) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
+                    .body(Map.of("error", "Debes iniciar sesión"));
+        }
+        return ResponseEntity.ok(orderService.comprasDe(u.getId()));
+    }
+
+    @GetMapping("/sales")
+    public ResponseEntity<?> misVentas() {
+        User u = usuarioActual();
+        if (u == null) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
+                    .body(Map.of("error", "Debes iniciar sesión"));
+        }
+        return ResponseEntity.ok(orderService.ventasDe(u.getId()));
+    }
+
+    @GetMapping("/sales/summary")
+    public ResponseEntity<?> resumenVentas() {
+        User u = usuarioActual();
+        if (u == null) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
+                    .body(Map.of("error", "Debes iniciar sesión"));
+        }
+        return ResponseEntity.ok(orderService.resumenVentas(u.getId()));
+    }
+
+    // ---------- Tracking (US-38) ----------
+
+    @GetMapping("/{orderId}/tracking")
+    public ResponseEntity<?> tracking(@PathVariable String orderId) {
+        User u = usuarioActual();
+        if (u == null) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
+                    .body(Map.of("error", "Debes iniciar sesión"));
+        }
+        Order order = orderService.getOrderById(orderId);
+        if (!esAdmin(u) && !u.getId().equals(order.getUserId())) {
+            boolean esVendedor = order.getItems() != null && order.getItems().stream()
+                    .anyMatch(i -> u.getId().equals(i.getVendedorId()));
+            if (!esVendedor) {
+                return ResponseEntity.status(HttpStatus.FORBIDDEN)
+                        .body(Map.of("error", "No puedes ver el rastreo de esta orden"));
+            }
+        }
+        return ResponseEntity.ok(orderService.trackingDe(order));
+    }
+
+    @PatchMapping("/{orderId}/tracking")
+    public ResponseEntity<?> actualizarTracking(@PathVariable String orderId,
+                                                @RequestBody Map<String, String> body) {
+        User u = usuarioActual();
+        if (!esAdmin(u)) {
+            return ResponseEntity.status(HttpStatus.FORBIDDEN)
+                    .body(Map.of("error", "Solo administradores pueden actualizar el rastreo"));
+        }
+        return ResponseEntity.ok(orderService.actualizarTracking(orderId, body));
+    }
 }

@@ -3,7 +3,11 @@ package com.cardtrademarket.service;
 import com.cardtrademarket.model.Card;
 import com.cardtrademarket.model.User;
 import com.cardtrademarket.repository.CardRepository;
+import com.cardtrademarket.repository.FollowRepository;
+import com.cardtrademarket.repository.PriceAlertRepository;
 import com.cardtrademarket.repository.UserRepository;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -14,11 +18,22 @@ import java.util.Date;
 @Service
 public class CardService {
 
+    private static final Logger log = LoggerFactory.getLogger(CardService.class);
+
     @Autowired
     private CardRepository cardRepository;
-    
+
     @Autowired
     private UserRepository userRepository;
+
+    @Autowired
+    private PriceAlertRepository priceAlertRepository;
+
+    @Autowired
+    private FollowRepository followRepository;
+
+    @Autowired
+    private NotificationService notificationService;
 
     @Transactional
     public Card crear(Card card, String vendedorId) {
@@ -228,7 +243,52 @@ public class CardService {
                 }
             }
         }
-        return crear(card, vendedorId);
+        Card creada = crear(card, vendedorId);
+        notificarSeguidores(creada);
+        return creada;
+    }
+
+    // US-36: notificar a los seguidores cuando se publica algo nuevo
+    private void notificarSeguidores(Card card) {
+        try {
+            for (com.cardtrademarket.model.Follow f : followRepository.findByFollowingId(card.getVendedorId())) {
+                notificationService.createNotification(
+                        f.getFollowerId(),
+                        "LISTING_ADDED",
+                        "Nueva publicación de tu vendedor seguido",
+                        "Se publicó \"" + card.getNombre() + "\" por $" + card.getPrecio(),
+                        "/cards/" + card.getId());
+            }
+        } catch (Exception e) {
+            log.warn("No se pudieron notificar seguidores para la carta {}: {}", card.getId(), e.getMessage());
+        }
+    }
+
+    // US-37: alertas de precio — avisar cuando el precio baja al objetivo
+    private void dispararAlertas(Card card) {
+        try {
+            for (com.cardtrademarket.model.PriceAlert alerta : priceAlertRepository.findByCardIdAndActiveTrue(card.getId())) {
+                Double target = alerta.getTargetPrice();
+                Double actual = card.getPrecio();
+                if (target == null || actual == null || actual > target) continue;
+                if (target.equals(alerta.getLastNotifiedPrice())) continue;
+                String email = userRepository.findById(alerta.getUserId())
+                        .map(User::getEmail)
+                        .orElse("?");
+                notificationService.createNotification(
+                        alerta.getUserId(),
+                        "PRICE_DROP",
+                        "¡Precio objetivo alcanzado!",
+                        "\"" + card.getNombre() + "\" está en $" + actual + " (tu objetivo: $" + target + ")",
+                        "/cards/" + card.getId());
+                log.info("EMAIL (simulado) -> {}: La carta {} bajó a ${} (objetivo ${})",
+                        email, card.getNombre(), actual, target);
+                alerta.setLastNotifiedPrice(target);
+                priceAlertRepository.save(alerta);
+            }
+        } catch (Exception e) {
+            log.warn("No se pudieron evaluar alertas de precio para la carta {}: {}", card.getId(), e.getMessage());
+        }
     }
 
     public Card propia(String cardId, String vendedorId) {
@@ -272,7 +332,9 @@ public class CardService {
             }
         }
         card.setFechaActualizacion(new Date());
-        return cardRepository.save(card);
+        Card guardada = cardRepository.save(card);
+        dispararAlertas(guardada);
+        return guardada;
     }
 
     public Card cambiarPrecio(Card card, Double nuevoPrecio) {
@@ -283,7 +345,9 @@ public class CardService {
         card.setPrecioAnterior(card.getPrecio());
         card.setPrecio(nuevoPrecio);
         card.setFechaActualizacion(new Date());
-        return cardRepository.save(card);
+        Card guardada = cardRepository.save(card);
+        dispararAlertas(guardada);
+        return guardada;
     }
 
     public Card cambiarEstado(Card card, Card.Status nuevo) {

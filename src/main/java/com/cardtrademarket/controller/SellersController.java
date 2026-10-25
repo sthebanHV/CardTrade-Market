@@ -154,4 +154,29 @@ public class SellersController {
                 "followers", followRepository.countByFollowingId(v.getId())
         ));
     }
+
+    // US-36: vendedores que sigo
+    @GetMapping("/followed")
+    public ResponseEntity<?> seguidos() {
+        User yo = usuarioActual();
+        if (yo == null) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(Map.of("error", "Debes iniciar sesión"));
+        }
+        List<Map<String, Object>> out = new ArrayList<>();
+        for (Follow f : followRepository.findByFollowerId(yo.getId())) {
+            userRepository.findById(f.getFollowingId()).ifPresent(v -> {
+                Map<String, Object> m = new LinkedHashMap<>();
+                m.put("id", v.getId());
+                m.put("username", v.getUsername());
+                m.put("nombre", v.getNombre());
+                m.put("avatarUrl", v.getAvatarUrl());
+                m.put("bio", v.getBio());
+                m.put("followers", followRepository.countByFollowingId(v.getId()));
+                m.put("publicacionesActivas", cardService.contarPublicadasDe(v.getId()));
+                m.put("desde", f.getFecha());
+                out.add(m);
+            });
+        }
+        return ResponseEntity.ok(out);
+    }
 }

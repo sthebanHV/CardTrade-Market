@@ -10,6 +10,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.MapKeyColumn;
+import jakarta.persistence.OrderBy;
 import jakarta.persistence.Table;
 import java.time.LocalDateTime;
 import java.util.List;
@@ -69,6 +70,27 @@ public class Order {
 
     @Column(name = "buyer_name")
     private String buyerName;
+
+    @ElementCollection(fetch = FetchType.EAGER)
+    @CollectionTable(name = "order_items", joinColumns = @JoinColumn(name = "order_id"))
+    private List<OrderItem> items;
+
+    @Column(name = "carrier")
+    private String carrier;
+
+    @Column(name = "tracking_number")
+    private String trackingNumber;
+
+    @Column(name = "tracking_status")
+    private String trackingStatus; // PREPARACION, EN_TRANSITO, EN_REPARTO, ENTREGADO
+
+    @Column(name = "eta")
+    private String eta; // fecha estimada ISO
+
+    @ElementCollection(fetch = FetchType.EAGER)
+    @CollectionTable(name = "order_tracking_events", joinColumns = @JoinColumn(name = "order_id"))
+    @OrderBy("fecha ASC")
+    private List<TrackingEvent> trackingEvents;
 
     // Constructores
     public Order() {
@@ -130,4 +152,22 @@ public class Order {
 
     public String getBuyerName() { return buyerName; }
     public void setBuyerName(String buyerName) { this.buyerName = buyerName; }
+
+    public List<OrderItem> getItems() { return items; }
+    public void setItems(List<OrderItem> items) { this.items = items; }
+
+    public String getCarrier() { return carrier; }
+    public void setCarrier(String carrier) { this.carrier = carrier; }
+
+    public String getTrackingNumber() { return trackingNumber; }
+    public void setTrackingNumber(String trackingNumber) { this.trackingNumber = trackingNumber; }
+
+    public String getTrackingStatus() { return trackingStatus; }
+    public void setTrackingStatus(String trackingStatus) { this.trackingStatus = trackingStatus; }
+
+    public String getEta() { return eta; }
+    public void setEta(String eta) { this.eta = eta; }
+
+    public List<TrackingEvent> getTrackingEvents() { return trackingEvents; }
+    public void setTrackingEvents(List<TrackingEvent> trackingEvents) { this.trackingEvents = trackingEvents; }
 }

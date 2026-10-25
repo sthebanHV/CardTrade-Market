@@ -81,6 +81,25 @@ public class OrderService {
         order.setGuestEmail(guestEmail);
         order.setBuyerName(buyerName != null ? buyerName : user.getNombre());
         order.setNumeroOrden(siguienteNumero());
+
+        // Snapshot de items (US-34/35): nombre, precio y vendedor al momento de la compra
+        List<com.cardtrademarket.model.OrderItem> items = new ArrayList<>();
+        for (Card c : cartas) {
+            items.add(new com.cardtrademarket.model.OrderItem(
+                    c.getId(), c.getNombre(), c.getPrecio(), c.getVendedorId()));
+        }
+        order.setItems(items);
+
+        // Tracking inicial (US-38)
+        boolean express = "EXPRESS".equalsIgnoreCase(shippingMethod);
+        java.time.LocalDate eta = java.time.LocalDate.now().plusDays(express ? 2 : 7);
+        order.setTrackingStatus("PREPARACION");
+        order.setEta(eta.toString());
+        List<com.cardtrademarket.model.TrackingEvent> eventos = new ArrayList<>();
+        eventos.add(new com.cardtrademarket.model.TrackingEvent(
+                java.time.LocalDateTime.now(), "Pago confirmado. Preparando tu pedido.", "PREPARACION"));
+        order.setTrackingEvents(eventos);
+
         Order guardada = orderRepository.save(order);
 
         // Marcar cartas como vendidas
@@ -112,6 +131,84 @@ public class OrderService {
     public Order updateOrderStatus(String orderId, String status) {
         Order order = getOrderById(orderId);
         order.setStatus(status);
+        String trackingStatus = switch (status == null ? "" : status.toUpperCase()) {
+            case "PAID" -> "PREPARACION";
+            case "SHIPPED" -> "EN_TRANSITO";
+            case "DELIVERED" -> "ENTREGADO";
+            case "CANCELLED" -> "CANCELADO";
+            default -> order.getTrackingStatus();
+        };
+        order.setTrackingStatus(trackingStatus);
+        if (order.getTrackingEvents() == null) {
+            order.setTrackingEvents(new ArrayList<>());
+        }
+        order.getTrackingEvents().add(new com.cardtrademarket.model.TrackingEvent(
+                java.time.LocalDateTime.now(), "Estado actualizado a " + status, trackingStatus));
+        return orderRepository.save(order);
+    }
+
+    // ---------- Historiales (US-34/35) ----------
+
+    public List<Order> comprasDe(String userId) {
+        return orderRepository.findByUserIdOrderByCreatedAtDesc(userId);
+    }
+
+    public List<Order> ventasDe(String vendedorId) {
+        return orderRepository.findByVendedorId(vendedorId);
+    }
+
+    public Map<String, Object> resumenVentas(String vendedorId) {
+        List<Order> ventas = ventasDe(vendedorId);
+        double monto = 0;
+        int unidades = 0;
+        for (Order o : ventas) {
+            if ("CANCELLED".equalsIgnoreCase(o.getStatus())) continue;
+            if (o.getItems() != null) {
+                for (com.cardtrademarket.model.OrderItem it : o.getItems()) {
+                    if (vendedorId.equals(it.getVendedorId())) {
+                        monto += it.getPrecioUnitario() == null ? 0 : it.getPrecioUnitario();
+                        unidades++;
+                    }
+                }
+            }
+        }
+        Map<String, Object> out = new java.util.LinkedHashMap<>();
+        out.put("numOrdenes", ventas.size());
+        out.put("unidadesVendidas", unidades);
+        out.put("montoTotal", Math.round(monto * 100) / 100.0);
+        out.put("promedioPorOrden", ventas.isEmpty() ? 0 : Math.round(monto / ventas.size() * 100) / 100.0);
+        return out;
+    }
+
+    public Map<String, Object> trackingDe(Order order) {
+        Map<String, Object> out = new java.util.LinkedHashMap<>();
+        out.put("orderId", order.getId());
+        out.put("numeroOrden", order.getNumeroOrden());
+        out.put("status", order.getStatus());
+        out.put("trackingStatus", order.getTrackingStatus());
+        out.put("carrier", order.getCarrier());
+        out.put("trackingNumber", order.getTrackingNumber());
+        out.put("eta", order.getEta());
+        out.put("shippingMethod", order.getShippingMethod());
+        out.put("events", order.getTrackingEvents() == null ? List.of() : order.getTrackingEvents());
+        return out;
+    }
+
+    public Order actualizarTracking(String orderId, Map<String, String> body) {
+        Order order = getOrderById(orderId);
+        if (body.containsKey("carrier")) order.setCarrier(body.get("carrier"));
+        if (body.containsKey("trackingNumber")) order.setTrackingNumber(body.get("trackingNumber"));
+        if (body.containsKey("trackingStatus")) {
+            order.setTrackingStatus(body.get("trackingStatus"));
+            if (order.getTrackingEvents() == null) {
+                order.setTrackingEvents(new ArrayList<>());
+            }
+            order.getTrackingEvents().add(new com.cardtrademarket.model.TrackingEvent(
+                    java.time.LocalDateTime.now(),
+                    "Actualización del transportista: " + body.get("trackingStatus"),
+                    body.get("trackingStatus")));
+        }
+        if (body.containsKey("eta")) order.setEta(body.get("eta"));
         return orderRepository.save(order);
     }
 }
