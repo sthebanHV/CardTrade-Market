@@ -10,4 +10,6 @@ public interface ReportRepository extends JpaRepository<Report, String> {
     List<Report> findAllByOrderByFechaDesc();
     List<Report> findByCardId(String cardId);
     long countByCardId(String cardId);
+    List<Report> findByEstadoOrderByFechaDesc(String estado);
+    long countByEstado(String estado);
 }

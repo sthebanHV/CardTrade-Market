@@ -64,6 +64,7 @@ public class ReportsController {
         r.setMotivo(motivo);
         r.setDetalles(detalles != null && detalles.length() > 1000 ? detalles.substring(0, 1000) : detalles);
         r.setFecha(new java.util.Date());
+        r.setEstado("PENDIENTE");
         reportRepository.save(r);
 
         return ResponseEntity.status(201).body(Map.of(

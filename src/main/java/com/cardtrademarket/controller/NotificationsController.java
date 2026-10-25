@@ -50,6 +50,21 @@ public class NotificationsController {
         return ResponseEntity.ok(notificationService.marcarComoLeido(notificationId));
     }
 
+    @DeleteMapping("/{notificationId}")
+    public ResponseEntity<?> eliminar(@PathVariable String notificationId) {
+        User u = usuarioActual();
+        if (u == null) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
+        }
+        Notification n = notificationService.getNotificationById(notificationId);
+        if (!u.getId().equals(n.getUserId()) && !"ROLE_ADMIN".equals(u.getRole())) {
+            return ResponseEntity.status(HttpStatus.FORBIDDEN)
+                    .body(Map.of("error", "No es tu notificaci\u00f3n"));
+        }
+        notificationService.deleteNotification(notificationId);
+        return ResponseEntity.ok(Map.of("ok", true));
+    }
+
     @PostMapping("/read-all")
     public ResponseEntity<Map<String, Object>> marcarTodasLeidas() {
         User u = usuarioActual();

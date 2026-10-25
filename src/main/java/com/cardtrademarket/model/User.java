@@ -33,6 +33,7 @@ public class User implements UserDetails {
     @com.fasterxml.jackson.annotation.JsonProperty(access = com.fasterxml.jackson.annotation.JsonProperty.Access.WRITE_ONLY)
     private String passwordHash;
     private String role;
+    private String status; // ACTIVO, SUSPENDIDO
     private Double rating;
     private boolean emailVerified;
 
@@ -109,6 +110,6 @@ public class User implements UserDetails {
 
     @Override
     public boolean isEnabled() {
-        return true;
+        return status == null || "ACTIVO".equals(status);
     }
 }

@@ -118,6 +118,10 @@ public class AuthController {
             return ResponseEntity.status(401).body(err("Credenciales inválidas", 401));
         }
 
+        if ("SUSPENDIDO".equals(user.getStatus())) {
+            return ResponseEntity.status(403).body(err("Cuenta suspendida. Contacta al administrador.", 403));
+        }
+
         user.setFailedAttempts(0);
         user.setLockedUntil(null);
         userService.guardar(user);

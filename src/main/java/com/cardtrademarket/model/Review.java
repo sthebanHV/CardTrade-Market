@@ -25,6 +25,9 @@ public class Review {
     @Column(name = "seller_id")
     private String sellerId;
 
+    @Column(name = "order_id")
+    private String orderId;
+
     @Column(name = "rating")
     private Integer rating; // 1-5
 
@@ -60,6 +63,9 @@ public class Review {
 
     public String getSellerId() { return sellerId; }
     public void setSellerId(String sellerId) { this.sellerId = sellerId; }
+
+    public String getOrderId() { return orderId; }
+    public void setOrderId(String orderId) { this.orderId = orderId; }
 
     public String getCardId() { return cardId; }
     public void setCardId(String cardId) { this.cardId = cardId; }
