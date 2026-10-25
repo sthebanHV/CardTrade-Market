@@ -11,11 +11,19 @@ import {
   Flag as FlagIcon, LibraryAdd as CollectionIcon, NotificationsActive as AlertIcon,
   Share as ShareIcon, Chat as ChatIcon, Link as LinkIcon, Check as CheckIcon,
 } from '@mui/icons-material';
-import { cardsAPI, usersAPI, chatAPI } from '../../api/apiClient';
+import { cardsAPI, usersAPI, chatAPI, marketAPI } from '../../api/apiClient';
 import { useStore } from '../../store';
 import { ReportModal } from '../sell/ReportModal';
 import { AddToCollectionDialog } from '../collection/AddToCollectionDialog';
 import { PriceAlertDialog } from '../alerts/PriceAlertDialog';
+
+const gameKeyDe = (tipo) => {
+  const t = (tipo || '').toLowerCase();
+  if (t.includes('magic')) return 'MAGIC';
+  if (t.includes('pok')) return 'POKEMON';
+  if (t.includes('yu') || t.includes('yugi')) return 'YUGIOH';
+  return null;
+};
 
 export const CardDetail = () => {
   const { id } = useParams();
@@ -30,6 +38,7 @@ export const CardDetail = () => {
   const [alertOpen, setAlertOpen] = useState(false);
   const [shareOpen, setShareOpen] = useState(false);
   const [copiado, setCopiado] = useState(false);
+  const [market, setMarket] = useState(null);
 
   const { addToCart, addToFavorites, favorites, toggleCompare, compare, token, showToast } = useStore();
 
@@ -92,6 +101,12 @@ export const CardDetail = () => {
         setCard(data);
         if (data.vendedorId) {
           usersAPI.getPublic(data.vendedorId).then((u) => activo && setSeller(u)).catch(() => {});
+        }
+        const g = gameKeyDe(data.tipo);
+        if (g) {
+          marketAPI.resolve(g, data.nombre)
+            .then((m) => { if (activo) setMarket(m); })
+            .catch(() => { if (activo) setMarket(null); });
         }
       })
       .catch(() => activo && setError(true))
@@ -224,6 +239,33 @@ export const CardDetail = () => {
                 </>
               )}
             </Stack>
+            {market && market.priceUsd != null && (
+              <Stack spacing={0.75} sx={{ mt: 1.5 }}>
+                <Chip
+                  size="small"
+                  color="success"
+                  variant="outlined"
+                  label={`Precio de mercado $${Number(market.priceUsd).toFixed(2)} USD`}
+                  sx={{ fontWeight: 700, alignSelf: 'flex-start' }}
+                />
+                {(() => {
+                  const delta = ((Number(precioFinal) - market.priceUsd) / market.priceUsd) * 100;
+                  const abs = Math.abs(delta);
+                  if (abs < 2) {
+                    return (
+                      <Typography variant="caption" color="text.secondary">
+                        Esta publicación está en línea con el mercado.
+                      </Typography>
+                    );
+                  }
+                  return (
+                    <Typography variant="caption" sx={{ fontWeight: 600 }} color={delta > 0 ? 'warning.main' : 'success.main'}>
+                      {abs.toFixed(0)}% {delta > 0 ? 'sobre' : 'bajo'} el precio de mercado ({market.source})
+                    </Typography>
+                  );
+                })()}
+              </Stack>
+            )}
             <Typography variant="body2" color={stock > 0 ? 'success.main' : 'error.main'} sx={{ mt: 0.5, fontWeight: 600 }}>
               {stock > 0 ? `Stock: ${stock} disponible${stock > 1 ? 's' : ''}` : 'Sin stock'}
             </Typography>

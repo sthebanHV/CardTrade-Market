@@ -74,3 +74,12 @@ jobs:
               echo "FAIL ${path} code=${code}"; exit 1; }
             echo "${path} -> ${code}"
           done
+
+      - name: Market search (API de precios)
+        run: |
+          code=$(curl -fsS --retry 5 --retry-delay 15 -o /tmp/market.json -w '%{http_code}' \
+            "https://cardtrademarket-backend.onrender.com/api/market/search?q=bolt&games=MAGIC") || {
+            echo "FAIL market code=${code}"; exit 1; }
+          grep -q '"results"' /tmp/market.json || {
+            echo "FAIL market sin campo results"; cat /tmp/market.json; exit 1; }
+          echo "market -> ${code}"

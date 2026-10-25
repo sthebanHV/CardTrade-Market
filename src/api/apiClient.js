@@ -273,3 +273,20 @@ export const adminAPI = {
   stats: async () => (await apiClient.get('/admin/stats')).data,
   audit: async () => (await apiClient.get('/admin/audit')).data,
 };
+
+export const marketAPI = {
+  search: async (q, games, limit = 12) =>
+    (
+      await apiClient.get('/market/search', {
+        params: { q, ...(games ? { games } : {}), limit },
+      })
+    ).data,
+  card: async (game, externalId) =>
+    (
+      await apiClient.get(
+        `/market/card/${encodeURIComponent(game)}/${encodeURIComponent(externalId)}`
+      )
+    ).data,
+  resolve: async (game, name) =>
+    (await apiClient.post('/market/resolve', { game, name })).data,
+};

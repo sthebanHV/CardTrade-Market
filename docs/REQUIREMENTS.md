@@ -513,6 +513,7 @@ Ver Issues del repositorio: https://github.com/sthebanHV/CardTrade-Market/issues
 | 5 | Carrito, checkout, confirmación, direcciones, métodos de pago, invitado | US-23 a US-28 | ✅ |
 | 6 | Colección, export CSV, colecciones temáticas, historiales, seguir, alertas, tracking | US-29 a US-38 | ✅ |
 | 7 | Reseñas, chat, favoritos, wishlist, compartir, dashboard, notificaciones, perspectivas, admin | US-39 a US-47 | ✅ |
+| 8 | Precios de mercado: `/market` (Scryfall, YGOPRODeck, Pokémon TCG API), autocompletado al publicar, badge en ficha, caché 24 h + circuit breaker | extensión pos-v1.0.0 | ✅ (smoke-market 25/25) |
 
 **Producción:** frontend https://cardtrade-market.vercel.app · API https://cardtrademarket-backend.onrender.com
 

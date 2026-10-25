@@ -22,6 +22,7 @@ import { CardDetail } from './components/cards/CardDetail';
 import { ComparePage } from './components/cards/ComparePage';
 import { GamesPage } from './components/cards/GamesPage';
 import { OffersPage } from './components/cards/OffersPage';
+import { MarketPage } from './components/market/MarketPage';
 import { ProtectedRoute } from './components/guards/ProtectedRoute';
 import { AdminRoute } from './components/guards/AdminRoute';
 import { ComingSoon } from './components/ui/ComingSoon';
@@ -63,7 +64,8 @@ export const router = createBrowserRouter(
       <Route path="search" element={<SearchPage />} />
       <Route path="compare" element={<ComparePage />} />
       <Route path="games" element={<GamesPage />} />
-      <Route path="offers" element={<OffersPage />} />
+        <Route path="offers" element={<OffersPage />} />
+        <Route path="market" element={<MarketPage />} />
 
       {/* Comprar — US-23/24/25/28/34/38 */}
       <Route path="cart" element={<CartPage />} />

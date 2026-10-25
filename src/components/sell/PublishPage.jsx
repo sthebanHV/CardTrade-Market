@@ -3,15 +3,23 @@ import { useNavigate, Link as RouterLink } from 'react-router-dom';
 import {
   Box, Grid, Paper, Typography, TextField, Button, Stack, MenuItem,
   Autocomplete, Chip, Alert, Dialog, DialogTitle, DialogContent, DialogActions,
-  Rating, Breadcrumbs, Link as MuiLink,
+  Rating, Breadcrumbs, Link as MuiLink, CircularProgress,
 } from '@mui/material';
-import { Visibility as PreviewIcon, CheckCircle as SaveIcon } from '@mui/icons-material';
-import { cardsAPI, platformAPI } from '../../api/apiClient';
+import { Visibility as PreviewIcon, CheckCircle as SaveIcon, AttachMoney as MoneyIcon } from '@mui/icons-material';
+import { cardsAPI, platformAPI, marketAPI } from '../../api/apiClient';
 import { useStore } from '../../store';
 import { ImageUploader } from './ImageUploader';
 
 const CONDICIONES = ['Near Mint', 'Lightly Played', 'Moderately Played', 'Heavily Played'];
 const RAREZAS = ['Common', 'Uncommon', 'Rare', 'Holo Rare', 'Ultra Rare', 'Secret Rare'];
+
+const gameKeyDe = (tipo) => {
+  const t = (tipo || '').toLowerCase();
+  if (t.includes('magic')) return 'MAGIC';
+  if (t.includes('pok')) return 'POKEMON';
+  if (t.includes('yu') || t.includes('yugi')) return 'YUGIOH';
+  return null;
+};
 
 export const PublishPage = () => {
   const navigate = useNavigate();
@@ -32,12 +40,32 @@ export const PublishPage = () => {
   const [error, setError] = useState('');
   const [enviando, setEnviando] = useState(false);
   const [preview, setPreview] = useState(false);
+  const [sugerencias, setSugerencias] = useState([]);
+  const [sugiriendo, setSugiriendo] = useState(false);
+  const [matchMercado, setMatchMercado] = useState(null);
 
   useEffect(() => {
     platformAPI.categories()
       .then((cats) => setJuegos((cats || []).map((c) => c.juego)))
       .catch(() => {});
   }, []);
+
+  // Autocompletado contra el catálogo de mercado (imágenes y precios reales)
+  useEffect(() => {
+    const g = gameKeyDe(form.tipo);
+    if (!g || form.nombre.trim().length < 2) {
+      setSugerencias([]);
+      return;
+    }
+    const t = setTimeout(() => {
+      setSugiriendo(true);
+      marketAPI.search(form.nombre.trim(), g, 6)
+        .then((d) => setSugerencias(d?.results || []))
+        .catch(() => setSugerencias([]))
+        .finally(() => setSugiriendo(false));
+    }, 500);
+    return () => clearTimeout(t);
+  }, [form.nombre, form.tipo]);
 
   const set = (k) => (e) => setForm({ ...form, [k]: e.target.value });
 
@@ -105,12 +133,70 @@ export const PublishPage = () => {
                 Datos de la carta
               </Typography>
               <Stack spacing={2} sx={{ mt: 2 }}>
-                <TextField
-                  label="Nombre de la carta *"
+                <Autocomplete
+                  freeSolo
+                  options={sugerencias}
+                  loading={sugiriendo}
+                  getOptionLabel={(o) => (typeof o === 'string' ? o : o.name || '')}
+                  isOptionEqualToValue={(o, v) =>
+                    typeof v === 'object' && v != null && o.externalId === v.externalId}
+                  renderOption={(props, o) => (
+                    <li {...props} key={`${o.game}-${o.externalId}`}>
+                      <Stack direction="row" alignItems="center" spacing={1} sx={{ width: '100%' }}>
+                        {o.image && (
+                          <Box component="img" src={o.image} alt=""
+                            sx={{ width: 30, height: 42, objectFit: 'cover', borderRadius: 0.5, flexShrink: 0 }} />
+                        )}
+                        <Box sx={{ flexGrow: 1, minWidth: 0 }}>
+                          <Typography variant="body2" noWrap>{o.name}</Typography>
+                          <Typography variant="caption" color="text.secondary" noWrap>
+                            {[o.setName, o.rarity].filter(Boolean).join(' · ')}
+                          </Typography>
+                        </Box>
+                        {o.priceUsd != null && (
+                          <Chip size="small" color="success" label={`$${Number(o.priceUsd).toFixed(2)}`} />
+                        )}
+                      </Stack>
+                    </li>
+                  )}
                   value={form.nombre}
-                  onChange={set('nombre')}
-                  inputProps={{ maxLength: 120 }}
-                  required
+                  onChange={(e, v) => {
+                    if (v && typeof v === 'object') {
+                      setForm({
+                        ...form,
+                        nombre: v.name || form.nombre,
+                        edition: form.edition || v.setName || '',
+                        rarity: form.rarity || v.rarity || '',
+                      });
+                      setMatchMercado(v);
+                      if (v.image && fotos.length === 0) setFotos([v.image]);
+                    } else if (typeof v === 'string') {
+                      setForm({ ...form, nombre: v });
+                    }
+                  }}
+                  onInputChange={(e, v, reason) => {
+                    if (e && reason === 'input') {
+                      setForm({ ...form, nombre: v });
+                      setMatchMercado(null);
+                    }
+                  }}
+                  renderInput={(params) => (
+                    <TextField
+                      {...params}
+                      label="Nombre de la carta *"
+                      required
+                      inputProps={{ ...params.inputProps, maxLength: 120 }}
+                      InputProps={{
+                        ...params.InputProps,
+                        endAdornment: (
+                          <>
+                            {sugiriendo ? <CircularProgress size={18} /> : null}
+                            {params.InputProps.endAdornment}
+                          </>
+                        ),
+                      }}
+                    />
+                  )}
                 />
                 <Autocomplete
                   freeSolo
@@ -139,7 +225,7 @@ export const PublishPage = () => {
                   </Grid>
                   <Grid item xs={6} sm={3}>
                     <TextField
-                      label="Precio (MXN) *"
+                      label="Precio (USD) *"
                       type="number"
                       value={form.precio}
                       onChange={set('precio')}
@@ -159,6 +245,33 @@ export const PublishPage = () => {
                     />
                   </Grid>
                 </Grid>
+                {matchMercado && (
+                  <Stack direction="row" spacing={1} alignItems="center" sx={{ flexWrap: 'wrap', gap: 1 }}>
+                    <Chip
+                      size="small"
+                      color="success"
+                      variant="outlined"
+                      icon={<MoneyIcon />}
+                      label={matchMercado.priceUsd != null
+                        ? `Mercado: $${Number(matchMercado.priceUsd).toFixed(2)} USD`
+                        : 'Coincidencia sin precio disponible'}
+                      sx={{ fontWeight: 700 }}
+                    />
+                    {matchMercado.priceUsd != null && (
+                      <Button
+                        size="small"
+                        variant="contained"
+                        color="success"
+                        onClick={() => setForm({ ...form, precio: String(matchMercado.priceUsd) })}
+                      >
+                        Usar precio de mercado
+                      </Button>
+                    )}
+                    <Typography variant="caption" color="text.secondary">
+                      {[matchMercado.source, matchMercado.setName].filter(Boolean).join(' · ')}
+                    </Typography>
+                  </Stack>
+                )}
                 <TextField
                   label="Descripción"
                   value={form.descripcion}

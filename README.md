@@ -30,7 +30,18 @@ CardTrade Market permite a los coleccionistas buscar, comparar, comprar y vender
 - **Historiales** — compras, ventas y valoraciones con detalle de orden y reseñas (1 por compra, solo tras entrega)
 - **Social** — favoritos y lista de deseos con backend, seguir/viendo vendedores, alertas de precio, chat en tiempo real (polling 5 s), compartir en redes sociales, reportar publicaciones
 - **Panel de usuario** — dashboard con métricas, actividad reciente y perspectivas; centro de notificaciones con badge de no leídas (polling 60 s)
+- **Precios de mercado** — página `/market` con búsqueda de cartas reales (imagen + precio USD) de Magic, Pokémon y Yu-Gi-Oh!; autocompletado al publicar con foto, edición y rareza prellenadas + botón "usar precio de mercado"; badge de precio de mercado vs. tu precio en la ficha de la carta; caché 24 h, circuit breaker y degradación elegante cuando una fuente cae
 - **Administración** — usuarios (buscar, cambiar rol/estado sin auto-modificación), reportes (resolver → ocultar carta / suspender vendedor), estadísticas (serie 30 días, top juegos/vendedores) y auditoría inmutable
+
+### Precios de mercado — fuentes y atribución
+
+Los datos de precios e imágenes provienen de APIs públicas de terceros y se muestran con fines informativos (no comerciales), sin paywall ni alteración de las imágenes:
+
+| Juego | Fuente | Notas |
+|-------|--------|-------|
+| Magic: The Gathering | [Scryfall](https://scryfall.com) — API | Uso sujeto a la [Scryfall Fan Content Policy](https://scryfall.com/docs/fan-content-policy); atribución visible en `/market` y fichas de detalle |
+| Yu-Gi-Oh! | [YGOPRODeck](https://ygoprodeck.com/api/) — API | Cortesía de YGOPRODeck; precios TCGPlayer/Cardmarket/eBay/Amazon |
+| Pokémon | [Pokémon TCG API](https://pokemontcg.io) (fallback [TCGdex](https://api.tcgdex.dev)) | Fuente sujeta a cambios de disponibilidad; el juego se degrada con aviso `unavailable` si todas las fuentes fallan |
 
 ## Stack Tecnológico
 
@@ -40,6 +51,7 @@ CardTrade Market permite a los coleccionistas buscar, comparar, comprar y vender
 | Backend | Spring Boot 3.2 (Java 17), Spring Security, Spring Data JPA |
 | Base de datos | PostgreSQL |
 | Autenticación | JWT (jjwt) + TOTP 2FA |
+| Precios de mercado | Scryfall (MTG), YGOPRODeck (Yu-Gi-Oh!), Pokémon TCG API + TCGdex (fallback) |
 | Despliegue | Vercel (frontend), Render (API + Postgres), Docker |
 | Calidad | Smoke scripts PowerShell (end-to-end local y producción) |
 

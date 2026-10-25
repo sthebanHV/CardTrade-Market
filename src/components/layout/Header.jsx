@@ -12,6 +12,7 @@ import {
   AdminPanelSettings as AdminIcon, Settings as SettingsIcon, Chat as ChatIcon,
   Storefront as StoreIcon, LocalOffer as OfferIcon, History as HistoryIcon,
   ReceiptLong as PurchasesIcon, SellTwoTone as ListIcon, AccountCircle,
+  QueryStats as QueryStatsIcon,
 } from '@mui/icons-material';
 import { useStore } from '../../store';
 import { cardsAPI } from '../../api/apiClient';
@@ -21,6 +22,7 @@ const perspectivas = [
     label: 'Explorar',
     items: [
       { to: '/cards', text: 'Catálogo', icon: <StoreIcon fontSize="small" /> },
+      { to: '/market', text: 'Precios de mercado', icon: <QueryStatsIcon fontSize="small" /> },
       { to: '/offers', text: 'Ofertas', icon: <OfferIcon fontSize="small" /> },
       { to: '/games', text: 'Por juego', icon: <CollectionIcon fontSize="small" /> },
     ],
