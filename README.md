@@ -1,93 +1,117 @@
 # CardTrade Market
 
-Plataforma web para la compra y venta de cartas coleccionables.
+Plataforma web completa para la compra y venta de cartas coleccionables: catálogo con búsqueda y filtros, publicaciones, carrito y checkout, colección personal, reseñas, chat, alertas de precio, dashboard y panel de administración.
+
+**Producción**
+
+| | URL |
+|---|---|
+| Frontend (Vercel) | https://cardtrade-market.vercel.app |
+| API (Render) | https://cardtrademarket-backend.onrender.com |
+| Admin local (dev) | `admin` / `Test1234!` |
+| Admin producción | `admin` / `AdminCTM2026!` |
+
+**Estado:** 47/47 historias de usuario implementadas, verificadas con smokes locales y de producción (91/91 PASS), desplegadas. Ver [Estado de implementación](#estado-de-implementación).
 
 ## Descripción
 
-CardTrade Market es una plataforma que permite a los coleccionistas de cartas buscar, comprar y vender cartas de diferentes tipos. Los usuarios pueden consultar el precio actual en el mercado, conocer la edición, rareza y estado de cada carta, publicar sus propias cartas para la venta, gestionar su colección personal y consultar el historial de transacciones.
+CardTrade Market permite a los coleccionistas buscar, comparar, comprar y vender cartas de distintos juegos (Magic, Pokémon, Yu-Gi-Oh!, Lorcana…). Cada carta muestra edición, rareza, idioma, condición, idioma y precio de mercado; los usuarios pueden publicar sus propias cartas, gestionar su colección y valoración, seguir a vendedores, recibir alertas de precio y consultar su historial de transacciones.
 
-## Funcionalidades Principales
+## Funcionalidades
 
-- **Registro y autenticación** de usuarios
-- **Búsqueda avanzada** de cartas con filtros
-- **Detalle de carta** con información de edición, rareza, estado y precio
-- **Publicación de cartas** en venta
-- **Proceso de compra** con carrito y checkout
-- **Colección personal** de cartas
-- **Historial** de compras y ventas
-- **Dashboard** con resumen de actividad
+- **Autenticación** — registro, login (usuario o email), recuperación/cambio de contraseña, verificación de email, 2FA con códigos TOTP, JWT de 7 días, cuenta suspendida bloqueada en login
+- **Catálogo** — home con destacados/ofertas, búsqueda instantánea, filtros avanzados (juego, rareza, condición, precio, idioma), comparar hasta 3 cartas, catálogo por juego, ficha pública de vendedor
+- **Publicar y vender** — crear/editar publicación con fotos (compresión cliente), pausar, editar precio, marcar vendido, mis publicaciones
+- **Comprar** — carrito con persistencia (Zustand, TTL 7 días), checkout con direcciones y métodos de pago (tarjetas guardadas solo con brand/last4/expiry, nunca CVV), compra como invitado, confirmación de orden, tracking de envío
+- **Colección** — agregar/quitar cartas, mi colección con estadísticas y valor de mercado, exportar CSV, colecciones temáticas (públicas/privadas)
+- **Historiales** — compras, ventas y valoraciones con detalle de orden y reseñas (1 por compra, solo tras entrega)
+- **Social** — favoritos y lista de deseos con backend, seguir/viendo vendedores, alertas de precio, chat en tiempo real (polling 5 s), compartir en redes sociales, reportar publicaciones
+- **Panel de usuario** — dashboard con métricas, actividad reciente y perspectivas; centro de notificaciones con badge de no leídas (polling 60 s)
+- **Administración** — usuarios (buscar, cambiar rol/estado sin auto-modificación), reportes (resolver → ocultar carta / suspender vendedor), estadísticas (serie 30 días, top juegos/vendedores) y auditoría inmutable
 
-## Tecnologías
+## Stack Tecnológico
 
 | Capa | Tecnología |
 |------|------------|
-| Frontend | React.js |
-| Backend | Node.js + Express |
-| Base de datos | MongoDB |
-| Autenticación | JWT |
-| Estilos | CSS Modules / Tailwind CSS |
+| Frontend | React 18 + Vite, MUI (Material UI), Zustand, React Router v6 |
+| Backend | Spring Boot 3.2 (Java 17), Spring Security, Spring Data JPA |
+| Base de datos | PostgreSQL |
+| Autenticación | JWT (jjwt) + TOTP 2FA |
+| Despliegue | Vercel (frontend), Render (API + Postgres), Docker |
+| Calidad | Smoke scripts PowerShell (end-to-end local y producción) |
 
 ## Estructura del Proyecto
 
+Monorepo con frontend y backend en la raíz:
+
 ```
 CardTrade-Market/
-├── client/                 # Frontend React
-│   ├── public/
-│   ├── src/
-│   │   ├── components/     # Componentes reutilizables
-│   │   ├── pages/          # Páginas/Vistas
-│   │   ├── hooks/          # Custom hooks
-│   │   ├── context/        # Context API
-│   │   ├── services/       # Servicios API
-│   │   ├── utils/          # Utilidades
-│   │   └── styles/         # Estilos globales
-│   └── package.json
-├── server/                 # Backend Node.js
-│   ├── routes/
-│   ├── controllers/
-│   ├── models/
-│   ├── middleware/
-│   ├── services/
-│   └── package.json
-├── docs/                   # Documentación
-│   └── REQUIREMENTS.md     # Requerimientos del proyecto
-└── README.md
+├── src/
+│   ├── main/java/com/cardtrademarket/   # Backend Spring Boot
+│   │   ├── config/                      # SecurityConfig, CORS, SchemaFixup
+│   │   ├── controller/                  # REST: auth, cards, orders, chat, admin…
+│   │   ├── model/                       # JPA: User, Card, Order, Review, Report…
+│   │   ├── repository/                  # Spring Data JPA
+│   │   ├── security/                    # JWT filter, utilidades
+│   │   └── service/                     # Lógica de negocio
+│   ├── main/resources/application.properties
+│   ├── api/apiClient.js                 # Cliente REST (fetch + token)
+│   ├── components/                      # Vistas React por dominio
+│   │   ├── auth/ dashboard/ cards/ checkout/ purchases/ sales/
+│   │   ├── collection/ favorites/ wishlist/ chat/ admin/ ...
+│   ├── store.jsx                        # Estado global (Zustand)
+│   ├── router.jsx                       # Rutas + guardas de rol
+│   └── theme.js                         # Design tokens (MUI)
+├── docs/
+│   ├── REQUIREMENTS.md                  # Requerimientos + 47 HU
+│   ├── issues/US-01…US-47-*.md          # Historias de usuario
+│   └── mockups/
+├── build.gradle                         # Backend (Spring Boot 3.2.2)
+├── package.json                         # Frontend (Vite)
+├── Dockerfile / render.yaml             # Despliegue backend
+└── vercel.json                          # SPA rewrites en Vercel
 ```
 
-## Instalación
+## Arranque Local
 
 ### Prerrequisitos
-- Node.js >= 18.x
-- npm o yarn
-- MongoDB
 
-### Pasos
+- Java 17+, Node.js 18+, PostgreSQL 15+ (o el cluster local del proyecto)
+
+### Backend
 
 ```bash
-# Clonar el repositorio
-git clone https://github.com/sthebanHV/CardTrade-Market.git
-cd CardTrade-Market
+# La app espera Postgres en SPRING_DATASOURCE_URL (default jdbc:postgresql://localhost:5432/cardtrade)
+# Variables opcionales: SPRING_DATASOURCE_USERNAME, SPRING_DATASOURCE_PASSWORD, JWT_SECRET, PORT
 
-# Instalar dependencias del backend
-cd server
-npm install
-
-# Instalar dependencias del frontend
-cd ../client
-npm install
-
-# Configurar variables de entorno
-cp .env.example .env
-
-# Ejecutar en desarrollo
-# Terminal 1 - Backend
-cd server
-npm run dev
-
-# Terminal 2 - Frontend
-cd client
-npm start
+gradle bootRun            # o: gradle bootJar && java -jar build/libs/*.jar
 ```
+
+En desarrollo local se usa un cluster Postgres en el puerto **5433** y se arranca con el script `run-ctm2.ps1` (datasource, admin local y log en `%TEMP%\ctm-pg3.log`).
+
+### Frontend
+
+```bash
+npm install
+npm run dev               # http://localhost:5173
+npm run build             # build de producción en dist/
+```
+
+Configuración en `.env.example`:
+
+```
+VITE_API_URL=https://cardtrademarket-backend.onrender.com/api   # o http://localhost:8080/api
+VITE_APP_NAME=CardTrade-Market
+```
+
+### Pruebas / smokes
+
+```powershell
+# Con backend corriendo en localhost:8080:
+powershell -File smoke-fase7.ps1     # 91 checks end-to-end (usuario admin: admin/Test1234!)
+```
+
+Los mismos scripts se ejecutan contra producción cambiando `$base` a la URL de Render y el admin a `AdminCTM2026!`.
 
 ## Roles de Usuario
 
@@ -109,9 +133,27 @@ Los roles tienen **dos capas** (ver [US-46](docs/issues/US-46-Sistema-Roles-Pers
 | **Vendedor** | Publicar, mis publicaciones, mis ventas, perfil con rating | Al completar ventas se muestra el distintivo "Vendedor verificado" |
 | **Coleccionista** | Mi colección, valor/estadísticas, favoritos, alertas, lista de deseos | Al tener cartas en la colección |
 
+## Estado de implementación
+
+| Fase | Alcance | HU | Estado |
+|------|---------|----|--------|
+| 0 | Issues, documentación, requerimientos | — | ✅ |
+| 1 | Roles, JWT, seguridad, esqueleto | HU_01–09 | ✅ |
+| 2–3 | Catálogo, búsqueda, filtros, detalle, comparar, ofertas | HU_10–16 | ✅ |
+| 4 | Publicar, mis publicaciones, perfil vendedor, reportar, precio, vendido | HU_17–22 | ✅ |
+| 5 | Carrito, checkout, confirmación, direcciones, métodos de pago, invitado | HU_23–28 | ✅ |
+| 6 | Colección, export, colecciones temáticas, historiales, seguir, alertas, tracking | HU_29–38 | ✅ |
+| 7 | Reseñas, chat, favoritos, wishlist, compartir, dashboard, notificaciones, roles/perspectivas, admin | HU_39–47 | ✅ |
+
+**Supuestos acordados:** pago simulado (órdenes pasan a `PAID` directo), OAuth social como botones "configurar", email sin SMTP (log simulado), chat con polling (5 s) en lugar de WebSocket, imágenes como dataURL comprimida ≤1600 px.
+
+**Conocidas y no bloqueantes:** Open Graph tags por carta requieren SSR; preferencias de email/push son simuladas.
+
 ## Documentación
 
-Ver [REQUIREMENTS.md](docs/REQUIREMENTS.md) para requerimientos detallados.
+- [docs/REQUIREMENTS.md](docs/REQUIREMENTS.md) — requerimientos funcionales/no funcionales, modelos de datos y las 47 historias de usuario
+- [docs/issues/](docs/issues/) — historias de usuario US-01 … US-47 con criterios de aceptación
+- [docs/mockups/](docs/mockups/) — mockups de referencia (diseño "inspirado pero moderno")
 
 ## Licencia
 

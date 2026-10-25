@@ -497,3 +497,25 @@ Ver Issues del repositorio: https://github.com/sthebanHV/CardTrade-Market/issues
 | **Publicación** | Anuncio de venta de una carta |
 | **Orden** | Transacción de compra-venta completada |
 | **INVEST** | Modelo de historias: Independiente, Negociable, Valioso, Estimable, Pequeño, Testable |
+
+---
+
+## 8. Estado de Implementación
+
+**47/47 historias de usuario implementadas, verificadas y desplegadas** (smoke local 91/91 PASS · smoke producción 91/91 PASS).
+
+| Fase | Alcance | Historias | Estado |
+|------|---------|-----------|--------|
+| 0 | Issues de GitHub, documentación, este documento | — | ✅ |
+| 1 | Roles, JWT, seguridad, esqueleto del proyecto | US-01 a US-09 | ✅ |
+| 2–3 | Catálogo, búsqueda, filtros, detalle, comparar, ofertas | US-10 a US-16 | ✅ |
+| 4 | Publicar, mis publicaciones, perfil vendedor, reportar, precio, vendido | US-17 a US-22 | ✅ |
+| 5 | Carrito, checkout, confirmación, direcciones, métodos de pago, invitado | US-23 a US-28 | ✅ |
+| 6 | Colección, export CSV, colecciones temáticas, historiales, seguir, alertas, tracking | US-29 a US-38 | ✅ |
+| 7 | Reseñas, chat, favoritos, wishlist, compartir, dashboard, notificaciones, perspectivas, admin | US-39 a US-47 | ✅ |
+
+**Producción:** frontend https://cardtrade-market.vercel.app · API https://cardtrademarket-backend.onrender.com
+
+**Supuestos acordados (no son lagunas):** pago simulado (la orden pasa a `PAID` directo, sin pasarela real); OAuth social como botones "configurar" (sin proveedores reales); email sin SMTP (envíos simulados en log); chat con polling de 5 s en lugar de WebSocket; imágenes como dataURL comprimida en el cliente (≤1600 px, JPEG 0.85); tarjetas de pago guardan solo `brand`/`last4`/`expiry` (nunca CVV).
+
+**Conocidas y no bloqueantes:** tags Open Graph por carta requieren SSR (el index.html base no los personaliza); preferencias de email/push son simuladas; criterios "mobile" y "lazy loading" no tienen suite automatizada (verificación manual pendiente).
