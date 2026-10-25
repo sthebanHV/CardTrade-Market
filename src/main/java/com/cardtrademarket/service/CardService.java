@@ -163,7 +163,7 @@ public class CardService {
             stream = stream.filter(c -> c.getPrecio() != null && c.getPrecio() <= priceMax);
         }
 
-        List<Card> result = stream.toList();
+        List<Card> result = new java.util.ArrayList<>(stream.toList());
         if (sort != null) {
             switch (sort) {
                 case "price_asc" -> result.sort(java.util.Comparator.comparing(Card::getPrecio,

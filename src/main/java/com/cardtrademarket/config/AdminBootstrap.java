@@ -22,6 +22,9 @@ public class AdminBootstrap implements ApplicationRunner {
     @Autowired
     private BCryptPasswordEncoder passwordEncoder;
 
+    @Autowired
+    private org.springframework.jdbc.core.JdbcTemplate jdbcTemplate;
+
     @Value("${ADMIN_EMAIL:}")
     private String adminEmail;
 
@@ -30,6 +33,12 @@ public class AdminBootstrap implements ApplicationRunner {
 
     @Override
     public void run(ApplicationArguments args) {
+        try {
+            jdbcTemplate.update("update users set tfa_enabled = false where tfa_enabled is null");
+            jdbcTemplate.update("update users set failed_attempts = 0 where failed_attempts is null");
+        } catch (Exception e) {
+            log.warn("Backfill de columnas nuevas omitido: {}", e.getMessage());
+        }
         try {
             if (adminEmail == null || adminEmail.isBlank()) {
                 return;

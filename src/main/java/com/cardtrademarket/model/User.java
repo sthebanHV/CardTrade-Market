@@ -34,8 +34,6 @@ public class User implements UserDetails {
     private String passwordHash;
     private String role;
     private Double rating;
-
-    @Column(columnDefinition = "boolean not null default false")
     private boolean emailVerified;
 
     @Column(length = 500)
@@ -63,8 +61,7 @@ public class User implements UserDetails {
     @Temporal(TemporalType.TIMESTAMP)
     private Date lockedUntil;
 
-    @Column(columnDefinition = "boolean not null default false")
-    private boolean tfaEnabled = false;
+    private Boolean tfaEnabled = false;
 
     @com.fasterxml.jackson.annotation.JsonProperty(access = com.fasterxml.jackson.annotation.JsonProperty.Access.WRITE_ONLY)
     private String tfaSecret;

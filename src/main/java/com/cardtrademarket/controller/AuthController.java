@@ -122,7 +122,7 @@ public class AuthController {
         user.setLockedUntil(null);
         userService.guardar(user);
 
-        if (user.isTfaEnabled()) {
+        if (Boolean.TRUE.equals(user.getTfaEnabled())) {
             String tmp = UUID.randomUUID().toString().replace("-", "");
             TMP_TOKENS.put(tmp, new TmpSession(user.getUsername(), System.currentTimeMillis() + 300000));
             purgeTmp();
@@ -280,7 +280,7 @@ public class AuthController {
     public ResponseEntity<?> enable2fa() {
         User user = usuarioActual();
         if (user == null) return ResponseEntity.status(401).body(err("No autenticado", 401));
-        if (user.isTfaEnabled()) {
+        if (Boolean.TRUE.equals(user.getTfaEnabled())) {
             return ResponseEntity.badRequest().body(err("2FA ya está activo", 400));
         }
 
@@ -310,7 +310,7 @@ public class AuthController {
                 return ResponseEntity.status(401).body(err("Sesión 2FA expirada. Inicia sesión de nuevo", 401));
             }
             User user = userService.findByUsername(session.username());
-            if (user == null || !user.isTfaEnabled() || user.getTfaSecret() == null) {
+            if (user == null || !Boolean.TRUE.equals(user.getTfaEnabled()) || user.getTfaSecret() == null) {
                 return ResponseEntity.status(401).body(err("2FA no disponible", 401));
             }
             boolean ok = TotpUtil.verify(user.getTfaSecret(), code)
