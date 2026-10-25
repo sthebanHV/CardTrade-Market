@@ -78,10 +78,10 @@ export const CardDetail = () => {
     ['Estado', card.condition],
   ];
 
-  const onAddCart = () => addToCart(card.id, card.nombre, precioFinal);
+  const onAddCart = () => addToCart(card.id, card.nombre, precioFinal, card.imagenes?.[0]);
   const onBuyNow = () => {
-    addToCart(card.id, card.nombre, precioFinal);
-    navigate(token ? '/checkout' : '/login');
+    addToCart(card.id, card.nombre, precioFinal, card.imagenes?.[0]);
+    navigate('/checkout');
   };
   const onReport = () => {
     if (!token) {

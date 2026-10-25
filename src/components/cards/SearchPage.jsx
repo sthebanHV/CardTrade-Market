@@ -64,7 +64,7 @@ const ResultRow = ({ card }) => {
         </Typography>
         <Stack direction="row" spacing={0.5}>
           <Button size="small" variant="contained" startIcon={<CartIcon sx={{ fontSize: 16 }} />}
-            onClick={() => addToCart(card.id, card.nombre, precioFinal)}>
+            onClick={() => addToCart(card.id, card.nombre, precioFinal, card.imagenes?.[0])}>
             Carrito
           </Button>
           <Tooltip title="Favorito">

@@ -72,7 +72,7 @@ const OfferCard = ({ card }) => {
       {card.ofertaExpira && <Countdown until={card.ofertaExpira} />}
       <Button
         variant="contained" startIcon={<CartIcon />} sx={{ mt: 'auto', pt: 1 }}
-        onClick={() => addToCart(card.id, card.nombre, card.precioOferta)}
+        onClick={() => addToCart(card.id, card.nombre, card.precioOferta, card.imagenes?.[0])}
       >
         Agregar al carrito
       </Button>

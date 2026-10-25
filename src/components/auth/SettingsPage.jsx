@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import {
   Lock as LockIcon, Security as ShieldIcon, Notifications as NotifIcon,
   Palette as ThemeIcon, Verified as VerifiedIcon, Email as EmailIcon,
+  Home as HomeIcon, CreditCard as CardIcon,
 } from '@mui/icons-material';
 import { useStore } from '../../store';
 import { authAPI } from '../../api/apiClient';
@@ -70,6 +71,20 @@ export const SettingsPage = () => {
             <ListItemText
               primary="Editar perfil"
               secondary="Nombre, usuario, correo, biografía y foto"
+            />
+          </ListItemButton>
+          <ListItemButton component={Link} to="/settings/addresses" divider>
+            <ListItemIcon><HomeIcon /></ListItemIcon>
+            <ListItemText
+              primary="Direcciones de envío"
+              secondary="Guarda hasta 5 direcciones (US-26)"
+            />
+          </ListItemButton>
+          <ListItemButton component={Link} to="/settings/payment" divider>
+            <ListItemIcon><CardIcon /></ListItemIcon>
+            <ListItemText
+              primary="Métodos de pago"
+              secondary="Tarjetas guardadas — sin CVV (US-27)"
             />
           </ListItemButton>
           <ListItemButton component={Link} to="/notifications">

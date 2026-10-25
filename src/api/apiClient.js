@@ -116,8 +116,35 @@ export const usersAPI = {
 
 export const ordersAPI = {
   create: async (payload) => (await apiClient.post('/orders', payload)).data,
+  getById: async (orderId) =>
+    (await apiClient.get(`/orders/${encodeURIComponent(orderId)}`)).data,
   getByUser: async (userId) =>
     (await apiClient.get(`/orders/user/${encodeURIComponent(userId)}`)).data,
+};
+
+export const checkoutAPI = {
+  guest: async (payload) =>
+    (await apiClient.post('/checkout/guest', payload)).data,
+};
+
+export const addressesAPI = {
+  list: async () => (await apiClient.get('/addresses')).data,
+  create: async (addr) => (await apiClient.post('/addresses', addr)).data,
+  update: async (id, addr) =>
+    (await apiClient.put(`/addresses/${encodeURIComponent(id)}`, addr)).data,
+  remove: async (id) =>
+    (await apiClient.delete(`/addresses/${encodeURIComponent(id)}`)).data,
+  setDefault: async (id) =>
+    (await apiClient.patch(`/addresses/${encodeURIComponent(id)}/default`)).data,
+};
+
+export const paymentMethodsAPI = {
+  list: async () => (await apiClient.get('/payment-methods')).data,
+  create: async (pm) => (await apiClient.post('/payment-methods', pm)).data,
+  remove: async (id) =>
+    (await apiClient.delete(`/payment-methods/${encodeURIComponent(id)}`)).data,
+  setDefault: async (id) =>
+    (await apiClient.patch(`/payment-methods/${encodeURIComponent(id)}/default`)).data,
 };
 
 export const fetchCards = () => cardsAPI.getAll();

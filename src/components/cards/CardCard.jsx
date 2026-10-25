@@ -69,7 +69,7 @@ export const CardCard = ({ card }) => {
         </Stack>
       </CardContent>
       <CardActions sx={{ justifyContent: 'space-between', px: 1.5, pb: 1.5 }}>
-        <Button size="small" variant="contained" onClick={() => addToCart(card.id, card.nombre, precioFinal)}>
+        <Button size="small" variant="contained" onClick={() => addToCart(card.id, card.nombre, precioFinal, card.imagenes?.[0])}>
           Agregar
         </Button>
         <Stack direction="row" spacing={0.25}>

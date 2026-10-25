@@ -144,7 +144,7 @@ export const ComparePage = () => {
                     <TableCell key={c.id}>
                       <Button
                         size="small" variant="contained" startIcon={<CartIcon sx={{ fontSize: 16 }} />}
-                        onClick={() => addToCart(c.id, c.nombre, c.precioOferta ?? c.precio)}
+                        onClick={() => addToCart(c.id, c.nombre, c.precioOferta ?? c.precio, c.imagenes?.[0])}
                       >
                         Comprar
                       </Button>

@@ -57,10 +57,12 @@ export const useStore = create(
         set({ user: null, token: null, cart: [], toast: { message: 'Sesión cerrada exitosamente', severity: 'success' } });
       },
 
-      addToCart: (cardId, cardName, price) =>
+      addToCart: (cardId, cardName, price, img) =>
         set((state) => {
           if (state.cart.some((item) => item.cardId === cardId)) return state;
-          return { cart: [...state.cart, { cardId, cardName, price }] };
+          return {
+            cart: [...state.cart, { cardId, cardName, price, img: img || null, addedAt: Date.now() }],
+          };
         }),
 
       removeFromCart: (cardId) =>
@@ -108,12 +110,31 @@ export const useStore = create(
 
       getCartTotal: () => {
         const { cart } = get();
-        return cart.reduce((total, item) => total + parseFloat(item.price || 0), 0);
+        return carritoVigente(cart).reduce((total, item) => total + parseFloat(item.price || 0), 0);
       },
     }),
-    { name: 'cardtrade-storage' }
+    {
+      name: 'cardtrade-storage',
+      // US-23: el carrito expira a los 7 días
+      onRehydrateStorage: () => (state) => {
+        if (state && Array.isArray(state.cart)) {
+          const limpio = carritoVigente(state.cart);
+          if (limpio.length !== state.cart.length) {
+            useStore.setState({ cart: limpio });
+          }
+        }
+      },
+    }
   )
 );
+
+const DIAS_7 = 7 * 24 * 60 * 60 * 1000;
+
+export function carritoVigente(cart) {
+  return (cart || []).filter(
+    (item) => !item.addedAt || Date.now() - item.addedAt < DIAS_7
+  );
+}
 
 const { token } = useStore.getState();
 if (token) {

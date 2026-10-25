@@ -12,6 +12,9 @@ import { SecurityPage } from './components/auth/SecurityPage';
 import { Dashboard } from './components/dashboard/Dashboard';
 import { CartPage } from './components/cart/CartPage';
 import { CheckoutPage } from './components/cart/CheckoutPage';
+import { OrderConfirmationPage } from './components/cart/OrderConfirmationPage';
+import { AddressesPage } from './components/settings/AddressesPage';
+import { PaymentMethodsPage } from './components/settings/PaymentMethodsPage';
 import { HomePage } from './components/home/HomePage';
 import { CatalogPage } from './components/cards/CatalogPage';
 import { SearchPage } from './components/cards/SearchPage';
@@ -49,9 +52,10 @@ export const router = createBrowserRouter(
       <Route path="games" element={<GamesPage />} />
       <Route path="offers" element={<OffersPage />} />
 
-      {/* Comprar */}
+      {/* Comprar — US-23/24/25/28 */}
       <Route path="cart" element={<CartPage />} />
-      <Route path="checkout" element={guard(<CheckoutPage />)} />
+      <Route path="checkout" element={<CheckoutPage />} />
+      <Route path="order-confirmation/:orderId" element={<OrderConfirmationPage />} />
       <Route path="my-purchases" element={guard(<ComingSoon title="Mis compras" hu="US-34 Historial de Compras" />)} />
 
       {/* Vender — US-17/18 */}
@@ -71,6 +75,8 @@ export const router = createBrowserRouter(
       <Route path="settings" element={guard(<SettingsPage />)} />
       <Route path="settings/change-password" element={guard(<ChangePassword />)} />
       <Route path="settings/security" element={guard(<SecurityPage />)} />
+      <Route path="settings/addresses" element={guard(<AddressesPage />)} />
+      <Route path="settings/payment" element={guard(<PaymentMethodsPage />)} />
       <Route path="notifications" element={guard(<ComingSoon title="Notificaciones" hu="US-45 Centro de Notificaciones" />)} />
       <Route path="messages" element={guard(<ComingSoon title="Mensajes" hu="US-40 Chat entre Usuarios" />)} />
 
