@@ -87,6 +87,7 @@ export const sellersAPI = {
     (await apiClient.get(`/sellers/${encodeURIComponent(username)}/reviews`)).data,
   follow: async (username) =>
     (await apiClient.post(`/sellers/${encodeURIComponent(username)}/follow`)).data,
+  followed: async () => (await apiClient.get('/sellers/followed')).data,
 };
 
 export const reportsAPI = {
@@ -120,6 +121,13 @@ export const ordersAPI = {
     (await apiClient.get(`/orders/${encodeURIComponent(orderId)}`)).data,
   getByUser: async (userId) =>
     (await apiClient.get(`/orders/user/${encodeURIComponent(userId)}`)).data,
+  purchases: async () => (await apiClient.get('/orders/purchases')).data,
+  sales: async () => (await apiClient.get('/orders/sales')).data,
+  salesSummary: async () => (await apiClient.get('/orders/sales/summary')).data,
+  tracking: async (orderId) =>
+    (await apiClient.get(`/orders/${encodeURIComponent(orderId)}/tracking`)).data,
+  updateTracking: async (orderId, payload) =>
+    (await apiClient.patch(`/orders/${encodeURIComponent(orderId)}/tracking`, payload)).data,
 };
 
 export const checkoutAPI = {
@@ -148,3 +156,46 @@ export const paymentMethodsAPI = {
 };
 
 export const fetchCards = () => cardsAPI.getAll();
+
+export const collectionAPI = {
+  items: async (params = {}) => {
+    const q = new URLSearchParams();
+    Object.entries(params).forEach(([k, v]) => { if (v) q.set(k, v); });
+    const s = q.toString();
+    return (await apiClient.get(`/collection/me/items${s ? `?${s}` : ''}`)).data;
+  },
+  addItem: async (payload) => (await apiClient.post('/collection/me/items', payload)).data,
+  updateItem: async (id, payload) =>
+    (await apiClient.put(`/collection/items/${encodeURIComponent(id)}`, payload)).data,
+  removeItem: async (id) =>
+    (await apiClient.delete(`/collection/items/${encodeURIComponent(id)}`)).data,
+  stats: async () => (await apiClient.get('/collection/stats')).data,
+  exportUrl: `${API_BASE_URL}/collection/export?format=csv`,
+  list: async () => (await apiClient.get('/collection/mine')).data,
+  create: async (name, description) =>
+    (await apiClient.post(`/collection?name=${encodeURIComponent(name)}&description=${encodeURIComponent(description || '')}`)).data,
+  update: async (id, name, description) =>
+    (await apiClient.put(`/collection/${encodeURIComponent(id)}?name=${encodeURIComponent(name)}&description=${encodeURIComponent(description || '')}`)).data,
+  remove: async (id) => (await apiClient.delete(`/collection/${encodeURIComponent(id)}`)).data,
+  addCard: async (id, cardId) =>
+    (await apiClient.post(`/collection/${encodeURIComponent(id)}/cards`, { cardId })).data,
+  removeCard: async (id, cardId) =>
+    (await apiClient.delete(`/collection/${encodeURIComponent(id)}/cards/${encodeURIComponent(cardId)}`)).data,
+};
+
+export const priceAlertsAPI = {
+  list: async () => (await apiClient.get('/price-alerts')).data,
+  create: async (cardId, targetPrice) =>
+    (await apiClient.post('/price-alerts', { cardId, targetPrice })).data,
+  update: async (id, payload) =>
+    (await apiClient.put(`/price-alerts/${encodeURIComponent(id)}`, payload)).data,
+  remove: async (id) =>
+    (await apiClient.delete(`/price-alerts/${encodeURIComponent(id)}`)).data,
+};
+
+export const notificationsAPI = {
+  list: async () => (await apiClient.get('/notifications')).data,
+  markRead: async (id) =>
+    (await apiClient.patch(`/notifications/${encodeURIComponent(id)}/read`)).data,
+  markAllRead: async () => (await apiClient.post('/notifications/read-all')).data,
+};

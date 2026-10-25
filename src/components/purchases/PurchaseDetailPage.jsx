@@ -1,0 +1,173 @@
+import { useEffect, useState } from 'react';
+import { useParams, Link } from 'react-router-dom';
+import {
+  Box, Typography, Button, Paper, Stack, Chip, Divider, List, ListItem,
+  ListItemText, CircularProgress, Alert, Stepper, Step, StepLabel,
+} from '@mui/material';
+import { ordersAPI } from '../../api/apiClient';
+
+const fmt = (n) => Number(n || 0).toLocaleString('es-MX', { style: 'currency', currency: 'MXN' });
+const fmtFecha = (d) => new Date(d).toLocaleDateString('es-MX', { day: '2-digit', month: 'long', year: 'numeric' });
+
+const PASOS_TRACKING = ['PREPARACION', 'EN_TRANSITO', 'EN_REPARTO', 'ENTREGADO'];
+const LABELS = {
+  PREPARACION: 'Preparación',
+  EN_TRANSITO: 'En tránsito',
+  EN_REPARTO: 'En reparto',
+  ENTREGADO: 'Entregado',
+  CANCELADO: 'Cancelado',
+};
+
+export const PurchaseDetailPage = () => {
+  const { orderId } = useParams();
+  const [orden, setOrden] = useState(null);
+  const [tracking, setTracking] = useState(null);
+  const [cargando, setCargando] = useState(true);
+  const [error, setError] = useState('');
+
+  useEffect(() => {
+    let activo = true;
+    Promise.all([
+      ordersAPI.getById(orderId),
+      ordersAPI.tracking(orderId).catch(() => null),
+    ])
+      .then(([o, t]) => { if (activo) { setOrden(o); setTracking(t); } })
+      .catch(() => { if (activo) setError('No se pudo cargar la orden.'); })
+      .finally(() => { if (activo) setCargando(false); });
+    return () => { activo = false; };
+  }, [orderId]);
+
+  if (cargando) {
+    return <Stack alignItems="center" sx={{ py: 6 }}><CircularProgress /></Stack>;
+  }
+  if (error || !orden) {
+    return (
+      <Box sx={{ maxWidth: 700, mx: 'auto', py: 4 }}>
+        <Alert severity="error">{error || 'Orden no encontrada'}</Alert>
+        <Button component={Link} to="/my-purchases" sx={{ mt: 2 }}>← Mis compras</Button>
+      </Box>
+    );
+  }
+
+  const t = tracking || {};
+  const pasoActual = PASOS_TRACKING.indexOf(t.trackingStatus);
+  const eventos = t.events || [];
+
+  return (
+    <Box sx={{ maxWidth: 860, mx: 'auto' }}>
+      <Stack direction="row" justifyContent="space-between" alignItems="center" sx={{ mb: 3 }}>
+        <Box>
+          <Typography variant="h4" sx={{ fontWeight: 800 }}>{orden.numeroOrden}</Typography>
+          <Typography variant="body2" color="text.secondary">
+            Compra del {fmtFecha(orden.createdAt)}
+          </Typography>
+        </Box>
+        <Button variant="outlined" component={Link} to="/my-purchases">← Mis compras</Button>
+      </Stack>
+
+      {/* Envío / tracking (US-38) */}
+      <Paper variant="outlined" sx={{ p: 3, borderRadius: 3, mb: 2 }}>
+        <Stack direction="row" justifyContent="space-between" alignItems="center" sx={{ mb: 2 }}>
+          <Typography variant="h6" sx={{ fontWeight: 700 }}>Rastreo de envío</Typography>
+          <Chip
+            label={(t.trackingStatus || 'PREPARACION').replace('_', ' ').toLowerCase()}
+            color={t.trackingStatus === 'ENTREGADO' ? 'success' : 'primary'}
+            size="small"
+          />
+        </Stack>
+
+        {t.carrier && (
+          <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
+            Transportista: <strong>{t.carrier}</strong>
+            {t.trackingNumber ? ` · Guía ${t.trackingNumber}` : ''}
+            {t.eta ? ` · Llegada estimada ${fmtFecha(t.eta)}` : ''}
+          </Typography>
+        )}
+
+        {t.trackingStatus === 'CANCELADO' ? (
+          <Alert severity="error">Esta orden fue cancelada.</Alert>
+        ) : (
+          <Stepper activeStep={Math.max(0, pasoActual)} sx={{ mb: 2 }}>
+            {PASOS_TRACKING.map((p) => (
+              <Step key={p}><StepLabel>{LABELS[p]}</StepLabel></Step>
+            ))}
+          </Stepper>
+        )}
+
+        <Divider sx={{ mb: 1.5 }} />
+        <Typography variant="overline" color="text.secondary">Eventos</Typography>
+        <List dense>
+          {[...eventos].reverse().map((ev, idx) => (
+            <ListItem key={idx} disableGutters>
+              <ListItemText
+                primary={ev.descripcion}
+                secondary={`${ev.fecha ? new Date(ev.fecha).toLocaleString('es-MX') : ''} · ${LABELS[ev.status] || ev.status || ''}`}
+              />
+            </ListItem>
+          ))}
+          {eventos.length === 0 && (
+            <ListItem disableGutters>
+              <ListItemText primary="Sin eventos de rastreo aún" secondary="En cuanto el paquete salga verás las actualizaciones aquí." />
+            </ListItem>
+          )}
+        </List>
+      </Paper>
+
+      {/* Artículos */}
+      <Paper variant="outlined" sx={{ p: 3, borderRadius: 3, mb: 2 }}>
+        <Typography variant="h6" sx={{ fontWeight: 700, mb: 1 }}>Artículos</Typography>
+        <List dense disablePadding>
+          {(orden.items || []).map((it, idx) => (
+            <ListItem key={idx} disableGutters>
+              <ListItemText
+                primary={
+                  <Button component={Link} to={`/cards/${it.cardId}`} size="small" sx={{ textTransform: 'none', px: 0 }}>
+                    {it.nombre}
+                  </Button>
+                }
+                secondary={`Precio unitario: ${fmt(it.precioUnitario)}`}
+              />
+            </ListItem>
+          ))}
+          {!orden.items?.length && (orden.cardIds || []).map((cid) => (
+            <ListItem key={cid} disableGutters>
+              <ListItemText primary={<Button component={Link} to={`/cards/${cid}`} size="small">Ver carta</Button>} />
+            </ListItem>
+          ))}
+        </List>
+        <Divider sx={{ my: 1.5 }} />
+        <Stack spacing={1}>
+          <Stack direction="row" justifyContent="space-between">
+            <Typography color="text.secondary">Subtotal</Typography><Typography>{fmt(orden.subtotal)}</Typography>
+          </Stack>
+          <Stack direction="row" justifyContent="space-between">
+            <Typography color="text.secondary">Envío ({orden.shippingMethod === 'EXPRESS' ? 'express' : 'estándar'})</Typography>
+            <Typography>{fmt(orden.shippingCost)}</Typography>
+          </Stack>
+          <Stack direction="row" justifyContent="space-between">
+            <Typography sx={{ fontWeight: 800 }}>TOTAL</Typography>
+            <Typography variant="h6" color="primary" sx={{ fontWeight: 800 }}>{fmt(orden.total)}</Typography>
+          </Stack>
+        </Stack>
+      </Paper>
+
+      {/* Dirección */}
+      <Paper variant="outlined" sx={{ p: 3, borderRadius: 3 }}>
+        <Typography variant="h6" sx={{ fontWeight: 700, mb: 1 }}>Dirección de envío</Typography>
+        {orden.shippingAddress ? (
+          <Typography variant="body2" color="text.secondary">
+            {orden.shippingAddress.nombre || orden.shippingAddress.nombreCompleto || ''} —{' '}
+            {orden.shippingAddress.linea1}
+            {orden.shippingAddress.linea2 ? `, ${orden.shippingAddress.linea2}` : ''},{' '}
+            {orden.shippingAddress.ciudad}, {orden.shippingAddress.estado} · C.P. {orden.shippingAddress.codigoPostal}
+          </Typography>
+        ) : (
+          <Typography variant="body2" color="text.secondary">Sin dirección registrada</Typography>
+        )}
+        <Typography variant="caption" color="text.secondary" sx={{ display: 'block', mt: 1 }}>
+          Pago con {orden.paymentMethod}{orden.guestEmail ? ` · Contacto ${orden.guestEmail}` : ''}
+        </Typography>
+      </Paper>
+    </Box>
+  );
+};

@@ -29,6 +29,15 @@ import { ForbiddenPage } from './components/ui/ForbiddenPage';
 import { PublishPage } from './components/sell/PublishPage';
 import { MyListingsPage } from './components/sell/MyListingsPage';
 import { SellerProfile } from './components/sellers/SellerProfile';
+import { MyFollowedPage } from './components/sellers/MyFollowedPage';
+import { CollectionPage } from './components/collection/CollectionPage';
+import { CollectionStatsPage } from './components/collection/CollectionStatsPage';
+import { MyCollectionsPage } from './components/collection/MyCollectionsPage';
+import { MyPurchasesPage } from './components/purchases/MyPurchasesPage';
+import { PurchaseDetailPage } from './components/purchases/PurchaseDetailPage';
+import { MySalesPage } from './components/purchases/MySalesPage';
+import { MyAlertsPage } from './components/alerts/MyAlertsPage';
+import { NotificationsPage } from './components/notifications/NotificationsPage';
 
 const guard = (el) => <ProtectedRoute>{el}</ProtectedRoute>;
 
@@ -52,22 +61,26 @@ export const router = createBrowserRouter(
       <Route path="games" element={<GamesPage />} />
       <Route path="offers" element={<OffersPage />} />
 
-      {/* Comprar — US-23/24/25/28 */}
+      {/* Comprar — US-23/24/25/28/34/38 */}
       <Route path="cart" element={<CartPage />} />
       <Route path="checkout" element={<CheckoutPage />} />
       <Route path="order-confirmation/:orderId" element={<OrderConfirmationPage />} />
-      <Route path="my-purchases" element={guard(<ComingSoon title="Mis compras" hu="US-34 Historial de Compras" />)} />
+      <Route path="my-purchases" element={guard(<MyPurchasesPage />)} />
+      <Route path="my-purchases/:orderId" element={guard(<PurchaseDetailPage />)} />
 
-      {/* Vender — US-17/18 */}
+      {/* Vender — US-17/18/35 */}
       <Route path="sell/new" element={guard(<PublishPage />)} />
       <Route path="my-listings" element={guard(<MyListingsPage />)} />
-      <Route path="my-sales" element={guard(<ComingSoon title="Mis ventas" hu="US-35 Historial de Ventas" />)} />
+      <Route path="my-sales" element={guard(<MySalesPage />)} />
 
-      {/* Colección */}
-      <Route path="my-collection" element={guard(<ComingSoon title="Mi colección" hu="US-29 Agregar a Colección" />)} />
+      {/* Colección — US-29/30/31/33 */}
+      <Route path="my-collection" element={guard(<CollectionPage />)} />
+      <Route path="my-collection/stats" element={guard(<CollectionStatsPage />)} />
+      <Route path="my-collections" element={guard(<MyCollectionsPage />)} />
       <Route path="favorites" element={guard(<ComingSoon title="Favoritos" hu="US-41 Favoritos" />)} />
-      <Route path="my-alerts" element={guard(<ComingSoon title="Alertas de precio" hu="US-37 Alertas de Precio" />)} />
+      <Route path="my-alerts" element={guard(<MyAlertsPage />)} />
       <Route path="wishlist" element={guard(<ComingSoon title="Lista de deseos" hu="US-42 Lista de Deseos" />)} />
+      <Route path="my-followed" element={guard(<MyFollowedPage />)} />
 
       {/* Cuenta */}
       <Route path="dashboard" element={guard(<Dashboard />)} />
@@ -77,7 +90,7 @@ export const router = createBrowserRouter(
       <Route path="settings/security" element={guard(<SecurityPage />)} />
       <Route path="settings/addresses" element={guard(<AddressesPage />)} />
       <Route path="settings/payment" element={guard(<PaymentMethodsPage />)} />
-      <Route path="notifications" element={guard(<ComingSoon title="Notificaciones" hu="US-45 Centro de Notificaciones" />)} />
+      <Route path="notifications" element={guard(<NotificationsPage />)} />
       <Route path="messages" element={guard(<ComingSoon title="Mensajes" hu="US-40 Chat entre Usuarios" />)} />
 
       {/* Social — US-19 */}

@@ -7,11 +7,13 @@ import {
 import {
   ShoppingCart as CartIcon, FlashOn as BuyIcon, Favorite as FavoriteIcon,
   Compare as CompareIcon, Storefront as StoreIcon, CalendarToday as DateIcon,
-  Flag as FlagIcon,
+  Flag as FlagIcon, LibraryAdd as CollectionIcon, NotificationsActive as AlertIcon,
 } from '@mui/icons-material';
 import { cardsAPI, usersAPI } from '../../api/apiClient';
 import { useStore } from '../../store';
 import { ReportModal } from '../sell/ReportModal';
+import { AddToCollectionDialog } from '../collection/AddToCollectionDialog';
+import { PriceAlertDialog } from '../alerts/PriceAlertDialog';
 
 export const CardDetail = () => {
   const { id } = useParams();
@@ -22,8 +24,19 @@ export const CardDetail = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
   const [reportOpen, setReportOpen] = useState(false);
+  const [collectionOpen, setCollectionOpen] = useState(false);
+  const [alertOpen, setAlertOpen] = useState(false);
 
   const { addToCart, addToFavorites, favorites, toggleCompare, compare, token, showToast } = useStore();
+
+  const exigirSesion = (accion) => {
+    if (!token) {
+      showToast({ message: `Inicia sesión para ${accion}`, severity: 'info' });
+      navigate('/login');
+      return false;
+    }
+    return true;
+  };
 
   useEffect(() => {
     let activo = true;
@@ -204,6 +217,24 @@ export const CardDetail = () => {
                 {enComparacion ? 'En comparación' : 'Comparar'}
               </Button>
             </Stack>
+            <Stack direction={{ xs: 'column', sm: 'row' }} spacing={1.5} sx={{ mt: 1.5 }}>
+              <Button
+                variant="outlined"
+                startIcon={<CollectionIcon />}
+                onClick={() => { if (exigirSesion('agregar a tu colección')) setCollectionOpen(true); }}
+                fullWidth
+              >
+                Agregar a mi colección
+              </Button>
+              <Button
+                variant="outlined"
+                startIcon={<AlertIcon />}
+                onClick={() => { if (exigirSesion('crear alertas de precio')) setAlertOpen(true); }}
+                fullWidth
+              >
+                Alerta de precio
+              </Button>
+            </Stack>
             <Button
               variant="text"
               color="error"
@@ -273,6 +304,16 @@ export const CardDetail = () => {
         onClose={() => setReportOpen(false)}
         cardId={card.id}
         cardNombre={card.nombre}
+      />
+      <AddToCollectionDialog
+        open={collectionOpen}
+        onClose={() => setCollectionOpen(false)}
+        card={card}
+      />
+      <PriceAlertDialog
+        open={alertOpen}
+        onClose={() => setAlertOpen(false)}
+        card={card}
       />
     </Box>
   );
