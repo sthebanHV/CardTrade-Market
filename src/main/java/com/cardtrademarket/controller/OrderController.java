@@ -1,11 +1,12 @@
 package com.cardtrademarket.controller;
 
 import com.cardtrademarket.model.Order;
+import com.cardtrademarket.model.User;
 import com.cardtrademarket.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 import java.util.Map;
 
@@ -14,42 +15,89 @@ import java.util.Map;
 public class OrderController {
 
     public static class OrderRequest {
-        public String userId;
         public List<String> cardIds;
-        public Double total;
         public String paymentMethod;
+        public String shippingMethod;
         public Map<String, String> shippingAddress;
     }
 
     @Autowired
     private OrderService orderService;
 
+    private User usuarioActual() {
+        org.springframework.security.core.Authentication auth =
+                org.springframework.security.core.context.SecurityContextHolder.getContext().getAuthentication();
+        if (auth == null || !auth.isAuthenticated() || auth.getPrincipal() instanceof String) {
+            return null;
+        }
+        return (User) auth.getPrincipal();
+    }
+
+    private boolean esAdmin(User u) {
+        return u != null && "ROLE_ADMIN".equals(u.getRole());
+    }
+
+    @ExceptionHandler(OrderService.CheckoutException.class)
+    public ResponseEntity<Map<String, String>> checkoutError(OrderService.CheckoutException e) {
+        return ResponseEntity.status(HttpStatus.CONFLICT).body(Map.of("error", e.getMessage()));
+    }
+
     @PostMapping
-    public ResponseEntity<Order> createOrder(@RequestBody OrderRequest request) {
-        Order order = orderService.createOrder(
-                request.userId,
+    public ResponseEntity<?> createOrder(@RequestBody OrderRequest request) {
+        User u = usuarioActual();
+        if (u == null) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
+                    .body(Map.of("error", "Debes iniciar sesión"));
+        }
+        Order order = orderService.crearOrden(
+                u.getId(),
                 request.cardIds,
-                request.total,
+                request.shippingMethod,
                 request.paymentMethod,
-                request.shippingAddress);
-        return ResponseEntity.ok(order);
+                request.shippingAddress,
+                null,
+                u.getNombre());
+        return ResponseEntity.status(201).body(order);
     }
 
     @GetMapping("/user/{userId}")
-    public ResponseEntity<List<Order>> getOrdersByUser(@PathVariable String userId) {
+    public ResponseEntity<?> getOrdersByUser(@PathVariable String userId) {
+        User u = usuarioActual();
+        if (u == null) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
+                    .body(Map.of("error", "Debes iniciar sesión"));
+        }
+        if (!esAdmin(u) && !u.getId().equals(userId)) {
+            return ResponseEntity.status(HttpStatus.FORBIDDEN)
+                    .body(Map.of("error", "No puedes ver las órdenes de otro usuario"));
+        }
         List<Order> orders = orderService.getOrdersByUser(userId);
         return ResponseEntity.ok(orders);
     }
 
     @GetMapping("/{orderId}")
-    public ResponseEntity<Order> getOrderById(@PathVariable String orderId) {
+    public ResponseEntity<?> getOrderById(@PathVariable String orderId) {
+        User u = usuarioActual();
+        if (u == null) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
+                    .body(Map.of("error", "Debes iniciar sesión"));
+        }
         Order order = orderService.getOrderById(orderId);
+        if (!esAdmin(u) && !u.getId().equals(order.getUserId())) {
+            return ResponseEntity.status(HttpStatus.FORBIDDEN)
+                    .body(Map.of("error", "Esta orden no te pertenece"));
+        }
         return ResponseEntity.ok(order);
     }
 
     @PutMapping("/{orderId}/status")
-    public ResponseEntity<Order> updateOrderStatus(@PathVariable String orderId,
-                                                   @RequestParam String status) {
+    public ResponseEntity<?> updateOrderStatus(@PathVariable String orderId,
+                                               @RequestParam String status) {
+        User u = usuarioActual();
+        if (!esAdmin(u)) {
+            return ResponseEntity.status(HttpStatus.FORBIDDEN)
+                    .body(Map.of("error", "Solo administradores pueden cambiar el estado"));
+        }
         Order order = orderService.updateOrderStatus(orderId, status);
         return ResponseEntity.ok(order);
     }

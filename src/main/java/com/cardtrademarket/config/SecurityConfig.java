@@ -35,7 +35,7 @@ public class SecurityConfig {
                 .requestMatchers("/api/admin/**").hasRole("ADMIN")
                 .requestMatchers(org.springframework.http.HttpMethod.GET, "/api/cards/**").permitAll()
                 .requestMatchers(org.springframework.http.HttpMethod.GET, "/api/sellers/**").permitAll()
-                .requestMatchers("/api/auth/**", "/errores/**", "/api/stats", "/api/categories", "/api/users/public/**", "/error").permitAll()
+                .requestMatchers("/api/auth/**", "/api/checkout/guest", "/errores/**", "/api/stats", "/api/categories", "/api/users/public/**", "/error").permitAll()
                 .requestMatchers("/").permitAll()
                 .anyRequest().authenticated()
             )

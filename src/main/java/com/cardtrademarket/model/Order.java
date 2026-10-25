@@ -52,6 +52,24 @@ public class Order {
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;
 
+    @Column(name = "numero_orden")
+    private String numeroOrden; // CTM-2026-000001
+
+    @Column(name = "subtotal")
+    private Double subtotal;
+
+    @Column(name = "shipping_method")
+    private String shippingMethod; // ESTANDAR | EXPRESS
+
+    @Column(name = "shipping_cost")
+    private Double shippingCost;
+
+    @Column(name = "guest_email")
+    private String guestEmail; // nullable: compra como invitado
+
+    @Column(name = "buyer_name")
+    private String buyerName;
+
     // Constructores
     public Order() {
         this.createdAt = LocalDateTime.now();
@@ -94,4 +112,22 @@ public class Order {
 
     public LocalDateTime getUpdatedAt() { return updatedAt; }
     public void setUpdatedAt(LocalDateTime updatedAt) { this.updatedAt = updatedAt; }
+
+    public String getNumeroOrden() { return numeroOrden; }
+    public void setNumeroOrden(String numeroOrden) { this.numeroOrden = numeroOrden; }
+
+    public Double getSubtotal() { return subtotal; }
+    public void setSubtotal(Double subtotal) { this.subtotal = subtotal; }
+
+    public String getShippingMethod() { return shippingMethod; }
+    public void setShippingMethod(String shippingMethod) { this.shippingMethod = shippingMethod; }
+
+    public Double getShippingCost() { return shippingCost; }
+    public void setShippingCost(Double shippingCost) { this.shippingCost = shippingCost; }
+
+    public String getGuestEmail() { return guestEmail; }
+    public void setGuestEmail(String guestEmail) { this.guestEmail = guestEmail; }
+
+    public String getBuyerName() { return buyerName; }
+    public void setBuyerName(String buyerName) { this.buyerName = buyerName; }
 }
