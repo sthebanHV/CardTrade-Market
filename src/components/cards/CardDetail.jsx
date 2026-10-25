@@ -7,9 +7,11 @@ import {
 import {
   ShoppingCart as CartIcon, FlashOn as BuyIcon, Favorite as FavoriteIcon,
   Compare as CompareIcon, Storefront as StoreIcon, CalendarToday as DateIcon,
+  Flag as FlagIcon,
 } from '@mui/icons-material';
 import { cardsAPI, usersAPI } from '../../api/apiClient';
 import { useStore } from '../../store';
+import { ReportModal } from '../sell/ReportModal';
 
 export const CardDetail = () => {
   const { id } = useParams();
@@ -19,8 +21,9 @@ export const CardDetail = () => {
   const [imgIdx, setImgIdx] = useState(0);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
+  const [reportOpen, setReportOpen] = useState(false);
 
-  const { addToCart, addToFavorites, favorites, toggleCompare, compare, token } = useStore();
+  const { addToCart, addToFavorites, favorites, toggleCompare, compare, token, showToast } = useStore();
 
   useEffect(() => {
     let activo = true;
@@ -79,6 +82,14 @@ export const CardDetail = () => {
   const onBuyNow = () => {
     addToCart(card.id, card.nombre, precioFinal);
     navigate(token ? '/checkout' : '/login');
+  };
+  const onReport = () => {
+    if (!token) {
+      showToast({ message: 'Inicia sesión para reportar publicaciones', severity: 'info' });
+      navigate('/login');
+      return;
+    }
+    setReportOpen(true);
   };
 
   return (
@@ -193,6 +204,16 @@ export const CardDetail = () => {
                 {enComparacion ? 'En comparación' : 'Comparar'}
               </Button>
             </Stack>
+            <Button
+              variant="text"
+              color="error"
+              startIcon={<FlagIcon />}
+              onClick={onReport}
+              sx={{ mt: 1.5 }}
+              fullWidth
+            >
+              Reportar publicación
+            </Button>
           </Paper>
 
           {/* Vendedor */}
@@ -246,6 +267,13 @@ export const CardDetail = () => {
           </Paper>
         </Grid>
       </Grid>
+
+      <ReportModal
+        open={reportOpen}
+        onClose={() => setReportOpen(false)}
+        cardId={card.id}
+        cardNombre={card.nombre}
+      />
     </Box>
   );
 };

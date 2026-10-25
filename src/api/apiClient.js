@@ -63,8 +63,35 @@ export const cardsAPI = {
   compare: async (ids) =>
     (await apiClient.get('/cards/compare', { params: { ids: ids.join(',') } })).data,
   offers: async () => (await apiClient.get('/cards/offers')).data,
-  create: async (card, vendedorId) =>
-    (await apiClient.post(`/cards?vendedorId=${encodeURIComponent(vendedorId)}`, card)).data,
+  create: async (card) => (await apiClient.post('/cards', card)).data,
+  update: async (id, data) =>
+    (await apiClient.put(`/cards/${encodeURIComponent(id)}`, data)).data,
+  remove: async (id) =>
+    (await apiClient.delete(`/cards/${encodeURIComponent(id)}`)).data,
+  setStatus: async (id, status) =>
+    (await apiClient.patch(`/cards/${encodeURIComponent(id)}/status`, { status })).data,
+  setPrice: async (id, price) =>
+    (await apiClient.patch(`/cards/${encodeURIComponent(id)}/price`, { price })).data,
+  markSold: async (id) =>
+    (await apiClient.patch(`/cards/${encodeURIComponent(id)}/sold`)).data,
+  myListings: async (status) =>
+    (await apiClient.get('/cards/my-listings', { params: status ? { status } : {} })).data,
+};
+
+export const sellersAPI = {
+  get: async (username) =>
+    (await apiClient.get(`/sellers/${encodeURIComponent(username)}`)).data,
+  listings: async (username) =>
+    (await apiClient.get(`/sellers/${encodeURIComponent(username)}/listings`)).data,
+  reviews: async (username) =>
+    (await apiClient.get(`/sellers/${encodeURIComponent(username)}/reviews`)).data,
+  follow: async (username) =>
+    (await apiClient.post(`/sellers/${encodeURIComponent(username)}/follow`)).data,
+};
+
+export const reportsAPI = {
+  create: async ({ cardId, motivo, detalles }) =>
+    (await apiClient.post('/reports', { cardId, motivo, detalles })).data,
 };
 
 export const platformAPI = {

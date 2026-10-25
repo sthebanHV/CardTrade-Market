@@ -23,6 +23,9 @@ import { ProtectedRoute } from './components/guards/ProtectedRoute';
 import { AdminRoute } from './components/guards/AdminRoute';
 import { ComingSoon } from './components/ui/ComingSoon';
 import { ForbiddenPage } from './components/ui/ForbiddenPage';
+import { PublishPage } from './components/sell/PublishPage';
+import { MyListingsPage } from './components/sell/MyListingsPage';
+import { SellerProfile } from './components/sellers/SellerProfile';
 
 const guard = (el) => <ProtectedRoute>{el}</ProtectedRoute>;
 
@@ -51,9 +54,9 @@ export const router = createBrowserRouter(
       <Route path="checkout" element={guard(<CheckoutPage />)} />
       <Route path="my-purchases" element={guard(<ComingSoon title="Mis compras" hu="US-34 Historial de Compras" />)} />
 
-      {/* Vender */}
-      <Route path="sell/new" element={guard(<ComingSoon title="Publicar carta" hu="US-17 Publicar Carta" />)} />
-      <Route path="my-listings" element={guard(<ComingSoon title="Mis publicaciones" hu="US-18 Gestionar Publicaciones" />)} />
+      {/* Vender — US-17/18 */}
+      <Route path="sell/new" element={guard(<PublishPage />)} />
+      <Route path="my-listings" element={guard(<MyListingsPage />)} />
       <Route path="my-sales" element={guard(<ComingSoon title="Mis ventas" hu="US-35 Historial de Ventas" />)} />
 
       {/* Colección */}
@@ -71,8 +74,8 @@ export const router = createBrowserRouter(
       <Route path="notifications" element={guard(<ComingSoon title="Notificaciones" hu="US-45 Centro de Notificaciones" />)} />
       <Route path="messages" element={guard(<ComingSoon title="Mensajes" hu="US-40 Chat entre Usuarios" />)} />
 
-      {/* Social */}
-      <Route path="seller/:username" element={<ComingSoon title="Perfil de vendedor" hu="US-19 Perfil de Vendedor" />} />
+      {/* Social — US-19 */}
+      <Route path="seller/:username" element={<SellerProfile />} />
 
       {/* Admin (ROLE_ADMIN) — US-47 */}
       <Route path="admin" element={<AdminRoute><ComingSoon title="Panel de administración" hu="US-47 Panel de Administración" /></AdminRoute>} />
