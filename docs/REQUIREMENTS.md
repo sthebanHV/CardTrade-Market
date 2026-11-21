@@ -332,7 +332,7 @@ CardTrade Market es una plataforma web para la compra y venta de cartas coleccio
   "avatar": "String (URL)",
   "bio": "String",
   "location": "String",
-  "role": "Enum ['user', 'admin']",
+  "role": "Enum ['ROLE_USER', 'ROLE_ADMIN']",
   "rating": "Number (0-5)",
   "createdAt": "Date",
   "updatedAt": "Date"
