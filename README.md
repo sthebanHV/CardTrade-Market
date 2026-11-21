@@ -93,9 +93,9 @@ npm start
 
 | Rol | Descripción |
 |-----|-------------|
-| **Visitante** | Puede navegar, buscar cartas y ver detalles |
-| **Usuario registrado** | Puede comprar, vender, gestionar colección |
-| **Administrador** | Gestión total de la plataforma |
+| **Visitante** | Puede navegar, buscar cartas, ver detalles y comprar como invitado (HU_28) |
+| **Usuario registrado** (ROLE_USER) | Puede comprar, vender y gestionar colección; asume las perspectivas de comprador, vendedor y coleccionista, que derivan de su actividad y no son excluyentes (HU_46) |
+| **Administrador** (ROLE_ADMIN) | Gestión total de la plataforma: usuarios, reportes, estadísticas y auditoría (HU_47) |
 
 ## Documentación
 
