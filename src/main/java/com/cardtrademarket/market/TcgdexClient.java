@@ -45,7 +45,7 @@ public class TcgdexClient implements MarketClient {
     @Override
     public List<MarketCard> buscar(String q, int limit) throws Exception {
         String json = http.get()
-                .uri(b -> b.scheme("https").host("api.tcgdex.dev").path("/v2/en/cards")
+                .uri(b -> b.scheme("https").host("api.tcgdex.net").path("/v2/en/cards")
                         .queryParam("name", q)
                         .queryParam("limit", limit)
                         .build())
@@ -63,7 +63,7 @@ public class TcgdexClient implements MarketClient {
     @Override
     public Optional<MarketCard.Detail> detalle(String externalId) throws Exception {
         String json = http.get()
-                .uri(b -> b.scheme("https").host("api.tcgdex.dev").path("/v2/en/cards/{id}").build(externalId))
+                .uri(b -> b.scheme("https").host("api.tcgdex.net").path("/v2/en/cards/{id}").build(externalId))
                 .retrieve()
                 .body(String.class);
         JsonNode n = om.readTree(json);
@@ -105,7 +105,7 @@ public class TcgdexClient implements MarketClient {
                 .image(imagen)
                 .priceUsd(precio)
                 .source(mercado)
-                .url(setId != null ? "https://www.tcgdex.dev/en/cards/" + n.path("id").asText() : null)
+                .url(setId != null ? "https://www.tcgdex.net/en/cards/" + n.path("id").asText() : null)
                 .updatedAt(new Date())
                 .build();
     }

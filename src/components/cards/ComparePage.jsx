@@ -104,7 +104,7 @@ export const ComparePage = () => {
                     Quitar
                   </Button>
                   <Box component="img"
-                    src={c.imagenes?.[0] || 'https://placehold.co/300x200?text=Sin+Imagen'}
+                    src={c.imagenes?.[0] || '/assets/card-fallback.svg'}
                     alt={c.nombre}
                     sx={{ width: '100%', height: 140, objectFit: 'contain', borderRadius: 2 }} />
                   <Typography sx={{ fontWeight: 700, mt: 1 }} noWrap>{c.nombre}</Typography>

@@ -160,7 +160,7 @@ export const MyListingsPage = () => {
       <Stack spacing={1.5}>
         {visibles.map((item) => {
           const est = ESTADOS[item.status] || ESTADOS.PUBLICADO;
-          const src = item.imagenes?.[0] || 'https://placehold.co/96x96?text=Sin';
+          const src = item.imagenes?.[0] || '/assets/card-fallback.svg';
           const enOferta = item.precioAnterior != null && item.precioAnterior > item.precio;
           return (
             <Paper key={item.id} variant="outlined" sx={{ p: 2, borderRadius: 3 }}>

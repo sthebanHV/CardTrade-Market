@@ -44,14 +44,21 @@ public class YgoClient implements MarketClient {
 
     @Override
     public List<MarketCard> buscar(String q, int limit) throws Exception {
-        String json = http.get()
-                .uri(b -> b.scheme("https").host("db.ygoprodeck.com").path("/api/v7/cardinfo.php")
-                        .queryParam("fname", q)
-                        .queryParam("num", limit)
-                        .queryParam("offset", 0)
-                        .build())
-                .retrieve()
-                .body(String.class);
+        String json;
+        try {
+            json = http.get()
+                    .uri(b -> b.scheme("https").host("db.ygoprodeck.com").path("/api/v7/cardinfo.php")
+                            .queryParam("fname", q)
+                            .queryParam("num", limit)
+                            .queryParam("offset", 0)
+                            .build())
+                    .retrieve()
+                    .body(String.class);
+        } catch (org.springframework.web.client.HttpClientErrorException.BadRequest e) {
+            // YGOPRODeck responde 400 "No card matching your query" cuando no hay
+            // coincidencias: es "0 resultados", no un fallo de la fuente.
+            return List.of();
+        }
         JsonNode raiz = om.readTree(json);
         if (!raiz.has("data")) return List.of();
         List<MarketCard> out = new ArrayList<>();

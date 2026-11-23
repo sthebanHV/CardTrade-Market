@@ -334,7 +334,7 @@ export const PublishPage = () => {
           <Paper variant="outlined" sx={{ p: 2, borderRadius: 3 }}>
             <Box
               component="img"
-              src={fotos[0] || 'https://placehold.co/480x640?text=Sin+Imagen'}
+              src={fotos[0] || '/assets/card-fallback.svg'}
               alt={form.nombre}
               sx={{ width: '100%', maxHeight: 300, objectFit: 'contain', borderRadius: 2, bgcolor: '#F9FAFB' }}
             />

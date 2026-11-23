@@ -195,7 +195,7 @@ export const CollectionPage = () => {
                 >
                   <Box
                     component="img"
-                    src={item.imagenDataUrl || 'https://placehold.co/200x260?text=Carta'}
+                    src={item.imagenDataUrl || '/assets/card-fallback.svg'}
                     alt={item.nombre}
                     sx={{ width: '100%', height: 150, objectFit: 'cover', borderRadius: 2, bgcolor: 'grey.100' }}
                   />

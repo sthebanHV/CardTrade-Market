@@ -85,7 +85,7 @@ export const FavoritesPage = () => {
                 <CardMedia
                   component="img"
                   height="180"
-                  image={f.card.imagenes?.[0] || 'https://placehold.co/400x300?text=CardTrade'}
+                  image={f.card.imagenes?.[0] || '/assets/card-fallback.svg'}
                   alt={f.card.nombre}
                   sx={{ objectFit: 'cover' }}
                 />

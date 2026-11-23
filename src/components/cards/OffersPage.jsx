@@ -51,7 +51,7 @@ const OfferCard = ({ card }) => {
       >
         <Box
           component="img"
-          src={card.imagenes?.[0] || 'https://placehold.co/300x200?text=Sin+Imagen'}
+          src={card.imagenes?.[0] || '/assets/card-fallback.svg'}
           alt={card.nombre}
           sx={{ width: '100%', height: 180, objectFit: 'cover', borderRadius: 2 }}
         />

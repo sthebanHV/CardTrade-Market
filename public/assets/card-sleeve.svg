@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 520" role="img" aria-labelledby="t">
+  <title id="t">Carta con funda protectora (sleeve)</title>
+  <defs>
+    <linearGradient id="sleeve" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#E0F2FE" stop-opacity=".95"/>
+      <stop offset=".5" stop-color="#BAE6FD" stop-opacity=".75"/>
+      <stop offset="1" stop-color="#7DD3FC" stop-opacity=".9"/>
+    </linearGradient>
+    <linearGradient id="glare" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fff" stop-opacity=".85"/>
+      <stop offset=".45" stop-color="#fff" stop-opacity=".12"/>
+      <stop offset="1" stop-color="#fff" stop-opacity=".5"/>
+    </linearGradient>
+    <linearGradient id="cardbg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1E3A8A"/><stop offset="1" stop-color="#3B82F6"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Funda (ligeramente mayor) -->
+  <rect x="34" y="26" width="332" height="468" rx="26" fill="url(#sleeve)" stroke="#0EA5E9" stroke-width="5"/>
+  <!-- Carta dentro -->
+  <rect x="56" y="50" width="288" height="420" rx="16" fill="url(#cardbg)"/>
+  <rect x="76" y="72" width="248" height="196" rx="10" fill="#0B1220" opacity=".55"/>
+  <circle cx="200" cy="170" r="56" fill="#FDE68A" opacity=".9"/>
+  <path d="M170 170h60M200 140v60" stroke="#1E40AF" stroke-width="12" stroke-linecap="round"/>
+  <rect x="76" y="292" width="200" height="20" rx="10" fill="#DBEAFE" opacity=".9"/>
+  <rect x="76" y="326" width="150" height="16" rx="8" fill="#93C5FD" opacity=".85"/>
+  <rect x="76" y="358" width="176" height="16" rx="8" fill="#60A5FA" opacity=".8"/>
+  <rect x="76" y="410" width="110" height="34" rx="17" fill="#F59E0B"/>
+  <text x="131" y="433" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="17" font-weight="bold">NM</text>
+
+  <!-- Reflejo plástico -->
+  <path d="M34 140 L200 26 L300 26 L60 320 Z" fill="url(#glare)" opacity=".55"/>
+  <path d="M34 300 L180 160 L230 160 L70 400 Z" fill="#fff" opacity=".18"/>
+</svg>

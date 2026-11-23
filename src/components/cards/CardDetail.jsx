@@ -129,7 +129,7 @@ export const CardDetail = () => {
     );
   }
 
-  const imagenes = card.imagenes?.length ? card.imagenes : ['https://placehold.co/480x640?text=Sin+Imagen'];
+  const imagenes = card.imagenes?.length ? card.imagenes : ['/assets/card-fallback.svg'];
   const enOferta = card.precioOferta != null && card.precioOferta < card.precio;
   const descuento = enOferta ? Math.round((1 - card.precioOferta / card.precio) * 100) : 0;
   const precioFinal = enOferta ? card.precioOferta : card.precio;

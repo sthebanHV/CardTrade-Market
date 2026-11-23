@@ -81,7 +81,7 @@ export const CartPage = () => {
           <Stack spacing={1.5}>
             {items.map((item) => {
               const disp = disponibilidad[item.cardId];
-              const img = item.img || 'https://placehold.co/80x80?text=Sin';
+              const img = item.img || '/assets/card-fallback.svg';
               return (
                 <Paper key={item.cardId} variant="outlined" sx={{ p: 2, borderRadius: 3 }}>
                   <Stack direction="row" spacing={2} alignItems="center">

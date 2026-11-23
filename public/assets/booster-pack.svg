@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 520" role="img" aria-labelledby="t">
+  <title id="t">Sobre de cartas coleccionables (booster pack)</title>
+  <defs>
+    <linearGradient id="foil" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1E40AF"/>
+      <stop offset=".5" stop-color="#3B82F6"/>
+      <stop offset="1" stop-color="#93C5FD"/>
+    </linearGradient>
+    <linearGradient id="shine" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#fff" stop-opacity="0"/>
+      <stop offset=".5" stop-color="#fff" stop-opacity=".55"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="body" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0F172A"/>
+      <stop offset="1" stop-color="#1E293B"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Cuerpo del sobre -->
+  <rect x="40" y="34" width="320" height="452" rx="22" fill="url(#body)"/>
+  <rect x="40" y="34" width="320" height="452" rx="22" fill="none" stroke="url(#foil)" stroke-width="6"/>
+
+  <!-- Ribete dentado superior -->
+  <path d="M40 74 L64 58 L88 74 L112 58 L136 74 L160 58 L184 74 L208 58 L232 74 L256 58 L280 74 L304 58 L328 74 L352 58 L360 66 L360 90 L40 90 Z" fill="#0B1220" opacity=".9"/>
+
+  <!-- Brillo central -->
+  <ellipse cx="200" cy="270" rx="132" ry="150" fill="url(#foil)" opacity=".22"/>
+  <rect x="70" y="380" width="110" height="14" rx="7" fill="url(#shine)"/>
+
+  <!-- Símbolo de carta -->
+  <g transform="translate(200 250)">
+    <rect x="-58" y="-78" width="116" height="156" rx="14" fill="#0B1220" stroke="#93C5FD" stroke-width="5"/>
+    <rect x="-44" y="-64" width="88" height="128" rx="9" fill="#1D4ED8" opacity=".55"/>
+    <circle cx="0" cy="-14" r="26" fill="#FDE68A"/>
+    <path d="M-14 34 h28 M0 20 v28" stroke="#BFDBFE" stroke-width="9" stroke-linecap="round"/>
+  </g>
+
+  <!-- Brillo diagonal del foil -->
+  <path d="M96 34 L168 34 L360 300 L360 360 Z" fill="url(#shine)" opacity=".18"/>
+
+  <!-- Etiqueta -->
+  <rect x="92" y="430" width="216" height="34" rx="17" fill="url(#foil)"/>
+  <text x="200" y="453" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="17" font-weight="bold" letter-spacing="3">BOOSTER</text>
+
+  <!-- Ribete dentado inferior -->
+  <path d="M40 462 L64 478 L88 462 L112 478 L136 462 L160 478 L184 462 L208 478 L232 462 L256 478 L280 462 L304 478 L328 462 L352 478 L360 470 L360 486 L40 486 Z" fill="#0B1220" opacity=".9"/>
+</svg>

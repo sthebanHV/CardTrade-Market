@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { Box, Typography, Stack, Chip, Alert, Paper, FormControl, InputLabel, Select, MenuItem, Skeleton } from '@mui/material';
-import { SearchOff as SearchOffIcon } from '@mui/icons-material';
 import { marketAPI } from '../../api/apiClient';
 
 const JUEGOS = [
@@ -32,14 +31,19 @@ export const SearchPage = () => {
   const [results, setResults] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
+  const [unavailable, setUnavailable] = useState([]);
 
   useEffect(() => {
-    if (!q.trim()) { setResults([]); setLoading(false); return undefined; }
+    if (!q.trim()) { setResults([]); setUnavailable([]); setLoading(false); return undefined; }
     let active = true;
     setLoading(true);
     setError(false);
     marketAPI.search(q.trim(), game === 'ALL' ? undefined : game, 12)
-      .then((data) => active && setResults(data?.results || []))
+      .then((data) => {
+        if (!active) return;
+        setResults(data?.results || []);
+        setUnavailable(data?.unavailable || []);
+      })
       .catch(() => active && setError(true))
       .finally(() => active && setLoading(false));
     return () => { active = false; };
@@ -63,10 +67,23 @@ export const SearchPage = () => {
           </Select>
         </FormControl>
       </Stack>
-      {loading && <Box sx={{ display: 'grid', gap: 2, gridTemplateColumns: 'repeat(auto-fit, minmax(190px, 1fr))' }}>{Array.from({ length: 6 }).map((_, i) => <Skeleton key={i} variant="rounded" height={360} />)}</Box>}
+      {loading && <Box sx={{ display: 'grid', gap: 2, gridTemplateColumns: 'repeat(auto-fit, minmax(190px, 1fr))' }}>{Array.from({ length: 6 }).map((_, i) => <Skeleton key={i} variant="rounded" height={360} className="ctm-skeleton" />)}</Box>}
       {error && <Alert severity="error">No se pudo consultar el mercado. Intenta más tarde.</Alert>}
-      {!loading && !error && q && results.length === 0 && <Box sx={{ textAlign: 'center', py: 8 }}><SearchOffIcon sx={{ fontSize: 54, color: 'text.disabled' }} /><Typography variant="h6" sx={{ mt: 1 }}>No encontramos cartas para “{q}”</Typography><Typography color="text.secondary" sx={{ mt: .5 }}>Prueba con otro nombre o cambia de juego.</Typography></Box>}
-      {!loading && !error && results.length > 0 && <Box sx={{ display: 'grid', gap: 2, gridTemplateColumns: 'repeat(auto-fit, minmax(190px, 1fr))' }}>{results.map((card) => <MarketResult key={`${card.game}-${card.externalId}`} card={card} />)}</Box>}
+      {!loading && !error && q && results.length === 0 && unavailable.length > 0 && (
+        <Alert severity="warning" sx={{ mb: 2 }}>
+          Fuente no disponible temporalmente: {unavailable.join(', ')}. Prueba con otro juego o reintenta en unos minutos.
+        </Alert>
+      )}
+      {!loading && !error && q && results.length === 0 && unavailable.length === 0 && (
+        <Box sx={{ textAlign: 'center', py: 6 }}>
+          <Box component="img" src="/assets/empty-search.svg" alt="" aria-hidden="true"
+            onError={(e) => { e.currentTarget.style.display = 'none'; }}
+            sx={{ width: 'min(340px, 80%)', height: 'auto', mx: 'auto', animation: 'floatY 6s ease-in-out infinite' }} />
+          <Typography variant="h6" sx={{ mt: 1 }}>No encontramos cartas para “{q}”</Typography>
+          <Typography color="text.secondary" sx={{ mt: .5 }}>Prueba con otro nombre o cambia de juego.</Typography>
+        </Box>
+      )}
+      {!loading && !error && results.length > 0 && <Box sx={{ display: 'grid', gap: 2, gridTemplateColumns: 'repeat(auto-fit, minmax(190px, 1fr))' }} className="ctm-stagger">{results.map((card) => <MarketResult key={`${card.game}-${card.externalId}`} card={card} />)}</Box>}
     </Box>
   );
 };

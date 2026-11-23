@@ -44,14 +44,21 @@ public class ScryfallClient implements MarketClient {
 
     @Override
     public List<MarketCard> buscar(String q, int limit) throws Exception {
-        String json = http.get()
-                .uri(b -> b.scheme("https").host("api.scryfall.com").path("/cards/search")
-                        .queryParam("q", q)
-                        .build())
-                .header("User-Agent", UA)
-                .header("Accept", "application/json")
-                .retrieve()
-                .body(String.class);
+        String json;
+        try {
+            json = http.get()
+                    .uri(b -> b.scheme("https").host("api.scryfall.com").path("/cards/search")
+                            .queryParam("q", q)
+                            .build())
+                    .header("User-Agent", UA)
+                    .header("Accept", "application/json")
+                    .retrieve()
+                    .body(String.class);
+        } catch (org.springframework.web.client.HttpClientErrorException.NotFound e) {
+            // Scryfall responde 404 cuando no hay coincidencias: es "0 resultados",
+            // no un fallo de la fuente (no debe contar para el circuit breaker).
+            return List.of();
+        }
         JsonNode data = om.readTree(json).path("data");
         List<MarketCard> out = new ArrayList<>();
         for (JsonNode n : data) {

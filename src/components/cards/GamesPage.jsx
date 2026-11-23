@@ -3,7 +3,15 @@ import { Link } from 'react-router-dom';
 import { Box, Grid, Typography, Chip, Skeleton, Stack } from '@mui/material';
 import { platformAPI } from '../../api/apiClient';
 
-const iconos = { pokemon: '🎨', magic: '🔥', 'yu-gi-oh!': '⚡' };
+// Ilustraciones originales en /public/assets (SVG propio, sin licencia externa).
+// Claves en minúsculas tal como las devuelve /api/categories.
+const arteJuego = {
+  pokemon: '/assets/booster-pack.svg',
+  magic: '/assets/card-stack.svg',
+  yuigoh: '/assets/card-sleeve.svg',
+  yugioh: '/assets/card-sleeve.svg',
+  'yu-gi-oh!': '/assets/card-sleeve.svg',
+};
 
 export const GamesPage = () => {
   const [cats, setCats] = useState(null);
@@ -43,7 +51,19 @@ export const GamesPage = () => {
                   '&:hover': { transform: 'translateY(-6px)', boxShadow: 6, borderColor: 'primary.main' },
                 }}
               >
-                <Typography sx={{ fontSize: 52 }}>{iconos[juego.toLowerCase()] || '🎯'}</Typography>
+                <Box
+                  component="img"
+                  src={arteJuego[juego.toLowerCase()] || '/assets/card-stack.svg'}
+                  alt=""
+                  aria-hidden="true"
+                  onError={(e) => { e.currentTarget.style.display = 'none'; }}
+                  sx={{
+                    width: 104, height: 134, objectFit: 'contain', display: 'block', mx: 'auto',
+                    transition: 'transform .35s cubic-bezier(0.22,1,0.36,1)',
+                    filter: 'drop-shadow(0 8px 16px rgba(15,23,42,0.18))',
+                    '&:hover': { transform: 'translateY(-6px) rotate(-3deg) scale(1.06)' },
+                  }}
+                />
                 <Typography variant="h6" sx={{ fontWeight: 800, color: 'text.primary', textTransform: 'uppercase', mt: 1 }}>
                   {juego}
                 </Typography>

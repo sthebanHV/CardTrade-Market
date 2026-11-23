@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { Favorite as FavoriteIcon, Compare as CompareIcon, Check as CheckIcon } from '@mui/icons-material';
 import { useStore } from '../../store';
 
-const imgFallback = 'https://placehold.co/300x220/e5e7eb/6b7280?text=Sin+Imagen';
+const imgFallback = '/assets/card-fallback.svg';
 
 export const CardCard = ({ card }) => {
   const addToCart = useStore((s) => s.addToCart);

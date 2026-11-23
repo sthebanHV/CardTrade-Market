@@ -30,6 +30,8 @@ public class MarketService {
     private static final long INTERVALO_MS = 200;
     private static final int FALLOS_PARA_BLOQUEAR = 3;
     private static final long BLOQUEO_MS = 5 * 60 * 1000L;
+    // Rate limit (429): pausa corta y sin acumular fallos.
+    private static final long PAUSA_RATE_LIMIT_MS = 30 * 1000L;
 
     @Autowired
     private MarketCacheRepository cacheRepo;
@@ -47,13 +49,15 @@ public class MarketService {
         List<String> unavailable = new ArrayList<>();
         for (String game : games) {
             String cacheKey = "S|" + game + "|" + q.trim().toLowerCase() + "|" + limit;
-            Optional<String> cacheado = leerCache(cacheKey, TTL_MS);
+            Optional<String> cacheado = leerCacheVigente(cacheKey);
             if (cacheado.isPresent()) {
                 results.addAll(deserializarLista(cacheado.get()));
                 continue;
             }
             List<MarketClient> ordenados = clientsDe(game);
-            boolean ok = false;
+            boolean ok = false;         // alguna fuente devolvió cartas
+            boolean respondio = false;  // alguna fuente respondió (aunque vacía)
+            boolean algunaFallo = false;
             for (MarketClient client : ordenados) {
                 String k = clave(client);
                 if (fuenteBloqueada(k)) continue;
@@ -61,16 +65,38 @@ public class MarketService {
                     esperarIntervalo(game);
                     List<MarketCard> r = client.buscar(q, limit);
                     marcarExito(k);
+                    respondio = true;
+                    if (r.isEmpty()) {
+                        // Sin coincidencias: probamos el siguiente fallback
+                        // sin penalizar a la fuente (respondió correctamente).
+                        continue;
+                    }
                     guardarCache(cacheKey, serializar(r));
                     results.addAll(r);
                     ok = true;
                     break;
                 } catch (Exception e) {
-                    marcarFallo(k);
-                    log.warn("market source failed: {} ({})", k, e.getMessage());
+                    algunaFallo = true;
+                    if (esRateLimit(e)) {
+                        // 429: pausa breve, no cuenta como fallo de la fuente.
+                        marcarPausa(k);
+                        log.warn("market rate limited: {} ({})", k, e.getMessage());
+                    } else {
+                        marcarFallo(k);
+                        log.warn("market source failed: {} ({})", k, e.getMessage());
+                    }
                 }
             }
-            if (!ok) unavailable.add(game);
+            if (ok) {
+                // cache positivo ya escrito arriba
+            } else if (respondio && !algunaFallo) {
+                // Todas las fuentes respondieron sin coincidencias: 0 resultados
+                // (se cachea con TTL negativo para no martillear las APIs).
+                guardarCache(cacheKey, "[]");
+            } else if (!respondio) {
+                // Ninguna fuente respondió: servicio no disponible.
+                unavailable.add(game);
+            }
         }
         return new MarketSearchResult(results, unavailable);
     }
@@ -167,10 +193,21 @@ public class MarketService {
         return hasta != null && System.currentTimeMillis() < hasta;
     }
 
+    /** Pausa breve por rate limit (429): no acumula fallos. */
+    private void marcarPausa(String k) {
+        abiertoHasta.put(k, System.currentTimeMillis() + PAUSA_RATE_LIMIT_MS);
+    }
+
+    private boolean esRateLimit(Exception e) {
+        return e instanceof org.springframework.web.client.HttpClientErrorException ex
+                && ex.getStatusCode() == org.springframework.http.HttpStatus.TOO_MANY_REQUESTS;
+    }
+
     private void marcarFallo(String k) {
         int n = fallos.merge(k, 1, Integer::sum);
         if (n >= FALLOS_PARA_BLOQUEAR) {
             abiertoHasta.put(k, System.currentTimeMillis() + BLOQUEO_MS);
+            fallos.remove(k);
         }
     }
 
@@ -198,6 +235,22 @@ public class MarketService {
         return cacheRepo.findByCacheKey(key)
                 .filter(c -> c.getCreatedAt() != null
                         && System.currentTimeMillis() - c.getCreatedAt().getTime() < ttlMs)
+                .map(MarketCache::getPayload);
+    }
+
+    /**
+     * Lee el cache de búsqueda aplicando TTL según contenido:
+     * resultados vacíos ("[]") usan TTL negativo (6h) para no repetir
+     * consultas sin coincidencias contra las APIs externas.
+     */
+    private Optional<String> leerCacheVigente(String key) {
+        return cacheRepo.findByCacheKey(key)
+                .filter(c -> c.getCreatedAt() != null)
+                .filter(c -> {
+                    boolean vacio = c.getPayload() != null && c.getPayload().trim().equals("[]");
+                    long ttl = vacio ? TTL_NEGATIVO_MS : TTL_MS;
+                    return System.currentTimeMillis() - c.getCreatedAt().getTime() < ttl;
+                })
                 .map(MarketCache::getPayload);
     }
 

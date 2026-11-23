@@ -149,12 +149,19 @@ export const MarketPage = () => {
         {cargando ? (
           <Box sx={{ display: 'grid', gap: 2, gridTemplateColumns: 'repeat(auto-fill, minmax(190px, 1fr))' }}>
             {Array.from({ length: 6 }).map((_, i) => (
-              <Skeleton key={i} variant="rectangular" height={300} sx={{ borderRadius: 2 }} />
+              <Skeleton key={i} variant="rectangular" height={300} sx={{ borderRadius: 2 }} className="ctm-skeleton" />
             ))}
           </Box>
         ) : resultados.length === 0 ? (
           <Box sx={{ textAlign: 'center', py: 4 }}>
-            <StatsIcon sx={{ fontSize: 56, color: 'text.disabled' }} />
+            <Box
+              component="img"
+              src="/assets/card-stack.svg"
+              alt=""
+              aria-hidden="true"
+              onError={(e) => { e.currentTarget.style.display = 'none'; }}
+              sx={{ width: 200, height: 'auto', mx: 'auto', animation: 'floatY 6s ease-in-out infinite', opacity: .9 }}
+            />
             <Typography sx={{ fontWeight: 700, mt: 1 }}>
               {q.trim().length >= 2 ? 'Sin resultados' : 'Busca una carta para ver su precio'}
             </Typography>
@@ -170,7 +177,7 @@ export const MarketPage = () => {
             </Stack>
           </Box>
         ) : (
-          <Box sx={{ display: 'grid', gap: 2, gridTemplateColumns: 'repeat(auto-fill, minmax(190px, 1fr))' }}>
+          <Box sx={{ display: 'grid', gap: 2, gridTemplateColumns: 'repeat(auto-fill, minmax(190px, 1fr))' }} className="ctm-stagger">
             {resultados.map((c) => (
               <Card key={`${c.game}-${c.externalId}`} sx={{ borderRadius: 2, height: '100%' }}>
                 <CardActionArea onClick={() => abrirDetalle(c)} sx={{ height: '100%' }}>

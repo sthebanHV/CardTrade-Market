@@ -137,12 +137,13 @@ export const Header = () => {
             freeSolo
             options={suggestions}
             value={q}
-            onValueChange={(e, v) => setQ(v || '')}
+            onChange={(e, v) => { if (v) { setQ(v); goSearch(v); } }}
             onInputChange={(e, v, reason) => {
-              if (reason === 'input') fetchSuggestions(v);
-              if (reason === 'clear') setSuggestions([]);
+              // onValueChange no existe en MUI Autocomplete: sin esto, escribir
+              // no actualizaba `q` y Enter no disparaba la búsqueda.
+              if (reason === 'input') { setQ(v || ''); fetchSuggestions(v); }
+              if (reason === 'clear') { setQ(''); setSuggestions([]); }
             }}
-            onChange={(e, v) => { if (v) goSearch(v); }}
             loading={loadingSug}
             sx={{ width: '100%' }}
             renderOption={(props, option) => (
