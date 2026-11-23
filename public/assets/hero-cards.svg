@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 520" role="img" aria-labelledby="title desc">
+  <title id="title">Colección de cartas</title><desc id="desc">Ilustración abstracta de cartas coleccionables y destellos</desc>
+  <defs><linearGradient id="bg" x1="0" x2="1"><stop stop-color="#172554"/><stop offset="1" stop-color="#2563eb"/></linearGradient><linearGradient id="card" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fef3c7"/><stop offset="1" stop-color="#f59e0b"/></linearGradient></defs>
+  <rect width="1200" height="520" fill="url(#bg)"/><circle cx="1000" cy="70" r="170" fill="#60a5fa" opacity=".18"/><circle cx="160" cy="430" r="220" fill="#fbbf24" opacity=".12"/>
+  <g transform="translate(690 55) rotate(10)"><rect width="250" height="360" rx="22" fill="#0f172a" opacity=".35"/><rect x="12" y="12" width="226" height="336" rx="18" fill="url(#card)"/><circle cx="125" cy="155" r="65" fill="#fb7185" opacity=".8"/><path d="M54 270h142v35H54z" fill="#fff" opacity=".75"/><path d="M54 315h95v12H54z" fill="#fff" opacity=".55"/></g>
+  <g transform="translate(900 110) rotate(24)"><rect width="210" height="300" rx="20" fill="#0f172a" opacity=".4"/><rect x="11" y="11" width="188" height="278" rx="16" fill="#e0f2fe"/><path d="M28 175 Q105 50 182 175 Q105 250 28 175" fill="#38bdf8" opacity=".8"/><path d="M32 230h146v26H32z" fill="#1e3a8a" opacity=".65"/></g>
+  <g fill="#fef08a"><path d="m250 90 10 26 28 3-21 18 7 28-24-15-24 15 7-28-21-18 28-3z"/><path d="m440 380 8 19 21 2-16 13 5 21-18-11-18 11 5-21-16-13 21-2z"/></g>
+</svg>

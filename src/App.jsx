@@ -1,5 +1,5 @@
 import { Outlet, Link as RouterLink, useLocation } from 'react-router-dom';
-import { Box, Badge, Fab, Tooltip, Snackbar, Alert, Paper, Stack, Button, Typography } from '@mui/material';
+import { Box, Badge, Fab, Tooltip, Snackbar, Alert, Paper, Stack, Button, Typography, Fade } from '@mui/material';
 import { CompareArrows as CompareIcon, MailOutline as MailIcon, Close as CloseIcon } from '@mui/icons-material';
 import { Header } from './components/layout/Header';
 import { Footer } from './components/layout/Footer';
@@ -56,7 +56,9 @@ export const App = () => {
       )}
 
       <Box component="main" sx={{ flex: 1, py: { xs: 3, md: 4 } }}>
-        <Outlet />
+        <Fade key={location.pathname} in timeout={360} appear>
+          <Box><Outlet /></Box>
+        </Fade>
       </Box>
       <Footer />
 

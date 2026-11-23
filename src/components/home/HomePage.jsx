@@ -48,7 +48,9 @@ export const HomePage = () => {
       <Box
         sx={{
           borderRadius: 4,
-          background: 'linear-gradient(120deg, #1E40AF 0%, #3B82F6 55%, #60A5FA 100%)',
+            backgroundImage: 'linear-gradient(120deg, rgba(30,64,175,.96), rgba(59,130,246,.84)), url("/assets/hero-cards.svg")',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
           color: '#fff',
           px: { xs: 3, md: 8 },
           py: { xs: 6, md: 10 },

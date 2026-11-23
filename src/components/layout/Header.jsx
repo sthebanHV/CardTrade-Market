@@ -62,6 +62,7 @@ export const Header = () => {
   const [q, setQ] = useState('');
   const [suggestions, setSuggestions] = useState([]);
   const [loadingSug, setLoadingSug] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const debounceRef = useRef(null);
 
   // US-45: badge de no leídas (notificaciones + mensajes)
@@ -71,6 +72,13 @@ export const Header = () => {
     const t = setInterval(() => refreshUnread(), 60000);
     return () => clearInterval(t);
   }, [token, refreshUnread]);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 8);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
 
   const openMenu = (e) => setAnchorEl(e.currentTarget);
   const closeMenu = () => setAnchorEl(null);
@@ -105,7 +113,7 @@ export const Header = () => {
   };
 
   return (
-    <AppBar position="sticky" elevation={0}>
+    <AppBar position="sticky" elevation={0} sx={{ transition: 'box-shadow .25s ease, backdrop-filter .25s ease', boxShadow: scrolled ? '0 8px 28px rgba(15,23,42,.22)' : 'none', backdropFilter: scrolled ? 'blur(12px)' : 'none' }}>
       <Toolbar sx={{ gap: 1.5, px: { xs: 1.5, md: 3 } }}>
         <Typography
           component={Link}

@@ -1,187 +1,72 @@
 import { useEffect, useState } from 'react';
-import { useSearchParams, Link } from 'react-router-dom';
-import {
-  Box, Typography, Button, Stack, Chip, CircularProgress, Alert, Paper,
-  FormControl, InputLabel, Select, MenuItem, Divider, IconButton, Tooltip, Pagination,
-} from '@mui/material';
-import { Favorite as FavoriteIcon, ShoppingCart as CartIcon, Star as StarIcon } from '@mui/icons-material';
-import { cardsAPI, usersAPI } from '../../api/apiClient';
-import { useStore } from '../../store';
+import { useSearchParams } from 'react-router-dom';
+import { Box, Typography, Stack, Chip, Alert, Paper, FormControl, InputLabel, Select, MenuItem, Skeleton } from '@mui/material';
+import { SearchOff as SearchOffIcon } from '@mui/icons-material';
+import { marketAPI } from '../../api/apiClient';
 
-const POR_PAGINA = 10;
+const JUEGOS = [
+  { key: 'ALL', label: 'Todos los juegos' },
+  { key: 'POKEMON', label: 'Pokémon' },
+  { key: 'MAGIC', label: 'Magic' },
+  { key: 'YUGIOH', label: 'Yu-Gi-Oh!' },
+];
 
-const ResultRow = ({ card }) => {
-  const addToCart = useStore((s) => s.addToCart);
-  const addToFavorites = useStore((s) => s.addToFavorites);
-  const favorites = useStore((s) => s.favorites);
-  const [seller, setSeller] = useState(null);
-
-  useEffect(() => {
-    if (!card.vendedorId) return;
-    let activo = true;
-    usersAPI.getPublic(card.vendedorId).then((u) => activo && setSeller(u)).catch(() => {});
-    return () => { activo = false; };
-  }, [card.vendedorId]);
-
-  const enOferta = card.precioOferta != null && card.precioOferta < card.precio;
-  const precioFinal = enOferta ? card.precioOferta : card.precio;
-  const esFavorito = favorites.some((f) => f.cardId === card.id);
-
-  return (
-    <Paper variant="outlined" sx={{ p: 2, borderRadius: 3, display: 'flex', gap: 2, alignItems: 'center' }}>
-      <Box
-        component="img"
-        src={card.imagenes?.[0] || 'https://placehold.co/120x90?text=Sin+Imagen'}
-        alt={card.nombre}
-        sx={{ width: 110, height: 88, objectFit: 'cover', borderRadius: 2, flexShrink: 0 }}
-      />
-      <Box sx={{ flexGrow: 1, minWidth: 0 }}>
-        <Typography
-          component={Link}
-          to={`/cards/${card.id}`}
-          sx={{ fontWeight: 700, color: 'text.primary', textDecoration: 'none', fontSize: 17 }}
-        >
-          {card.nombre}
-        </Typography>
-        <Stack direction="row" spacing={0.75} sx={{ mt: 0.5, flexWrap: 'wrap', gap: 0.5 }}>
-          <Chip size="small" label={card.tipo} color="primary" />
-          {card.rarity && <Chip size="small" label={card.rarity} variant="outlined" />}
-          {card.condition && <Chip size="small" label={card.condition} variant="outlined" color="success" />}
-        </Stack>
-        <Stack direction="row" alignItems="center" spacing={0.5} sx={{ mt: 0.75 }}>
-          <Typography variant="body2" color="text.secondary">
-            Vendedor: {seller?.username || '…'}
-          </Typography>
-          <StarIcon sx={{ fontSize: 15, color: '#F59E0B' }} />
-          <Typography variant="body2" color="text.secondary">
-            {seller ? Number(seller.rating || 0).toFixed(1) : '—'}
-          </Typography>
-        </Stack>
-      </Box>
-      <Stack alignItems="flex-end" spacing={1}>
-        <Typography variant="h6" color={enOferta ? 'error' : 'primary'} sx={{ fontWeight: 800 }}>
-          ${Number(precioFinal).toFixed(2)}
-        </Typography>
-        <Stack direction="row" spacing={0.5}>
-          <Button size="small" variant="contained" startIcon={<CartIcon sx={{ fontSize: 16 }} />}
-            onClick={() => addToCart(card.id, card.nombre, precioFinal, card.imagenes?.[0])}>
-            Carrito
-          </Button>
-          <Tooltip title="Favorito">
-            <IconButton size="small" color={esFavorito ? 'error' : 'default'}
-              onClick={() => addToFavorites(card.id, card.nombre)}>
-              <FavoriteIcon fontSize="small" />
-            </IconButton>
-          </Tooltip>
-        </Stack>
+const MarketResult = ({ card }) => (
+  <Paper sx={{ overflow: 'hidden', borderRadius: 3, height: '100%', display: 'flex', flexDirection: 'column', transition: 'transform .2s ease, box-shadow .2s ease', '&:hover': { transform: 'translateY(-5px)', boxShadow: 6 } }}>
+    <Box component="img" src={card.image || '/assets/card-fallback.svg'} alt={card.name || 'Carta'} sx={{ width: '100%', height: 250, objectFit: 'contain', bgcolor: '#101827', p: 1 }} onError={(e) => { e.currentTarget.src = '/assets/card-fallback.svg'; }} />
+    <Box sx={{ p: 2, flexGrow: 1 }}>
+      <Typography sx={{ fontWeight: 800 }} noWrap title={card.name}>{card.name}</Typography>
+      <Typography color="text.secondary" sx={{ fontSize: 13, mt: .5 }} noWrap>{card.setName || 'Set no disponible'}</Typography>
+      <Stack direction="row" justifyContent="space-between" alignItems="center" sx={{ mt: 1.5 }}>
+        <Chip size="small" label={card.game} variant="outlined" />
+        <Typography color="success.dark" sx={{ fontWeight: 800 }}>{card.priceUsd != null ? `$${Number(card.priceUsd).toFixed(2)} USD` : 'Sin precio'}</Typography>
       </Stack>
-    </Paper>
-  );
-};
+    </Box>
+  </Paper>
+);
 
 export const SearchPage = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const q = searchParams.get('q') || '';
-  const sort = searchParams.get('sort') || '';
-  const page = Number(searchParams.get('page') || 1);
-
+  const game = searchParams.get('game') || 'ALL';
   const [results, setResults] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
 
   useEffect(() => {
-    if (!q) {
-      setResults([]);
-      setLoading(false);
-      return;
-    }
-    let activo = true;
+    if (!q.trim()) { setResults([]); setLoading(false); return undefined; }
+    let active = true;
     setLoading(true);
     setError(false);
-    cardsAPI
-      .search(q)
-      .then((data) => activo && setResults(data || []))
-      .catch(() => activo && setError(true))
-      .finally(() => activo && setLoading(false));
-    return () => { activo = false; };
-  }, [q]);
+    marketAPI.search(q.trim(), game === 'ALL' ? undefined : game, 12)
+      .then((data) => active && setResults(data?.results || []))
+      .catch(() => active && setError(true))
+      .finally(() => active && setLoading(false));
+    return () => { active = false; };
+  }, [q, game]);
 
-  const ordenados = [...results].sort((a, b) => {
-    if (sort === 'price_asc') return a.precio - b.precio;
-    if (sort === 'price_desc') return b.precio - a.precio;
-    return new Date(b.fechaPublicacion || 0) - new Date(a.fechaPublicacion || 0);
-  });
-
-  const totalPaginas = Math.max(1, Math.ceil(ordenados.length / POR_PAGINA));
-  const visibles = ordenados.slice((page - 1) * POR_PAGINA, page * POR_PAGINA);
-
-  const setSort = (value) => {
+  const setGame = (value) => {
     const next = new URLSearchParams(searchParams);
-    if (value) next.set('sort', value);
-    else next.delete('sort');
-    next.delete('page');
+    if (value === 'ALL') next.delete('game'); else next.set('game', value);
     setSearchParams(next, { replace: true });
   };
 
   return (
-    <Box sx={{ maxWidth: 960, mx: 'auto' }}>
-      <Typography variant="h4" sx={{ fontWeight: 800 }}>
-        {q ? <>Resultados para “{q}”</> : 'Buscar cartas'}
-      </Typography>
-      {!loading && !error && (
-        <Typography color="text.secondary" sx={{ mb: 3 }}>
-          {ordenados.length} {ordenados.length === 1 ? 'resultado' : 'resultados'} encontrados
-        </Typography>
-      )}
-
+    <Box sx={{ maxWidth: 1100, mx: 'auto' }}>
+      <Typography variant="h4" sx={{ fontWeight: 800 }}>{q ? <>Resultados de mercado para “{q}”</> : 'Buscar cartas'}</Typography>
+      {!loading && !error && q && <Typography color="text.secondary" sx={{ mb: 3 }}>{results.length} {results.length === 1 ? 'resultado' : 'resultados'} encontrados</Typography>}
       <Stack direction="row" spacing={1} sx={{ mb: 3 }}>
         <FormControl size="small" sx={{ minWidth: 220 }}>
-          <InputLabel id="ordenar">Ordenar por</InputLabel>
-          <Select labelId="ordenar" label="Ordenar por" value={sort} onChange={(e) => setSort(e.target.value)}>
-            <MenuItem value="">Más recientes</MenuItem>
-            <MenuItem value="price_asc">Precio: menor a mayor</MenuItem>
-            <MenuItem value="price_desc">Precio: mayor a menor</MenuItem>
+          <InputLabel id="juego-label">Juego</InputLabel>
+          <Select labelId="juego-label" label="Juego" value={game} onChange={(e) => setGame(e.target.value)}>
+            {JUEGOS.map((item) => <MenuItem key={item.key} value={item.key}>{item.label}</MenuItem>)}
           </Select>
         </FormControl>
       </Stack>
-
-      {loading && (
-        <Box sx={{ display: 'flex', justifyContent: 'center', py: 8 }}><CircularProgress /></Box>
-      )}
-
-      {error && <Alert severity="error">No se pudo realizar la búsqueda. Intenta más tarde.</Alert>}
-
-      {!loading && !error && q && results.length === 0 && (
-        <Box sx={{ textAlign: 'center', py: 8 }}>
-          <Typography sx={{ fontSize: 44 }}>🔍</Typography>
-          <Typography variant="h6" sx={{ mt: 1 }}>Sin resultados para “{q}”</Typography>
-          <Typography color="text.secondary" sx={{ mt: 0.5 }}>
-            Prueba con otro nombre, juego o descripción.
-          </Typography>
-        </Box>
-      )}
-
-      {!loading && !error && visibles.length > 0 && (
-        <Stack spacing={2}>
-          {visibles.map((card) => <ResultRow key={card.id} card={card} />)}
-        </Stack>
-      )}
-
-      {totalPaginas > 1 && (
-        <Stack alignItems="center" sx={{ mt: 4 }}>
-          <Pagination
-            count={totalPaginas}
-            page={page}
-            onChange={(_, p) => {
-              const next = new URLSearchParams(searchParams);
-              next.set('page', String(p));
-              setSearchParams(next);
-              window.scrollTo({ top: 0, behavior: 'smooth' });
-            }}
-            color="primary"
-          />
-        </Stack>
-      )}
+      {loading && <Box sx={{ display: 'grid', gap: 2, gridTemplateColumns: 'repeat(auto-fit, minmax(190px, 1fr))' }}>{Array.from({ length: 6 }).map((_, i) => <Skeleton key={i} variant="rounded" height={360} />)}</Box>}
+      {error && <Alert severity="error">No se pudo consultar el mercado. Intenta más tarde.</Alert>}
+      {!loading && !error && q && results.length === 0 && <Box sx={{ textAlign: 'center', py: 8 }}><SearchOffIcon sx={{ fontSize: 54, color: 'text.disabled' }} /><Typography variant="h6" sx={{ mt: 1 }}>No encontramos cartas para “{q}”</Typography><Typography color="text.secondary" sx={{ mt: .5 }}>Prueba con otro nombre o cambia de juego.</Typography></Box>}
+      {!loading && !error && results.length > 0 && <Box sx={{ display: 'grid', gap: 2, gridTemplateColumns: 'repeat(auto-fit, minmax(190px, 1fr))' }}>{results.map((card) => <MarketResult key={`${card.game}-${card.externalId}`} card={card} />)}</Box>}
     </Box>
   );
 };

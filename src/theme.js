@@ -38,6 +38,16 @@ export const theme = createTheme({
         },
       },
     },
+    MuiPaper: {
+      styleOverrides: {
+        root: {
+          transition: 'box-shadow .22s ease, transform .22s ease, border-color .22s ease',
+        },
+      },
+    },
+    MuiDialog: {
+      styleOverrides: { paper: { borderRadius: 20, animation: 'dialogIn .28s ease-out' } },
+    },
     MuiTextField: { defaultProps: { size: 'small' } },
     MuiAppBar: {
       styleOverrides: {
@@ -46,4 +56,15 @@ export const theme = createTheme({
     },
     MuiChip: { styleOverrides: { root: { fontWeight: 500 } } },
   },
+  transitions: { duration: { shortest: 120, shorter: 160, short: 220, standard: 280, complex: 420 } },
 });
+
+// Global motion primitives keep the interface lively while remaining opt-out friendly.
+const style = typeof document !== 'undefined' ? document.createElement('style') : null;
+if (style) style.textContent = `
+  @keyframes pageIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes dialogIn { from { opacity: 0; transform: scale(.96) translateY(8px); } to { opacity: 1; transform: scale(1) translateY(0); } }
+  @keyframes pulseSoft { 0%,100% { opacity: .65; } 50% { opacity: 1; } }
+  @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: .01ms !important; } }
+`;
+if (style && !document.getElementById('cardtrade-motion')) { style.id = 'cardtrade-motion'; document.head.appendChild(style); }
