@@ -1,45 +1,33 @@
 package com.cardtrademarket.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.annotation.Id;
 import java.time.LocalDateTime;
 
 /**
  * Método de pago guardado. Por política PCI: SOLO se almacenan marca,
  * últimos 4 dígitos y vencimiento. NUNCA se recibe ni guarda CVV.
  */
-@Entity
-@Table(name = "payment_methods")
+@Document(collection = "payment_methods")
 public class PaymentMethod {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
     private String id;
 
-    @Column(name = "user_id")
     private String userId;
 
     private String brand; // VISA, MASTERCARD, AMEX, DEBITO
 
-    @Column(name = "last4")
     private String last4;
 
-    @Column(name = "expiry_month")
     private String expiryMonth;
 
-    @Column(name = "expiry_year")
     private String expiryYear;
 
-    @Column(name = "holder_name")
     private String holderName;
 
     private boolean predeterminada;
 
-    @Column(name = "created_at")
     private LocalDateTime createdAt;
 
     public PaymentMethod() {

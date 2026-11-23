@@ -1,44 +1,26 @@
 package com.cardtrademarket.model;
 
-import jakarta.persistence.CollectionTable;
-import jakarta.persistence.Column;
-import jakarta.persistence.ElementCollection;
-import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.Table;
+import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.annotation.Id;
 import java.time.LocalDateTime;
 import java.util.List;
 
-@Entity
-@Table(name = "collections")
+@Document(collection = "collections")
 public class Collection {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
     private String id;
 
-    @Column(name = "user_id")
     private String userId;
 
-    @ElementCollection(fetch = FetchType.EAGER)
-    @CollectionTable(name = "collection_card_ids", joinColumns = @JoinColumn(name = "collection_id"))
-    @Column(name = "card_id")
     private List<String> cardIds;
 
-    @Column(name = "name")
     private String name;
 
-    @Column(name = "description")
     private String description;
 
-    @Column(name = "created_at")
     private LocalDateTime createdAt;
 
-    @Column(name = "updated_at")
     private LocalDateTime updatedAt;
 
     // Constructores

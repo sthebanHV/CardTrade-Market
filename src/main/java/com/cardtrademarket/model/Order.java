@@ -1,95 +1,58 @@
 package com.cardtrademarket.model;
 
-import jakarta.persistence.CollectionTable;
-import jakarta.persistence.Column;
-import jakarta.persistence.ElementCollection;
-import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.MapKeyColumn;
-import jakarta.persistence.OrderBy;
-import jakarta.persistence.Table;
+import org.springframework.data.mongodb.core.index.CompoundIndex;
+import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.annotation.Id;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Map;
 
-@Entity
-@Table(name = "orders")
+@Document(collection = "orders")
+@CompoundIndex(name = "idx_orders_user_fecha", def = "{'userId': 1, 'createdAt': -1}")
+@CompoundIndex(name = "idx_orders_status", def = "{'status': 1}")
 public class Order {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
     private String id;
 
-    @Column(name = "user_id")
     private String userId;
 
-    @ElementCollection(fetch = FetchType.EAGER)
-    @CollectionTable(name = "order_cards", joinColumns = @JoinColumn(name = "order_id"))
-    @Column(name = "card_id")
     private List<String> cardIds;
 
-    @Column(name = "total")
     private Double total;
 
-    @Column(name = "status")
     private String status; // PENDING, PAID, SHIPPED, DELIVERED, CANCELLED
 
-    @Column(name = "payment_method")
     private String paymentMethod;
 
-    @ElementCollection(fetch = FetchType.EAGER)
-    @CollectionTable(name = "order_shipping_address", joinColumns = @JoinColumn(name = "order_id"))
-    @MapKeyColumn(name = "addr_key")
-    @Column(name = "addr_value")
     private Map<String, String> shippingAddress;
 
-    @Column(name = "created_at")
     private LocalDateTime createdAt;
 
-    @Column(name = "updated_at")
     private LocalDateTime updatedAt;
 
-    @Column(name = "numero_orden")
     private String numeroOrden; // CTM-2026-000001
 
-    @Column(name = "subtotal")
     private Double subtotal;
 
-    @Column(name = "shipping_method")
     private String shippingMethod; // ESTANDAR | EXPRESS
 
-    @Column(name = "shipping_cost")
     private Double shippingCost;
 
-    @Column(name = "guest_email")
     private String guestEmail; // nullable: compra como invitado
 
-    @Column(name = "buyer_name")
     private String buyerName;
 
-    @ElementCollection(fetch = FetchType.EAGER)
-    @CollectionTable(name = "order_items", joinColumns = @JoinColumn(name = "order_id"))
     private List<OrderItem> items;
 
-    @Column(name = "carrier")
     private String carrier;
 
-    @Column(name = "tracking_number")
     private String trackingNumber;
 
-    @Column(name = "tracking_status")
     private String trackingStatus; // PREPARACION, EN_TRANSITO, EN_REPARTO, ENTREGADO
 
-    @Column(name = "eta")
     private String eta; // fecha estimada ISO
 
-    @ElementCollection(fetch = FetchType.EAGER)
-    @CollectionTable(name = "order_tracking_events", joinColumns = @JoinColumn(name = "order_id"))
-    @OrderBy("fecha ASC")
     private List<TrackingEvent> trackingEvents;
 
     // Constructores

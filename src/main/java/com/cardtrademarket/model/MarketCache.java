@@ -1,13 +1,8 @@
 package com.cardtrademarket.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-import jakarta.persistence.Temporal;
-import jakarta.persistence.TemporalType;
+import org.springframework.data.mongodb.core.index.Indexed;
+import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.annotation.Id;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -16,20 +11,16 @@ import java.util.Date;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity
-@Table(name = "market_cache")
+@Document(collection = "market_cache")
 public class MarketCache {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private String id;
 
-    @Column(unique = true, nullable = false, length = 512)
+    @Indexed(unique = true)
     private String cacheKey;
 
-    @Column(nullable = false, length = 100000)
     private String payload;
 
-    @Temporal(TemporalType.TIMESTAMP)
     private Date createdAt;
 }

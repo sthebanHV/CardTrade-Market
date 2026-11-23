@@ -1,28 +1,19 @@
 package com.cardtrademarket.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.annotation.Id;
 import java.time.LocalDateTime;
 
-@Entity
-@Table(name = "favourites")
+@Document(collection = "favourites")
 public class Favourite {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
     private String id;
 
-    @Column(name = "user_id")
     private String userId;
 
-    @Column(name = "card_id")
     private String cardId;
 
-    @Column(name = "created_at")
     private LocalDateTime createdAt;
 
     // Constructores

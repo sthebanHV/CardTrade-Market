@@ -1,10 +1,10 @@
 package com.cardtrademarket.repository;
 
 import com.cardtrademarket.model.Collection;
-import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.mongodb.repository.MongoRepository;
 import java.util.List;
 
-public interface CollectionRepository extends JpaRepository<Collection, String> {
+public interface CollectionRepository extends MongoRepository<Collection, String> {
     List<Collection> findByUserId(String userId);
     Collection findByNameAndUserId(String name, String userId);
 }

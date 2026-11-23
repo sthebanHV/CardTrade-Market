@@ -1,45 +1,33 @@
 package com.cardtrademarket.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.annotation.Id;
 import java.time.LocalDateTime;
 
-@Entity
-@Table(name = "addresses")
+@Document(collection = "addresses")
 public class Address {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
     private String id;
 
-    @Column(name = "user_id")
     private String userId;
 
-    @Column(name = "nombre_completo")
     private String nombreCompleto;
 
-    @Column(name = "linea1")
     private String linea1;
 
-    @Column(name = "linea2")
     private String linea2;
 
     private String ciudad;
 
     private String estado;
 
-    @Column(name = "codigo_postal")
     private String codigoPostal;
 
     private String telefono;
 
     private boolean predeterminada;
 
-    @Column(name = "created_at")
     private LocalDateTime createdAt;
 
     public Address() {

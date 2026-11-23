@@ -1,17 +1,10 @@
 package com.cardtrademarket.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-import jakarta.persistence.Temporal;
-import jakarta.persistence.TemporalType;
+import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.annotation.Id;
 import java.util.Date;
 
-@Entity
-@Table(name = "reports")
+@Document(collection = "reports")
 public class Report {
 
     public enum Motivo {
@@ -19,30 +12,22 @@ public class Report {
     }
 
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
     private String id;
 
-    @Column(name = "card_id")
     private String cardId;
 
     private String motivo; // Report.Motivo.name()
 
-    @Column(length = 1000)
     private String detalles;
 
-    @Temporal(TemporalType.TIMESTAMP)
     private Date fecha;
 
     private String estado; // PENDIENTE, DESCARTADO, OCULTO, SUSPENDIDO, RESUELTO
 
-    @Column(name = "fecha_resolucion")
-    @Temporal(TemporalType.TIMESTAMP)
     private Date fechaResolucion;
 
-    @Column(name = "admin_id")
     private String adminId;
 
-    @Column(name = "nota_resolucion", length = 500)
     private String notaResolucion;
 
     public Report() {

@@ -1,42 +1,27 @@
 package com.cardtrademarket.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-import jakarta.persistence.Temporal;
-import jakarta.persistence.TemporalType;
+import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.annotation.Id;
 import java.util.Date;
 
-@Entity
-@Table(name = "audit_logs")
+@Document(collection = "audit_logs")
 public class AuditLog {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
     private String id;
 
-    @Column(name = "admin_id")
     private String adminId;
 
-    @Column(name = "admin_username")
     private String adminUsername;
 
-    @Column(name = "accion", length = 50)
     private String accion; // CAMBIAR_ROL, SUSPENDER_USUARIO, REACTIVAR_USUARIO, RESOLVER_REPORTE, OCULTAR_CARTA
 
-    @Column(name = "objetivo_tipo", length = 30)
     private String objetivoTipo; // USER, REPORT, CARD
 
-    @Column(name = "objetivo_id")
     private String objetivoId;
 
-    @Column(name = "detalle", length = 500)
     private String detalle;
 
-    @Temporal(TemporalType.TIMESTAMP)
     private Date fecha;
 
     public AuditLog() {

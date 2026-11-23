@@ -1,19 +1,13 @@
 package com.cardtrademarket.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Embeddable;
 import java.time.LocalDateTime;
 
-@Embeddable
 public class TrackingEvent {
 
-    @Column(name = "fecha")
     private LocalDateTime fecha;
 
-    @Column(name = "descripcion")
     private String descripcion;
 
-    @Column(name = "status")
     private String status;
 
     public TrackingEvent() {}

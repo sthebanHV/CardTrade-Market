@@ -1,43 +1,29 @@
 package com.cardtrademarket.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.annotation.Id;
 import java.time.LocalDateTime;
 
-@Entity
-@Table(name = "reviews")
+@Document(collection = "reviews")
 public class Review {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
     private String id;
 
-    @Column(name = "user_id")
     private String userId;
 
-    @Column(name = "card_id")
     private String cardId;
 
-    @Column(name = "seller_id")
     private String sellerId;
 
-    @Column(name = "order_id")
     private String orderId;
 
-    @Column(name = "rating")
     private Integer rating; // 1-5
 
-    @Column(name = "comment")
     private String comment;
 
-    @Column(name = "created_at")
     private LocalDateTime createdAt;
 
-    @Column(name = "updated_at")
     private LocalDateTime updatedAt;
 
     // Constructores

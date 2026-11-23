@@ -1,34 +1,23 @@
 package com.cardtrademarket.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.annotation.Id;
 import java.time.LocalDateTime;
 
-@Entity
-@Table(name = "conversations")
+@Document(collection = "conversations")
 public class Conversation {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
     private String id;
 
-    @Column(name = "participante1")
     private String participante1;
 
-    @Column(name = "participante2")
     private String participante2;
 
-    @Column(name = "card_id")
     private String cardId;
 
-    @Column(name = "last_message_at")
     private LocalDateTime lastMessageAt;
 
-    @Column(name = "created_at")
     private LocalDateTime createdAt;
 
     public Conversation() {

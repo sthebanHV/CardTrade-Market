@@ -1,19 +1,8 @@
 package com.cardtrademarket.model;
 
-import jakarta.persistence.CollectionTable;
-import jakarta.persistence.Column;
-import jakarta.persistence.ElementCollection;
-import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.Table;
-import jakarta.persistence.Temporal;
-import jakarta.persistence.TemporalType;
+import org.springframework.data.mongodb.core.index.CompoundIndex;
+import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.annotation.Id;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
@@ -23,12 +12,12 @@ import java.util.Date;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity
-@Table(name = "cards")
+@Document(collection = "cards")
+@CompoundIndex(name = "idx_cards_status_fecha", def = "{'status': 1, 'fechaPublicacion': -1}")
+@CompoundIndex(name = "idx_cards_vendedor_status_fecha", def = "{'vendedorId': 1, 'status': 1, 'fechaPublicacion': -1}")
 public class Card {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
     private String id;
 
     private String nombre;
@@ -38,30 +27,22 @@ public class Card {
     private String condition; // New, Near Mint, Light Play, Heavy Play, Damaged
     private Double precio;
 
-    @Column(length = 2000)
     private String descripcion;
 
     private Integer stock = 1;
 
     private Double precioOferta;
 
-    @Temporal(TemporalType.TIMESTAMP)
     private Date ofertaExpira;
 
-    @ElementCollection(fetch = FetchType.EAGER)
-    @CollectionTable(name = "card_imagenes", joinColumns = @JoinColumn(name = "card_id"))
-    @Column(name = "imagen")
     private List<String> imagenes; // URLs de las imagenes
 
     private String vendedorId; // ID del usuario vendedor
 
-    @Enumerated(EnumType.STRING)
     private Status status; // Publicado, Vendido, Reservado
 
-    @Temporal(TemporalType.TIMESTAMP)
     private Date fechaPublicacion;
 
-    @Temporal(TemporalType.TIMESTAMP)
     private Date fechaActualizacion;
 
     private Double precioAnterior; // Para historial de precios

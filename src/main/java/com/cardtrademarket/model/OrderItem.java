@@ -1,21 +1,14 @@
 package com.cardtrademarket.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Embeddable;
 
-@Embeddable
 public class OrderItem {
 
-    @Column(name = "card_id")
     private String cardId;
 
-    @Column(name = "nombre")
     private String nombre;
 
-    @Column(name = "precio_unitario")
     private Double precioUnitario;
 
-    @Column(name = "vendedor_id")
     private String vendedorId;
 
     public OrderItem() {}

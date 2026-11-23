@@ -6,11 +6,7 @@ services:
     dockerfilePath: ./Dockerfile
     healthCheckPath: /api/cards
     envVars:
-      - key: SPRING_DATASOURCE_URL
-        sync: false
-      - key: SPRING_DATASOURCE_USERNAME
-        sync: false
-      - key: SPRING_DATASOURCE_PASSWORD
+      - key: MONGODB_URI
         sync: false
       - key: JWT_SECRET
         sync: false

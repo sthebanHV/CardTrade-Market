@@ -1,30 +1,19 @@
 package com.cardtrademarket.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-import jakarta.persistence.Temporal;
-import jakarta.persistence.TemporalType;
+import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.annotation.Id;
 import java.util.Date;
 
-@Entity
-@Table(name = "follows")
+@Document(collection = "follows")
 public class Follow {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
     private String id;
 
-    @Column(name = "follower_id")
     private String followerId;
 
-    @Column(name = "following_id")
     private String followingId;
 
-    @Temporal(TemporalType.TIMESTAMP)
     private Date fecha;
 
     public Follow() {

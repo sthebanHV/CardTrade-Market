@@ -1,34 +1,25 @@
 package com.cardtrademarket.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import org.springframework.data.mongodb.core.index.CompoundIndex;
+import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.annotation.Id;
 import java.time.LocalDateTime;
 
-@Entity
-@Table(name = "messages")
+@Document(collection = "messages")
+@CompoundIndex(name = "idx_messages_conv_fecha", def = "{'conversationId': 1, 'createdAt': 1}")
 public class Message {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
     private String id;
 
-    @Column(name = "conversation_id")
     private String conversationId;
 
-    @Column(name = "sender_id")
     private String senderId;
 
-    @Column(name = "contenido", length = 500)
     private String contenido;
 
-    @Column(name = "leido")
     private Boolean leido = false;
 
-    @Column(name = "created_at")
     private LocalDateTime createdAt;
 
     public Message() {

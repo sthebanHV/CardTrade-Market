@@ -1,13 +1,8 @@
 package com.cardtrademarket.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-import jakarta.persistence.Temporal;
-import jakarta.persistence.TemporalType;
+import org.springframework.data.mongodb.core.index.Indexed;
+import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.annotation.Id;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import lombok.Data;
@@ -19,16 +14,18 @@ import java.util.Date;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity
-@Table(name = "users")
+@Document(collection = "users")
 public class User implements UserDetails {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
     private String id;
 
     private String nombre;
+
+    @Indexed(unique = true)
     private String email;
+
+    @Indexed(unique = true)
     private String username;
     @com.fasterxml.jackson.annotation.JsonProperty(access = com.fasterxml.jackson.annotation.JsonProperty.Access.WRITE_ONLY)
     private String passwordHash;
@@ -37,10 +34,8 @@ public class User implements UserDetails {
     private Double rating;
     private boolean emailVerified;
 
-    @Column(length = 500)
     private String bio;
 
-    @Column(columnDefinition = "text")
     private String avatarUrl;
 
     private String pendingEmail;
@@ -48,18 +43,15 @@ public class User implements UserDetails {
     @com.fasterxml.jackson.annotation.JsonProperty(access = com.fasterxml.jackson.annotation.JsonProperty.Access.WRITE_ONLY)
     private String resetToken;
 
-    @Temporal(TemporalType.TIMESTAMP)
     private Date resetTokenExpiry;
 
     @com.fasterxml.jackson.annotation.JsonProperty(access = com.fasterxml.jackson.annotation.JsonProperty.Access.WRITE_ONLY)
     private String verifyToken;
 
-    @Temporal(TemporalType.TIMESTAMP)
     private Date verifyTokenExpiry;
 
     private Integer failedAttempts = 0;
 
-    @Temporal(TemporalType.TIMESTAMP)
     private Date lockedUntil;
 
     private Boolean tfaEnabled = false;
@@ -70,10 +62,8 @@ public class User implements UserDetails {
     @com.fasterxml.jackson.annotation.JsonProperty(access = com.fasterxml.jackson.annotation.JsonProperty.Access.WRITE_ONLY)
     private String tfaBackupCodes;
 
-    @Temporal(TemporalType.TIMESTAMP)
     private Date fechaUltimoCambioPassword;
 
-    @Temporal(TemporalType.TIMESTAMP)
     private Date fechaCreacion;
 
     @Override
